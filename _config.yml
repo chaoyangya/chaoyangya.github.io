@@ -55,6 +55,11 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
+# 压缩css  
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
