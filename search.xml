@@ -1294,19 +1294,4 @@ Node: 15.12.0(注意Node版本)
         <tag>Hexo.Netlify</tag>
       </tags>
   </entry>
-  <entry>
-    <title>关于</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>分类</title>
-    <url>/category/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>标签</title>
-    <url>/tag/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
 </search>
