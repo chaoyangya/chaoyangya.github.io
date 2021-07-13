@@ -1,359 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>nginx解决多个端口映射80的配置</title>
-    <url>/2021/04/16/nginx%E5%A4%9A%E4%B8%AA%E7%AB%AF%E5%8F%A3/</url>
-    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  xx.cn;  <span class="comment">#域名1</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://x.x.x.x:9001;   <span class="comment">#域名1需要映射到80端口的服务端口</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">     listen       80;</span><br><span class="line">     server_name   xx.cn;   <span class="comment">#域名2</span></span><br><span class="line"></span><br><span class="line">     location / &#123;</span><br><span class="line">         proxy_pass http://xx.xx.xx.xx:7300;    <span class="comment">#域名2需要映射到80端口的服务端口</span></span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h3><p><strong>俩个server服务要相对独立，这样就可以同时将服务1和服务2的端口映射到80端口了</strong></p>
+    <title>App跟web定位元素页面相互切换</title>
+    <url>/2018/10/11/App%E8%B7%9Fweb%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2/</url>
+    <content><![CDATA[<p>很多QA在做UI自动化或者App自动化的时候，会遇到在web页面要抓取App模式的元素，或者是在App要抓取H5页面的元素，从网上整理了一些方法，不一定能解决，但是试一下也未尝不可，如果解决了就记得关注一波咯！！！<code>python噢</code>~~~</p>
+<pre><code>self.driver.switch_to.context()
+self.driver.switch_to.context(&#39;WEBVIEW_1&#39;)app --&gt; web
+self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
+</code></pre>
+<p>如果是从App转到web 选择<code>WEBVIEW_1</code>，<br>如果web转到App 选择 <code>NATIVE_APP</code></p>
 ]]></content>
       <categories>
-        <category>Nginx</category>
+        <category>Appium</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Nginx</tag>
+        <tag>Android</tag>
+        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
-    <title>Linux管理node版本</title>
-    <url>/2021/04/07/Linux%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<p>1、安装nvm</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+    <title>Centos7.7安装并配置jenkins+python+allure发送定制化报告</title>
+    <url>/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
+    <content><![CDATA[<h1 id="【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告"><a href="#【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告" class="headerlink" title="【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告"></a>【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告</h1><p>目前测试开发方向的接口自动化脚本很多，这里就不一一列举了，有兴趣的可以baidu/google 一大堆，本次主要根据自己公司/业务需要搭建了一套基于python3.7+pytest+allure的接口自动化脚本，由于工作原因，源码就不放了，最下面会放一个很简单的脚本，不想写的可以暂时先用下，调试通过以后，再进行业务代码的编写也是ok的，话不多说，开整。</p>
+<h2 id="Centos版本的选择"><a href="#Centos版本的选择" class="headerlink" title="Centos版本的选择"></a>Centos版本的选择</h2><p>这里我选择的是阿里云的服务器，配置很低的那种，自己练手搭个小项目已经完全ok啦。</p>
+<p>说一下为什么我选择centos7.7版本吧，目前别的版本，也有人一直在用，但是会有一些不支持的功能，比如说我上次使用的7.3中的启动服务的时候，会有一些权限问题，总之层出不穷，大家可以去踩一下坑，只有你想不到没有出现不了的新问题，当时几乎快崩溃了，然后突然google发现一位国外大神，通过更换centos版本完美的解决了这个问题，我就重新选择版本，重新开始，当自己需要的一些服务慢慢变绿的时候，心中的喜悦大概只有自己知道吧。</p>
+<h2 id="Python3-7的安装和配置"><a href="#Python3-7的安装和配置" class="headerlink" title="Python3.7的安装和配置"></a>Python3.7的安装和配置</h2><p>1、先用root账号登录你的服务器，注意后面的操作都是在root权限进行的噢</p>
+<pre><code>PS：安装python3 需要很多的依赖包，所以我们先安装依赖包建议在根目录上执行
 
-<p>2、nvm会自己添加环境变量，但是需要我们手动让环境变量生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+切换到根目录：`cd  /`
 
-<p>ps：如果没有环境变量，需要手动添加：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="subst">$([ -z <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME-&#125;</span>&quot;</span> ] &amp;&amp; printf %s <span class="string">&quot;<span class="variable">$&#123;HOME&#125;</span>/.nvm&quot;</span> || printf %s <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME&#125;</span>/nvm&quot;</span>)</span>&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure>
+安装命令如下：`yum -y groupinstall &quot;Development tools&quot;`
 
-<p>3、nvm安装指定版本node</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm install v8.9.0</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210407173742911.png" alt="在这里插入图片描述"></p>
-<p>4、切换node版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use v8.9.0</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210407173820659.png" alt="在这里插入图片描述"></p>
-<p>5、查看node版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+然后继续安装下一个依赖：`yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel`
 
-<p><img src="https://img-blog.csdnimg.cn/20210407173858582.png" alt="在这里插入图片描述"></p>
+最后一个依赖：`yum install libffi-devel -y`
+
+如果安装上面的依赖没有出错的话，就可以下载python3.7的包了，如果安装依赖出现错误，请自行百度解决
+</code></pre>
+<p>2、下载python3.7 安装包</p>
+<pre><code>下载：``wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz`
+
+**如果wget没有安装的话，请先安装wget：yum -y install wget (已安装忽略这一步)**
+
+解压：`tar -xvJf  Python-3.7.0.tar.xz`
+</code></pre>
+<p>3、解压完成后，编译安装</p>
+<pre><code>创建编译安装目录：`mkdir /usr/local/python3`
+
+解压完成后会创建一个Python-3.7.0文件夹，进入该文件夹：`cd Python-3.7.0`
+
+配置到创建编译安装目录：`./configure --prefix=/usr/local/python3 `
+
+然后开始编译安装：`make &amp;&amp; make install `
+</code></pre>
+<p>4、创建软件连接</p>
+<pre><code>创建python3软链接：`ln -s /usr/local/python3/bin/python3 /usr/local/bin/python3`
+
+创建pip3软链接：`ln -s /usr/local/python3/bin/pip3 /usr/local/bin/pip3
+</code></pre>
+<p>`</p>
+<p>5、到这里就安装完成了，验证安装是否成功</p>
+<pre><code>查看python3版本：`python3 -V`
+
+查看pip3版本：`pip3 -V` 
+
+分别指向安装路径就安装成功啦
+</code></pre>
+<p>6、配置环境变量</p>
+<pre><code>环境变量内容：`export PYTHON_HOME=/usr/local/python3/`
+            `export PATH=$PYTHON_HOME/bin:$PATH`
+
+编辑环境变量文件：`vim /etc/profile`
+
+把环境变量内容粘贴到环境变量文件最后一行保存：`：wq`
+
+让刚刚更改的环境变量生效：`source /etc/profile`
+
+上面让环境变量生效只是本次有效，下次连接就失效了，这里要把命令放到 ：`vim ~/.bashrc` 中，如下图
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200903145729665.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="Python测试脚本"><a href="#Python测试脚本" class="headerlink" title="Python测试脚本"></a>Python测试脚本</h2><p>这里的脚本可以使用我的(Github)，也可以自己写一个，目的主要是为了接下来的jenkins配置使用</p>
+<p><a href="https://github.com/chaoyangya/xiaowangapi">Github</a></p>
+<h2 id="安装Jenkins"><a href="#安装Jenkins" class="headerlink" title="安装Jenkins"></a>安装Jenkins</h2><p>1、安装jenkins必须安装jdk</p>
+<pre><code>下载jdk:`wget --no-check-certificate --no-cookies --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz`
+
+或者：`wget --no-check-certificate --no-cookies --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm`
+
+我这里下载的是rpm的文件类型
+
+下载完成之后解压：`rpm -ivh  jdk-8u151-linux-x64.rpm`
+</code></pre>
+<p>2、配置java环境变量</p>
+<pre><code>编辑系统环境变量：`vim /etc/profile`
+
+变量内容(根据自己安装的jdk路径更改)：`export JAVA_HOME=/usr/lib/jvm/java`
+                                `export PATH=$JAVA_HOME/bin:$PATH`
+
+让配置生效 ：`source /etc/profile`
+</code></pre>
+<p>3、安装Jenkins</p>
+<pre><code>首先下载jenkins：`wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo`
+
+然后导入公钥：`rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key`
+
+安装jenkins：`yum install -y jenkins --nogpgcheck`
+</code></pre>
+<p>4、配置jenkins</p>
+<pre><code>更改端口：`vi /etc/sysconfig/jenkins`  ：`JENKINS_PORT=&quot;8080&quot;`
+
+更改用户：`vi /etc/sysconfig/jenkins`  ：`JENKINS_USER=&quot;root&quot;`
+
+然后让配置生效：`source /etc/sysconfig/jenkins`
+</code></pre>
+<p>5、重新启动jenkins</p>
+<pre><code>启动：`service jenkins restart`
+</code></pre>
+<p>6、打开jenkins网址</p>
+<pre><code>浏览器打开：`你的ip+8080`
+</code></pre>
+<h2 id="配置Jenkins"><a href="#配置Jenkins" class="headerlink" title="配置Jenkins"></a>配置Jenkins</h2><p>因为我这里已经安装过jenkins了，一开始的jenkins安装配置就不说了，其他博主的都ok，主要说一下怎么配置allure</p>
+<p>1、安装allure插件</p>
+<p><img src="https://img-blog.csdnimg.cn/20200903152249782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<pre><code>找到![在这里插入图片描述](https://img-blog.csdnimg.cn/20200903152325565.png#pic_center)
+
+搜索 `allure` 安装就好了
+</code></pre>
+<p>2、配置jdk和allure</p>
+<p>jdk：<img src="https://img-blog.csdnimg.cn/20200903152425965.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>allure：<img src="https://img-blog.csdnimg.cn/20200903152446147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>3、新建job(选择自由风格)</p>
+<p>配置git地址：<img src="https://img-blog.csdnimg.cn/20200903152526480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>配置shell：<br><img src="https://img-blog.csdnimg.cn/20200903152552342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<pre><code>这里要注意一下，最好找到你的jenkins的工作空间路径，把项目放到你的工作空间路径去
+</code></pre>
+<p>4、添加allure报告插件</p>
+<p><img src="https://img-blog.csdnimg.cn/20200903152752887.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>5、在Advanced中配置html生成的目录</p>
+<p><img src="https://img-blog.csdnimg.cn/20200903152847803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>6、具体路径配置相关，可以参考下我项目中的目录结构，自己亲自动手配置一遍就懂了</p>
+<p>7、打开报告</p>
+<pre><code>Build Now完成后会生成报告
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/2020090315310831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>8、查看报告</p>
+<pre><code>查看报告：
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200903153229539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="1"></p>
 ]]></content>
       <categories>
-        <category>Node</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux部署easy_mock</title>
-    <url>/2021/04/16/Linux%E9%83%A8%E7%BD%B2easy-mock/</url>
-    <content><![CDATA[<p>前期准备：<br>1、Linux：CentOS Linux release 7.8.2003 (Core)<br>2、mongodb：3.4.24<br>3、redis：4.0.14<br>4、node：8.9.0</p>
-<p><strong>PS：</strong></p>
-<blockquote>
-<p>node版本不要超过8.x.x<br>mongodb版本不要超过3.6.x</p>
-</blockquote>
-<h2 id="mongodb安装"><a href="#mongodb安装" class="headerlink" title="mongodb安装"></a>mongodb安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment">#下载mongodb包</span></span><br><span class="line">$ curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.24.tgz  </span><br><span class="line"></span><br><span class="line"><span class="comment">#解压  </span></span><br><span class="line">$ tar -zxvf mongodb-linux-x86_64-3.4.24.tgz</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名mongodb</span></span><br><span class="line">$ mv mongodb-linux-x86_64-3.4.24 mongodb</span><br><span class="line"> </span><br><span class="line"><span class="comment">#编辑环境变量</span></span><br><span class="line">$ vi ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#环境变量</span></span><br><span class="line">$ <span class="built_in">export</span> MONGO_HOME=/usr/<span class="built_in">local</span>/mongodb</span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$MONGO_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#让环境变量生效</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>安装好mongodb以后创建mongodb数据存放目录和日志存放目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##  创建数据目录</span></span><br><span class="line">$ <span class="built_in">cd</span> /root/</span><br><span class="line">$ mkdir -p /mongodb/data</span><br><span class="line">$ mkdir -p /mongodb/<span class="built_in">log</span>/</span><br></pre></td></tr></table></figure>
-
-<p>启动mongodb(并保持后台运行)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#后台启动mongodb</span></span><br><span class="line">$ mongod  --dbpath=/root/mongodb/data --logpath=/root/mongodb/<span class="built_in">log</span>/mongodb.log --logappend &amp;</span><br></pre></td></tr></table></figure>
-
-<p>解释：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--fork    	 后台运行</span><br><span class="line">--dbpath  	 数据存放目录</span><br><span class="line">--logpath 	 日志存放目录</span><br><span class="line">--logappend  防止日志被删除</span><br></pre></td></tr></table></figure>
-<h2 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#下载redis包</span></span><br><span class="line">$ wget http://download.redis.io/releases/redis-4.0.14.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#解压</span></span><br><span class="line">$ tar -xvzf redis-4.0.14.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名</span></span><br><span class="line">$ mv redis-4.0.14 redis</span><br><span class="line">$ <span class="built_in">cd</span> redis-4.0.14/</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装gcc依赖</span></span><br><span class="line">$ yum -y install gcc          </span><br><span class="line"></span><br><span class="line"><span class="comment">#编译</span></span><br><span class="line">$ make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如报错可使用命令 </span></span><br><span class="line">$ make MALLOC=libc</span><br><span class="line"></span><br><span class="line"><span class="comment">#拷贝执行程序到bin</span></span><br><span class="line">$ cp src/redis-server /usr/<span class="built_in">local</span>/bin/</span><br><span class="line">$ cp src/redis-cli /usr/<span class="built_in">local</span>/bin/</span><br><span class="line"></span><br><span class="line"><span class="comment">#编辑redis配置文件</span></span><br><span class="line">$ vi redis.conf 修改daemonize=no为yes，保存</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动redis并保持后台运行</span></span><br><span class="line">$ redis-server redis.conf &amp;</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span><br><span class="line"> </span><br><span class="line"><span class="comment">#安装wget               </span></span><br><span class="line">$ yum install -y wget</span><br><span class="line"></span><br><span class="line"><span class="comment">#wget下载node包</span></span><br><span class="line">$ wget https://npm.taobao.org/mirrors/node/v8.9.0/node-v8.9.0-linux-x64.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment">#解压安装</span></span><br><span class="line">$ tar -zxvf node-v8.9.0-linux-x64.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名node文件</span></span><br><span class="line">$ mv node-v8.9.0 node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改环境变量</span></span><br><span class="line">$ vi ~/.bashrc              </span><br><span class="line"></span><br><span class="line"><span class="comment">#环境变量</span></span><br><span class="line">$ <span class="built_in">export</span> NODE_HOME=/usr/<span class="built_in">local</span>/node</span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$NODE_HOME</span>/bin</span><br><span class="line"></span><br><span class="line"><span class="comment">#让环境变量生效</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看node版本</span></span><br><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="安装easy-mock"><a href="#安装easy-mock" class="headerlink" title="安装easy_mock"></a>安装easy_mock</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装git</span></span><br><span class="line">$ yum install -y git     </span><br><span class="line"></span><br><span class="line"><span class="comment">#下载easymock包                              </span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/easy-mock/easy-mock.git</span><br><span class="line"></span><br><span class="line"><span class="comment">#进入文件夹</span></span><br><span class="line">$ <span class="built_in">cd</span> easy-mock</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装</span></span><br><span class="line">$ npm install            </span><br><span class="line"></span><br><span class="line"><span class="comment">#安装较慢，可以多试几次。也可以使用cnpm安装，需要先执行命令</span></span><br><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line"><span class="comment">#然后在执行</span></span><br><span class="line">$ cnpm install</span><br><span class="line"></span><br><span class="line"><span class="comment">#关闭防火墙</span></span><br><span class="line">$ systemctl stop firewalld.service(这里如果是阿里云服务器需要安全组给7300端口放行)</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装pm2 守护进程</span></span><br><span class="line">$ npm install -g pm2</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译</span></span><br><span class="line">$ npm run build</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动</span></span><br><span class="line">$ NODE_ENV=production pm2 start app.js  注意这里如果是Windows系统前面需要加cross-env  反之mac或者linux不需要</span><br><span class="line"></span><br><span class="line"><span class="comment">#如启动报错File ecosystem config.js not found</span></span><br><span class="line">$ pm2 ecosystem 然后在重新运行即可</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#运行</span></span><br><span class="line">$ npm run start</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p>疑难杂症</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#如遇无法登录注册，js报错net::ERR_CONNECTION_REFUSED</span></span><br><span class="line"></span><br><span class="line">说明你的mongodb有问题，可能是没有后台运行导致，查看mongodb状态即可</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#最后的最后，作为重度强迫症患者，必须要把下载到/usr/local/中的包删除掉</span></span><br><span class="line"></span><br><span class="line">$ rm -rf mongodb-linux-x86_64-3.4.24.tgz redis-4.0.14.tar.gz node-v8.9.0-linux-x64.tar</span><br></pre></td></tr></table></figure>
-
-<p>如报错如下图<br><img src="https://img-blog.csdnimg.cn/202106021623202.png" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#先修改easy_mock/config目录下的default.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;port&quot;</span>: 7300,</span><br><span class="line">  <span class="string">&quot;host&quot;</span>: <span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;pageSize&quot;</span>: 30,</span><br><span class="line">  <span class="string">&quot;proxy&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">&quot;db&quot;</span>: <span class="string">&quot;mongodb://127.0.0.1/easy-mock&quot;</span>,   这里要把mongodb更改为127.0.0.1</span><br><span class="line">  <span class="string">&quot;unsplashClientId&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2021060216262774.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#然后重新build</span></span><br><span class="line">$ npm run build </span><br><span class="line"></span><br><span class="line"><span class="comment">#启动app</span></span><br><span class="line">$ NODE_ENV=production pm2 start app</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Easy_mock</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Easy_mock</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>supervisord管理常驻进程uwsgi/nginx/redis/mongodb</title>
-    <url>/2021/05/24/supervisord%E7%AE%A1%E7%90%86%E5%B8%B8%E9%A9%BB%E8%BF%9B%E7%A8%8Buwsgi-nginx-redis-mongodb/</url>
-    <content><![CDATA[<p>解决部署的一些项目,因机器关机/重启导致项目需要手动重新启动的问题</p>
-<h2 id="1-安装supervisor"><a href="#1-安装supervisor" class="headerlink" title="1 `安装supervisor"></a>1 `安装supervisor</h2><p>yum安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install supervisor</span><br></pre></td></tr></table></figure>
-
-<p>pip安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install supervisor</span><br></pre></td></tr></table></figure>
-
-<p>easy_install安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ easy_install supervisor</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="2-配置supervisor"><a href="#2-配置supervisor" class="headerlink" title="2 `配置supervisor"></a>2 `配置supervisor</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#生成配置supervisor文件</span></span><br><span class="line">$ echo_supervisord_conf &gt; /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建存放配置文件目录</span></span><br><span class="line">$ mkdir -p /etc/supervisord.d/conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-修改默认配置"><a href="#3-修改默认配置" class="headerlink" title="3 `修改默认配置"></a>3 `修改默认配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#文件最后一行,目录修改为配置文件地址,我的.ini文件是在/etc/supervisord.d/conf/存放,而且本身配置文件也在etc中,所以目录直接写supervisord.d/conf/就可以了</span></span><br><span class="line">$ [include]</span><br><span class="line">$ files = supervisord.d/conf/*.ini</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="4-通过配置文件启动supervisor"><a href="#4-通过配置文件启动supervisor" class="headerlink" title="4 `通过配置文件启动supervisor"></a>4 `通过配置文件启动supervisor</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#这里一定要用配置文件的绝对路径</span></span><br><span class="line">$ supervisord -c /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="5-编写要管理进程的配置文件"><a href="#5-编写要管理进程的配置文件" class="headerlink" title="5 `编写要管理进程的配置文件"></a>5 `编写要管理进程的配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#因为我这里配置文件中通配符是以.ini结尾 所以新建的文件后缀为.ini</span></span><br><span class="line">$ touch my_uwsgi.ini</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#配置如下</span></span><br><span class="line">$ [program:uwsgi]  <span class="comment">#uwsgi这个名称是管理进程的别名,可以自定义</span></span><br><span class="line">  user=root <span class="comment">#启动用户</span></span><br><span class="line">  <span class="built_in">command</span>=/root/pyenv/myenv/bin/uwsgi --ini  /root/pyenv/myenv/my_uwsgi.ini   <span class="comment">#启动的命令</span></span><br><span class="line">  directory=/root/pyenv/myenv    <span class="comment">#文件目录</span></span><br><span class="line">  autostart=<span class="literal">true</span>   <span class="comment">#是否跟随supervisor启动</span></span><br><span class="line">  autorestart=<span class="literal">true</span>   <span class="comment">#程序故障是否重启</span></span><br><span class="line">  stopasgroup=<span class="literal">true</span>   <span class="comment">#</span></span><br><span class="line">  startsecs=3   <span class="comment">#启动3s后无异常判断为正常</span></span><br><span class="line">  startretries=3   <span class="comment">#启动尝试次数</span></span><br><span class="line">  redirect_stderr=<span class="literal">true</span>   <span class="comment">#把stderr重定向到stdout,默认为flase</span></span><br><span class="line">  stdout_logfile=/var/<span class="built_in">log</span>/uwsgi_out.log   <span class="comment">#标准输出日志路径 这里一定要把uwsgi本身的日志输出关掉</span></span><br><span class="line">  stderr_logfile=/var/<span class="built_in">log</span>/uwsgi_err.log   <span class="comment">#输出错误日志路径</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="6-启动应用"><a href="#6-启动应用" class="headerlink" title="6 `启动应用"></a>6 `启动应用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#重启supervisor配置中的所有程序</span></span><br><span class="line">$ supervisorctl reload</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看supervisor状态 出现启动项目name即可</span></span><br><span class="line">$ supervisorctl status</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="7-supervisor命令详解"><a href="#7-supervisor命令详解" class="headerlink" title="7 `supervisor命令详解"></a>7 `supervisor命令详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ supervisorctl restart &lt;application name&gt;  <span class="comment">#重启指定应用</span></span><br><span class="line">$ supervisorctl stop &lt;application name&gt;  <span class="comment">#停止指定应用</span></span><br><span class="line">$ supervisorctl start &lt;application name&gt;  <span class="comment">#启动指定应用</span></span><br><span class="line">$ supervisorctl restart all  <span class="comment">#重启所有应用</span></span><br><span class="line">$ supervisorctl stop all  <span class="comment">#停止所有应用</span></span><br><span class="line">$ supervisorctl start all  <span class="comment">#启动所有应用</span></span><br><span class="line">$ supervisorctl update  <span class="comment">#配置文件修改后可以使用该命令加载新的配置</span></span><br><span class="line">$ supervisorctl reload  <span class="comment">#重新启动配置中的所有程序</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>使用supervisorctl status查看发现有进程被不断重启,报错如下:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">XXX(项目名)      FATAL     Exited too quickly (process <span class="built_in">log</span> may have details)</span><br></pre></td></tr></table></figure>
-
-<p>原因:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">supervisor只支持前台程序的托管到后台(启动前需要<span class="built_in">kill</span>掉已经存在的进程),例如:</span><br><span class="line"></span><br><span class="line">	<span class="comment">#uwsgi</span></span><br><span class="line">	uwsgi如果出现不断重启,一定是启动命令中加了-d的参数,去掉就好了</span><br><span class="line"></span><br><span class="line">	<span class="comment">#redis</span></span><br><span class="line">	redis就需要把redis.conf配置文件中的daemonize设置为no</span><br><span class="line"></span><br><span class="line">	<span class="comment">#nginx</span></span><br><span class="line">	nginx就需要在命令行后缀增加 -g ‘daemon off;’</span><br><span class="line"></span><br><span class="line">	<span class="comment">#mongodb</span></span><br><span class="line">	mongodb如果不断重启,多半也是因为启动命令中加了后台运行的参数 &amp; 同样的去掉就可以了</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Supervisord</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Supervisord</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>.gitignore不生效的解决方案</title>
-    <url>/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p><strong>原因：git本地运行有缓存，需要清楚git缓存即可</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm -r --cached .</span><br></pre></td></tr></table></figure>
-
-<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>清完缓存需要把代码推到远程仓库</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>.gitignore</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo管理多个标签</title>
-    <url>/2021/07/08/hexo%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE/</url>
-    <content><![CDATA[<h2 id="1-hexo多个标签应该遵循-list-格式-如下"><a href="#1-hexo多个标签应该遵循-list-格式-如下" class="headerlink" title="1 hexo多个标签应该遵循 list 格式,如下"></a>1 hexo多个标签应该遵循 <strong>list</strong> 格式,如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">date: 2021-04-07 17:39:32</span><br><span class="line">tags: [标签1,标签2]</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git branch出现end需要q才能退出</title>
-    <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
-    <content><![CDATA[<p>git 进入了编辑模式</p>
-<p>用以下命令即可解决：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.pager mor</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>nginx配置实现ip访问指定URL</title>
-    <url>/2021/04/01/nginx%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0ip%E8%AE%BF%E9%97%AE%E6%8C%87%E5%AE%9AURL/</url>
-    <content><![CDATA[<p><strong>我的需求是这样的，nginx+uwsgi启动的web服务，访问域名XX.CN之后，nginx报错404，我需要实现的是访问XX.CN，自动映射到XX.CN/login 因为我server是80端口，所以不需要加端口即可访问</strong></p>
-<p>nginx配置如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim nginx.conf</span><br></pre></td></tr></table></figure>
-
-
-<p>在你启动的server中加入如下配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ( <span class="variable">$request_uri</span> = <span class="string">&quot;/&quot;</span> ) &#123;</span><br><span class="line">    rewrite <span class="string">&quot;/&quot;</span> http://XX.CN/login <span class="built_in">break</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>然后现在去访问XX.CN 就会映射到 XX.CN/login </p>
-<p>大功告成！！！</p>
-]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>no such table:django_session</title>
-    <url>/2021/04/01/no-such-table-django-session/</url>
-    <content><![CDATA[<p><strong>出现上述问题是django没有django_session表</strong></p>
-<p>错误跟Session的机制相关<br>既然要从Web服务器端来记录用户信息，<br>那么一定要有存放用户session id对应信息的地方才行</p>
-<p>django创建存放session表命令如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ python manage.py migrate</span><br></pre></td></tr></table></figure>
-
-<p>出现很多绿色的ok即创建完成</p>
-]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Django</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo删除文章</title>
-    <url>/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p><strong>hexo删除文章</strong></p>
-<p>直接删除 “_posts” 中的 .md 结尾的文件</p>
-<p>执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pip安装插件失败，拒绝连接</title>
-    <url>/2021/03/30/pip%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%8B%92%E7%BB%9D%E8%BF%9E%E6%8E%A5/</url>
-    <content><![CDATA[<p>WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by ‘ConnectTimeoutError(&lt;pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ff8fba5f080&gt;, ‘Connection to mirrors.aliyn.com timed out. (connect timeout=15)’)’: /pypi/simple/python-jenkins/</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip3 install python-jenkins</span><br></pre></td></tr></table></figure>
-<p>安装python-jenkins报错如下<br><img src="https://img-blog.csdnimg.cn/20210330114856815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>解决办法：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple python-jenkins</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210330115051235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如上已经安装好了</p>
-]]></content>
-      <categories>
-        <category>Pip</category>
-      </categories>
-      <tags>
-        <tag>Pip</tag>
         <tag>Python</tag>
+        <tag>Jenkins</tag>
+        <tag>Allure</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>web服务 访问Linux中的静态文件</title>
-    <url>/2021/03/29/web%E6%9C%8D%E5%8A%A1-%E8%AE%BF%E9%97%AELinux%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>报错404，NOT FOUND可能是因为nginx.conf配置文件的俩处地方配置有误，按照下面，检查你的配置之后99.9999%是可以在浏览器访问Linux的静态文件的</p>
-<p>1、检查nginx是否打开允许访问本地文件的配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim nginx.conf</span><br></pre></td></tr></table></figure>
-
-
-<p>2、查找如下图的配置项，没有的话添加即可，注意是在http这个服务中<br><img src="https://img-blog.csdnimg.cn/20210329180009631.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ proxy_intercept_errors on;</span><br></pre></td></tr></table></figure>
-
-<p>3、检查需要访问文件的路径是否配置正确，例如我要访问的静态文件名称为Bapi.html，文件存放路径为root/cccc/Bapi.html，配置如下</p>
-<p><img src="https://img-blog.csdnimg.cn/20210329180232275.png" alt="在这里插入图片描述"></p>
-<p>4、访问静态文件</p>
-<p><img src="https://img-blog.csdnimg.cn/20210329180310114.png" alt="在这里插入图片描述"><br>可以访问，我是有域名的，所以我的访问直接就是域名+Bapi.html 其他格式的文件同理。</p>
+    <title>Error taking device screenshot: null</title>
+    <url>/2018/10/11/Error-taking-device-screenshot-null/</url>
+    <content><![CDATA[<p>使用<code>uiautomatorviewer</code> 查看Android某些页面元素，出现如图错误：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Error obtaining UI hierarchy Reason: Error taking device screenshot: null</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/fc8af8463b3e6822ccdd940774759365.png"></p>
+<p>再网上找了很多解决办法依然没解决</p>
+<p><strong>总结了一下原因：</strong></p>
+<p>1、该app不支持该页面的截屏功能所以uiautomatorviewer捕捉不到</p>
+<p>2、手机需要重启</p>
+<p>3、非原装数据线</p>
+<p>4、appium服务异常需要重新连接</p>
+<p>5、可以尝试切换USB接口</p>
+<p>6、最后可以把手机开发者选项的USB调试撤销权限，在重新获取</p>
+<p>　　以上为个人观点，不代表百分百解决，仅供参考！</p>
 ]]></content>
       <categories>
-        <category>Nginx</category>
+        <category>Appium</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux/macos安装newman</title>
-    <url>/2021/03/22/Linux-macos%E5%AE%89%E8%A3%85newman/</url>
-    <content><![CDATA[<p>[已解决]Linux/macos安装newman</p>
-<p>一、安装Node环境（<strong>1/2选其一即可</strong>）</p>
-<ol>
-<li>官网下载node包，并上传到linux服务器</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://nodejs.org/en/download/</span><br></pre></td></tr></table></figure>
-
-
-<ol start="2">
-<li>wget安装</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://nodejs.org/dist/v15.12.0/node-v15.12.0-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>安装解压</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -xvf node-v15.12.0-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li> 移动文件夹并重命名</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mv node-v15.12.0-linux-x64 /opt/node-15</span><br></pre></td></tr></table></figure>
-
-
-<ol start="5">
-<li> 配置环境变量</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim ~/.bashrc</span><br></pre></td></tr></table></figure>
-<p>加入以下内容</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#node </span></span><br><span class="line">$ <span class="built_in">export</span> NODE_HOME=/opt/node-15</span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$NODE_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li> 让配置生效</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<ol start="7">
-<li> 查看node版本</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v  如跟你安装版本一致即安装成功</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210322160240981.png" alt="在这里插入图片描述"></p>
-<ol start="8">
-<li> 查看npm版本</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm -v  出现版本号即安装成功</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210322160257886.png" alt="在这里插入图片描述"></p>
-<p>二、安装newman</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman --registry https://registry.npm.taobao.org/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>提示如下图无需理会</p>
-<p><img src="https://img-blog.csdnimg.cn/20210322160330423.png"></p>
-<p>查看版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ newman -v</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20210322160401214.png" alt="在这里插入图片描述"></p>
-]]></content>
-      <categories>
-        <category>Newman</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Node</tag>
-        <tag>Newman</tag>
+        <tag>Android.Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -497,145 +321,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Centos7.7安装并配置jenkins+python+allure发送定制化报告</title>
-    <url>/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
-    <content><![CDATA[<h1 id="【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告"><a href="#【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告" class="headerlink" title="【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告"></a>【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告</h1><p>目前测试开发方向的接口自动化脚本很多，这里就不一一列举了，有兴趣的可以baidu/google 一大堆，本次主要根据自己公司/业务需要搭建了一套基于python3.7+pytest+allure的接口自动化脚本，由于工作原因，源码就不放了，最下面会放一个很简单的脚本，不想写的可以暂时先用下，调试通过以后，再进行业务代码的编写也是ok的，话不多说，开整。</p>
-<h2 id="Centos版本的选择"><a href="#Centos版本的选择" class="headerlink" title="Centos版本的选择"></a>Centos版本的选择</h2><p>这里我选择的是阿里云的服务器，配置很低的那种，自己练手搭个小项目已经完全ok啦。</p>
-<p>说一下为什么我选择centos7.7版本吧，目前别的版本，也有人一直在用，但是会有一些不支持的功能，比如说我上次使用的7.3中的启动服务的时候，会有一些权限问题，总之层出不穷，大家可以去踩一下坑，只有你想不到没有出现不了的新问题，当时几乎快崩溃了，然后突然google发现一位国外大神，通过更换centos版本完美的解决了这个问题，我就重新选择版本，重新开始，当自己需要的一些服务慢慢变绿的时候，心中的喜悦大概只有自己知道吧。</p>
-<h2 id="Python3-7的安装和配置"><a href="#Python3-7的安装和配置" class="headerlink" title="Python3.7的安装和配置"></a>Python3.7的安装和配置</h2><p>1、先用root账号登录你的服务器，注意后面的操作都是在root权限进行的噢</p>
-<pre><code>PS：安装python3 需要很多的依赖包，所以我们先安装依赖包建议在根目录上执行
-
-切换到根目录：`cd  /`
-
-安装命令如下：`yum -y groupinstall &quot;Development tools&quot;`
-
-然后继续安装下一个依赖：`yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel`
-
-最后一个依赖：`yum install libffi-devel -y`
-
-如果安装上面的依赖没有出错的话，就可以下载python3.7的包了，如果安装依赖出现错误，请自行百度解决
-</code></pre>
-<p>2、下载python3.7 安装包</p>
-<pre><code>下载：``wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz`
-
-**如果wget没有安装的话，请先安装wget：yum -y install wget (已安装忽略这一步)**
-
-解压：`tar -xvJf  Python-3.7.0.tar.xz`
-</code></pre>
-<p>3、解压完成后，编译安装</p>
-<pre><code>创建编译安装目录：`mkdir /usr/local/python3`
-
-解压完成后会创建一个Python-3.7.0文件夹，进入该文件夹：`cd Python-3.7.0`
-
-配置到创建编译安装目录：`./configure --prefix=/usr/local/python3 `
-
-然后开始编译安装：`make &amp;&amp; make install `
-</code></pre>
-<p>4、创建软件连接</p>
-<pre><code>创建python3软链接：`ln -s /usr/local/python3/bin/python3 /usr/local/bin/python3`
-
-创建pip3软链接：`ln -s /usr/local/python3/bin/pip3 /usr/local/bin/pip3
-</code></pre>
-<p>`</p>
-<p>5、到这里就安装完成了，验证安装是否成功</p>
-<pre><code>查看python3版本：`python3 -V`
-
-查看pip3版本：`pip3 -V` 
-
-分别指向安装路径就安装成功啦
-</code></pre>
-<p>6、配置环境变量</p>
-<pre><code>环境变量内容：`export PYTHON_HOME=/usr/local/python3/`
-            `export PATH=$PYTHON_HOME/bin:$PATH`
-
-编辑环境变量文件：`vim /etc/profile`
-
-把环境变量内容粘贴到环境变量文件最后一行保存：`：wq`
-
-让刚刚更改的环境变量生效：`source /etc/profile`
-
-上面让环境变量生效只是本次有效，下次连接就失效了，这里要把命令放到 ：`vim ~/.bashrc` 中，如下图
-</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20200903145729665.png#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="Python测试脚本"><a href="#Python测试脚本" class="headerlink" title="Python测试脚本"></a>Python测试脚本</h2><p>这里的脚本可以使用我的(Github)，也可以自己写一个，目的主要是为了接下来的jenkins配置使用</p>
-<p><a href="https://github.com/chaoyangya/xiaowangapi">Github</a></p>
-<h2 id="安装Jenkins"><a href="#安装Jenkins" class="headerlink" title="安装Jenkins"></a>安装Jenkins</h2><p>1、安装jenkins必须安装jdk</p>
-<pre><code>下载jdk:`wget --no-check-certificate --no-cookies --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz`
-
-或者：`wget --no-check-certificate --no-cookies --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm`
-
-我这里下载的是rpm的文件类型
-
-下载完成之后解压：`rpm -ivh  jdk-8u151-linux-x64.rpm`
-</code></pre>
-<p>2、配置java环境变量</p>
-<pre><code>编辑系统环境变量：`vim /etc/profile`
-
-变量内容(根据自己安装的jdk路径更改)：`export JAVA_HOME=/usr/lib/jvm/java`
-                                `export PATH=$JAVA_HOME/bin:$PATH`
-
-让配置生效 ：`source /etc/profile`
-</code></pre>
-<p>3、安装Jenkins</p>
-<pre><code>首先下载jenkins：`wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo`
-
-然后导入公钥：`rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key`
-
-安装jenkins：`yum install -y jenkins --nogpgcheck`
-</code></pre>
-<p>4、配置jenkins</p>
-<pre><code>更改端口：`vi /etc/sysconfig/jenkins`  ：`JENKINS_PORT=&quot;8080&quot;`
-
-更改用户：`vi /etc/sysconfig/jenkins`  ：`JENKINS_USER=&quot;root&quot;`
-
-然后让配置生效：`source /etc/sysconfig/jenkins`
-</code></pre>
-<p>5、重新启动jenkins</p>
-<pre><code>启动：`service jenkins restart`
-</code></pre>
-<p>6、打开jenkins网址</p>
-<pre><code>浏览器打开：`你的ip+8080`
-</code></pre>
-<h2 id="配置Jenkins"><a href="#配置Jenkins" class="headerlink" title="配置Jenkins"></a>配置Jenkins</h2><p>因为我这里已经安装过jenkins了，一开始的jenkins安装配置就不说了，其他博主的都ok，主要说一下怎么配置allure</p>
-<p>1、安装allure插件</p>
-<p><img src="https://img-blog.csdnimg.cn/20200903152249782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<pre><code>找到![在这里插入图片描述](https://img-blog.csdnimg.cn/20200903152325565.png#pic_center)
-
-搜索 `allure` 安装就好了
-</code></pre>
-<p>2、配置jdk和allure</p>
-<p>jdk：<img src="https://img-blog.csdnimg.cn/20200903152425965.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>allure：<img src="https://img-blog.csdnimg.cn/20200903152446147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>3、新建job(选择自由风格)</p>
-<p>配置git地址：<img src="https://img-blog.csdnimg.cn/20200903152526480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>配置shell：<br><img src="https://img-blog.csdnimg.cn/20200903152552342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<pre><code>这里要注意一下，最好找到你的jenkins的工作空间路径，把项目放到你的工作空间路径去
-</code></pre>
-<p>4、添加allure报告插件</p>
-<p><img src="https://img-blog.csdnimg.cn/20200903152752887.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>5、在Advanced中配置html生成的目录</p>
-<p><img src="https://img-blog.csdnimg.cn/20200903152847803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>6、具体路径配置相关，可以参考下我项目中的目录结构，自己亲自动手配置一遍就懂了</p>
-<p>7、打开报告</p>
-<pre><code>Build Now完成后会生成报告
-</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/2020090315310831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>8、查看报告</p>
-<pre><code>查看报告：
-</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20200903153229539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70#pic_center" alt="1"></p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Python</tag>
-        <tag>Jenkins</tag>
-        <tag>Allure</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ImportError: No module named flask</title>
     <url>/2020/03/06/ImportError-No-module-named-flask/</url>
     <content><![CDATA[<p>1、删除原有的用大写开头的Flask插件</p>
@@ -652,6 +337,232 @@
       <tags>
         <tag>Linux</tag>
         <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Iterm2/Mac自带终端工具快速ssh</title>
+    <url>/2019/01/26/Iterm2-Mac%E8%87%AA%E5%B8%A6%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9Fssh/</url>
+    <content><![CDATA[<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><p>首先我们在终端本地要写一个登录的脚本，eg：</p>
+<p>当然首先要<code>touch login.sh</code> 啦，下面就是脚本文件，比较low，大神勿喷，会更炫酷写法的小伙伴可以自己参考这个思路写，不会的直接复制就好啦</p>
+<p>　　</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="comment">#!/usr/bin/expect -f</span></span><br><span class="line">　　<span class="built_in">set</span> hostname [lindex <span class="variable">$argv</span> 0]</span><br><span class="line">　　<span class="built_in">set</span> user [lindex <span class="variable">$argv</span> 1]</span><br><span class="line">　　<span class="built_in">set</span> password [lindex <span class="variable">$argv</span> 2]</span><br><span class="line">　　<span class="built_in">set</span> timeout 30</span><br><span class="line">　　spawn ssh -tt <span class="variable">$user</span>@<span class="variable">$hostname</span>;</span><br><span class="line">　　expect &#123;</span><br><span class="line">　　　　<span class="string">&quot;yes/no&quot;</span> &#123; send <span class="string">&quot;yes\r&quot;</span>;exp_continue &#125;</span><br><span class="line">　　　　<span class="string">&quot;*password:&quot;</span> &#123; send <span class="string">&quot;<span class="variable">$password</span>\r&quot;</span>;&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">　　interact</span><br><span class="line">　　~</span><br></pre></td></tr></table></figure>
+
+<p>如果写好了在sh login.sh 的时候，发现expect不是一个可执行的命令的话，我们还需要下载expect依赖噢，命令如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install expect</span><br></pre></td></tr></table></figure>
+<p>这个是mac版本的哈,如果小伙伴是windows的推荐去下载cygwin灰常好用哈,下载的时候一路下</p>
+<p>一步就好了,中途会让你安装需要的功能,记得安装一下三个依赖包,很重要!(tcl、expect、apt-cyg),</p>
+<p>下完就可以奔放了哈,</p>
+<p>##二、</p>
+<p>下面就来编写我们的懒人登陆ssh啦，其实就是利用“起别名”来实现的，同样的哈，大神勿喷</p>
+<p>首先找到启动终端就运行的一个文件<code>bash_profile</code>然后编辑这个文件，输入以下内容：</p>
+<p>　　　　</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> 别名=<span class="string">&#x27;expect login.sh sship root passwd&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>ps</strong>：别名就是你登陆终端之后输入这个别名就会自动登陆/或者操作你的指令啦！</p>
+<p>具体图示如下，因为我是wsl的终端，所以跟mac的启动文件名不一致，但是原理是一样的（windows小伙伴如果也想体验mac终端，可以评论或者私聊）<br><img src="https://img-blog.csdnimg.cn/img_convert/81b5757e6ba93a39660195244f1b4d1b.png">
+　　　</p>
+]]></content>
+      <categories>
+        <category>Iterm2</category>
+      </categories>
+      <tags>
+        <tag>Iterm2</tag>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux/macos安装newman</title>
+    <url>/2021/03/22/Linux-macos%E5%AE%89%E8%A3%85newman/</url>
+    <content><![CDATA[<p>[已解决]Linux/macos安装newman</p>
+<p>一、安装Node环境（<strong>1/2选其一即可</strong>）</p>
+<ol>
+<li>官网下载node包，并上传到linux服务器</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://nodejs.org/en/download/</span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>wget安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://nodejs.org/dist/v15.12.0/node-v15.12.0-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安装解压</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -xvf node-v15.12.0-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li> 移动文件夹并重命名</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mv node-v15.12.0-linux-x64 /opt/node-15</span><br></pre></td></tr></table></figure>
+
+
+<ol start="5">
+<li> 配置环境变量</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>加入以下内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#node </span></span><br><span class="line">$ <span class="built_in">export</span> NODE_HOME=/opt/node-15</span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$NODE_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li> 让配置生效</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li> 查看node版本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v  如跟你安装版本一致即安装成功</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210322160240981.png" alt="在这里插入图片描述"></p>
+<ol start="8">
+<li> 查看npm版本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm -v  出现版本号即安装成功</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210322160257886.png" alt="在这里插入图片描述"></p>
+<p>二、安装newman</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman --registry https://registry.npm.taobao.org/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>提示如下图无需理会</p>
+<p><img src="https://img-blog.csdnimg.cn/20210322160330423.png"></p>
+<p>查看版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ newman -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20210322160401214.png" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>Newman</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Newman</tag>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux中常用来查看进程的命令</title>
+    <url>/2018/12/25/Linux%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>查看所有运行中的进程:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps aux | less</span><br></pre></td></tr></table></figure>
+
+<p>显示所有进程: </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps -A  </span><br><span class="line">$ ps -e</span><br></pre></td></tr></table></figure>
+
+<p>显示进程的树状图:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pstree</span><br></pre></td></tr></table></figure>
+
+<p>查看进程:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ netstat -ntlp</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux快捷进入长目录的方法</title>
+    <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>2、然后让配置生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ./bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、最后我们输入设置的<code>cywhat</code>（这个名字自己设置）就可以快速进入设置的长目录了</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux管理node版本</title>
+    <url>/2021/04/07/Linux%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<p>1、安装nvm</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+
+<p>2、nvm会自己添加环境变量，但是需要我们手动让环境变量生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>ps：如果没有环境变量，需要手动添加：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="subst">$([ -z <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME-&#125;</span>&quot;</span> ] &amp;&amp; printf %s <span class="string">&quot;<span class="variable">$&#123;HOME&#125;</span>/.nvm&quot;</span> || printf %s <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME&#125;</span>/nvm&quot;</span>)</span>&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure>
+
+<p>3、nvm安装指定版本node</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm install v8.9.0</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210407173742911.png" alt="在这里插入图片描述"></p>
+<p>4、切换node版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use v8.9.0</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210407173820659.png" alt="在这里插入图片描述"></p>
+<p>5、查看node版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20210407173858582.png" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux部署easy_mock</title>
+    <url>/2021/04/16/Linux%E9%83%A8%E7%BD%B2easy-mock/</url>
+    <content><![CDATA[<p>前期准备：<br>1、Linux：CentOS Linux release 7.8.2003 (Core)<br>2、mongodb：3.4.24<br>3、redis：4.0.14<br>4、node：8.9.0</p>
+<p><strong>PS：</strong></p>
+<blockquote>
+<p>node版本不要超过8.x.x<br>mongodb版本不要超过3.6.x</p>
+</blockquote>
+<h2 id="mongodb安装"><a href="#mongodb安装" class="headerlink" title="mongodb安装"></a>mongodb安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment">#下载mongodb包</span></span><br><span class="line">$ curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.24.tgz  </span><br><span class="line"></span><br><span class="line"><span class="comment">#解压  </span></span><br><span class="line">$ tar -zxvf mongodb-linux-x86_64-3.4.24.tgz</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名mongodb</span></span><br><span class="line">$ mv mongodb-linux-x86_64-3.4.24 mongodb</span><br><span class="line"> </span><br><span class="line"><span class="comment">#编辑环境变量</span></span><br><span class="line">$ vi ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#环境变量</span></span><br><span class="line">$ <span class="built_in">export</span> MONGO_HOME=/usr/<span class="built_in">local</span>/mongodb</span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$MONGO_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#让环境变量生效</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>安装好mongodb以后创建mongodb数据存放目录和日志存放目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##  创建数据目录</span></span><br><span class="line">$ <span class="built_in">cd</span> /root/</span><br><span class="line">$ mkdir -p /mongodb/data</span><br><span class="line">$ mkdir -p /mongodb/<span class="built_in">log</span>/</span><br></pre></td></tr></table></figure>
+
+<p>启动mongodb(并保持后台运行)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#后台启动mongodb</span></span><br><span class="line">$ mongod  --dbpath=/root/mongodb/data --logpath=/root/mongodb/<span class="built_in">log</span>/mongodb.log --logappend &amp;</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--fork    	 后台运行</span><br><span class="line">--dbpath  	 数据存放目录</span><br><span class="line">--logpath 	 日志存放目录</span><br><span class="line">--logappend  防止日志被删除</span><br></pre></td></tr></table></figure>
+<h2 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#下载redis包</span></span><br><span class="line">$ wget http://download.redis.io/releases/redis-4.0.14.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#解压</span></span><br><span class="line">$ tar -xvzf redis-4.0.14.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名</span></span><br><span class="line">$ mv redis-4.0.14 redis</span><br><span class="line">$ <span class="built_in">cd</span> redis-4.0.14/</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装gcc依赖</span></span><br><span class="line">$ yum -y install gcc          </span><br><span class="line"></span><br><span class="line"><span class="comment">#编译</span></span><br><span class="line">$ make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如报错可使用命令 </span></span><br><span class="line">$ make MALLOC=libc</span><br><span class="line"></span><br><span class="line"><span class="comment">#拷贝执行程序到bin</span></span><br><span class="line">$ cp src/redis-server /usr/<span class="built_in">local</span>/bin/</span><br><span class="line">$ cp src/redis-cli /usr/<span class="built_in">local</span>/bin/</span><br><span class="line"></span><br><span class="line"><span class="comment">#编辑redis配置文件</span></span><br><span class="line">$ vi redis.conf 修改daemonize=no为yes，保存</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动redis并保持后台运行</span></span><br><span class="line">$ redis-server redis.conf &amp;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span><br><span class="line"> </span><br><span class="line"><span class="comment">#安装wget               </span></span><br><span class="line">$ yum install -y wget</span><br><span class="line"></span><br><span class="line"><span class="comment">#wget下载node包</span></span><br><span class="line">$ wget https://npm.taobao.org/mirrors/node/v8.9.0/node-v8.9.0-linux-x64.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment">#解压安装</span></span><br><span class="line">$ tar -zxvf node-v8.9.0-linux-x64.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名node文件</span></span><br><span class="line">$ mv node-v8.9.0 node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改环境变量</span></span><br><span class="line">$ vi ~/.bashrc              </span><br><span class="line"></span><br><span class="line"><span class="comment">#环境变量</span></span><br><span class="line">$ <span class="built_in">export</span> NODE_HOME=/usr/<span class="built_in">local</span>/node</span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$NODE_HOME</span>/bin</span><br><span class="line"></span><br><span class="line"><span class="comment">#让环境变量生效</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看node版本</span></span><br><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="安装easy-mock"><a href="#安装easy-mock" class="headerlink" title="安装easy_mock"></a>安装easy_mock</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装git</span></span><br><span class="line">$ yum install -y git     </span><br><span class="line"></span><br><span class="line"><span class="comment">#下载easymock包                              </span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/easy-mock/easy-mock.git</span><br><span class="line"></span><br><span class="line"><span class="comment">#进入文件夹</span></span><br><span class="line">$ <span class="built_in">cd</span> easy-mock</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装</span></span><br><span class="line">$ npm install            </span><br><span class="line"></span><br><span class="line"><span class="comment">#安装较慢，可以多试几次。也可以使用cnpm安装，需要先执行命令</span></span><br><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line"><span class="comment">#然后在执行</span></span><br><span class="line">$ cnpm install</span><br><span class="line"></span><br><span class="line"><span class="comment">#关闭防火墙</span></span><br><span class="line">$ systemctl stop firewalld.service(这里如果是阿里云服务器需要安全组给7300端口放行)</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装pm2 守护进程</span></span><br><span class="line">$ npm install -g pm2</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译</span></span><br><span class="line">$ npm run build</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动</span></span><br><span class="line">$ NODE_ENV=production pm2 start app.js  注意这里如果是Windows系统前面需要加cross-env  反之mac或者linux不需要</span><br><span class="line"></span><br><span class="line"><span class="comment">#如启动报错File ecosystem config.js not found</span></span><br><span class="line">$ pm2 ecosystem 然后在重新运行即可</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#运行</span></span><br><span class="line">$ npm run start</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>疑难杂症</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#如遇无法登录注册，js报错net::ERR_CONNECTION_REFUSED</span></span><br><span class="line"></span><br><span class="line">说明你的mongodb有问题，可能是没有后台运行导致，查看mongodb状态即可</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#最后的最后，作为重度强迫症患者，必须要把下载到/usr/local/中的包删除掉</span></span><br><span class="line"></span><br><span class="line">$ rm -rf mongodb-linux-x86_64-3.4.24.tgz redis-4.0.14.tar.gz node-v8.9.0-linux-x64.tar</span><br></pre></td></tr></table></figure>
+
+<p>如报错如下图<br><img src="https://img-blog.csdnimg.cn/202106021623202.png" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#先修改easy_mock/config目录下的default.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;port&quot;</span>: 7300,</span><br><span class="line">  <span class="string">&quot;host&quot;</span>: <span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;pageSize&quot;</span>: 30,</span><br><span class="line">  <span class="string">&quot;proxy&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">&quot;db&quot;</span>: <span class="string">&quot;mongodb://127.0.0.1/easy-mock&quot;</span>,   这里要把mongodb更改为127.0.0.1</span><br><span class="line">  <span class="string">&quot;unsplashClientId&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/2021060216262774.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#然后重新build</span></span><br><span class="line">$ npm run build </span><br><span class="line"></span><br><span class="line"><span class="comment">#启动app</span></span><br><span class="line">$ NODE_ENV=production pm2 start app</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Easy_mock</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Easy_mock</tag>
       </tags>
   </entry>
   <entry>
@@ -752,110 +663,6 @@ console.log(responseTime);
       </categories>
       <tags>
         <tag>Postman</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Centos7安装mysql5.7亲测可用</title>
-    <url>/2020/03/30/centos7%E5%AE%89%E8%A3%85mysql5-7%E4%BA%B2%E6%B5%8B%E5%8F%AF%E7%94%A8/</url>
-    <content><![CDATA[<p>一 安装前准备<br>1、检查是否已经安装过mysql，执行命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ rpm -qa | grep mysql</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2020033015134267.png" alt="在这里插入图片描述"><br>2、查询所有Mysql对应的文件夹</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ whereis mysql</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200330151234488.png" alt="在这里插入图片描述"></p>
-<p>如果有的话请删除相关目录或文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ rm -rf /usr/<span class="built_in">local</span>/mysql</span><br></pre></td></tr></table></figure>
-
-<p>并再次执行<code>whereis mysql </code>验证是否删除完毕</p>
-<p>3、检查mysql用户组和用户是否存在，如果没有，则创建</p>
-<pre><code>1)、查看是否存在组
-</code></pre>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat /etc/group | grep mysql</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200330151632701.png" alt="在这里插入图片描述"><br>我的是已经创建过了，所以就不创建了</p>
-<p>没有的话需要创建用户跟用户组</p>
-<pre><code>2)、创建用户组跟用户
-</code></pre>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ groupadd mysql   创建用户组</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ useradd -r -g mysql mysql   创建用户且属于mysql用户组</span><br></pre></td></tr></table></figure>
-
-<p>4、从官网下载是用于Linux的Mysql安装包</p>
-<p>下载命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200330152105124.png" alt="在这里插入图片描述"><br>也可以直接到mysql官网选择其他版本进行下载。</p>
-<p>二 安装Mysql<br>1、解压mysql安装包：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zvxf mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
-<p>解压完之后会在当前目录生成 <code>mysql-5.7.24-linux-glibc2.12-x86_64</code>这样的文件夹</p>
-<p>移动该文件到/usr/local/下 并将文件夹名称修改为mysql 如果/usr/local/下已经存在mysql 将已存在mysql文件修改为其他名称 否则后续步骤可能无法正确进行 </p>
-<p>移动并将文件夹命名为mysql</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mv mysql-5.7.24-linux-glibc2.12-x86_64 /usr/<span class="built_in">local</span>/mysql</span><br></pre></td></tr></table></figure>
-
-<p>2、在/usr/local/mysql目录下创建data目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir /usr/<span class="built_in">local</span>/mysql/data  </span><br></pre></td></tr></table></figure>
-
-<p>3、更改mysql目录下所有的目录及文件夹所属的用户组和用户，以及权限</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/ </span><br><span class="line"></span><br><span class="line">$ chown -R mysql mysql/</span><br><span class="line"></span><br><span class="line">$ chgrp -R mysql mysql/</span><br></pre></td></tr></table></figure>
-
-
-<p>4、编译安装并初始化mysql,务必记住初始化输出日志末尾的密码（数据库管理员临时密码）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/bin/ 进入到bin目录进行编译安装</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./mysqld --initialize --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql/ --datadir=/usr/<span class="built_in">local</span>/mysql/data/ --lc_messages_dir=/usr/<span class="built_in">local</span>/mysql/share --lc_messages=en_US </span><br></pre></td></tr></table></figure>
-
-<p>补充说明：<br>第4步时，可能会出现错误：</p>
-<p>依次执行以下命令安装编译mysql需要的插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install  libaio-devel.x86_64</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum -y install numactl</span><br></pre></td></tr></table></figure>
-
-
-<p>5、运行初始化命令成功后，输出日志如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200330153759390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>记录日志最末尾位置root@localhost:后的字符串，此字符串为mysql管理员临时登录密码。</p>
-<p>6、编辑配置文件my.cnf，添加配置如下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi /etc/my.cnf   如果 my.cnf 文件没有的话自行添加</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">basedir=/usr/<span class="built_in">local</span>/mysql/</span><br><span class="line">datadir=/usr/<span class="built_in">local</span>/mysql/data/</span><br><span class="line">port = 3306</span><br><span class="line">symbolic-links=0</span><br><span class="line">symbolic-links=0</span><br><span class="line">max_connections=400</span><br><span class="line">innodb_file_per_table=1</span><br><span class="line">lower_case_table_names=1</span><br><span class="line">explicit_defaults_for_timestamp=1</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 按esc 输入 ：wq 保存退出即可</span><br></pre></td></tr></table></figure>
-<p>配置如下图：<br><img src="https://img-blog.csdnimg.cn/20200330153940629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>7、设为开机启动</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/support-files/</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cp mysql.server /etc/init.d/mysql</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi /etc/init.d/mysql 打开编辑之后会看到下面有俩个字段(basedir和datadir)没有key 我们添加好key</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ basedir=/usr/<span class="built_in">local</span>/mysql/</span><br><span class="line">$ datadir=/usr/<span class="built_in">local</span>/mysql/data/</span><br></pre></td></tr></table></figure>
-<p>8、授权为可执行状态</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chmod +x /etc/init.d/mysql</span><br></pre></td></tr></table></figure>
-<p>9、开机启动</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chkconfig --add mysql</span><br></pre></td></tr></table></figure>
-<p>10、启动mysql</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ service mysql start  </span><br></pre></td></tr></table></figure>
-
-<p>显示如下结果，说明数据库安装成功</p>
-<p><img src="https://img-blog.csdnimg.cn/20200330154854471.png" alt="在这里插入图片描述"><br>如果出现如下提示信息</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Starting MySQL... ERROR! The server quit without updating PID file</span><br></pre></td></tr></table></figure>
-
-<p>查看是否存在mysql和mysqld的服务，如果存在，则结束进程，再重新执行启动命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 这里上面的错误孤岛了很久没效果的话 建议卸载了mysql重新安装一次</span><br></pre></td></tr></table></figure>
-
-<p>11、查询mysql服务</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps -ef|grep mysql</span><br></pre></td></tr></table></figure>
-
-<p>12、登录mysql，修改密码(密码为步骤5生成的临时密码)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./mysql -u root -p 如果提示mysql：未找到命令 请进入/usl/<span class="built_in">local</span>/mysql/bin/目录下执行</span><br></pre></td></tr></table></figure>
-
-<p>Enter password:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mysql&gt;<span class="built_in">set</span> password <span class="keyword">for</span> root@localhost = password(<span class="string">&#x27;yourpass&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>13、开放远程连接</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mysql&gt;use mysql;</span><br><span class="line">$ msyql&gt;update user <span class="built_in">set</span> user.Host=<span class="string">&#x27;%&#x27;</span> <span class="built_in">where</span> user.User=<span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">$ mysql&gt;flush privileges; 如果是云服务器的话，需要设置安全组，请自行百度</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Mysql</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -1002,12 +809,220 @@ console.log(responseTime);
         <category>Python</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>Linux</tag>
         <tag>Nginx</tag>
         <tag>Django</tag>
-        <tag>Python</tag>
         <tag>Uwsgi</tag>
         <tag>Virtualenv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos7安装mysql5.7亲测可用</title>
+    <url>/2020/03/30/centos7%E5%AE%89%E8%A3%85mysql5-7%E4%BA%B2%E6%B5%8B%E5%8F%AF%E7%94%A8/</url>
+    <content><![CDATA[<p>一 安装前准备<br>1、检查是否已经安装过mysql，执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ rpm -qa | grep mysql</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/2020033015134267.png" alt="在这里插入图片描述"><br>2、查询所有Mysql对应的文件夹</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ whereis mysql</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200330151234488.png" alt="在这里插入图片描述"></p>
+<p>如果有的话请删除相关目录或文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ rm -rf /usr/<span class="built_in">local</span>/mysql</span><br></pre></td></tr></table></figure>
+
+<p>并再次执行<code>whereis mysql </code>验证是否删除完毕</p>
+<p>3、检查mysql用户组和用户是否存在，如果没有，则创建</p>
+<pre><code>1)、查看是否存在组
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat /etc/group | grep mysql</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200330151632701.png" alt="在这里插入图片描述"><br>我的是已经创建过了，所以就不创建了</p>
+<p>没有的话需要创建用户跟用户组</p>
+<pre><code>2)、创建用户组跟用户
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ groupadd mysql   创建用户组</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ useradd -r -g mysql mysql   创建用户且属于mysql用户组</span><br></pre></td></tr></table></figure>
+
+<p>4、从官网下载是用于Linux的Mysql安装包</p>
+<p>下载命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200330152105124.png" alt="在这里插入图片描述"><br>也可以直接到mysql官网选择其他版本进行下载。</p>
+<p>二 安装Mysql<br>1、解压mysql安装包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zvxf mysql-5.7.24-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+<p>解压完之后会在当前目录生成 <code>mysql-5.7.24-linux-glibc2.12-x86_64</code>这样的文件夹</p>
+<p>移动该文件到/usr/local/下 并将文件夹名称修改为mysql 如果/usr/local/下已经存在mysql 将已存在mysql文件修改为其他名称 否则后续步骤可能无法正确进行 </p>
+<p>移动并将文件夹命名为mysql</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mv mysql-5.7.24-linux-glibc2.12-x86_64 /usr/<span class="built_in">local</span>/mysql</span><br></pre></td></tr></table></figure>
+
+<p>2、在/usr/local/mysql目录下创建data目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir /usr/<span class="built_in">local</span>/mysql/data  </span><br></pre></td></tr></table></figure>
+
+<p>3、更改mysql目录下所有的目录及文件夹所属的用户组和用户，以及权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/ </span><br><span class="line"></span><br><span class="line">$ chown -R mysql mysql/</span><br><span class="line"></span><br><span class="line">$ chgrp -R mysql mysql/</span><br></pre></td></tr></table></figure>
+
+
+<p>4、编译安装并初始化mysql,务必记住初始化输出日志末尾的密码（数据库管理员临时密码）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/bin/ 进入到bin目录进行编译安装</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./mysqld --initialize --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql/ --datadir=/usr/<span class="built_in">local</span>/mysql/data/ --lc_messages_dir=/usr/<span class="built_in">local</span>/mysql/share --lc_messages=en_US </span><br></pre></td></tr></table></figure>
+
+<p>补充说明：<br>第4步时，可能会出现错误：</p>
+<p>依次执行以下命令安装编译mysql需要的插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install  libaio-devel.x86_64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum -y install numactl</span><br></pre></td></tr></table></figure>
+
+
+<p>5、运行初始化命令成功后，输出日志如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200330153759390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>记录日志最末尾位置root@localhost:后的字符串，此字符串为mysql管理员临时登录密码。</p>
+<p>6、编辑配置文件my.cnf，添加配置如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi /etc/my.cnf   如果 my.cnf 文件没有的话自行添加</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">basedir=/usr/<span class="built_in">local</span>/mysql/</span><br><span class="line">datadir=/usr/<span class="built_in">local</span>/mysql/data/</span><br><span class="line">port = 3306</span><br><span class="line">symbolic-links=0</span><br><span class="line">symbolic-links=0</span><br><span class="line">max_connections=400</span><br><span class="line">innodb_file_per_table=1</span><br><span class="line">lower_case_table_names=1</span><br><span class="line">explicit_defaults_for_timestamp=1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 按esc 输入 ：wq 保存退出即可</span><br></pre></td></tr></table></figure>
+<p>配置如下图：<br><img src="https://img-blog.csdnimg.cn/20200330153940629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>7、设为开机启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/support-files/</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cp mysql.server /etc/init.d/mysql</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi /etc/init.d/mysql 打开编辑之后会看到下面有俩个字段(basedir和datadir)没有key 我们添加好key</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ basedir=/usr/<span class="built_in">local</span>/mysql/</span><br><span class="line">$ datadir=/usr/<span class="built_in">local</span>/mysql/data/</span><br></pre></td></tr></table></figure>
+<p>8、授权为可执行状态</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chmod +x /etc/init.d/mysql</span><br></pre></td></tr></table></figure>
+<p>9、开机启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chkconfig --add mysql</span><br></pre></td></tr></table></figure>
+<p>10、启动mysql</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ service mysql start  </span><br></pre></td></tr></table></figure>
+
+<p>显示如下结果，说明数据库安装成功</p>
+<p><img src="https://img-blog.csdnimg.cn/20200330154854471.png" alt="在这里插入图片描述"><br>如果出现如下提示信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Starting MySQL... ERROR! The server quit without updating PID file</span><br></pre></td></tr></table></figure>
+
+<p>查看是否存在mysql和mysqld的服务，如果存在，则结束进程，再重新执行启动命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 这里上面的错误孤岛了很久没效果的话 建议卸载了mysql重新安装一次</span><br></pre></td></tr></table></figure>
+
+<p>11、查询mysql服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps -ef|grep mysql</span><br></pre></td></tr></table></figure>
+
+<p>12、登录mysql，修改密码(密码为步骤5生成的临时密码)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./mysql -u root -p 如果提示mysql：未找到命令 请进入/usl/<span class="built_in">local</span>/mysql/bin/目录下执行</span><br></pre></td></tr></table></figure>
+
+<p>Enter password:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mysql&gt;<span class="built_in">set</span> password <span class="keyword">for</span> root@localhost = password(<span class="string">&#x27;yourpass&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>13、开放远程连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mysql&gt;use mysql;</span><br><span class="line">$ msyql&gt;update user <span class="built_in">set</span> user.Host=<span class="string">&#x27;%&#x27;</span> <span class="built_in">where</span> user.User=<span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">$ mysql&gt;flush privileges; 如果是云服务器的话，需要设置安全组，请自行百度</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>checkout无效</title>
+    <url>/2018/10/29/checkout%E6%97%A0%E6%95%88/</url>
+    <content><![CDATA[<p>在日常工作中，我们经常会遇到要更新一个项目，但是由于更改了配置，需要将这些配置<code>commit</code>或者<code>checkout</code>，但是有的同学不想commit怎么办呢，只能通过checkout，那么问题又来了，改了很多配置，checkout之后又要重新修改配置，就很烦。</p>
+<p>哈哈哈，在偶然的机会，找前端大神学会了俩句命令，亲测在代码merge没冲突没问题的情况下都可以成功！</p>
+<p>那么我们开始吧</p>
+<p>1、首先 你需要update的项目 会告诉你更改了那些配置，必须要还原或者提交</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+
+
+<p>2、执行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git stash</span><br></pre></td></tr></table></figure>
+<p>命令的意思是将这些更改过的配置 暂存起来，注意是暂存！</p>
+<p>3、然后<code>git pull </code>你会发现，神奇的以及开始update了，可以看到那些代码是更改过的</p>
+<p>4、最后我们要把暂存的配置，给它取出来，用到以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git statsh pop</span><br></pre></td></tr></table></figure>
+
+
+
+<p>5、最后你发现之前暂存的配置，以及取出来并且成功替换了update之后的配置</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git branch出现end需要q才能退出</title>
+    <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
+    <content><![CDATA[<p>git 进入了编辑模式</p>
+<p>用以下命令即可解决：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.pager mor</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>.gitignore不生效的解决方案</title>
+    <url>/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p><strong>原因：git本地运行有缓存，需要清楚git缓存即可</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm -r --cached .</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>清完缓存需要把代码推到远程仓库</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>.gitignore</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo+netlify+git+个人域名搭建博客</title>
+    <url>/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p><strong>部署过程需要用到一些<code>Linux</code>命令,且本文部署操作机为Mac,如是Windows不保证能100%成功噢</strong></p>
+<h2 id="部署准备"><a href="#部署准备" class="headerlink" title="部署准备"></a>部署准备</h2><pre><code>操作机: Mac(iterm)
+Git: 创建好个人项目(Public) #注意这里项目命名 XX.github.io.git
+Netlify: 注册好自己的项目和团队
+Hexo: 5.4.0
+Node: 15.12.0(注意Node版本)
+</code></pre>
+<p><strong>PS:以上软件自行安装</strong></p>
+<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化博客文件夹"><a href="#初始化博客文件夹" class="headerlink" title="初始化博客文件夹"></a>初始化博客文件夹</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init blog(blog可根据自己情况更改)</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装node-moudles"><a href="#安装node-moudles" class="headerlink" title="安装node_moudles"></a>安装node_moudles</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line"></span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<h2 id="blog目录详解"><a href="#blog目录详解" class="headerlink" title="blog目录详解"></a>blog目录详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules: node依赖包</span><br><span class="line">public：存放生成的页面</span><br><span class="line">scaffolds：生成文章的一些模板</span><br><span class="line"><span class="built_in">source</span>：存放文章</span><br><span class="line">themes：主题</span><br><span class="line">_config.yml: 博客的配置文件</span><br></pre></td></tr></table></figure>
+<h2 id="本地启动Hexo"><a href="#本地启动Hexo" class="headerlink" title="本地启动Hexo"></a>本地启动Hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s(默认为4000端口)</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo新建文章发布步骤"><a href="#hexo新建文章发布步骤" class="headerlink" title="hexo新建文章发布步骤"></a>hexo新建文章发布步骤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean  <span class="comment">#清理静态文件和缓存数据</span></span><br><span class="line"></span><br><span class="line">hexo new <span class="string">&quot;新文章&quot;</span></span><br><span class="line"></span><br><span class="line">hexo g      <span class="comment">#生成静态数据(按日期归类的文件夹/html等)</span></span><br><span class="line"></span><br><span class="line">hexo s      <span class="comment">#本地启动hexo</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="关联Git"><a href="#关联Git" class="headerlink" title="关联Git"></a>关联Git</h1><h2 id="安装git部署插件"><a href="#安装git部署插件" class="headerlink" title="安装git部署插件"></a>安装git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改hexo配置文件-关联git地址"><a href="#修改hexo配置文件-关联git地址" class="headerlink" title="修改hexo配置文件,关联git地址"></a>修改hexo配置文件,关联git地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/chaoyangya/chaoyangya.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h2 id="第一次提交代码"><a href="#第一次提交代码" class="headerlink" title="第一次提交代码"></a>第一次提交代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git init    <span class="comment">#初始化项目文件夹</span></span><br><span class="line"></span><br><span class="line">$ git add .  <span class="comment">#将所有文件添加到暂存区</span></span><br><span class="line"></span><br><span class="line">$ git commit -m <span class="string">&quot;first commit&quot;</span>   <span class="comment">#提交到本地仓库，双引号内是提交的备注信息</span></span><br><span class="line"></span><br><span class="line">$ git remote add origin https://github.com/chaoyangya/chaoyangya.github.io.git</span><br><span class="line"></span><br><span class="line">$ git pull    <span class="comment">#拉取远程主分支信息，首次拉取合并信息</span></span><br><span class="line"></span><br><span class="line">$ git push -u -f origin master  <span class="comment">#提交到远程仓库，这个命令中的 -f 是强制推送，因为远程仓库只有初始化的文件，所以强制推送上去就行了，不加-f 会报当前分支没有远程分支，强制推送可以覆盖master，这样就完成了第一次提交的步骤)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="将hexo内容部署到生产环境"><a href="#将hexo内容部署到生产环境" class="headerlink" title="将hexo内容部署到生产环境"></a>将hexo内容部署到生产环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g </span><br></pre></td></tr></table></figure>
+
+<h1 id="关联Netlify"><a href="#关联Netlify" class="headerlink" title="关联Netlify"></a>关联Netlify</h1><p>登录Netlify建议使用github账号登录,会方便很多<br><img src="../images/img.png" alt="img.png"></p>
+<h2 id="关联git仓库和分支"><a href="#关联git仓库和分支" class="headerlink" title="关联git仓库和分支"></a>关联git仓库和分支</h2><p>登录之后点击醒目的绿色的<code>New site fomr Git</code>按钮来新建站点并选取刚刚创建的仓库：</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>点击完<code>Deploy site</code>之后，Netlify 会自动构建并发布你的网站内容，最重要的是Netlify支持分支部署和部署预览，这样可以提高开发效率，降低发布风险和成本。当我还没有打完这行字，Netlify已经完成网站的发布了，它会提供一个由随机字符串组成且以 .netlify.com 为后缀结尾的网站供你访问.</p>
+<h2 id="关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify"><a href="#关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify" class="headerlink" title="关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)"></a>关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)</h2><p>选择<code>Add domain alias</code>添加个人域名,这里Netlify会默认给你新添加的域名多加一个重定向的www网址<br><img src="../images/img1.png" alt="img1.png"></p>
+<h2 id="开启Https"><a href="#开启Https" class="headerlink" title="开启Https"></a>开启Https</h2><p>Netlify免费提供SSL证书,支持添加自己的SSL,需要新增三个证书.或者将自己域名的<code>CNAME</code>记录类型指向你的.com结尾的域名也可以<br><img src="../images/img2.png" alt="img2.png"></p>
+<p>添加好之后等一会就可以通过你的域名来访问了</p>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>推荐使用各个代码编辑器(大多数支持Markdown),方便快捷</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Hexo.Netlify</tag>
       </tags>
   </entry>
   <entry>
@@ -1022,6 +1037,34 @@ console.log(responseTime);
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line">category: </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
 <p>然后在新建文章的时候就有了<code>category</code>字段</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo删除文章</title>
+    <url>/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p><strong>hexo删除文章</strong></p>
+<p>直接删除 “_posts” 中的 .md 结尾的文件</p>
+<p>执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo管理多个标签</title>
+    <url>/2021/07/08/hexo%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE/</url>
+    <content><![CDATA[<h2 id="1-hexo多个标签应该遵循-list-格式-如下"><a href="#1-hexo多个标签应该遵循-list-格式-如下" class="headerlink" title="1 hexo多个标签应该遵循 list 格式,如下"></a>1 hexo多个标签应该遵循 <strong>list</strong> 格式,如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">date: 2021-04-07 17:39:32</span><br><span class="line">tags: [标签1,标签2]</span><br></pre></td></tr></table></figure>
+
+
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -1059,147 +1102,58 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
-    <title>App跟web定位元素页面相互切换</title>
-    <url>/2018/10/11/App%E8%B7%9Fweb%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2/</url>
-    <content><![CDATA[<p>很多QA在做UI自动化或者App自动化的时候，会遇到在web页面要抓取App模式的元素，或者是在App要抓取H5页面的元素，从网上整理了一些方法，不一定能解决，但是试一下也未尝不可，如果解决了就记得关注一波咯！！！<code>python噢</code>~~~</p>
-<pre><code>self.driver.switch_to.context()
-self.driver.switch_to.context(&#39;WEBVIEW_1&#39;)app --&gt; web
-self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
-</code></pre>
-<p>如果是从App转到web 选择<code>WEBVIEW_1</code>，<br>如果web转到App 选择 <code>NATIVE_APP</code></p>
+    <title>nginx解决多个端口映射80的配置</title>
+    <url>/2021/04/16/nginx%E5%A4%9A%E4%B8%AA%E7%AB%AF%E5%8F%A3/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  xx.cn;  <span class="comment">#域名1</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://x.x.x.x:9001;   <span class="comment">#域名1需要映射到80端口的服务端口</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">     listen       80;</span><br><span class="line">     server_name   xx.cn;   <span class="comment">#域名2</span></span><br><span class="line"></span><br><span class="line">     location / &#123;</span><br><span class="line">         proxy_pass http://xx.xx.xx.xx:7300;    <span class="comment">#域名2需要映射到80端口的服务端口</span></span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h3><p><strong>俩个server服务要相对独立，这样就可以同时将服务1和服务2的端口映射到80端口了</strong></p>
 ]]></content>
       <categories>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Appium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Error taking device screenshot: null</title>
-    <url>/2018/10/11/Error-taking-device-screenshot-null/</url>
-    <content><![CDATA[<p>使用<code>uiautomatorviewer</code> 查看Android某些页面元素，出现如图错误：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Error obtaining UI hierarchy Reason: Error taking device screenshot: null</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/fc8af8463b3e6822ccdd940774759365.png"></p>
-<p>再网上找了很多解决办法依然没解决</p>
-<p><strong>总结了一下原因：</strong></p>
-<p>1、该app不支持该页面的截屏功能所以uiautomatorviewer捕捉不到</p>
-<p>2、手机需要重启</p>
-<p>3、非原装数据线</p>
-<p>4、appium服务异常需要重新连接</p>
-<p>5、可以尝试切换USB接口</p>
-<p>6、最后可以把手机开发者选项的USB调试撤销权限，在重新获取</p>
-<p>　　以上为个人观点，不代表百分百解决，仅供参考！</p>
-]]></content>
-      <categories>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>Android.Appium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux中常用来查看进程的命令</title>
-    <url>/2018/12/25/Linux%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p>查看所有运行中的进程:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps aux | less</span><br></pre></td></tr></table></figure>
-
-<p>显示所有进程: </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps -A  </span><br><span class="line">$ ps -e</span><br></pre></td></tr></table></figure>
-
-<p>显示进程的树状图:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pstree</span><br></pre></td></tr></table></figure>
-
-<p>查看进程:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ netstat -ntlp</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Linux</category>
+        <category>Nginx</category>
       </categories>
       <tags>
         <tag>Linux</tag>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
-    <title>Iterm2/Mac自带终端工具快速ssh</title>
-    <url>/2019/01/26/Iterm2-Mac%E8%87%AA%E5%B8%A6%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9Fssh/</url>
-    <content><![CDATA[<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><p>首先我们在终端本地要写一个登录的脚本，eg：</p>
-<p>当然首先要<code>touch login.sh</code> 啦，下面就是脚本文件，比较low，大神勿喷，会更炫酷写法的小伙伴可以自己参考这个思路写，不会的直接复制就好啦</p>
-<p>　　</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="comment">#!/usr/bin/expect -f</span></span><br><span class="line">　　<span class="built_in">set</span> hostname [lindex <span class="variable">$argv</span> 0]</span><br><span class="line">　　<span class="built_in">set</span> user [lindex <span class="variable">$argv</span> 1]</span><br><span class="line">　　<span class="built_in">set</span> password [lindex <span class="variable">$argv</span> 2]</span><br><span class="line">　　<span class="built_in">set</span> timeout 30</span><br><span class="line">　　spawn ssh -tt <span class="variable">$user</span>@<span class="variable">$hostname</span>;</span><br><span class="line">　　expect &#123;</span><br><span class="line">　　　　<span class="string">&quot;yes/no&quot;</span> &#123; send <span class="string">&quot;yes\r&quot;</span>;exp_continue &#125;</span><br><span class="line">　　　　<span class="string">&quot;*password:&quot;</span> &#123; send <span class="string">&quot;<span class="variable">$password</span>\r&quot;</span>;&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">　　interact</span><br><span class="line">　　~</span><br></pre></td></tr></table></figure>
+    <title>nginx配置实现ip访问指定URL</title>
+    <url>/2021/04/01/nginx%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0ip%E8%AE%BF%E9%97%AE%E6%8C%87%E5%AE%9AURL/</url>
+    <content><![CDATA[<p><strong>我的需求是这样的，nginx+uwsgi启动的web服务，访问域名XX.CN之后，nginx报错404，我需要实现的是访问XX.CN，自动映射到XX.CN/login 因为我server是80端口，所以不需要加端口即可访问</strong></p>
+<p>nginx配置如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim nginx.conf</span><br></pre></td></tr></table></figure>
 
-<p>如果写好了在sh login.sh 的时候，发现expect不是一个可执行的命令的话，我们还需要下载expect依赖噢，命令如下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install expect</span><br></pre></td></tr></table></figure>
-<p>这个是mac版本的哈,如果小伙伴是windows的推荐去下载cygwin灰常好用哈,下载的时候一路下</p>
-<p>一步就好了,中途会让你安装需要的功能,记得安装一下三个依赖包,很重要!(tcl、expect、apt-cyg),</p>
-<p>下完就可以奔放了哈,</p>
-<p>##二、</p>
-<p>下面就来编写我们的懒人登陆ssh啦，其实就是利用“起别名”来实现的，同样的哈，大神勿喷</p>
-<p>首先找到启动终端就运行的一个文件<code>bash_profile</code>然后编辑这个文件，输入以下内容：</p>
-<p>　　　　</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> 别名=<span class="string">&#x27;expect login.sh sship root passwd&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>ps</strong>：别名就是你登陆终端之后输入这个别名就会自动登陆/或者操作你的指令啦！</p>
-<p>具体图示如下，因为我是wsl的终端，所以跟mac的启动文件名不一致，但是原理是一样的（windows小伙伴如果也想体验mac终端，可以评论或者私聊）<br><img src="https://img-blog.csdnimg.cn/img_convert/81b5757e6ba93a39660195244f1b4d1b.png">
-　　　</p>
+<p>在你启动的server中加入如下配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ( <span class="variable">$request_uri</span> = <span class="string">&quot;/&quot;</span> ) &#123;</span><br><span class="line">    rewrite <span class="string">&quot;/&quot;</span> http://XX.CN/login <span class="built_in">break</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>然后现在去访问XX.CN 就会映射到 XX.CN/login </p>
+<p>大功告成！！！</p>
 ]]></content>
       <categories>
-        <category>Iterm2</category>
+        <category>Nginx</category>
       </categories>
       <tags>
-        <tag>Mac</tag>
-        <tag>Iterm2</tag>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
-    <title>Linux快捷进入长目录的方法</title>
-    <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
+    <title>no such table:django_session</title>
+    <url>/2021/04/01/no-such-table-django-session/</url>
+    <content><![CDATA[<p><strong>出现上述问题是django没有django_session表</strong></p>
+<p>错误跟Session的机制相关<br>既然要从Web服务器端来记录用户信息，<br>那么一定要有存放用户session id对应信息的地方才行</p>
+<p>django创建存放session表命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ python manage.py migrate</span><br></pre></td></tr></table></figure>
 
-
-<p>2、然后让配置生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ./bashrc</span><br></pre></td></tr></table></figure>
-
-
-
-<p>3、最后我们输入设置的<code>cywhat</code>（这个名字自己设置）就可以快速进入设置的长目录了</p>
+<p>出现很多绿色的ok即创建完成</p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>Django</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>checkout无效</title>
-    <url>/2018/10/29/checkout%E6%97%A0%E6%95%88/</url>
-    <content><![CDATA[<p>在日常工作中，我们经常会遇到要更新一个项目，但是由于更改了配置，需要将这些配置<code>commit</code>或者<code>checkout</code>，但是有的同学不想commit怎么办呢，只能通过checkout，那么问题又来了，改了很多配置，checkout之后又要重新修改配置，就很烦。</p>
-<p>哈哈哈，在偶然的机会，找前端大神学会了俩句命令，亲测在代码merge没冲突没问题的情况下都可以成功！</p>
-<p>那么我们开始吧</p>
-<p>1、首先 你需要update的项目 会告诉你更改了那些配置，必须要还原或者提交</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
-
-
-<p>2、执行以下命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git stash</span><br></pre></td></tr></table></figure>
-<p>命令的意思是将这些更改过的配置 暂存起来，注意是暂存！</p>
-<p>3、然后<code>git pull </code>你会发现，神奇的以及开始update了，可以看到那些代码是更改过的</p>
-<p>4、最后我们要把暂存的配置，给它取出来，用到以下命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git statsh pop</span><br></pre></td></tr></table></figure>
-
-
-
-<p>5、最后你发现之前暂存的配置，以及取出来并且成功替换了update之后的配置</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
+        <tag>Django</tag>
       </tags>
   </entry>
   <entry>
@@ -1249,49 +1203,95 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>hexo+netlify+git+个人域名搭建博客</title>
-    <url>/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p><strong>部署过程需要用到一些<code>Linux</code>命令,且本文部署操作机为Mac,如是Windows不保证能100%成功噢</strong></p>
-<h2 id="部署准备"><a href="#部署准备" class="headerlink" title="部署准备"></a>部署准备</h2><pre><code>操作机: Mac(iterm)
-Git: 创建好个人项目(Public) #注意这里项目命名 XX.github.io.git
-Netlify: 注册好自己的项目和团队
-Hexo: 5.4.0
-Node: 15.12.0(注意Node版本)
-</code></pre>
-<p><strong>PS:以上软件自行安装</strong></p>
-<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<h2 id="初始化博客文件夹"><a href="#初始化博客文件夹" class="headerlink" title="初始化博客文件夹"></a>初始化博客文件夹</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init blog(blog可根据自己情况更改)</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装node-moudles"><a href="#安装node-moudles" class="headerlink" title="安装node_moudles"></a>安装node_moudles</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line"></span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-
-<h2 id="blog目录详解"><a href="#blog目录详解" class="headerlink" title="blog目录详解"></a>blog目录详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules: node依赖包</span><br><span class="line">public：存放生成的页面</span><br><span class="line">scaffolds：生成文章的一些模板</span><br><span class="line"><span class="built_in">source</span>：存放文章</span><br><span class="line">themes：主题</span><br><span class="line">_config.yml: 博客的配置文件</span><br></pre></td></tr></table></figure>
-<h2 id="本地启动Hexo"><a href="#本地启动Hexo" class="headerlink" title="本地启动Hexo"></a>本地启动Hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s(默认为4000端口)</span><br></pre></td></tr></table></figure>
-
-<h2 id="hexo新建文章发布步骤"><a href="#hexo新建文章发布步骤" class="headerlink" title="hexo新建文章发布步骤"></a>hexo新建文章发布步骤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean  <span class="comment">#清理静态文件和缓存数据</span></span><br><span class="line"></span><br><span class="line">hexo new <span class="string">&quot;新文章&quot;</span></span><br><span class="line"></span><br><span class="line">hexo g      <span class="comment">#生成静态数据(按日期归类的文件夹/html等)</span></span><br><span class="line"></span><br><span class="line">hexo s      <span class="comment">#本地启动hexo</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="关联Git"><a href="#关联Git" class="headerlink" title="关联Git"></a>关联Git</h1><h2 id="安装git部署插件"><a href="#安装git部署插件" class="headerlink" title="安装git部署插件"></a>安装git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改hexo配置文件-关联git地址"><a href="#修改hexo配置文件-关联git地址" class="headerlink" title="修改hexo配置文件,关联git地址"></a>修改hexo配置文件,关联git地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/chaoyangya/chaoyangya.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<h2 id="第一次提交代码"><a href="#第一次提交代码" class="headerlink" title="第一次提交代码"></a>第一次提交代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git init    <span class="comment">#初始化项目文件夹</span></span><br><span class="line"></span><br><span class="line">$ git add .  <span class="comment">#将所有文件添加到暂存区</span></span><br><span class="line"></span><br><span class="line">$ git commit -m <span class="string">&quot;first commit&quot;</span>   <span class="comment">#提交到本地仓库，双引号内是提交的备注信息</span></span><br><span class="line"></span><br><span class="line">$ git remote add origin https://github.com/chaoyangya/chaoyangya.github.io.git</span><br><span class="line"></span><br><span class="line">$ git pull    <span class="comment">#拉取远程主分支信息，首次拉取合并信息</span></span><br><span class="line"></span><br><span class="line">$ git push -u -f origin master  <span class="comment">#提交到远程仓库，这个命令中的 -f 是强制推送，因为远程仓库只有初始化的文件，所以强制推送上去就行了，不加-f 会报当前分支没有远程分支，强制推送可以覆盖master，这样就完成了第一次提交的步骤)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="将hexo内容部署到生产环境"><a href="#将hexo内容部署到生产环境" class="headerlink" title="将hexo内容部署到生产环境"></a>将hexo内容部署到生产环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g </span><br></pre></td></tr></table></figure>
-
-<h1 id="关联Netlify"><a href="#关联Netlify" class="headerlink" title="关联Netlify"></a>关联Netlify</h1><p>登录Netlify建议使用github账号登录,会方便很多<br><img src="../images/img.png" alt="img.png"></p>
-<h2 id="关联git仓库和分支"><a href="#关联git仓库和分支" class="headerlink" title="关联git仓库和分支"></a>关联git仓库和分支</h2><p>登录之后点击醒目的绿色的<code>New site fomr Git</code>按钮来新建站点并选取刚刚创建的仓库：</p>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>点击完<code>Deploy site</code>之后，Netlify 会自动构建并发布你的网站内容，最重要的是Netlify支持分支部署和部署预览，这样可以提高开发效率，降低发布风险和成本。当我还没有打完这行字，Netlify已经完成网站的发布了，它会提供一个由随机字符串组成且以 .netlify.com 为后缀结尾的网站供你访问.</p>
-<h2 id="关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify"><a href="#关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify" class="headerlink" title="关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)"></a>关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)</h2><p>选择<code>Add domain alias</code>添加个人域名,这里Netlify会默认给你新添加的域名多加一个重定向的www网址<br><img src="../images/img1.png" alt="img1.png"></p>
-<h2 id="开启Https"><a href="#开启Https" class="headerlink" title="开启Https"></a>开启Https</h2><p>Netlify免费提供SSL证书,支持添加自己的SSL,需要新增三个证书.或者将自己域名的<code>CNAME</code>记录类型指向你的.com结尾的域名也可以<br><img src="../images/img2.png" alt="img2.png"></p>
-<p>添加好之后等一会就可以通过你的域名来访问了</p>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>推荐使用各个代码编辑器(大多数支持Markdown),方便快捷</p>
+    <title>pip安装插件失败，拒绝连接</title>
+    <url>/2021/03/30/pip%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%8B%92%E7%BB%9D%E8%BF%9E%E6%8E%A5/</url>
+    <content><![CDATA[<p>WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by ‘ConnectTimeoutError(&lt;pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ff8fba5f080&gt;, ‘Connection to mirrors.aliyn.com timed out. (connect timeout=15)’)’: /pypi/simple/python-jenkins/</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip3 install python-jenkins</span><br></pre></td></tr></table></figure>
+<p>安装python-jenkins报错如下<br><img src="https://img-blog.csdnimg.cn/20210330114856815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>解决办法：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple python-jenkins</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210330115051235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如上已经安装好了</p>
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>Pip</category>
       </categories>
       <tags>
-        <tag>Git</tag>
-        <tag>Hexo.Netlify</tag>
+        <tag>Python</tag>
+        <tag>Pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>supervisord管理常驻进程uwsgi/nginx/redis/mongodb</title>
+    <url>/2021/05/24/supervisord%E7%AE%A1%E7%90%86%E5%B8%B8%E9%A9%BB%E8%BF%9B%E7%A8%8Buwsgi-nginx-redis-mongodb/</url>
+    <content><![CDATA[<p>解决部署的一些项目,因机器关机/重启导致项目需要手动重新启动的问题</p>
+<h2 id="1-安装supervisor"><a href="#1-安装supervisor" class="headerlink" title="1 `安装supervisor"></a>1 `安装supervisor</h2><p>yum安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install supervisor</span><br></pre></td></tr></table></figure>
+
+<p>pip安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install supervisor</span><br></pre></td></tr></table></figure>
+
+<p>easy_install安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ easy_install supervisor</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-配置supervisor"><a href="#2-配置supervisor" class="headerlink" title="2 `配置supervisor"></a>2 `配置supervisor</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#生成配置supervisor文件</span></span><br><span class="line">$ echo_supervisord_conf &gt; /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建存放配置文件目录</span></span><br><span class="line">$ mkdir -p /etc/supervisord.d/conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-修改默认配置"><a href="#3-修改默认配置" class="headerlink" title="3 `修改默认配置"></a>3 `修改默认配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#文件最后一行,目录修改为配置文件地址,我的.ini文件是在/etc/supervisord.d/conf/存放,而且本身配置文件也在etc中,所以目录直接写supervisord.d/conf/就可以了</span></span><br><span class="line">$ [include]</span><br><span class="line">$ files = supervisord.d/conf/*.ini</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-通过配置文件启动supervisor"><a href="#4-通过配置文件启动supervisor" class="headerlink" title="4 `通过配置文件启动supervisor"></a>4 `通过配置文件启动supervisor</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#这里一定要用配置文件的绝对路径</span></span><br><span class="line">$ supervisord -c /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="5-编写要管理进程的配置文件"><a href="#5-编写要管理进程的配置文件" class="headerlink" title="5 `编写要管理进程的配置文件"></a>5 `编写要管理进程的配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#因为我这里配置文件中通配符是以.ini结尾 所以新建的文件后缀为.ini</span></span><br><span class="line">$ touch my_uwsgi.ini</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#配置如下</span></span><br><span class="line">$ [program:uwsgi]  <span class="comment">#uwsgi这个名称是管理进程的别名,可以自定义</span></span><br><span class="line">  user=root <span class="comment">#启动用户</span></span><br><span class="line">  <span class="built_in">command</span>=/root/pyenv/myenv/bin/uwsgi --ini  /root/pyenv/myenv/my_uwsgi.ini   <span class="comment">#启动的命令</span></span><br><span class="line">  directory=/root/pyenv/myenv    <span class="comment">#文件目录</span></span><br><span class="line">  autostart=<span class="literal">true</span>   <span class="comment">#是否跟随supervisor启动</span></span><br><span class="line">  autorestart=<span class="literal">true</span>   <span class="comment">#程序故障是否重启</span></span><br><span class="line">  stopasgroup=<span class="literal">true</span>   <span class="comment">#</span></span><br><span class="line">  startsecs=3   <span class="comment">#启动3s后无异常判断为正常</span></span><br><span class="line">  startretries=3   <span class="comment">#启动尝试次数</span></span><br><span class="line">  redirect_stderr=<span class="literal">true</span>   <span class="comment">#把stderr重定向到stdout,默认为flase</span></span><br><span class="line">  stdout_logfile=/var/<span class="built_in">log</span>/uwsgi_out.log   <span class="comment">#标准输出日志路径 这里一定要把uwsgi本身的日志输出关掉</span></span><br><span class="line">  stderr_logfile=/var/<span class="built_in">log</span>/uwsgi_err.log   <span class="comment">#输出错误日志路径</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="6-启动应用"><a href="#6-启动应用" class="headerlink" title="6 `启动应用"></a>6 `启动应用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#重启supervisor配置中的所有程序</span></span><br><span class="line">$ supervisorctl reload</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看supervisor状态 出现启动项目name即可</span></span><br><span class="line">$ supervisorctl status</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="7-supervisor命令详解"><a href="#7-supervisor命令详解" class="headerlink" title="7 `supervisor命令详解"></a>7 `supervisor命令详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ supervisorctl restart &lt;application name&gt;  <span class="comment">#重启指定应用</span></span><br><span class="line">$ supervisorctl stop &lt;application name&gt;  <span class="comment">#停止指定应用</span></span><br><span class="line">$ supervisorctl start &lt;application name&gt;  <span class="comment">#启动指定应用</span></span><br><span class="line">$ supervisorctl restart all  <span class="comment">#重启所有应用</span></span><br><span class="line">$ supervisorctl stop all  <span class="comment">#停止所有应用</span></span><br><span class="line">$ supervisorctl start all  <span class="comment">#启动所有应用</span></span><br><span class="line">$ supervisorctl update  <span class="comment">#配置文件修改后可以使用该命令加载新的配置</span></span><br><span class="line">$ supervisorctl reload  <span class="comment">#重新启动配置中的所有程序</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>使用supervisorctl status查看发现有进程被不断重启,报错如下:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">XXX(项目名)      FATAL     Exited too quickly (process <span class="built_in">log</span> may have details)</span><br></pre></td></tr></table></figure>
+
+<p>原因:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">supervisor只支持前台程序的托管到后台(启动前需要<span class="built_in">kill</span>掉已经存在的进程),例如:</span><br><span class="line"></span><br><span class="line">	<span class="comment">#uwsgi</span></span><br><span class="line">	uwsgi如果出现不断重启,一定是启动命令中加了-d的参数,去掉就好了</span><br><span class="line"></span><br><span class="line">	<span class="comment">#redis</span></span><br><span class="line">	redis就需要把redis.conf配置文件中的daemonize设置为no</span><br><span class="line"></span><br><span class="line">	<span class="comment">#nginx</span></span><br><span class="line">	nginx就需要在命令行后缀增加 -g ‘daemon off;’</span><br><span class="line"></span><br><span class="line">	<span class="comment">#mongodb</span></span><br><span class="line">	mongodb如果不断重启,多半也是因为启动命令中加了后台运行的参数 &amp; 同样的去掉就可以了</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Supervisord</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Supervisord</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>web服务 访问Linux中的静态文件</title>
+    <url>/2021/03/29/web%E6%9C%8D%E5%8A%A1-%E8%AE%BF%E9%97%AELinux%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>报错404，NOT FOUND可能是因为nginx.conf配置文件的俩处地方配置有误，按照下面，检查你的配置之后99.9999%是可以在浏览器访问Linux的静态文件的</p>
+<p>1、检查nginx是否打开允许访问本地文件的配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim nginx.conf</span><br></pre></td></tr></table></figure>
+
+
+<p>2、查找如下图的配置项，没有的话添加即可，注意是在http这个服务中<br><img src="https://img-blog.csdnimg.cn/20210329180009631.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ proxy_intercept_errors on;</span><br></pre></td></tr></table></figure>
+
+<p>3、检查需要访问文件的路径是否配置正确，例如我要访问的静态文件名称为Bapi.html，文件存放路径为root/cccc/Bapi.html，配置如下</p>
+<p><img src="https://img-blog.csdnimg.cn/20210329180232275.png" alt="在这里插入图片描述"></p>
+<p>4、访问静态文件</p>
+<p><img src="https://img-blog.csdnimg.cn/20210329180310114.png" alt="在这里插入图片描述"><br>可以访问，我是有域名的，所以我的访问直接就是域名+Bapi.html 其他格式的文件同理。</p>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Nginx</tag>
       </tags>
   </entry>
 </search>
