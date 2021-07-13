@@ -1251,7 +1251,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   <entry>
     <title>hexo+netlify+git+个人域名搭建博客</title>
     <url>/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>**部署过程需要用到一些<code>Linux</code>命令,且本文部署操作机为Mac,如是Windows不保证能100%成功噢</p>
+    <content><![CDATA[<p><strong>部署过程需要用到一些<code>Linux</code>命令,且本文部署操作机为Mac,如是Windows不保证能100%成功噢</strong></p>
 <h2 id="部署准备"><a href="#部署准备" class="headerlink" title="部署准备"></a>部署准备</h2><pre><code>操作机: Mac(iterm)
 Git: 创建好个人项目(Public) #注意这里项目命名 XX.github.io.git
 Netlify: 注册好自己的项目和团队
