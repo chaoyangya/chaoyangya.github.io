@@ -1317,4 +1317,45 @@ Node: 15.12.0(注意Node版本)
         <tag>Hexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>npm切换版本</title>
+    <url>/2021/07/14/npm%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h1 id="Npm切换版本"><a href="#Npm切换版本" class="headerlink" title="Npm切换版本"></a>Npm切换版本</h1><p>npm需要切换版本如果没有安装nvm很头疼,会存在以下三种情况:</p>
+<pre><code>① Node环境还在,只是Npm被卸载
+② Npm和Node版本不兼容
+③ 存在多个Npm版本,无法切换
+</code></pre>
+<p><strong>PS:如果存在以上三种情况的,强烈建议,直接Nvm重新装Node,简单粗暴</strong></p>
+<h2 id="卸载Node"><a href="#卸载Node" class="headerlink" title="卸载Node"></a>卸载Node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm uninstall vx.x.x</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装指定Node版本"><a href="#安装指定Node版本" class="headerlink" title="安装指定Node版本"></a>安装指定Node版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm install vx.x.x</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看Node-Npm版本"><a href="#查看Node-Npm版本" class="headerlink" title="查看Node/Npm版本"></a>查看Node/Npm版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br><span class="line"></span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Npm</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+        <tag>Npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from x.x.x)</title>
+    <url>/2021/07/14/nvm-Cannot-uninstall-currently-active-node-version-vx-x-x-inferred-from-x-x-x/</url>
+    <content><![CDATA[<p>#使用nvm卸载node版本时报错如下:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from</span><br><span class="line">  x.x.x)</span><br></pre></td></tr></table></figure>
+
+<h2 id="需要先退出已经使用的node环境"><a href="#需要先退出已经使用的node环境" class="headerlink" title="需要先退出已经使用的node环境"></a>需要先退出已经使用的node环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm deactivate</span><br></pre></td></tr></table></figure>
+
+<h2 id="然后再执行卸载命令"><a href="#然后再执行卸载命令" class="headerlink" title="然后再执行卸载命令"></a>然后再执行卸载命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm uninstall vx.x.x</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Npm</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+        <tag>Npm</tag>
+        <tag>NVm</tag>
+      </tags>
+  </entry>
 </search>
