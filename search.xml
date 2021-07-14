@@ -177,7 +177,8 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
         <category>Appium</category>
       </categories>
       <tags>
-        <tag>Android.Appium</tag>
+        <tag>Android</tag>
+        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -1022,7 +1023,8 @@ Node: 15.12.0(注意Node版本)
       </categories>
       <tags>
         <tag>Git</tag>
-        <tag>Hexo.Netlify</tag>
+        <tag>Hexo</tag>
+        <tag>Netlify</tag>
       </tags>
   </entry>
   <entry>
