@@ -1296,4 +1296,25 @@ Node: 15.12.0(注意Node版本)
         <tag>Nginx</tag>
       </tags>
   </entry>
+  <entry>
+    <title>hexo优化加载速度</title>
+    <url>/2021/07/14/hexo%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/</url>
+    <content><![CDATA[<h1 id="注意该方法利用插件更改配置-如主题中有Google字体导致加载缓慢-请移步其他内容"><a href="#注意该方法利用插件更改配置-如主题中有Google字体导致加载缓慢-请移步其他内容" class="headerlink" title="注意该方法利用插件更改配置,如主题中有Google字体导致加载缓慢,请移步其他内容"></a>注意该方法利用插件更改配置,如主题中有Google字体导致加载缓慢,请移步其他内容</h1><p>利用插件 <code>hexo-all-minifier</code></p>
+<h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-all-minifier --save</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果安装失败,请使用<code>cnpm</code></strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cnpm install hexo-all-minifier --save</span><br></pre></td></tr></table></figure>
+
+<h1 id="更改Hexo配置"><a href="#更改Hexo配置" class="headerlink" title="更改Hexo配置"></a>更改Hexo配置</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim  _config.yml</span><br></pre></td></tr></table></figure>
+<p>加入如下配置:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#启用all_minifier</span></span><br><span class="line">all_minifier: <span class="literal">true</span></span><br><span class="line"><span class="comment"># html压缩</span></span><br><span class="line">html_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  ignore_error: <span class="literal">false</span></span><br><span class="line">  exclude:</span><br><span class="line"></span><br><span class="line"><span class="comment"># css压缩</span></span><br><span class="line">css_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  exclude:</span><br><span class="line">    - <span class="string">&#x27;*.min.css&#x27;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># js压缩</span></span><br><span class="line">js_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  mangle: <span class="literal">true</span></span><br><span class="line">  compress:</span><br><span class="line">  exclude:</span><br><span class="line">    - <span class="string">&#x27;*.min.js&#x27;</span></span><br><span class="line">js_concator:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  bundle_path: <span class="string">&#x27;/js/bundle.js&#x27;</span></span><br><span class="line">  front: <span class="literal">false</span></span><br><span class="line">  silent: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 图片优化</span></span><br><span class="line">image_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  interlaced: <span class="literal">false</span></span><br><span class="line">  multipass: <span class="literal">false</span></span><br><span class="line">  optimizationLevel: 2</span><br><span class="line">  pngquant: <span class="literal">false</span></span><br><span class="line">  progressive: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="重新发布"><a href="#重新发布" class="headerlink" title="重新发布"></a>重新发布</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
 </search>
