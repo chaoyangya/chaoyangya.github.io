@@ -1358,4 +1358,34 @@ Node: 15.12.0(注意Node版本)
         <tag>NVm</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Java线上问题排查</title>
+    <url>/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
+    <content><![CDATA[<h2 id="top-查看占用资源信息以及pid"><a href="#top-查看占用资源信息以及pid" class="headerlink" title="top 查看占用资源信息以及pid"></a>top 查看占用资源信息以及pid</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top </span><br></pre></td></tr></table></figure>
+
+<h2 id="查看pid下绑定线程"><a href="#查看pid下绑定线程" class="headerlink" title="查看pid下绑定线程"></a>查看pid下绑定线程</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top -Hp pid1(进程id)</span><br></pre></td></tr></table></figure>
+
+<h2 id="拿到需要查询的线程pid-转换成16进制"><a href="#拿到需要查询的线程pid-转换成16进制" class="headerlink" title="拿到需要查询的线程pid,转换成16进制"></a>拿到需要查询的线程pid,转换成16进制</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">printf</span> <span class="string">&#x27;%x&#x27;</span> pid2(线程id)  ==&gt; 6a4     <span class="comment">#6a4为输出结果</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="通过jstack讲java信息输出到文本"><a href="#通过jstack讲java信息输出到文本" class="headerlink" title="通过jstack讲java信息输出到文本"></a>通过jstack讲java信息输出到文本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jstack pid1(进程id) &gt; t.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果jstack报错,请查看 <a href="">jstack不存在</a></strong></p>
+<h2 id="在t-txt文件中查找6a4"><a href="#在t-txt文件中查找6a4" class="headerlink" title="在t.txt文件中查找6a4"></a>在t.txt文件中查找<code>6a4</code></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim t.txt</span><br><span class="line"></span><br><span class="line">$ /6a4</span><br></pre></td></tr></table></figure>
+<h2 id="然后找到自己的collectorl业务代码层具体行数去分析"><a href="#然后找到自己的collectorl业务代码层具体行数去分析" class="headerlink" title="然后找到自己的collectorl业务代码层具体行数去分析"></a>然后找到自己的collectorl业务代码层具体行数去分析</h2>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>bash:jstack: 未找到命令</title>
+    <url>/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="jstack报错如下"><a href="#jstack报错如下" class="headerlink" title="jstack报错如下"></a>jstack报错如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ -bash: jstack: 未找到命令</span><br></pre></td></tr></table></figure>
+<p><img src="../images/img3.png" alt="img.png"></p>
+<h2 id="安装以下依赖"><a href="#安装以下依赖" class="headerlink" title="安装以下依赖"></a>安装以下依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install java-1.7.0-openjdk-devel -y</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
 </search>
