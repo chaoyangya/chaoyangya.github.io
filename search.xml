@@ -1387,5 +1387,11 @@ Node: 15.12.0(注意Node版本)
 <h2 id="安装以下依赖"><a href="#安装以下依赖" class="headerlink" title="安装以下依赖"></a>安装以下依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install java-1.7.0-openjdk-devel -y</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
   </entry>
 </search>
