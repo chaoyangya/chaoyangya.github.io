@@ -1369,7 +1369,7 @@ Node: 15.12.0(注意Node版本)
 
 <h2 id="通过jstack讲java信息输出到文本"><a href="#通过jstack讲java信息输出到文本" class="headerlink" title="通过jstack讲java信息输出到文本"></a>通过jstack讲java信息输出到文本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jstack pid1(进程id) &gt; t.txt</span><br></pre></td></tr></table></figure>
 
-<p><strong>如果jstack报错,请查看 <a href="">jstack不存在</a></strong></p>
+<p><strong>如果jstack报错,请查看 <a href="https://cywhat.cn/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/">jstack不存在</a></strong></p>
 <h2 id="在t-txt文件中查找6a4"><a href="#在t-txt文件中查找6a4" class="headerlink" title="在t.txt文件中查找6a4"></a>在t.txt文件中查找<code>6a4</code></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim t.txt</span><br><span class="line"></span><br><span class="line">$ /6a4</span><br></pre></td></tr></table></figure>
 <h2 id="然后找到自己的collectorl业务代码层具体行数去分析"><a href="#然后找到自己的collectorl业务代码层具体行数去分析" class="headerlink" title="然后找到自己的collectorl业务代码层具体行数去分析"></a>然后找到自己的collectorl业务代码层具体行数去分析</h2>]]></content>
       <categories>
