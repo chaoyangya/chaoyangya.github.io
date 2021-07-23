@@ -1416,7 +1416,12 @@ Node: 15.12.0(注意Node版本)
 
 <h2 id="谷歌"><a href="#谷歌" class="headerlink" title="谷歌"></a>谷歌</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://search.google.com/search-console/welcome  <span class="comment">#需要登录Google账号</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="360搜索"><a href="#360搜索" class="headerlink" title="360搜索"></a>360搜索</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://info.so.360.cn/site_submit.html    <span class="comment">#需要提交备案信息</span></span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="360搜索"><a href="#360搜索" class="headerlink" title="360搜索"></a>360搜索</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://info.so.360.cn/site_submit.html    <span class="comment">#需要提交备案信息</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="必应"><a href="#必应" class="headerlink" title="必应"></a>必应</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://www.bing.com/webmasters/about      <span class="comment">#验证方式xml meta dns</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="搜狗"><a href="#搜狗" class="headerlink" title="搜狗"></a>搜狗</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://zhanzhang.sogou.com/?forceredirect=1<span class="comment">#   #需要登录验证</span></span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
