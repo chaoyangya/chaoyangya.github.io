@@ -8,7 +8,7 @@ subtitle: ''
 description: ''
 keywords:
 author: cywhat
-language: zh-Hans
+language: zh-CN
 timezone: ''
 
 # URL
@@ -55,29 +55,59 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
-# 博文压缩
-neat_enable: true
-# 压缩html
-neat_html:
+
+#优化加载速度
+all_minifier: true
+
+# html压缩
+html_minifier:
+  enable: true
+  ignore_error: false
+  exclude:
+
+# css压缩
+css_minifier:
   enable: true
   exclude:
-# 压缩css  
-neat_css:
-  enable: true
-  exclude:
-    - '**/*.min.css'
-# 压缩js
-neat_js:
+    - '*.min.css'
+
+# js压缩
+js_minifier:
   enable: true
   mangle: true
-  output:
   compress:
   exclude:
-    - '**/*.min.js'
-    - '**/jquery.fancybox.pack.js'
-    - '**/index.js'
-    - '**/fireworks.js'
+    - '*.min.js'
+js_concator:
+  enable: false
+  bundle_path: '/js/bundle.js'
+  front: false
+  silent: false
 
+# 图片优化
+image_minifier:
+  enable: true
+  interlaced: false
+  multipass: false
+  optimizationLevel: 2
+  pngquant: false
+  progressive: false
+
+# Valine
+# 完整文档 https://valine.js.org/configuration.html
+# 注意：下列配置项中的 true/false 不要用引号括起来
+#valine:
+#  appid: KRpbzi6vWLUym0RD8Tesz4ns-gzGzoHsz
+#  appkey:  0l3kT10v71sYir8T6S0FpD9o
+#  placeholder: 吐槽 # 评论框占位提示符
+#  path: window.location.pathname # 当前文章页路径，用于区分不同的文章页，以保证正确读取该文章页下的评论列表
+#  avatar: retro # Gravatar 头像展示方式
+#  meta: ['nick', 'mail', 'link']  # 评论者相关属性
+#  pageSize: 10 # 评论列表分页，每页条数
+#  lang: zh-CN # zh-CN | zh-TW | en | ja
+#  highlight: false # 代码高亮
+#  recordIP: false # 是否记录评论者IP
+#  serverURLs:  # REST API 服务器地址，国际版不填
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
