@@ -19,6 +19,30 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Error taking device screenshot: null</title>
+    <url>/2018/10/11/Error-taking-device-screenshot-null/</url>
+    <content><![CDATA[<p>使用<code>uiautomatorviewer</code> 查看Android某些页面元素，出现如图错误：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Error obtaining UI hierarchy Reason: Error taking device screenshot: null</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/fc8af8463b3e6822ccdd940774759365.png"></p>
+<p>再网上找了很多解决办法依然没解决</p>
+<p><strong>总结了一下原因：</strong></p>
+<p>1、该app不支持该页面的截屏功能所以uiautomatorviewer捕捉不到</p>
+<p>2、手机需要重启</p>
+<p>3、非原装数据线</p>
+<p>4、appium服务异常需要重新连接</p>
+<p>5、可以尝试切换USB接口</p>
+<p>6、最后可以把手机开发者选项的USB调试撤销权限，在重新获取</p>
+<p>　　以上为个人观点，不代表百分百解决，仅供参考！</p>
+]]></content>
+      <categories>
+        <category>Appium</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Appium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos7.7安装并配置jenkins+python+allure发送定制化报告</title>
     <url>/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
     <content><![CDATA[<h1 id="【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告"><a href="#【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告" class="headerlink" title="【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告"></a>【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告</h1><p>目前测试开发方向的接口自动化脚本很多，这里就不一一列举了，有兴趣的可以baidu/google 一大堆，本次主要根据自己公司/业务需要搭建了一套基于python3.7+pytest+allure的接口自动化脚本，由于工作原因，源码就不放了，最下面会放一个很简单的脚本，不想写的可以暂时先用下，调试通过以后，再进行业务代码的编写也是ok的，话不多说，开整。</p>
@@ -155,30 +179,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
         <tag>Jenkins</tag>
         <tag>Allure</tag>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Error taking device screenshot: null</title>
-    <url>/2018/10/11/Error-taking-device-screenshot-null/</url>
-    <content><![CDATA[<p>使用<code>uiautomatorviewer</code> 查看Android某些页面元素，出现如图错误：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Error obtaining UI hierarchy Reason: Error taking device screenshot: null</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/fc8af8463b3e6822ccdd940774759365.png"></p>
-<p>再网上找了很多解决办法依然没解决</p>
-<p><strong>总结了一下原因：</strong></p>
-<p>1、该app不支持该页面的截屏功能所以uiautomatorviewer捕捉不到</p>
-<p>2、手机需要重启</p>
-<p>3、非原装数据线</p>
-<p>4、appium服务异常需要重新连接</p>
-<p>5、可以尝试切换USB接口</p>
-<p>6、最后可以把手机开发者选项的USB调试撤销权限，在重新获取</p>
-<p>　　以上为个人观点，不代表百分百解决，仅供参考！</p>
-]]></content>
-      <categories>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -484,6 +484,60 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Linux快捷进入长目录的方法</title>
+    <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>2、然后让配置生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ./bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、最后我们输入设置的<code>cywhat</code>（这个名字自己设置）就可以快速进入设置的长目录了</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux管理node版本</title>
+    <url>/2021/04/07/Linux%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<p>1、安装nvm</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+
+<p>2、nvm会自己添加环境变量，但是需要我们手动让环境变量生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>ps：如果没有环境变量，需要手动添加：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="subst">$([ -z <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME-&#125;</span>&quot;</span> ] &amp;&amp; printf %s <span class="string">&quot;<span class="variable">$&#123;HOME&#125;</span>/.nvm&quot;</span> || printf %s <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME&#125;</span>/nvm&quot;</span>)</span>&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure>
+
+<p>3、nvm安装指定版本node</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm install v8.9.0</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210407173742911.png" alt="在这里插入图片描述"></p>
+<p>4、切换node版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use v8.9.0</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210407173820659.png" alt="在这里插入图片描述"></p>
+<p>5、查看node版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20210407173858582.png" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux部署easy_mock</title>
     <url>/2021/04/16/Linux%E9%83%A8%E7%BD%B2easy-mock/</url>
     <content><![CDATA[<p>前期准备：<br>1、Linux：CentOS Linux release 7.8.2003 (Core)<br>2、mongodb：3.4.24<br>3、redis：4.0.14<br>4、node：8.9.0</p>
@@ -631,60 +685,6 @@ console.log(responseTime);
       </categories>
       <tags>
         <tag>Postman</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux快捷进入长目录的方法</title>
-    <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-<p>2、然后让配置生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ./bashrc</span><br></pre></td></tr></table></figure>
-
-
-
-<p>3、最后我们输入设置的<code>cywhat</code>（这个名字自己设置）就可以快速进入设置的长目录了</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux管理node版本</title>
-    <url>/2021/04/07/Linux%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<p>1、安装nvm</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
-
-<p>2、nvm会自己添加环境变量，但是需要我们手动让环境变量生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>ps：如果没有环境变量，需要手动添加：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="subst">$([ -z <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME-&#125;</span>&quot;</span> ] &amp;&amp; printf %s <span class="string">&quot;<span class="variable">$&#123;HOME&#125;</span>/.nvm&quot;</span> || printf %s <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME&#125;</span>/nvm&quot;</span>)</span>&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure>
-
-<p>3、nvm安装指定版本node</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm install v8.9.0</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210407173742911.png" alt="在这里插入图片描述"></p>
-<p>4、切换node版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use v8.9.0</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210407173820659.png" alt="在这里插入图片描述"></p>
-<p>5、查看node版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20210407173858582.png" alt="在这里插入图片描述"></p>
-]]></content>
-      <categories>
-        <category>Node</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Node</tag>
       </tags>
   </entry>
   <entry>
@@ -1030,6 +1030,26 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
+    <title>hexo d -g 部署失败</title>
+    <url>/2021/08/17/hexo-d-g-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<p>hexo d -g 突然部署失败,报错如下:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ fatal: unable to access <span class="string">&#x27;https://github.com/xxxxx/xxxx.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">  err: Error: Spawn failed       </span><br><span class="line">  at ChildProcess.&lt;anonymous</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-更改hexo配置文件中的git镜像映射地址"><a href="#1-更改hexo配置文件中的git镜像映射地址" class="headerlink" title="1.更改hexo配置文件中的git镜像映射地址"></a>1.更改hexo配置文件中的git镜像映射地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml   <span class="comment">#将https的地址更改为git开头的地址,如图</span></span><br></pre></td></tr></table></figure>
+<p><img src="../../public/images/img4.png" alt="img4.png"></p>
+<h2 id="2-检查发布机器和github之间的公私钥是否配对"><a href="#2-检查发布机器和github之间的公私钥是否配对" class="headerlink" title="2.检查发布机器和github之间的公私钥是否配对"></a>2.检查发布机器和github之间的公私钥是否配对</h2><h2 id="3-hexo清楚缓存"><a href="#3-hexo清楚缓存" class="headerlink" title="3.hexo清楚缓存"></a>3.hexo清楚缓存</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-重新发布"><a href="#4-重新发布" class="headerlink" title="4.重新发布"></a>4.重新发布</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-发布成功"><a href="#5-发布成功" class="headerlink" title="5.发布成功"></a>5.发布成功</h2>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo+netlify+git+个人域名搭建博客</title>
     <url>/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p><strong>部署过程需要用到一些<code>Linux</code>命令,且本文部署操作机为Mac,如是Windows不保证能100%成功噢</strong></p>
@@ -1132,20 +1152,6 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
-    <title>hexo删除文章</title>
-    <url>/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p><strong>hexo删除文章</strong></p>
-<p>直接删除 “_posts” 中的 .md 结尾的文件</p>
-<p>执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mac 安装brew</title>
     <url>/2020/03/18/mac-%E5%AE%89%E8%A3%85brew/</url>
     <content><![CDATA[<h2 id="【已解决】mac-安装brew"><a href="#【已解决】mac-安装brew" class="headerlink" title="【已解决】mac 安装brew"></a>【已解决】mac 安装brew</h2><p>mac是自带ruby的 打开命令行工具terminal</p>
@@ -1171,6 +1177,20 @@ Node: 15.12.0(注意Node版本)
       <tags>
         <tag>Mac</tag>
         <tag>Brew</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo删除文章</title>
+    <url>/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p><strong>hexo删除文章</strong></p>
+<p>直接删除 “_posts” 中的 .md 结尾的文件</p>
+<p>执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1359,6 +1379,25 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
+    <title>sed: -e expression #1, char 24: unknown option to &#39;s&#39; </title>
+    <url>/2021/08/17/sed-e-expression-1-char-24-unknown-option-to-s/</url>
+    <content><![CDATA[<p>在使用 <code>sed -e</code> 批量替换命令时候,报错如下:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="string">&quot;sed: -e expression #1, char 24: unknown option to `s` &quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>原因:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 需要替换的内容中有符号,且该符号和你用来分割的符号一样,所以该条命令无法使用,详情如下图:</span><br></pre></td></tr></table></figure>
+<p><img src="../../public/images/img5.png"></p>
+<p>也就是说如果你需要替换的内容中存在 <code>|</code>  那么你的命令中用来分割的符号就需要使用 <code>@</code> 或者 <code>\</code> 否则就会报错</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Sed</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>supervisord管理常驻进程uwsgi/nginx/redis/mongodb</title>
     <url>/2021/05/24/supervisord%E7%AE%A1%E7%90%86%E5%B8%B8%E9%A9%BB%E8%BF%9B%E7%A8%8Buwsgi-nginx-redis-mongodb/</url>
     <content><![CDATA[<p>解决部署的一些项目,因机器关机/重启导致项目需要手动重新启动的问题</p>
@@ -1453,45 +1492,6 @@ Node: 15.12.0(注意Node版本)
       <tags>
         <tag>Hexo</tag>
         <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo d -g 部署失败</title>
-    <url>/2021/08/17/hexo-d-g-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<p>hexo d -g 突然部署失败,报错如下:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ fatal: unable to access <span class="string">&#x27;https://github.com/xxxxx/xxxx.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">  err: Error: Spawn failed       </span><br><span class="line">  at ChildProcess.&lt;anonymous</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-更改hexo配置文件中的git镜像映射地址"><a href="#1-更改hexo配置文件中的git镜像映射地址" class="headerlink" title="1.更改hexo配置文件中的git镜像映射地址"></a>1.更改hexo配置文件中的git镜像映射地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml   <span class="comment">#将https的地址更改为git开头的地址,如图</span></span><br></pre></td></tr></table></figure>
-<p><img src="../../public/images/img4.png" alt="img4.png"></p>
-<h2 id="2-检查发布机器和github之间的公私钥是否配对"><a href="#2-检查发布机器和github之间的公私钥是否配对" class="headerlink" title="2.检查发布机器和github之间的公私钥是否配对"></a>2.检查发布机器和github之间的公私钥是否配对</h2><h2 id="3-hexo清楚缓存"><a href="#3-hexo清楚缓存" class="headerlink" title="3.hexo清楚缓存"></a>3.hexo清楚缓存</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-重新发布"><a href="#4-重新发布" class="headerlink" title="4.重新发布"></a>4.重新发布</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-发布成功"><a href="#5-发布成功" class="headerlink" title="5.发布成功"></a>5.发布成功</h2>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sed: -e expression #1, char 24: unknown option to &#39;s&#39; </title>
-    <url>/2021/08/17/sed-e-expression-1-char-24-unknown-option-to-s/</url>
-    <content><![CDATA[<p>在使用 <code>sed -e</code> 批量替换命令时候,报错如下:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="string">&quot;sed: -e expression #1, char 24: unknown option to `s` &quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>原因:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 需要替换的内容中有符号,且该符号和你用来分割的符号一样,所以该条命令无法使用,详情如下图:</span><br></pre></td></tr></table></figure>
-<p><img src="../../public/images/img5.png" alt="img5.png"></p>
-<p>也就是说如果你需要替换的内容中存在 <code>|</code>  那么你的命令中用来分割的符号就需要使用 <code>@</code> 或者 <code>\</code> 否则就会报错</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Sed</tag>
       </tags>
   </entry>
 </search>
