@@ -1445,7 +1445,9 @@ Node: 15.12.0(注意Node版本)
 
 <h2 id="3-新安装的node版本-需要使用ls切换"><a href="#3-新安装的node版本-需要使用ls切换" class="headerlink" title="3.新安装的node版本,需要使用ls切换"></a>3.新安装的node版本,需要使用ls切换</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n ls 10.16.3 <span class="comment">#会出现所安装的所有node版本,使用版本在最上方</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="4-查看node版本"><a href="#4-查看node版本" class="headerlink" title="4.查看node版本"></a>4.查看node版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="4-查看node版本"><a href="#4-查看node版本" class="headerlink" title="4.查看node版本"></a>4.查看node版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>Node</category>
       </categories>
