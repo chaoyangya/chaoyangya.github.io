@@ -1430,4 +1430,27 @@ Node: 15.12.0(注意Node版本)
         <tag>Google</tag>
       </tags>
   </entry>
+  <entry>
+    <title>node切换版本</title>
+    <url>/2021/08/17/node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h2 id="1-安装n"><a href="#1-安装n" class="headerlink" title="1.安装n"></a>1.安装n</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g n</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-使用-n-下载所需node"><a href="#2-使用-n-下载所需node" class="headerlink" title="2.使用 n 下载所需node"></a>2.使用 n 下载所需node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n 10.16.3  <span class="comment">#版本号 不需要加v</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="下载最新版本"><a href="#下载最新版本" class="headerlink" title="下载最新版本"></a>下载最新版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除某个版本"><a href="#删除某个版本" class="headerlink" title="删除某个版本"></a>删除某个版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n rm 10.16.3  <span class="comment">#版本号 不需要加v</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看已安装版本"><a href="#查看已安装版本" class="headerlink" title="查看已安装版本"></a>查看已安装版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n ls</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-新安装的node版本-需要使用ls切换"><a href="#3-新安装的node版本-需要使用ls切换" class="headerlink" title="3.新安装的node版本,需要使用ls切换"></a>3.新安装的node版本,需要使用ls切换</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n ls 10.16.3 <span class="comment">#会出现所安装的所有node版本,使用版本在最上方</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-查看node版本"><a href="#4-查看node版本" class="headerlink" title="4.查看node版本"></a>4.查看node版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
 </search>
