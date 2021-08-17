@@ -372,6 +372,27 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Java线上问题排查</title>
+    <url>/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
+    <content><![CDATA[<h2 id="top-查看占用资源信息以及pid"><a href="#top-查看占用资源信息以及pid" class="headerlink" title="top 查看占用资源信息以及pid"></a>top 查看占用资源信息以及pid</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top </span><br></pre></td></tr></table></figure>
+
+<h2 id="查看pid下绑定线程"><a href="#查看pid下绑定线程" class="headerlink" title="查看pid下绑定线程"></a>查看pid下绑定线程</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top -Hp pid1(进程id)</span><br></pre></td></tr></table></figure>
+
+<h2 id="拿到需要查询的线程pid-转换成16进制"><a href="#拿到需要查询的线程pid-转换成16进制" class="headerlink" title="拿到需要查询的线程pid,转换成16进制"></a>拿到需要查询的线程pid,转换成16进制</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">printf</span> <span class="string">&#x27;%x&#x27;</span> pid2(线程id)  ==&gt; 6a4     <span class="comment">#6a4为输出结果</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="通过jstack讲java信息输出到文本"><a href="#通过jstack讲java信息输出到文本" class="headerlink" title="通过jstack讲java信息输出到文本"></a>通过jstack讲java信息输出到文本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jstack pid1(进程id) &gt; t.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果jstack报错,请查看 <a href="https://cywhat.cn/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/">jstack不存在</a></strong></p>
+<h2 id="在t-txt文件中查找6a4"><a href="#在t-txt文件中查找6a4" class="headerlink" title="在t.txt文件中查找6a4"></a>在t.txt文件中查找<code>6a4</code></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim t.txt</span><br><span class="line"></span><br><span class="line">$ /6a4</span><br></pre></td></tr></table></figure>
+<h2 id="然后找到自己的collectorl业务代码层具体行数去分析"><a href="#然后找到自己的collectorl业务代码层具体行数去分析" class="headerlink" title="然后找到自己的collectorl业务代码层具体行数去分析"></a>然后找到自己的collectorl业务代码层具体行数去分析</h2>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux/macos安装newman</title>
     <url>/2021/03/22/Linux-macos%E5%AE%89%E8%A3%85newman/</url>
     <content><![CDATA[<p>[已解决]Linux/macos安装newman</p>
@@ -460,60 +481,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux快捷进入长目录的方法</title>
-    <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-<p>2、然后让配置生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ./bashrc</span><br></pre></td></tr></table></figure>
-
-
-
-<p>3、最后我们输入设置的<code>cywhat</code>（这个名字自己设置）就可以快速进入设置的长目录了</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux管理node版本</title>
-    <url>/2021/04/07/Linux%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<p>1、安装nvm</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
-
-<p>2、nvm会自己添加环境变量，但是需要我们手动让环境变量生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>ps：如果没有环境变量，需要手动添加：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="subst">$([ -z <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME-&#125;</span>&quot;</span> ] &amp;&amp; printf %s <span class="string">&quot;<span class="variable">$&#123;HOME&#125;</span>/.nvm&quot;</span> || printf %s <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME&#125;</span>/nvm&quot;</span>)</span>&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure>
-
-<p>3、nvm安装指定版本node</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm install v8.9.0</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210407173742911.png" alt="在这里插入图片描述"></p>
-<p>4、切换node版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use v8.9.0</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210407173820659.png" alt="在这里插入图片描述"></p>
-<p>5、查看node版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20210407173858582.png" alt="在这里插入图片描述"></p>
-]]></content>
-      <categories>
-        <category>Node</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Node</tag>
       </tags>
   </entry>
   <entry>
@@ -667,6 +634,60 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
+    <title>Linux快捷进入长目录的方法</title>
+    <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>2、然后让配置生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ./bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、最后我们输入设置的<code>cywhat</code>（这个名字自己设置）就可以快速进入设置的长目录了</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux管理node版本</title>
+    <url>/2021/04/07/Linux%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<p>1、安装nvm</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+
+<p>2、nvm会自己添加环境变量，但是需要我们手动让环境变量生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>ps：如果没有环境变量，需要手动添加：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="subst">$([ -z <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME-&#125;</span>&quot;</span> ] &amp;&amp; printf %s <span class="string">&quot;<span class="variable">$&#123;HOME&#125;</span>/.nvm&quot;</span> || printf %s <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME&#125;</span>/nvm&quot;</span>)</span>&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure>
+
+<p>3、nvm安装指定版本node</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm install v8.9.0</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210407173742911.png" alt="在这里插入图片描述"></p>
+<p>4、切换node版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use v8.9.0</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210407173820659.png" alt="在这里插入图片描述"></p>
+<p>5、查看node版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20210407173858582.png" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python+virtualenv+Django+nginx+uwsgi+centos7部署web应用</title>
     <url>/2021/03/11/Python-virtualenv-Django-nginx-uwsgi-centos7%E9%83%A8%E7%BD%B2web%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p>给公司写的一个工具平台，先部署到自己的服务器上进行测试，真是困难重重，此文章仅记录自己踩坑过程和搭建教程，不保证你能按照教程成功搭建，但能把坑提前暴露出来，避免大家重复踩坑！</p>
@@ -816,6 +837,34 @@ console.log(responseTime);
         <tag>Django</tag>
         <tag>Uwsgi</tag>
         <tag>Virtualenv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shadowrocket小火箭配置规则文件</title>
+    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Shadowrocket</category>
+      </categories>
+      <tags>
+        <tag>Shadowrocket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>bash:jstack: 未找到命令</title>
+    <url>/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="jstack报错如下"><a href="#jstack报错如下" class="headerlink" title="jstack报错如下"></a>jstack报错如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ -bash: jstack: 未找到命令</span><br></pre></td></tr></table></figure>
+<p><img src="../images/img3.png" alt="img.png"></p>
+<h2 id="安装以下依赖"><a href="#安装以下依赖" class="headerlink" title="安装以下依赖"></a>安装以下依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install java-1.7.0-openjdk-devel -y</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1028,6 +1077,27 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
+    <title>hexo优化加载速度</title>
+    <url>/2021/07/14/hexo%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/</url>
+    <content><![CDATA[<h1 id="注意该方法利用插件更改配置-如主题中有Google字体导致加载缓慢-请移步其他内容"><a href="#注意该方法利用插件更改配置-如主题中有Google字体导致加载缓慢-请移步其他内容" class="headerlink" title="注意该方法利用插件更改配置,如主题中有Google字体导致加载缓慢,请移步其他内容"></a>注意该方法利用插件更改配置,如主题中有Google字体导致加载缓慢,请移步其他内容</h1><p>利用插件 <code>hexo-all-minifier</code></p>
+<h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-all-minifier --save</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果安装失败,请使用<code>cnpm</code></strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cnpm install hexo-all-minifier --save</span><br></pre></td></tr></table></figure>
+
+<h1 id="更改Hexo配置"><a href="#更改Hexo配置" class="headerlink" title="更改Hexo配置"></a>更改Hexo配置</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim  _config.yml</span><br></pre></td></tr></table></figure>
+<p>加入如下配置:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#启用all_minifier</span></span><br><span class="line">all_minifier: <span class="literal">true</span></span><br><span class="line"><span class="comment"># html压缩</span></span><br><span class="line">html_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  ignore_error: <span class="literal">false</span></span><br><span class="line">  exclude:</span><br><span class="line"></span><br><span class="line"><span class="comment"># css压缩</span></span><br><span class="line">css_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  exclude:</span><br><span class="line">    - <span class="string">&#x27;*.min.css&#x27;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># js压缩</span></span><br><span class="line">js_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  mangle: <span class="literal">true</span></span><br><span class="line">  compress:</span><br><span class="line">  exclude:</span><br><span class="line">    - <span class="string">&#x27;*.min.js&#x27;</span></span><br><span class="line">js_concator:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  bundle_path: <span class="string">&#x27;/js/bundle.js&#x27;</span></span><br><span class="line">  front: <span class="literal">false</span></span><br><span class="line">  silent: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 图片优化</span></span><br><span class="line">image_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  interlaced: <span class="literal">false</span></span><br><span class="line">  multipass: <span class="literal">false</span></span><br><span class="line">  optimizationLevel: 2</span><br><span class="line">  pngquant: <span class="literal">false</span></span><br><span class="line">  progressive: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="重新发布"><a href="#重新发布" class="headerlink" title="重新发布"></a>重新发布</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo修改新建文章的默认字段</title>
     <url>/2021/07/09/hexo%E4%BF%AE%E6%94%B9%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%AD%97%E6%AE%B5/</url>
     <content><![CDATA[<p><strong>因为每次新建文章都需要自己新增字段,所以就找到了修改新建文章的默认字段所在地,果然社会的进步跟人的偷懒也不是毫无关系(啊哈哈哈)</strong></p>
@@ -1048,12 +1118,12 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
-    <title>hexo删除文章</title>
-    <url>/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p><strong>hexo删除文章</strong></p>
-<p>直接删除 “_posts” 中的 .md 结尾的文件</p>
-<p>执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+    <title>hexo管理多个标签</title>
+    <url>/2021/07/08/hexo%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE/</url>
+    <content><![CDATA[<h2 id="1-hexo多个标签应该遵循-list-格式-如下"><a href="#1-hexo多个标签应该遵循-list-格式-如下" class="headerlink" title="1 hexo多个标签应该遵循 list 格式,如下"></a>1 hexo多个标签应该遵循 <strong>list</strong> 格式,如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">date: 2021-04-07 17:39:32</span><br><span class="line">tags: [标签1,标签2]</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
@@ -1062,12 +1132,12 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
-    <title>hexo管理多个标签</title>
-    <url>/2021/07/08/hexo%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE/</url>
-    <content><![CDATA[<h2 id="1-hexo多个标签应该遵循-list-格式-如下"><a href="#1-hexo多个标签应该遵循-list-格式-如下" class="headerlink" title="1 hexo多个标签应该遵循 list 格式,如下"></a>1 hexo多个标签应该遵循 <strong>list</strong> 格式,如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">date: 2021-04-07 17:39:32</span><br><span class="line">tags: [标签1,标签2]</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
+    <title>hexo删除文章</title>
+    <url>/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p><strong>hexo删除文章</strong></p>
+<p>直接删除 “_posts” 中的 .md 结尾的文件</p>
+<p>执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
@@ -1159,6 +1229,53 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
+    <title>node切换版本</title>
+    <url>/2021/08/17/node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h2 id="1-安装n"><a href="#1-安装n" class="headerlink" title="1.安装n"></a>1.安装n</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g n</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-使用-n-下载所需node"><a href="#2-使用-n-下载所需node" class="headerlink" title="2.使用 n 下载所需node"></a>2.使用 n 下载所需node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n 10.16.3  <span class="comment">#版本号 不需要加v</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="下载最新版本"><a href="#下载最新版本" class="headerlink" title="下载最新版本"></a>下载最新版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除某个版本"><a href="#删除某个版本" class="headerlink" title="删除某个版本"></a>删除某个版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n rm 10.16.3  <span class="comment">#版本号 不需要加v</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看已安装版本"><a href="#查看已安装版本" class="headerlink" title="查看已安装版本"></a>查看已安装版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n ls</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-新安装的node版本-需要使用ls切换"><a href="#3-新安装的node版本-需要使用ls切换" class="headerlink" title="3.新安装的node版本,需要使用ls切换"></a>3.新安装的node版本,需要使用ls切换</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n ls 10.16.3 <span class="comment">#会出现所安装的所有node版本,使用版本在最上方</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-查看node版本"><a href="#4-查看node版本" class="headerlink" title="4.查看node版本"></a>4.查看node版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>npm切换版本</title>
+    <url>/2021/07/14/npm%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h1 id="Npm切换版本"><a href="#Npm切换版本" class="headerlink" title="Npm切换版本"></a>Npm切换版本</h1><p>npm需要切换版本如果没有安装nvm很头疼,会存在以下三种情况:</p>
+<pre><code>① Node环境还在,只是Npm被卸载
+② Npm和Node版本不兼容
+③ 存在多个Npm版本,无法切换
+</code></pre>
+<p><strong>PS:如果存在以上三种情况的,强烈建议,直接Nvm重新装Node,简单粗暴</strong></p>
+<h2 id="卸载Node"><a href="#卸载Node" class="headerlink" title="卸载Node"></a>卸载Node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm uninstall vx.x.x</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装指定Node版本"><a href="#安装指定Node版本" class="headerlink" title="安装指定Node版本"></a>安装指定Node版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm install vx.x.x</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看Node-Npm版本"><a href="#查看Node-Npm版本" class="headerlink" title="查看Node/Npm版本"></a>查看Node/Npm版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br><span class="line"></span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Npm</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+        <tag>Npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>npm缺少css-loader，/style-compiler，stylus-loader问题，npm没有权限无法全局更新问题</title>
     <url>/2018/10/17/npm%E7%BC%BA%E5%B0%91css-loader%EF%BC%8C-style-compiler%EF%BC%8Cstylus-loader%E9%97%AE%E9%A2%98%EF%BC%8Cnpm%E6%B2%A1%E6%9C%89%E6%9D%83%E9%99%90%E6%97%A0%E6%B3%95%E5%85%A8%E5%B1%80%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>​<br>ERROR in ./node_modules/css-loader!./node_modules/vue-loader/lib/style-compiler?{“vue”:true,”id”:”data-v-a5e4f82a”,”scoped”:false,”hasInlineConfig”:false}!./node_modules/stylus-loader?{“import”:[“<del>@didi/ada/style/mixins.styl”,”/home/xiaoju/manhattan-hera-webapp/client/style/base.styl”]}!./node_modules/vue-loader/lib/selector.js?type=styles&amp;index=0&amp;bustCache!./client/components/panel_links.vue<br>Cannot find module ‘postcss-import’<br>@ ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/style-compiler?{“vue”:true,”id”:”data-v-a5e4f82a”,”scoped”:false,”hasInlineConfig”:false}!./node_modules/stylus-loader?{“import”:[“</del>@didi/ada/style/mixins.styl”,”/home/xiaoju/manhattan-hera-webapp/client/style/base.styl”]}!./node_modules/vue-loader/lib/selector.js?type=styles&amp;index=0&amp;bustCache!./client/components/panel_links.vue 4:14-454<br>@ ./client/components/panel_links.vue<br>@ ./client/app.ts<br>@ multi ./client/app.ts</p>
@@ -1202,6 +1319,25 @@ Node: 15.12.0(注意Node版本)
       <tags>
         <tag>Node</tag>
         <tag>Npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from x.x.x)</title>
+    <url>/2021/07/14/nvm-Cannot-uninstall-currently-active-node-version-vx-x-x-inferred-from-x-x-x/</url>
+    <content><![CDATA[<p>#使用nvm卸载node版本时报错如下:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from</span><br><span class="line">  x.x.x)</span><br></pre></td></tr></table></figure>
+
+<h2 id="需要先退出已经使用的node环境"><a href="#需要先退出已经使用的node环境" class="headerlink" title="需要先退出已经使用的node环境"></a>需要先退出已经使用的node环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm deactivate</span><br></pre></td></tr></table></figure>
+
+<h2 id="然后再执行卸载命令"><a href="#然后再执行卸载命令" class="headerlink" title="然后再执行卸载命令"></a>然后再执行卸载命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm uninstall vx.x.x</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Npm</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+        <tag>Npm</tag>
+        <tag>NVm</tag>
       </tags>
   </entry>
   <entry>
@@ -1297,117 +1433,6 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
-    <title>hexo优化加载速度</title>
-    <url>/2021/07/14/hexo%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/</url>
-    <content><![CDATA[<h1 id="注意该方法利用插件更改配置-如主题中有Google字体导致加载缓慢-请移步其他内容"><a href="#注意该方法利用插件更改配置-如主题中有Google字体导致加载缓慢-请移步其他内容" class="headerlink" title="注意该方法利用插件更改配置,如主题中有Google字体导致加载缓慢,请移步其他内容"></a>注意该方法利用插件更改配置,如主题中有Google字体导致加载缓慢,请移步其他内容</h1><p>利用插件 <code>hexo-all-minifier</code></p>
-<h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-all-minifier --save</span><br></pre></td></tr></table></figure>
-
-<p><strong>如果安装失败,请使用<code>cnpm</code></strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cnpm install hexo-all-minifier --save</span><br></pre></td></tr></table></figure>
-
-<h1 id="更改Hexo配置"><a href="#更改Hexo配置" class="headerlink" title="更改Hexo配置"></a>更改Hexo配置</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim  _config.yml</span><br></pre></td></tr></table></figure>
-<p>加入如下配置:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#启用all_minifier</span></span><br><span class="line">all_minifier: <span class="literal">true</span></span><br><span class="line"><span class="comment"># html压缩</span></span><br><span class="line">html_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  ignore_error: <span class="literal">false</span></span><br><span class="line">  exclude:</span><br><span class="line"></span><br><span class="line"><span class="comment"># css压缩</span></span><br><span class="line">css_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  exclude:</span><br><span class="line">    - <span class="string">&#x27;*.min.css&#x27;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># js压缩</span></span><br><span class="line">js_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  mangle: <span class="literal">true</span></span><br><span class="line">  compress:</span><br><span class="line">  exclude:</span><br><span class="line">    - <span class="string">&#x27;*.min.js&#x27;</span></span><br><span class="line">js_concator:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  bundle_path: <span class="string">&#x27;/js/bundle.js&#x27;</span></span><br><span class="line">  front: <span class="literal">false</span></span><br><span class="line">  silent: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 图片优化</span></span><br><span class="line">image_minifier:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  interlaced: <span class="literal">false</span></span><br><span class="line">  multipass: <span class="literal">false</span></span><br><span class="line">  optimizationLevel: 2</span><br><span class="line">  pngquant: <span class="literal">false</span></span><br><span class="line">  progressive: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="重新发布"><a href="#重新发布" class="headerlink" title="重新发布"></a>重新发布</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>npm切换版本</title>
-    <url>/2021/07/14/npm%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<h1 id="Npm切换版本"><a href="#Npm切换版本" class="headerlink" title="Npm切换版本"></a>Npm切换版本</h1><p>npm需要切换版本如果没有安装nvm很头疼,会存在以下三种情况:</p>
-<pre><code>① Node环境还在,只是Npm被卸载
-② Npm和Node版本不兼容
-③ 存在多个Npm版本,无法切换
-</code></pre>
-<p><strong>PS:如果存在以上三种情况的,强烈建议,直接Nvm重新装Node,简单粗暴</strong></p>
-<h2 id="卸载Node"><a href="#卸载Node" class="headerlink" title="卸载Node"></a>卸载Node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm uninstall vx.x.x</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装指定Node版本"><a href="#安装指定Node版本" class="headerlink" title="安装指定Node版本"></a>安装指定Node版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm install vx.x.x</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看Node-Npm版本"><a href="#查看Node-Npm版本" class="headerlink" title="查看Node/Npm版本"></a>查看Node/Npm版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br><span class="line"></span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Npm</category>
-      </categories>
-      <tags>
-        <tag>Node</tag>
-        <tag>Npm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from x.x.x)</title>
-    <url>/2021/07/14/nvm-Cannot-uninstall-currently-active-node-version-vx-x-x-inferred-from-x-x-x/</url>
-    <content><![CDATA[<p>#使用nvm卸载node版本时报错如下:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from</span><br><span class="line">  x.x.x)</span><br></pre></td></tr></table></figure>
-
-<h2 id="需要先退出已经使用的node环境"><a href="#需要先退出已经使用的node环境" class="headerlink" title="需要先退出已经使用的node环境"></a>需要先退出已经使用的node环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm deactivate</span><br></pre></td></tr></table></figure>
-
-<h2 id="然后再执行卸载命令"><a href="#然后再执行卸载命令" class="headerlink" title="然后再执行卸载命令"></a>然后再执行卸载命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm uninstall vx.x.x</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Npm</category>
-      </categories>
-      <tags>
-        <tag>Node</tag>
-        <tag>Npm</tag>
-        <tag>NVm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java线上问题排查</title>
-    <url>/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
-    <content><![CDATA[<h2 id="top-查看占用资源信息以及pid"><a href="#top-查看占用资源信息以及pid" class="headerlink" title="top 查看占用资源信息以及pid"></a>top 查看占用资源信息以及pid</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top </span><br></pre></td></tr></table></figure>
-
-<h2 id="查看pid下绑定线程"><a href="#查看pid下绑定线程" class="headerlink" title="查看pid下绑定线程"></a>查看pid下绑定线程</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top -Hp pid1(进程id)</span><br></pre></td></tr></table></figure>
-
-<h2 id="拿到需要查询的线程pid-转换成16进制"><a href="#拿到需要查询的线程pid-转换成16进制" class="headerlink" title="拿到需要查询的线程pid,转换成16进制"></a>拿到需要查询的线程pid,转换成16进制</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">printf</span> <span class="string">&#x27;%x&#x27;</span> pid2(线程id)  ==&gt; 6a4     <span class="comment">#6a4为输出结果</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="通过jstack讲java信息输出到文本"><a href="#通过jstack讲java信息输出到文本" class="headerlink" title="通过jstack讲java信息输出到文本"></a>通过jstack讲java信息输出到文本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jstack pid1(进程id) &gt; t.txt</span><br></pre></td></tr></table></figure>
-
-<p><strong>如果jstack报错,请查看 <a href="https://cywhat.cn/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/">jstack不存在</a></strong></p>
-<h2 id="在t-txt文件中查找6a4"><a href="#在t-txt文件中查找6a4" class="headerlink" title="在t.txt文件中查找6a4"></a>在t.txt文件中查找<code>6a4</code></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim t.txt</span><br><span class="line"></span><br><span class="line">$ /6a4</span><br></pre></td></tr></table></figure>
-<h2 id="然后找到自己的collectorl业务代码层具体行数去分析"><a href="#然后找到自己的collectorl业务代码层具体行数去分析" class="headerlink" title="然后找到自己的collectorl业务代码层具体行数去分析"></a>然后找到自己的collectorl业务代码层具体行数去分析</h2>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>bash:jstack: 未找到命令</title>
-    <url>/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="jstack报错如下"><a href="#jstack报错如下" class="headerlink" title="jstack报错如下"></a>jstack报错如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ -bash: jstack: 未找到命令</span><br></pre></td></tr></table></figure>
-<p><img src="../images/img3.png" alt="img.png"></p>
-<h2 id="安装以下依赖"><a href="#安装以下依赖" class="headerlink" title="安装以下依赖"></a>安装以下依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install java-1.7.0-openjdk-devel -y</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shadowrocket小火箭配置规则文件</title>
-    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Shadowrocket</category>
-      </categories>
-      <tags>
-        <tag>Shadowrocket</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>怎么让你的个人博客可以在百度谷歌搜索到</title>
     <url>/2021/07/23/%E6%80%8E%E4%B9%88%E8%AE%A9%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%88%B0/</url>
     <content><![CDATA[<p>怎么让百度和谷歌收录你的博客(仅仅局限于拥有自己域名的个人博客使用)</p>
@@ -1428,31 +1453,6 @@ Node: 15.12.0(注意Node版本)
       <tags>
         <tag>Hexo</tag>
         <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>node切换版本</title>
-    <url>/2021/08/17/node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<h2 id="1-安装n"><a href="#1-安装n" class="headerlink" title="1.安装n"></a>1.安装n</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g n</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-使用-n-下载所需node"><a href="#2-使用-n-下载所需node" class="headerlink" title="2.使用 n 下载所需node"></a>2.使用 n 下载所需node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n 10.16.3  <span class="comment">#版本号 不需要加v</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="下载最新版本"><a href="#下载最新版本" class="headerlink" title="下载最新版本"></a>下载最新版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n latest</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除某个版本"><a href="#删除某个版本" class="headerlink" title="删除某个版本"></a>删除某个版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n rm 10.16.3  <span class="comment">#版本号 不需要加v</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="查看已安装版本"><a href="#查看已安装版本" class="headerlink" title="查看已安装版本"></a>查看已安装版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n ls</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-新安装的node版本-需要使用ls切换"><a href="#3-新安装的node版本-需要使用ls切换" class="headerlink" title="3.新安装的node版本,需要使用ls切换"></a>3.新安装的node版本,需要使用ls切换</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n ls 10.16.3 <span class="comment">#会出现所安装的所有node版本,使用版本在最上方</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="4-查看node版本"><a href="#4-查看node版本" class="headerlink" title="4.查看node版本"></a>4.查看node版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Node</category>
-      </categories>
-      <tags>
-        <tag>Node</tag>
       </tags>
   </entry>
 </search>
