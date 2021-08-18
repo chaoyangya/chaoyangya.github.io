@@ -1542,4 +1542,34 @@ Node: 15.12.0(注意Node版本)
         <tag>Hexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>mysql连接以及增删改查语句</title>
+    <url>/2021/08/18/mysql%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E8%AF%AD%E5%8F%A5/</url>
+    <content><![CDATA[<p>好久没操作数据库语句,都快忘光了,记录一下</p>
+<h2 id="1-连接数据库-mysql"><a href="#1-连接数据库-mysql" class="headerlink" title="1.连接数据库(mysql)"></a>1.连接数据库(mysql)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mysql  -h机器ip -u用户名 -p密码 </span><br></pre></td></tr></table></figure>
+
+<h2 id="2-查看所有数据库"><a href="#2-查看所有数据库" class="headerlink" title="2.查看所有数据库"></a>2.查看所有数据库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ show databases;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-进入某个数据库"><a href="#3-进入某个数据库" class="headerlink" title="3.进入某个数据库"></a>3.进入某个数据库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ use xxx;   <span class="comment"># xxx为数据库名</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-查看数据库中的表"><a href="#4-查看数据库中的表" class="headerlink" title="4.查看数据库中的表"></a>4.查看数据库中的表</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ show tables;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-查看数据库中的表-1"><a href="#4-查看数据库中的表-1" class="headerlink" title="4.查看数据库中的表"></a>4.查看数据库中的表</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ show tables;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-增"><a href="#5-增" class="headerlink" title="5.增"></a>5.增</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ insert into 表名 ( field1, field2,...fieldN )</span><br><span class="line">                       VALUES</span><br><span class="line">                       ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-删"><a href="#6-删" class="headerlink" title="6.删"></a>6.删</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ delete from 表名 <span class="built_in">where</span> 字段名=字段值;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-改"><a href="#7-改" class="headerlink" title="7.改"></a>7.改</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ update 表名 <span class="built_in">set</span> 字段名=字段值;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-查"><a href="#8-查" class="headerlink" title="8.查"></a>8.查</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ select * from 表名 <span class="built_in">where</span> 字段名=字段值;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
 </search>
