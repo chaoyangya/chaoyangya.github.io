@@ -1494,4 +1494,27 @@ Node: 15.12.0(注意Node版本)
         <tag>Google</tag>
       </tags>
   </entry>
+  <entry>
+    <title>newman生成好看的html报告</title>
+    <url>/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/</url>
+    <content><![CDATA[<p>PS:运行newman需要<code>node</code> 版本大于10</p>
+<h2 id="1-安装newman"><a href="#1-安装newman" class="headerlink" title="1.安装newman"></a>1.安装newman</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装普通html报告插件-建议安装"><a href="#2-安装普通html报告插件-建议安装" class="headerlink" title="2.安装普通html报告插件(建议安装)"></a>2.安装普通html报告插件(建议安装)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman-reporter-html</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装美化html插件"><a href="#3-安装美化html插件" class="headerlink" title="3.安装美化html插件"></a>3.安装美化html插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman-reporter-htmlextra</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-newman命令详解"><a href="#4-newman命令详解" class="headerlink" title="4.newman命令详解"></a>4.newman命令详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ newman run  SX.postman_collection.json -e environment.json -r htmlextra,cli --reporter-htmlextra-title <span class="string">&quot;实训平台接口 测试报告&quot;</span> --reporter-htmlextra-browserTitle <span class="string">&quot;实训平台接口报告&quot;</span> --reporter-htmlextra-export Bapi.html</span><br><span class="line"><span class="comment">#参数解释:</span></span><br><span class="line">run 后面跟接口脚本json格式的文件</span><br><span class="line">-e 后面添加环境变量</span><br><span class="line">-r 指定生成的报告格式</span><br><span class="line">--reporter-htmlextra-title 指定生成的报告title</span><br><span class="line">--reporter-htmlextra-browserTitle 指定生成的浏览器title</span><br><span class="line">--reporter-htmlextra-export 指定生成的html文件名和路径</span><br></pre></td></tr></table></figure>
+
+<p><img src="newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/img6.png" alt="img.png"></p>
+]]></content>
+      <categories>
+        <category>Newman</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+        <tag>Newman</tag>
+        <tag>Postman</tag>
+      </tags>
+  </entry>
 </search>
