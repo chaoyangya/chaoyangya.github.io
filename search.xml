@@ -1036,7 +1036,7 @@ console.log(responseTime);
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ fatal: unable to access <span class="string">&#x27;https://github.com/xxxxx/xxxx.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">  err: Error: Spawn failed       </span><br><span class="line">  at ChildProcess.&lt;anonymous</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-更改hexo配置文件中的git镜像映射地址"><a href="#1-更改hexo配置文件中的git镜像映射地址" class="headerlink" title="1.更改hexo配置文件中的git镜像映射地址"></a>1.更改hexo配置文件中的git镜像映射地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml   <span class="comment">#将https的地址更改为git开头的地址,如图</span></span><br></pre></td></tr></table></figure>
-<p><img src="../../public/images/img4.png" alt="img4.png"></p>
+<p><img src="../../public/images/img4.png" alt="img.png"><img src="../../public/images/img4.png" alt="img4.png"></p>
 <h2 id="2-检查发布机器和github之间的公私钥是否配对"><a href="#2-检查发布机器和github之间的公私钥是否配对" class="headerlink" title="2.检查发布机器和github之间的公私钥是否配对"></a>2.检查发布机器和github之间的公私钥是否配对</h2><h2 id="3-hexo清楚缓存"><a href="#3-hexo清楚缓存" class="headerlink" title="3.hexo清楚缓存"></a>3.hexo清楚缓存</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-重新发布"><a href="#4-重新发布" class="headerlink" title="4.重新发布"></a>4.重新发布</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
