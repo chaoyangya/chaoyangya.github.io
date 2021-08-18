@@ -1410,7 +1410,8 @@ Node: 15.12.0(注意Node版本)
 
 <p>原因:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 需要替换的内容中有符号,且该符号和你用来分割的符号一样,所以该条命令无法使用,详情如下图:</span><br></pre></td></tr></table></figure>
-<p><img src="../../public/images/img5.png"></p>
+<img src="/2021/08/17/sed-e-expression-1-char-24-unknown-option-to-s/img5.png" class="" title="This is an test image">
+
 <p>也就是说如果你需要替换的内容中存在 <code>|</code>  那么你的命令中用来分割的符号就需要使用 <code>@</code> 或者 <code>\</code> 否则就会报错</p>
 ]]></content>
       <categories>
