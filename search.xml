@@ -19,30 +19,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>Error taking device screenshot: null</title>
-    <url>/2018/10/11/Error-taking-device-screenshot-null/</url>
-    <content><![CDATA[<p>使用<code>uiautomatorviewer</code> 查看Android某些页面元素，出现如图错误：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Error obtaining UI hierarchy Reason: Error taking device screenshot: null</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/fc8af8463b3e6822ccdd940774759365.png"></p>
-<p>再网上找了很多解决办法依然没解决</p>
-<p><strong>总结了一下原因：</strong></p>
-<p>1、该app不支持该页面的截屏功能所以uiautomatorviewer捕捉不到</p>
-<p>2、手机需要重启</p>
-<p>3、非原装数据线</p>
-<p>4、appium服务异常需要重新连接</p>
-<p>5、可以尝试切换USB接口</p>
-<p>6、最后可以把手机开发者选项的USB调试撤销权限，在重新获取</p>
-<p>　　以上为个人观点，不代表百分百解决，仅供参考！</p>
-]]></content>
-      <categories>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Appium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Centos7.7安装并配置jenkins+python+allure发送定制化报告</title>
     <url>/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
     <content><![CDATA[<h1 id="【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告"><a href="#【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告" class="headerlink" title="【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告"></a>【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告</h1><p>目前测试开发方向的接口自动化脚本很多，这里就不一一列举了，有兴趣的可以baidu/google 一大堆，本次主要根据自己公司/业务需要搭建了一套基于python3.7+pytest+allure的接口自动化脚本，由于工作原因，源码就不放了，最下面会放一个很简单的脚本，不想写的可以暂时先用下，调试通过以后，再进行业务代码的编写也是ok的，话不多说，开整。</p>
@@ -179,6 +155,30 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
         <tag>Jenkins</tag>
         <tag>Allure</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Error taking device screenshot: null</title>
+    <url>/2018/10/11/Error-taking-device-screenshot-null/</url>
+    <content><![CDATA[<p>使用<code>uiautomatorviewer</code> 查看Android某些页面元素，出现如图错误：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Error obtaining UI hierarchy Reason: Error taking device screenshot: null</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/fc8af8463b3e6822ccdd940774759365.png"></p>
+<p>再网上找了很多解决办法依然没解决</p>
+<p><strong>总结了一下原因：</strong></p>
+<p>1、该app不支持该页面的截屏功能所以uiautomatorviewer捕捉不到</p>
+<p>2、手机需要重启</p>
+<p>3、非原装数据线</p>
+<p>4、appium服务异常需要重新连接</p>
+<p>5、可以尝试切换USB接口</p>
+<p>6、最后可以把手机开发者选项的USB调试撤销权限，在重新获取</p>
+<p>　　以上为个人观点，不代表百分百解决，仅供参考！</p>
+]]></content>
+      <categories>
+        <category>Appium</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -341,6 +341,27 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Java线上问题排查</title>
+    <url>/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
+    <content><![CDATA[<h2 id="top-查看占用资源信息以及pid"><a href="#top-查看占用资源信息以及pid" class="headerlink" title="top 查看占用资源信息以及pid"></a>top 查看占用资源信息以及pid</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top </span><br></pre></td></tr></table></figure>
+
+<h2 id="查看pid下绑定线程"><a href="#查看pid下绑定线程" class="headerlink" title="查看pid下绑定线程"></a>查看pid下绑定线程</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top -Hp pid1(进程id)</span><br></pre></td></tr></table></figure>
+
+<h2 id="拿到需要查询的线程pid-转换成16进制"><a href="#拿到需要查询的线程pid-转换成16进制" class="headerlink" title="拿到需要查询的线程pid,转换成16进制"></a>拿到需要查询的线程pid,转换成16进制</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">printf</span> <span class="string">&#x27;%x&#x27;</span> pid2(线程id)  ==&gt; 6a4     <span class="comment">#6a4为输出结果</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="通过jstack讲java信息输出到文本"><a href="#通过jstack讲java信息输出到文本" class="headerlink" title="通过jstack讲java信息输出到文本"></a>通过jstack讲java信息输出到文本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jstack pid1(进程id) &gt; t.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果jstack报错,请查看 <a href="https://cywhat.cn/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/">jstack不存在</a></strong></p>
+<h2 id="在t-txt文件中查找6a4"><a href="#在t-txt文件中查找6a4" class="headerlink" title="在t.txt文件中查找6a4"></a>在t.txt文件中查找<code>6a4</code></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim t.txt</span><br><span class="line"></span><br><span class="line">$ /6a4</span><br></pre></td></tr></table></figure>
+<h2 id="然后找到自己的collectorl业务代码层具体行数去分析"><a href="#然后找到自己的collectorl业务代码层具体行数去分析" class="headerlink" title="然后找到自己的collectorl业务代码层具体行数去分析"></a>然后找到自己的collectorl业务代码层具体行数去分析</h2>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Iterm2/Mac自带终端工具快速ssh</title>
     <url>/2019/01/26/Iterm2-Mac%E8%87%AA%E5%B8%A6%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9Fssh/</url>
     <content><![CDATA[<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><p>首先我们在终端本地要写一个登录的脚本，eg：</p>
@@ -369,27 +390,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       <tags>
         <tag>Iterm2</tag>
         <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java线上问题排查</title>
-    <url>/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
-    <content><![CDATA[<h2 id="top-查看占用资源信息以及pid"><a href="#top-查看占用资源信息以及pid" class="headerlink" title="top 查看占用资源信息以及pid"></a>top 查看占用资源信息以及pid</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top </span><br></pre></td></tr></table></figure>
-
-<h2 id="查看pid下绑定线程"><a href="#查看pid下绑定线程" class="headerlink" title="查看pid下绑定线程"></a>查看pid下绑定线程</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top -Hp pid1(进程id)</span><br></pre></td></tr></table></figure>
-
-<h2 id="拿到需要查询的线程pid-转换成16进制"><a href="#拿到需要查询的线程pid-转换成16进制" class="headerlink" title="拿到需要查询的线程pid,转换成16进制"></a>拿到需要查询的线程pid,转换成16进制</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">printf</span> <span class="string">&#x27;%x&#x27;</span> pid2(线程id)  ==&gt; 6a4     <span class="comment">#6a4为输出结果</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="通过jstack讲java信息输出到文本"><a href="#通过jstack讲java信息输出到文本" class="headerlink" title="通过jstack讲java信息输出到文本"></a>通过jstack讲java信息输出到文本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jstack pid1(进程id) &gt; t.txt</span><br></pre></td></tr></table></figure>
-
-<p><strong>如果jstack报错,请查看 <a href="https://cywhat.cn/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/">jstack不存在</a></strong></p>
-<h2 id="在t-txt文件中查找6a4"><a href="#在t-txt文件中查找6a4" class="headerlink" title="在t.txt文件中查找6a4"></a>在t.txt文件中查找<code>6a4</code></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim t.txt</span><br><span class="line"></span><br><span class="line">$ /6a4</span><br></pre></td></tr></table></figure>
-<h2 id="然后找到自己的collectorl业务代码层具体行数去分析"><a href="#然后找到自己的collectorl业务代码层具体行数去分析" class="headerlink" title="然后找到自己的collectorl业务代码层具体行数去分析"></a>然后找到自己的collectorl业务代码层具体行数去分析</h2>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1138,6 +1138,20 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
+    <title>hexo删除文章</title>
+    <url>/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p><strong>hexo删除文章</strong></p>
+<p>直接删除 “_posts” 中的 .md 结尾的文件</p>
+<p>执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo管理多个标签</title>
     <url>/2021/07/08/hexo%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<h2 id="1-hexo多个标签应该遵循-list-格式-如下"><a href="#1-hexo多个标签应该遵循-list-格式-如下" class="headerlink" title="1 hexo多个标签应该遵循 list 格式,如下"></a>1 hexo多个标签应该遵循 <strong>list</strong> 格式,如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">date: 2021-04-07 17:39:32</span><br><span class="line">tags: [标签1,标签2]</span><br></pre></td></tr></table></figure>
@@ -1180,17 +1194,28 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
-    <title>hexo删除文章</title>
-    <url>/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p><strong>hexo删除文章</strong></p>
-<p>直接删除 “_posts” 中的 .md 结尾的文件</p>
-<p>执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+    <title>newman生成好看的html报告</title>
+    <url>/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/</url>
+    <content><![CDATA[<p>PS:运行newman需要<code>node</code> 版本大于10</p>
+<h2 id="1-安装newman"><a href="#1-安装newman" class="headerlink" title="1.安装newman"></a>1.安装newman</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装普通html报告插件-建议安装"><a href="#2-安装普通html报告插件-建议安装" class="headerlink" title="2.安装普通html报告插件(建议安装)"></a>2.安装普通html报告插件(建议安装)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman-reporter-html</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装美化html插件"><a href="#3-安装美化html插件" class="headerlink" title="3.安装美化html插件"></a>3.安装美化html插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman-reporter-htmlextra</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-newman命令详解"><a href="#4-newman命令详解" class="headerlink" title="4.newman命令详解"></a>4.newman命令详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ newman run  SX.postman_collection.json -e environment.json -r htmlextra,cli --reporter-htmlextra-title <span class="string">&quot;实训平台接口 测试报告&quot;</span> --reporter-htmlextra-browserTitle <span class="string">&quot;实训平台接口报告&quot;</span> --reporter-htmlextra-export Bapi.html</span><br><span class="line"><span class="comment">#参数解释:</span></span><br><span class="line">run 后面跟接口脚本json格式的文件</span><br><span class="line">-e 后面添加环境变量</span><br><span class="line">-r 指定生成的报告格式</span><br><span class="line">--reporter-htmlextra-title 指定生成的报告title</span><br><span class="line">--reporter-htmlextra-browserTitle 指定生成的浏览器title</span><br><span class="line">--reporter-htmlextra-export 指定生成的html文件名和路径</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/img6.png" class="" title="This is an test image">
+
+<p><img src="newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/img6.png" alt="img.png"></p>
+]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>Newman</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>Jenkins</tag>
+        <tag>Newman</tag>
+        <tag>Postman</tag>
       </tags>
   </entry>
   <entry>
@@ -1492,29 +1517,6 @@ Node: 15.12.0(注意Node版本)
       <tags>
         <tag>Hexo</tag>
         <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>newman生成好看的html报告</title>
-    <url>/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/</url>
-    <content><![CDATA[<p>PS:运行newman需要<code>node</code> 版本大于10</p>
-<h2 id="1-安装newman"><a href="#1-安装newman" class="headerlink" title="1.安装newman"></a>1.安装newman</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-安装普通html报告插件-建议安装"><a href="#2-安装普通html报告插件-建议安装" class="headerlink" title="2.安装普通html报告插件(建议安装)"></a>2.安装普通html报告插件(建议安装)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman-reporter-html</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-安装美化html插件"><a href="#3-安装美化html插件" class="headerlink" title="3.安装美化html插件"></a>3.安装美化html插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman-reporter-htmlextra</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-newman命令详解"><a href="#4-newman命令详解" class="headerlink" title="4.newman命令详解"></a>4.newman命令详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ newman run  SX.postman_collection.json -e environment.json -r htmlextra,cli --reporter-htmlextra-title <span class="string">&quot;实训平台接口 测试报告&quot;</span> --reporter-htmlextra-browserTitle <span class="string">&quot;实训平台接口报告&quot;</span> --reporter-htmlextra-export Bapi.html</span><br><span class="line"><span class="comment">#参数解释:</span></span><br><span class="line">run 后面跟接口脚本json格式的文件</span><br><span class="line">-e 后面添加环境变量</span><br><span class="line">-r 指定生成的报告格式</span><br><span class="line">--reporter-htmlextra-title 指定生成的报告title</span><br><span class="line">--reporter-htmlextra-browserTitle 指定生成的浏览器title</span><br><span class="line">--reporter-htmlextra-export 指定生成的html文件名和路径</span><br></pre></td></tr></table></figure>
-
-<p><img src="newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/img6.png" alt="img.png"></p>
-]]></content>
-      <categories>
-        <category>Newman</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-        <tag>Newman</tag>
-        <tag>Postman</tag>
       </tags>
   </entry>
 </search>
