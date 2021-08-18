@@ -1036,7 +1036,9 @@ console.log(responseTime);
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ fatal: unable to access <span class="string">&#x27;https://github.com/xxxxx/xxxx.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">  err: Error: Spawn failed       </span><br><span class="line">  at ChildProcess.&lt;anonymous</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-更改hexo配置文件中的git镜像映射地址"><a href="#1-更改hexo配置文件中的git镜像映射地址" class="headerlink" title="1.更改hexo配置文件中的git镜像映射地址"></a>1.更改hexo配置文件中的git镜像映射地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml   <span class="comment">#将https的地址更改为git开头的地址,如图</span></span><br></pre></td></tr></table></figure>
-<p><img src="../../public/images/img4.png" alt="img.png"><img src="../../public/images/img4.png" alt="img4.png"></p>
+<img src="/2021/08/17/hexo-d-g-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/img4.png" class="" title="This is an test image">
+
+
 <h2 id="2-检查发布机器和github之间的公私钥是否配对"><a href="#2-检查发布机器和github之间的公私钥是否配对" class="headerlink" title="2.检查发布机器和github之间的公私钥是否配对"></a>2.检查发布机器和github之间的公私钥是否配对</h2><h2 id="3-hexo清楚缓存"><a href="#3-hexo清楚缓存" class="headerlink" title="3.hexo清楚缓存"></a>3.hexo清楚缓存</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-重新发布"><a href="#4-重新发布" class="headerlink" title="4.重新发布"></a>4.重新发布</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
@@ -1205,10 +1207,7 @@ Node: 15.12.0(注意Node版本)
 
 <h2 id="4-newman命令详解"><a href="#4-newman命令详解" class="headerlink" title="4.newman命令详解"></a>4.newman命令详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ newman run  SX.postman_collection.json -e environment.json -r htmlextra,cli --reporter-htmlextra-title <span class="string">&quot;实训平台接口 测试报告&quot;</span> --reporter-htmlextra-browserTitle <span class="string">&quot;实训平台接口报告&quot;</span> --reporter-htmlextra-export Bapi.html</span><br><span class="line"><span class="comment">#参数解释:</span></span><br><span class="line">run 后面跟接口脚本json格式的文件</span><br><span class="line">-e 后面添加环境变量</span><br><span class="line">-r 指定生成的报告格式</span><br><span class="line">--reporter-htmlextra-title 指定生成的报告title</span><br><span class="line">--reporter-htmlextra-browserTitle 指定生成的浏览器title</span><br><span class="line">--reporter-htmlextra-export 指定生成的html文件名和路径</span><br></pre></td></tr></table></figure>
 
-<img src="/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/img6.png" class="" title="This is an test image">
-
-<p><img src="newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/img6.png" alt="img.png"></p>
-]]></content>
+<img src="/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/img6.png" class="" title="This is an test image">]]></content>
       <categories>
         <category>Newman</category>
       </categories>
