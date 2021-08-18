@@ -1519,4 +1519,27 @@ Node: 15.12.0(注意Node版本)
         <tag>Google</tag>
       </tags>
   </entry>
+  <entry>
+    <title>解决hexo图片不展示问题</title>
+    <url>/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-更改hexo配置文件"><a href="#1-更改hexo配置文件" class="headerlink" title="1.更改hexo配置文件"></a>1.更改hexo配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml <span class="comment">#配置_config.yml里面的post_asset_folder:false 设置为 true 如图</span></span><br></pre></td></tr></table></figure>
+<img src="/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/img7.png" class="" title="This is an test image">
+
+<h2 id="2-安装npm插件"><a href="#2-安装npm插件" class="headerlink" title="2.安装npm插件"></a>2.安装npm插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install https://github.com/CodeFalling/hexo-asset-image --save  </span><br></pre></td></tr></table></figure>
+
+<h2 id="3-清除hexo缓存"><a href="#3-清除hexo缓存" class="headerlink" title="3.清除hexo缓存"></a>3.清除hexo缓存</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-创建新的文章"><a href="#4-创建新的文章" class="headerlink" title="4.创建新的文章"></a>4.创建新的文章</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;XXA&quot;</span>   <span class="comment">#创建完文章后,会发现 _post 目录下多出一个XXA的文件夹,把图片放入该文件夹中</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-然后文章中引入图片"><a href="#5-然后文章中引入图片" class="headerlink" title="5.然后文章中引入图片"></a>5.然后文章中引入图片</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ &#123;% asset_img img7.png This is an image %&#125;   <span class="comment">#img7.png为你的图片名称,不可重复 This is an image是图片介绍</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>ps:唯一的缺点就是 预览的时候看不见图片 需要重新发布</strong></p>
+<h2 id="6-重新发布"><a href="#6-重新发布" class="headerlink" title="6.重新发布"></a>6.重新发布</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
 </search>
