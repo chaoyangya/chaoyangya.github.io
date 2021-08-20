@@ -1611,4 +1611,23 @@ Node: 15.12.0(注意Node版本)
         <tag>Linux</tag>
       </tags>
   </entry>
+  <entry>
+    <title>selenium.common.exceptions.WebDriverException: Message: unknown error: cannot find Chrome binary</title>
+    <url>/2021/08/20/selenium-common-exceptions-WebDriverException-Message-unknown-error-cannot-find-Chrome-binary/</url>
+    <content><![CDATA[<p>报错: selenium.common.exceptions.WebDriverException: Message: unknown error: cannot find Chrome binary</p>
+<p>原因是:<br>运行脚本的环境中没有找到chrome浏览器</p>
+<p>解决:<br>windows/Mac: 指定浏览器位置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chrome_path = r<span class="string">&quot;/Library/Frameworks/Python.framework/Versions/3.6/bin/chromedriver&quot;</span>  <span class="comment">#mac地址 win自己更换路径即可</span></span><br><span class="line">  driver = webdriver.Chrome(chrome_path)</span><br></pre></td></tr></table></figure>
+
+<p>linux: 安装chrome浏览器</p>
+<p>  <a href="https://cywhat.cn/2021/08/20/centos7%E5%AE%89%E8%A3%85chrome%E6%B5%8F%E8%A7%88%E5%99%A8/">Linux安装chrome浏览器</a></p>
+]]></content>
+      <categories>
+        <category>Selenium</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Selenium</tag>
+      </tags>
+  </entry>
 </search>
