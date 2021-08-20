@@ -1572,4 +1572,43 @@ Node: 15.12.0(注意Node版本)
         <tag>Mysql</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Centos7安装chrome浏览器</title>
+    <url>/2021/08/20/Centos7%E5%AE%89%E8%A3%85chrome%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
+    <content><![CDATA[<h2 id="1-下载chrome-for-linux压缩包"><a href="#1-下载chrome-for-linux压缩包" class="headerlink" title="1.下载chrome for linux压缩包"></a>1.下载chrome for linux压缩包</h2><p><a href="https://pan.baidu.com/s/1WwxOb1LiRSL2DnXvKlacZw">百度网盘</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$  提取码: 1f4n    </span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.chromedownloads.net/chrome64linux/">更多版本</a></p>
+<h2 id="2-上传解压压缩包"><a href="#2-上传解压压缩包" class="headerlink" title="2.上传解压压缩包"></a>2.上传解压压缩包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ unzip google-chrome-stable_deb_rpm_91.0.4472.77.zip  <span class="comment">#解压完成会出现 .deb 和 .rpm 的俩个文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装解压chrome所需依赖包"><a href="#3-安装解压chrome所需依赖包" class="headerlink" title="3.安装解压chrome所需依赖包"></a>3.安装解压chrome所需依赖包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install -y lsb</span><br><span class="line">  yum install -y libXScrnSaver</span><br><span class="line">  yum install -y liberation-fonts</span><br><span class="line">  yum install -y libdbusmenu-gtk3</span><br><span class="line">  yum install epel-release</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-安装chrome"><a href="#4-安装chrome" class="headerlink" title="4.安装chrome"></a>4.安装chrome</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo rpm -ivh google-chrome-stable_current_x86_64.rpm </span><br></pre></td></tr></table></figure>
+
+<h2 id="5-启动服务"><a href="#5-启动服务" class="headerlink" title="5.启动服务"></a>5.启动服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl start atd.service</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Centos</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Centos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>libvulkan.so.1()(64bit)缺少依赖</title>
+    <url>/2021/08/20/libvulkan-so-1-64bit-%E7%BC%BA%E5%B0%91%E4%BE%9D%E8%B5%96/</url>
+    <content><![CDATA[<p>前提:在Linux安装chrome的时候,报错缺少<code>libvulkan.so.1()(64bit)</code> 这个依赖</p>
+<p>解决:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum -y install vulkan-1.1.97.0-1.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
