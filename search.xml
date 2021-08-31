@@ -1616,7 +1616,7 @@ Node: 15.12.0(注意Node版本)
     <url>/2021/08/20/selenium-common-exceptions-WebDriverException-Message-unknown-error-cannot-find-Chrome-binary/</url>
     <content><![CDATA[<p>报错: selenium.common.exceptions.WebDriverException: Message: unknown error: cannot find Chrome binary</p>
 <p>原因是:<br>运行脚本的环境中没有找到chrome浏览器</p>
-<p>解决:<br>windows/Mac: 指定浏览器位置</p>
+<p>解决:<br>windows/mac: 指定浏览器位置</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chrome_path = r<span class="string">&quot;/Library/Frameworks/Python.framework/Versions/3.6/bin/chromedriver&quot;</span>  <span class="comment">#mac地址 win自己更换路径即可</span></span><br><span class="line">  driver = webdriver.Chrome(chrome_path)</span><br></pre></td></tr></table></figure>
 
 <p>linux: 安装chrome浏览器</p>
@@ -1628,6 +1628,26 @@ Node: 15.12.0(注意Node版本)
       <tags>
         <tag>Linux</tag>
         <tag>Selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DJango Uncaught ReferenceError: $ is not defined</title>
+    <url>/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/</url>
+    <content><![CDATA[<p>前提:<br><em><strong>用django和jquery写的web应用,html页面js报错,信息如下:</strong></em></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ DJango Uncaught ReferenceError: $ is not defined</span><br></pre></td></tr></table></figure>
+<img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img8.png" class="" title="This is an test image">
+
+<p>原因: js语法有问题,未识别为js语法</p>
+<p>解决:需要引入jquery</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ &lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;../static/main/js/jquery-2.1.1.min.js&quot;</span>&gt;&lt;/script&gt; <span class="comment">#src后面加js文件路径</span></span><br></pre></td></tr></table></figure>
+<img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img8.png" class="" title="This is an test image">
+]]></content>
+      <categories>
+        <category>Jquery</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>Jquery</tag>
       </tags>
   </entry>
 </search>
