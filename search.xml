@@ -1650,4 +1650,32 @@ Node: 15.12.0(注意Node版本)
         <tag>Jquery</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Linux关闭防火墙</title>
+    <url>/2021/09/01/Linux%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99/</url>
+    <content><![CDATA[<p><strong>注意:ConterOS7.0以上使用的是firewall，ConterOS7.0以下使用的是iptables</strong></p>
+<h2 id="1-查看防火状态"><a href="#1-查看防火状态" class="headerlink" title="1.查看防火状态"></a>1.查看防火状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl status firewalld  <span class="comment">#7.0以上</span></span><br><span class="line"></span><br><span class="line">$ service  iptables status  <span class="comment">#7.0以下</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="2-暂时关闭防火墙"><a href="#2-暂时关闭防火墙" class="headerlink" title="2.暂时关闭防火墙"></a>2.暂时关闭防火墙</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ syatemctl stop firewalld     <span class="comment">#7.0以上</span></span><br><span class="line"></span><br><span class="line">$ service  iptables stop      <span class="comment">#7.0以下</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-永久关闭防火墙"><a href="#3-永久关闭防火墙" class="headerlink" title="3.永久关闭防火墙"></a>3.永久关闭防火墙</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl <span class="built_in">disable</span> firewalld    <span class="comment">#7.0以上</span></span><br><span class="line"></span><br><span class="line">$ chkconfig iptables off     <span class="comment">#7.0以下</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="4-重启防火墙"><a href="#4-重启防火墙" class="headerlink" title="4.重启防火墙"></a>4.重启防火墙</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl <span class="built_in">enable</span> firewalld  <span class="comment">#7.0以上</span></span><br><span class="line"></span><br><span class="line">$ service iptables restart  <span class="comment">#7.0以下</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
