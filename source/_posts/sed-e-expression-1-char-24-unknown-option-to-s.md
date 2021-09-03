@@ -14,6 +14,6 @@ $ "sed: -e expression #1, char 24: unknown option to `s` "
 ```bash
 $ 需要替换的内容中有符号,且该符号和你用来分割的符号一样,所以该条命令无法使用,详情如下图:
 ```
-![](../../public/images/img5.png)
+{% asset_img img5.png This is an test image %}
 
 也就是说如果你需要替换的内容中存在 ``` | ```  那么你的命令中用来分割的符号就需要使用 ```@``` 或者 ``` \ ``` 否则就会报错

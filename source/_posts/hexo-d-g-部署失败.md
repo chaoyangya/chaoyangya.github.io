@@ -16,7 +16,8 @@ $ fatal: unable to access 'https://github.com/xxxxx/xxxx.git/': The requested UR
 ```bash
 $ vim _config.yml   #将https的地址更改为git开头的地址,如图
 ```
-![img.png](../../public/images/img4.png)![img4.png](../../public/images/img4.png)
+{% asset_img img4.png This is an test image %}
+
 
 ## 2.检查发布机器和github之间的公私钥是否配对
 

@@ -33,4 +33,4 @@ run 后面跟接口脚本json格式的文件
 --reporter-htmlextra-export 指定生成的html文件名和路径
 ```
 
-![img.png](newman生成好看的html报告/img6.png)
+{% asset_img img6.png This is an test image %}
