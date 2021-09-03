@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>App跟web定位元素页面相互切换</title>
-    <url>/2018/10/11/App%E8%B7%9Fweb%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2018/10/11/App%E8%B7%9Fweb%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2/</url>
     <content><![CDATA[<p>很多QA在做UI自动化或者App自动化的时候，会遇到在web页面要抓取App模式的元素，或者是在App要抓取H5页面的元素，从网上整理了一些方法，不一定能解决，但是试一下也未尝不可，如果解决了就记得关注一波咯！！！<code>python噢</code>~~~</p>
 <pre><code>self.driver.switch_to.context()
 self.driver.switch_to.context(&#39;WEBVIEW_1&#39;)app --&gt; web
@@ -20,7 +20,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Centos7安装chrome浏览器</title>
-    <url>/2021/08/20/Centos7%E5%AE%89%E8%A3%85chrome%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/08/20/Centos7%E5%AE%89%E8%A3%85chrome%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
     <content><![CDATA[<h2 id="1-下载chrome-for-linux压缩包"><a href="#1-下载chrome-for-linux压缩包" class="headerlink" title="1.下载chrome for linux压缩包"></a>1.下载chrome for linux压缩包</h2><p><a href="https://pan.baidu.com/s/1WwxOb1LiRSL2DnXvKlacZw">百度网盘</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$  提取码: 1f4n    </span><br></pre></td></tr></table></figure>
 
@@ -44,7 +44,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Centos7.7安装并配置jenkins+python+allure发送定制化报告</title>
-    <url>/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
     <content><![CDATA[<h1 id="【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告"><a href="#【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告" class="headerlink" title="【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告"></a>【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告</h1><p>目前测试开发方向的接口自动化脚本很多，这里就不一一列举了，有兴趣的可以baidu/google 一大堆，本次主要根据自己公司/业务需要搭建了一套基于python3.7+pytest+allure的接口自动化脚本，由于工作原因，源码就不放了，最下面会放一个很简单的脚本，不想写的可以暂时先用下，调试通过以后，再进行业务代码的编写也是ok的，话不多说，开整。</p>
 <h2 id="Centos版本的选择"><a href="#Centos版本的选择" class="headerlink" title="Centos版本的选择"></a>Centos版本的选择</h2><p>这里我选择的是阿里云的服务器，配置很低的那种，自己练手搭个小项目已经完全ok啦。</p>
 <p>说一下为什么我选择centos7.7版本吧，目前别的版本，也有人一直在用，但是会有一些不支持的功能，比如说我上次使用的7.3中的启动服务的时候，会有一些权限问题，总之层出不穷，大家可以去踩一下坑，只有你想不到没有出现不了的新问题，当时几乎快崩溃了，然后突然google发现一位国外大神，通过更换centos版本完美的解决了这个问题，我就重新选择版本，重新开始，当自己需要的一些服务慢慢变绿的时候，心中的喜悦大概只有自己知道吧。</p>
@@ -183,7 +183,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>DJango Uncaught ReferenceError: $ is not defined</title>
-    <url>/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/</url>
     <content><![CDATA[<p>前提:<br><strong>用django和jquery写的web应用,html页面js报错,信息如下:</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ DJango Uncaught ReferenceError: $ is not defined</span><br></pre></td></tr></table></figure>
 <img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img8.png" class title="This is an test image">
@@ -203,7 +203,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Error taking device screenshot: null</title>
-    <url>/2018/10/11/Error-taking-device-screenshot-null/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2018/10/11/Error-taking-device-screenshot-null/</url>
     <content><![CDATA[<p>使用<code>uiautomatorviewer</code> 查看Android某些页面元素，出现如图错误：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Error obtaining UI hierarchy Reason: Error taking device screenshot: null</span><br></pre></td></tr></table></figure>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/fc8af8463b3e6822ccdd940774759365.png"></p>
@@ -227,7 +227,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>HTTP各个status code代表什么意思</title>
-    <url>/2019/03/07/HTTP%E5%90%84%E4%B8%AAstatus-code%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2019/03/07/HTTP%E5%90%84%E4%B8%AAstatus-code%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/</url>
     <content><![CDATA[<p>在介绍状态码之前，要简单讲一下为什么要有状态码这个东西。计算机之间的通信以协议为共同基础，客户端和服务端都按照协议的约定进行通信。HTTP的状态码就在HTTP的协议内，规定了很多的状态。客户端请求服务端后，服务端就返回结果，同时返回状态码。告诉客户端，本次请求是成功了还是失败了，还是要客户端做什么操作。那为什么不使用文本状态码呢？不是更加清晰直观吗？这是因为这些状态协议里面已经规定了，提到状态码，就是表示本条状态。</p>
 <p>状态码分为1-5开头的CODE,以下依次说明,请仔细阅读噢</p>
 <p><code>1** </code>类状态码称之为Information 状态吗，表示信息正在处理。</p>
@@ -264,7 +264,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>ImportError: No module named flask</title>
-    <url>/2020/03/06/ImportError-No-module-named-flask/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2020/03/06/ImportError-No-module-named-flask/</url>
     <content><![CDATA[<p>1、删除原有的用大写开头的Flask插件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip uninstall Flask</span><br></pre></td></tr></table></figure>
 
@@ -283,7 +283,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Git基础命令</title>
-    <url>/2019/10/23/Git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2019/10/23/Git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p>如果是开发人员，忽略此步骤，从下面大字的开始即可：</p>
 <p>项目开始阶段，初始化项目（init），提交本地的代码到仓库，将本地仓库的代码推送到远端库（push）；</p>
 <p>项目开发人员从远端库克隆代码到本机（clone），此时本地仅有一个master分支；新建dev分支并切换、在Dev分支中进行开发工作，其实就是修改并提交代码（add+commit）；当开发的dev分支的代码没问题时，将dev分支合并（merge）到master；将master推送到远端分支，至此，其他的项目开发人员就可以查看到你提交的代码了！</p>
@@ -386,7 +386,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Java线上问题排查</title>
-    <url>/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
     <content><![CDATA[<h2 id="top-查看占用资源信息以及pid"><a href="#top-查看占用资源信息以及pid" class="headerlink" title="top 查看占用资源信息以及pid"></a>top 查看占用资源信息以及pid</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top </span><br></pre></td></tr></table></figure>
 
 <h2 id="查看pid下绑定线程"><a href="#查看pid下绑定线程" class="headerlink" title="查看pid下绑定线程"></a>查看pid下绑定线程</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top -Hp pid1(进程id)</span><br></pre></td></tr></table></figure>
@@ -407,7 +407,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Iterm2/Mac自带终端工具快速ssh</title>
-    <url>/2019/01/26/Iterm2-Mac%E8%87%AA%E5%B8%A6%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9Fssh/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2019/01/26/Iterm2-Mac%E8%87%AA%E5%B8%A6%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9Fssh/</url>
     <content><![CDATA[<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><p>首先我们在终端本地要写一个登录的脚本，eg：</p>
 <p>当然首先要<code>touch login.sh</code> 啦，下面就是脚本文件，比较low，大神勿喷，会更炫酷写法的小伙伴可以自己参考这个思路写，不会的直接复制就好啦</p>
 <p>　　</p>
@@ -438,7 +438,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Linux/macos安装newman</title>
-    <url>/2021/03/22/Linux-macos%E5%AE%89%E8%A3%85newman/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/03/22/Linux-macos%E5%AE%89%E8%A3%85newman/</url>
     <content><![CDATA[<p>[已解决]Linux/macos安装newman</p>
 <p>一、安装Node环境（<strong>1/2选其一即可</strong>）</p>
 <ol>
@@ -506,7 +506,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Linux中常用来查看进程的命令</title>
-    <url>/2018/12/25/Linux%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2018/12/25/Linux%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p>查看所有运行中的进程:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps aux | less</span><br></pre></td></tr></table></figure>
 
@@ -529,7 +529,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Linux关闭防火墙</title>
-    <url>/2021/09/01/Linux%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/09/01/Linux%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99/</url>
     <content><![CDATA[<p><strong>注意:ConterOS7.0以上使用的是firewall，ConterOS7.0以下使用的是iptables</strong></p>
 <h2 id="1-查看防火状态"><a href="#1-查看防火状态" class="headerlink" title="1.查看防火状态"></a>1.查看防火状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl status firewalld  <span class="comment">#7.0以上</span></span><br><span class="line"></span><br><span class="line">$ service  iptables status  <span class="comment">#7.0以下</span></span><br></pre></td></tr></table></figure>
 
@@ -557,7 +557,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Linux管理node版本</title>
-    <url>/2021/04/07/Linux%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/04/07/Linux%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC/</url>
     <content><![CDATA[<p>1、安装nvm</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
 <p>或者</p>
@@ -590,7 +590,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Postmant压力测试</title>
-    <url>/2019/03/28/Postmant%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2019/03/28/Postmant%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>Postman请自行下载</p>
 <p>下面是在网上随便抓了一个请求地址来做演示，把请求地址填入地址栏，此请求为GET请求。点击Send发送请求，请求结果将会在下方显示出来。每次的请求历史数据，会被记录下来，但是经常使用的请求，还是保存一下，这么每次用的时候，选择就行了，及其方便。</p>
 <p>另外，最好创建一个账号，这样数据将会永久保存下来，不至于重装了系统或者换了台电脑数据都没了的尴尬。<br><img src="https://img-blog.csdnimg.cn/img_convert/3fea11cd00cc15c65ffa0d8b20d86677.png"></p>
@@ -690,7 +690,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>Linux部署easy_mock</title>
-    <url>/2021/04/16/Linux%E9%83%A8%E7%BD%B2easy-mock/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/04/16/Linux%E9%83%A8%E7%BD%B2easy-mock/</url>
     <content><![CDATA[<p>前期准备：<br>1、Linux：CentOS Linux release 7.8.2003 (Core)<br>2、mongodb：3.4.24<br>3、redis：4.0.14<br>4、node：8.9.0</p>
 <p><strong>PS：</strong></p>
 <blockquote>
@@ -740,7 +740,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>Linux快捷进入长目录的方法</title>
-    <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
 
@@ -761,7 +761,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>Shadowrocket小火箭配置规则文件</title>
-    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
 
 <h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
@@ -774,7 +774,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>Python+virtualenv+Django+nginx+uwsgi+centos7部署web应用</title>
-    <url>/2021/03/11/Python-virtualenv-Django-nginx-uwsgi-centos7%E9%83%A8%E7%BD%B2web%E5%BA%94%E7%94%A8/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/03/11/Python-virtualenv-Django-nginx-uwsgi-centos7%E9%83%A8%E7%BD%B2web%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p>给公司写的一个工具平台，先部署到自己的服务器上进行测试，真是困难重重，此文章仅记录自己踩坑过程和搭建教程，不保证你能按照教程成功搭建，但能把坑提前暴露出来，避免大家重复踩坑！</p>
 <h2 id="我的环境"><a href="#我的环境" class="headerlink" title="我的环境"></a>我的环境</h2><ol>
 <li><strong>部署服务器</strong> ：CentOS Linux release 7.8.2003 (Core)</li>
@@ -926,7 +926,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>bash:jstack: 未找到命令</title>
-    <url>/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="jstack报错如下"><a href="#jstack报错如下" class="headerlink" title="jstack报错如下"></a>jstack报错如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ -bash: jstack: 未找到命令</span><br></pre></td></tr></table></figure>
 <p><img src="../images/img3.png" alt="img.png"></p>
 <h2 id="安装以下依赖"><a href="#安装以下依赖" class="headerlink" title="安装以下依赖"></a>安装以下依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install java-1.7.0-openjdk-devel -y</span><br></pre></td></tr></table></figure>
@@ -941,7 +941,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>Tampermonkey+脚本+Aira2GUI直链下载百度网盘资源</title>
-    <url>/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<p>前景：<br><strong>各大LM运营限制带宽速度，导致必须要成为尊贵的VIP客户才能勉强享受到自己的带宽</strong></p>
 <p>PS：我这里屎以chrome浏览器举例，其他不保证成功，可借鉴</p>
 <h2 id="1-Chrome浏览器下载Tampermonkey"><a href="#1-Chrome浏览器下载Tampermonkey" class="headerlink" title="1.Chrome浏览器下载Tampermonkey"></a>1.Chrome浏览器下载Tampermonkey</h2><p><a href="https://www.tampermonkey.net/">Tampermonkey</a><br>点击安装</p>
@@ -973,7 +973,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>Centos7安装mysql5.7亲测可用</title>
-    <url>/2020/03/30/centos7%E5%AE%89%E8%A3%85mysql5-7%E4%BA%B2%E6%B5%8B%E5%8F%AF%E7%94%A8/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2020/03/30/centos7%E5%AE%89%E8%A3%85mysql5-7%E4%BA%B2%E6%B5%8B%E5%8F%AF%E7%94%A8/</url>
     <content><![CDATA[<p>一 安装前准备<br>1、检查是否已经安装过mysql，执行命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ rpm -qa | grep mysql</span><br></pre></td></tr></table></figure>
 <p><img src="https://img-blog.csdnimg.cn/2020033015134267.png" alt="在这里插入图片描述"><br>2、查询所有Mysql对应的文件夹</p>
@@ -1077,7 +1077,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>checkout无效</title>
-    <url>/2018/10/29/checkout%E6%97%A0%E6%95%88/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2018/10/29/checkout%E6%97%A0%E6%95%88/</url>
     <content><![CDATA[<p>在日常工作中，我们经常会遇到要更新一个项目，但是由于更改了配置，需要将这些配置<code>commit</code>或者<code>checkout</code>，但是有的同学不想commit怎么办呢，只能通过checkout，那么问题又来了，改了很多配置，checkout之后又要重新修改配置，就很烦。</p>
 <p>哈哈哈，在偶然的机会，找前端大神学会了俩句命令，亲测在代码merge没冲突没问题的情况下都可以成功！</p>
 <p>那么我们开始吧</p>
@@ -1105,7 +1105,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>git branch出现end需要q才能退出</title>
-    <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
     <content><![CDATA[<p>git 进入了编辑模式</p>
 <p>用以下命令即可解决：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.pager mor</span><br></pre></td></tr></table></figure>
@@ -1119,7 +1119,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>.gitignore不生效的解决方案</title>
-    <url>/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<p><strong>原因：git本地运行有缓存，需要清楚git缓存即可</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm -r --cached .</span><br></pre></td></tr></table></figure>
 
@@ -1135,7 +1135,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>hexo d -g 部署失败</title>
-    <url>/2021/08/17/hexo-d-g-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/08/17/hexo-d-g-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/</url>
     <content><![CDATA[<p>hexo d -g 突然部署失败,报错如下:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ fatal: unable to access <span class="string">&#x27;https://github.com/xxxxx/xxxx.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">  err: Error: Spawn failed       </span><br><span class="line">  at ChildProcess.&lt;anonymous</span><br></pre></td></tr></table></figure>
 
@@ -1157,7 +1157,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>hexo+netlify+git+个人域名搭建博客</title>
-    <url>/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p><strong>部署过程需要用到一些<code>Linux</code>命令,且本文部署操作机为Mac,如是Windows不保证能100%成功噢</strong></p>
 <h2 id="部署准备"><a href="#部署准备" class="headerlink" title="部署准备"></a>部署准备</h2><pre><code>操作机: Mac(iterm)
 Git: 创建好个人项目(Public) #注意这里项目命名 XX.github.io.git
@@ -1204,7 +1204,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>hexo优化加载速度</title>
-    <url>/2021/07/14/hexo%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/14/hexo%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/</url>
     <content><![CDATA[<h1 id="注意该方法利用插件更改配置-如主题中有Google字体导致加载缓慢-请移步其他内容"><a href="#注意该方法利用插件更改配置-如主题中有Google字体导致加载缓慢-请移步其他内容" class="headerlink" title="注意该方法利用插件更改配置,如主题中有Google字体导致加载缓慢,请移步其他内容"></a>注意该方法利用插件更改配置,如主题中有Google字体导致加载缓慢,请移步其他内容</h1><p>利用插件 <code>hexo-all-minifier</code></p>
 <h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-all-minifier --save</span><br></pre></td></tr></table></figure>
 
@@ -1225,7 +1225,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>hexo修改新建文章的默认字段</title>
-    <url>/2021/07/09/hexo%E4%BF%AE%E6%94%B9%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%AD%97%E6%AE%B5/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/09/hexo%E4%BF%AE%E6%94%B9%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%AD%97%E6%AE%B5/</url>
     <content><![CDATA[<p><strong>因为每次新建文章都需要自己新增字段,所以就找到了修改新建文章的默认字段所在地,果然社会的进步跟人的偷懒也不是毫无关系(啊哈哈哈)</strong></p>
 <p>默认使用命令新建只有</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title date tags</span><br></pre></td></tr></table></figure>
@@ -1245,7 +1245,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>hexo删除文章</title>
-    <url>/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<p><strong>hexo删除文章</strong></p>
 <p>直接删除 “_posts” 中的 .md 结尾的文件</p>
 <p>执行</p>
@@ -1259,7 +1259,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>hexo管理多个标签</title>
-    <url>/2021/07/08/hexo%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/08/hexo%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<h2 id="1-hexo多个标签应该遵循-list-格式-如下"><a href="#1-hexo多个标签应该遵循-list-格式-如下" class="headerlink" title="1 hexo多个标签应该遵循 list 格式,如下"></a>1 hexo多个标签应该遵循 <strong>list</strong> 格式,如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">date: 2021-04-07 17:39:32</span><br><span class="line">tags: [标签1,标签2]</span><br></pre></td></tr></table></figure>
 
 
@@ -1273,7 +1273,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>libvulkan.so.1()(64bit)缺少依赖</title>
-    <url>/2021/08/20/libvulkan-so-1-64bit-%E7%BC%BA%E5%B0%91%E4%BE%9D%E8%B5%96/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/08/20/libvulkan-so-1-64bit-%E7%BC%BA%E5%B0%91%E4%BE%9D%E8%B5%96/</url>
     <content><![CDATA[<p>前提:在Linux安装chrome的时候,报错缺少<code>libvulkan.so.1()(64bit)</code> 这个依赖</p>
 <p>解决:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum -y install vulkan-1.1.97.0-1.el7.x86_64</span><br></pre></td></tr></table></figure>
@@ -1288,7 +1288,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>mac 安装brew</title>
-    <url>/2020/03/18/mac-%E5%AE%89%E8%A3%85brew/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2020/03/18/mac-%E5%AE%89%E8%A3%85brew/</url>
     <content><![CDATA[<h2 id="【已解决】mac-安装brew"><a href="#【已解决】mac-安装brew" class="headerlink" title="【已解决】mac 安装brew"></a>【已解决】mac 安装brew</h2><p>mac是自带ruby的 打开命令行工具terminal</p>
 <p>1、查看ruby版本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ruby -version</span><br></pre></td></tr></table></figure>
@@ -1316,7 +1316,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>mysql连接以及增删改查语句</title>
-    <url>/2021/08/18/mysql%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E8%AF%AD%E5%8F%A5/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/08/18/mysql%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E8%AF%AD%E5%8F%A5/</url>
     <content><![CDATA[<p>好久没操作数据库语句,都快忘光了,记录一下</p>
 <h2 id="1-连接数据库-mysql"><a href="#1-连接数据库-mysql" class="headerlink" title="1.连接数据库(mysql)"></a>1.连接数据库(mysql)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mysql  -h机器ip -u用户名 -p密码 </span><br></pre></td></tr></table></figure>
 
@@ -1346,7 +1346,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>newman生成好看的html报告</title>
-    <url>/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/</url>
     <content><![CDATA[<p>PS:运行newman需要<code>node</code> 版本大于10</p>
 <h2 id="1-安装newman"><a href="#1-安装newman" class="headerlink" title="1.安装newman"></a>1.安装newman</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman</span><br></pre></td></tr></table></figure>
 
@@ -1368,7 +1368,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>nginx解决多个端口映射80的配置</title>
-    <url>/2021/04/16/nginx%E5%A4%9A%E4%B8%AA%E7%AB%AF%E5%8F%A3/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/04/16/nginx%E5%A4%9A%E4%B8%AA%E7%AB%AF%E5%8F%A3/</url>
     <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  xx.cn;  <span class="comment">#域名1</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://x.x.x.x:9001;   <span class="comment">#域名1需要映射到80端口的服务端口</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">     listen       80;</span><br><span class="line">     server_name   xx.cn;   <span class="comment">#域名2</span></span><br><span class="line"></span><br><span class="line">     location / &#123;</span><br><span class="line">         proxy_pass http://xx.xx.xx.xx:7300;    <span class="comment">#域名2需要映射到80端口的服务端口</span></span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -1384,7 +1384,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>nginx配置实现ip访问指定URL</title>
-    <url>/2021/04/01/nginx%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0ip%E8%AE%BF%E9%97%AE%E6%8C%87%E5%AE%9AURL/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/04/01/nginx%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0ip%E8%AE%BF%E9%97%AE%E6%8C%87%E5%AE%9AURL/</url>
     <content><![CDATA[<p><strong>我的需求是这样的，nginx+uwsgi启动的web服务，访问域名XX.CN之后，nginx报错404，我需要实现的是访问XX.CN，自动映射到XX.CN/login 因为我server是80端口，所以不需要加端口即可访问</strong></p>
 <p>nginx配置如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim nginx.conf</span><br></pre></td></tr></table></figure>
@@ -1406,7 +1406,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>no such table:django_session</title>
-    <url>/2021/04/01/no-such-table-django-session/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/04/01/no-such-table-django-session/</url>
     <content><![CDATA[<p><strong>出现上述问题是django没有django_session表</strong></p>
 <p>错误跟Session的机制相关<br>既然要从Web服务器端来记录用户信息，<br>那么一定要有存放用户session id对应信息的地方才行</p>
 <p>django创建存放session表命令如下：</p>
@@ -1423,7 +1423,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>node切换版本</title>
-    <url>/2021/08/17/node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/08/17/node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
     <content><![CDATA[<h2 id="1-安装n"><a href="#1-安装n" class="headerlink" title="1.安装n"></a>1.安装n</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g n</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-使用-n-下载所需node"><a href="#2-使用-n-下载所需node" class="headerlink" title="2.使用 n 下载所需node"></a>2.使用 n 下载所需node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n 10.16.3  <span class="comment">#版本号 不需要加v</span></span><br></pre></td></tr></table></figure>
@@ -1448,7 +1448,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>npm切换版本</title>
-    <url>/2021/07/14/npm%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/14/npm%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
     <content><![CDATA[<h1 id="Npm切换版本"><a href="#Npm切换版本" class="headerlink" title="Npm切换版本"></a>Npm切换版本</h1><p>npm需要切换版本如果没有安装nvm很头疼,会存在以下三种情况:</p>
 <pre><code>① Node环境还在,只是Npm被卸载
 ② Npm和Node版本不兼容
@@ -1470,7 +1470,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>npm缺少css-loader，/style-compiler，stylus-loader问题，npm没有权限无法全局更新问题</title>
-    <url>/2018/10/17/npm%E7%BC%BA%E5%B0%91css-loader%EF%BC%8C-style-compiler%EF%BC%8Cstylus-loader%E9%97%AE%E9%A2%98%EF%BC%8Cnpm%E6%B2%A1%E6%9C%89%E6%9D%83%E9%99%90%E6%97%A0%E6%B3%95%E5%85%A8%E5%B1%80%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2018/10/17/npm%E7%BC%BA%E5%B0%91css-loader%EF%BC%8C-style-compiler%EF%BC%8Cstylus-loader%E9%97%AE%E9%A2%98%EF%BC%8Cnpm%E6%B2%A1%E6%9C%89%E6%9D%83%E9%99%90%E6%97%A0%E6%B3%95%E5%85%A8%E5%B1%80%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>​<br>ERROR in ./node_modules/css-loader!./node_modules/vue-loader/lib/style-compiler?{“vue”:true,”id”:”data-v-a5e4f82a”,”scoped”:false,”hasInlineConfig”:false}!./node_modules/stylus-loader?{“import”:[“<del>@didi/ada/style/mixins.styl”,”/home/xiaoju/manhattan-hera-webapp/client/style/base.styl”]}!./node_modules/vue-loader/lib/selector.js?type=styles&amp;index=0&amp;bustCache!./client/components/panel_links.vue<br>Cannot find module ‘postcss-import’<br>@ ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/style-compiler?{“vue”:true,”id”:”data-v-a5e4f82a”,”scoped”:false,”hasInlineConfig”:false}!./node_modules/stylus-loader?{“import”:[“</del>@didi/ada/style/mixins.styl”,”/home/xiaoju/manhattan-hera-webapp/client/style/base.styl”]}!./node_modules/vue-loader/lib/selector.js?type=styles&amp;index=0&amp;bustCache!./client/components/panel_links.vue 4:14-454<br>@ ./client/components/panel_links.vue<br>@ ./client/app.ts<br>@ multi ./client/app.ts</p>
 <p>如下图：</p>
 <p>在测试项目的时候，部署前端在启动前端环境的时候遇到缺少组件css-loader，/style-compiler，stylus-loader，尝试了开启外网，npm的全局安装，单独安装组件( npn install stylus-loader css-loader style-loader style-compiler  –save-dev)后无果，最后在前端大神的指导下，发现是npm的目录没有权限，然后找到了破解npm无法全局安装下载的最新办法！亲测有效！</p>
@@ -1516,7 +1516,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from x.x.x)</title>
-    <url>/2021/07/14/nvm-Cannot-uninstall-currently-active-node-version-vx-x-x-inferred-from-x-x-x/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/14/nvm-Cannot-uninstall-currently-active-node-version-vx-x-x-inferred-from-x-x-x/</url>
     <content><![CDATA[<p>#使用nvm卸载node版本时报错如下:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from</span><br><span class="line">  x.x.x)</span><br></pre></td></tr></table></figure>
 
@@ -1535,7 +1535,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>pip安装插件失败，拒绝连接</title>
-    <url>/2021/03/30/pip%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%8B%92%E7%BB%9D%E8%BF%9E%E6%8E%A5/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/03/30/pip%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%8B%92%E7%BB%9D%E8%BF%9E%E6%8E%A5/</url>
     <content><![CDATA[<p>WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by ‘ConnectTimeoutError(&lt;pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ff8fba5f080&gt;, ‘Connection to mirrors.aliyn.com timed out. (connect timeout=15)’)’: /pypi/simple/python-jenkins/</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip3 install python-jenkins</span><br></pre></td></tr></table></figure>
 <p>安装python-jenkins报错如下<br><img src="https://img-blog.csdnimg.cn/20210330114856815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -1553,7 +1553,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>sed: -e expression #1, char 24: unknown option to &#39;s&#39; </title>
-    <url>/2021/08/17/sed-e-expression-1-char-24-unknown-option-to-s/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/08/17/sed-e-expression-1-char-24-unknown-option-to-s/</url>
     <content><![CDATA[<p>在使用 <code>sed -e</code> 批量替换命令时候,报错如下:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="string">&quot;sed: -e expression #1, char 24: unknown option to `s` &quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -1573,7 +1573,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>selenium.common.exceptions.WebDriverException: Message: unknown error: cannot find Chrome binary</title>
-    <url>/2021/08/20/selenium-common-exceptions-WebDriverException-Message-unknown-error-cannot-find-Chrome-binary/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/08/20/selenium-common-exceptions-WebDriverException-Message-unknown-error-cannot-find-Chrome-binary/</url>
     <content><![CDATA[<p>报错: selenium.common.exceptions.WebDriverException: Message: unknown error: cannot find Chrome binary</p>
 <p>原因是:<br>运行脚本的环境中没有找到chrome浏览器</p>
 <p>解决:<br>windows/mac: 指定浏览器位置</p>
@@ -1592,7 +1592,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>supervisord管理常驻进程uwsgi/nginx/redis/mongodb</title>
-    <url>/2021/05/24/supervisord%E7%AE%A1%E7%90%86%E5%B8%B8%E9%A9%BB%E8%BF%9B%E7%A8%8Buwsgi-nginx-redis-mongodb/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/05/24/supervisord%E7%AE%A1%E7%90%86%E5%B8%B8%E9%A9%BB%E8%BF%9B%E7%A8%8Buwsgi-nginx-redis-mongodb/</url>
     <content><![CDATA[<p>解决部署的一些项目,因机器关机/重启导致项目需要手动重新启动的问题</p>
 <h2 id="1-安装supervisor"><a href="#1-安装supervisor" class="headerlink" title="1 `安装supervisor"></a>1 `安装supervisor</h2><p>yum安装</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install supervisor</span><br></pre></td></tr></table></figure>
@@ -1642,7 +1642,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>web服务 访问Linux中的静态文件</title>
-    <url>/2021/03/29/web%E6%9C%8D%E5%8A%A1-%E8%AE%BF%E9%97%AELinux%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/03/29/web%E6%9C%8D%E5%8A%A1-%E8%AE%BF%E9%97%AELinux%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<p>报错404，NOT FOUND可能是因为nginx.conf配置文件的俩处地方配置有误，按照下面，检查你的配置之后99.9999%是可以在浏览器访问Linux的静态文件的</p>
 <p>1、检查nginx是否打开允许访问本地文件的配置</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim nginx.conf</span><br></pre></td></tr></table></figure>
@@ -1666,7 +1666,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>怎么让你的个人博客可以在百度谷歌搜索到</title>
-    <url>/2021/07/23/%E6%80%8E%E4%B9%88%E8%AE%A9%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%88%B0/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/07/23/%E6%80%8E%E4%B9%88%E8%AE%A9%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%88%B0/</url>
     <content><![CDATA[<p>怎么让百度和谷歌收录你的博客(仅仅局限于拥有自己域名的个人博客使用)</p>
 <p>收录的好处:<br><strong>被搜索引擎收录后，别人就可以通过搜索引擎搜索到你的文章</strong></p>
 <h2 id="百度"><a href="#百度" class="headerlink" title="百度:"></a>百度:</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://ziyuan.baidu.com/linksubmit/url</span><br></pre></td></tr></table></figure>
@@ -1689,7 +1689,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>解决hexo图片不展示问题</title>
-    <url>/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
+    <url>/chaoyangya/chaoyangya.github.io/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-更改hexo配置文件"><a href="#1-更改hexo配置文件" class="headerlink" title="1.更改hexo配置文件"></a>1.更改hexo配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml <span class="comment">#配置_config.yml里面的post_asset_folder:false 设置为 true 如图</span></span><br></pre></td></tr></table></figure>
 <img src="/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/img7.png" class title="This is an test image">
 
