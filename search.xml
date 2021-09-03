@@ -1,50 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>App跟web定位元素页面相互切换</title>
-    <url>/chaoyangya/chaoyangya.github.io/2018/10/11/App%E8%B7%9Fweb%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2/</url>
-    <content><![CDATA[<p>很多QA在做UI自动化或者App自动化的时候，会遇到在web页面要抓取App模式的元素，或者是在App要抓取H5页面的元素，从网上整理了一些方法，不一定能解决，但是试一下也未尝不可，如果解决了就记得关注一波咯！！！<code>python噢</code>~~~</p>
-<pre><code>self.driver.switch_to.context()
-self.driver.switch_to.context(&#39;WEBVIEW_1&#39;)app --&gt; web
-self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
-</code></pre>
-<p>如果是从App转到web 选择<code>WEBVIEW_1</code>，<br>如果web转到App 选择 <code>NATIVE_APP</code></p>
-]]></content>
-      <categories>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Appium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Centos7安装chrome浏览器</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/08/20/Centos7%E5%AE%89%E8%A3%85chrome%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
-    <content><![CDATA[<h2 id="1-下载chrome-for-linux压缩包"><a href="#1-下载chrome-for-linux压缩包" class="headerlink" title="1.下载chrome for linux压缩包"></a>1.下载chrome for linux压缩包</h2><p><a href="https://pan.baidu.com/s/1WwxOb1LiRSL2DnXvKlacZw">百度网盘</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$  提取码: 1f4n    </span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.chromedownloads.net/chrome64linux/">更多版本</a></p>
-<h2 id="2-上传解压压缩包"><a href="#2-上传解压压缩包" class="headerlink" title="2.上传解压压缩包"></a>2.上传解压压缩包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ unzip google-chrome-stable_deb_rpm_91.0.4472.77.zip  <span class="comment">#解压完成会出现 .deb 和 .rpm 的俩个文件</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-安装解压chrome所需依赖包"><a href="#3-安装解压chrome所需依赖包" class="headerlink" title="3.安装解压chrome所需依赖包"></a>3.安装解压chrome所需依赖包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install -y lsb</span><br><span class="line">  yum install -y libXScrnSaver</span><br><span class="line">  yum install -y liberation-fonts</span><br><span class="line">  yum install -y libdbusmenu-gtk3</span><br><span class="line">  yum install epel-release</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-安装chrome"><a href="#4-安装chrome" class="headerlink" title="4.安装chrome"></a>4.安装chrome</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo rpm -ivh google-chrome-stable_current_x86_64.rpm </span><br></pre></td></tr></table></figure>
-
-<h2 id="5-启动服务"><a href="#5-启动服务" class="headerlink" title="5.启动服务"></a>5.启动服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl start atd.service</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Centos</category>
-      </categories>
-      <tags>
-        <tag>Centos</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Centos7.7安装并配置jenkins+python+allure发送定制化报告</title>
-    <url>/chaoyangya/chaoyangya.github.io/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
+    <url>/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
     <content><![CDATA[<h1 id="【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告"><a href="#【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告" class="headerlink" title="【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告"></a>【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告</h1><p>目前测试开发方向的接口自动化脚本很多，这里就不一一列举了，有兴趣的可以baidu/google 一大堆，本次主要根据自己公司/业务需要搭建了一套基于python3.7+pytest+allure的接口自动化脚本，由于工作原因，源码就不放了，最下面会放一个很简单的脚本，不想写的可以暂时先用下，调试通过以后，再进行业务代码的编写也是ok的，话不多说，开整。</p>
 <h2 id="Centos版本的选择"><a href="#Centos版本的选择" class="headerlink" title="Centos版本的选择"></a>Centos版本的选择</h2><p>这里我选择的是阿里云的服务器，配置很低的那种，自己练手搭个小项目已经完全ok啦。</p>
 <p>说一下为什么我选择centos7.7版本吧，目前别的版本，也有人一直在用，但是会有一些不支持的功能，比如说我上次使用的7.3中的启动服务的时候，会有一些权限问题，总之层出不穷，大家可以去踩一下坑，只有你想不到没有出现不了的新问题，当时几乎快崩溃了，然后突然google发现一位国外大神，通过更换centos版本完美的解决了这个问题，我就重新选择版本，重新开始，当自己需要的一些服务慢慢变绿的时候，心中的喜悦大概只有自己知道吧。</p>
@@ -175,35 +133,57 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>Python</tag>
         <tag>Jenkins</tag>
         <tag>Allure</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>DJango Uncaught ReferenceError: $ is not defined</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/</url>
-    <content><![CDATA[<p>前提:<br><strong>用django和jquery写的web应用,html页面js报错,信息如下:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ DJango Uncaught ReferenceError: $ is not defined</span><br></pre></td></tr></table></figure>
-<img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img8.png" class title="This is an test image">
-
-<p>原因: js语法有问题,未识别为js语法</p>
-<p>解决:需要引入jquery</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ &lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;../static/main/js/jquery-2.1.1.min.js&quot;</span>&gt;&lt;/script&gt; <span class="comment">#src后面加js文件路径</span></span><br></pre></td></tr></table></figure>
-<img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img9.png" class title="This is an test image">
+    <title>App跟web定位元素页面相互切换</title>
+    <url>/2018/10/11/App%E8%B7%9Fweb%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2/</url>
+    <content><![CDATA[<p>很多QA在做UI自动化或者App自动化的时候，会遇到在web页面要抓取App模式的元素，或者是在App要抓取H5页面的元素，从网上整理了一些方法，不一定能解决，但是试一下也未尝不可，如果解决了就记得关注一波咯！！！<code>python噢</code>~~~</p>
+<pre><code>self.driver.switch_to.context()
+self.driver.switch_to.context(&#39;WEBVIEW_1&#39;)app --&gt; web
+self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
+</code></pre>
+<p>如果是从App转到web 选择<code>WEBVIEW_1</code>，<br>如果web转到App 选择 <code>NATIVE_APP</code></p>
 ]]></content>
       <categories>
-        <category>Jquery</category>
+        <category>Appium</category>
       </categories>
       <tags>
-        <tag>Django</tag>
-        <tag>Jquery</tag>
+        <tag>Android</tag>
+        <tag>Appium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos7安装chrome浏览器</title>
+    <url>/2021/08/20/Centos7%E5%AE%89%E8%A3%85chrome%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
+    <content><![CDATA[<h2 id="1-下载chrome-for-linux压缩包"><a href="#1-下载chrome-for-linux压缩包" class="headerlink" title="1.下载chrome for linux压缩包"></a>1.下载chrome for linux压缩包</h2><p><a href="https://pan.baidu.com/s/1WwxOb1LiRSL2DnXvKlacZw">百度网盘</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$  提取码: 1f4n    </span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.chromedownloads.net/chrome64linux/">更多版本</a></p>
+<h2 id="2-上传解压压缩包"><a href="#2-上传解压压缩包" class="headerlink" title="2.上传解压压缩包"></a>2.上传解压压缩包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ unzip google-chrome-stable_deb_rpm_91.0.4472.77.zip  <span class="comment">#解压完成会出现 .deb 和 .rpm 的俩个文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装解压chrome所需依赖包"><a href="#3-安装解压chrome所需依赖包" class="headerlink" title="3.安装解压chrome所需依赖包"></a>3.安装解压chrome所需依赖包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install -y lsb</span><br><span class="line">  yum install -y libXScrnSaver</span><br><span class="line">  yum install -y liberation-fonts</span><br><span class="line">  yum install -y libdbusmenu-gtk3</span><br><span class="line">  yum install epel-release</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-安装chrome"><a href="#4-安装chrome" class="headerlink" title="4.安装chrome"></a>4.安装chrome</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo rpm -ivh google-chrome-stable_current_x86_64.rpm </span><br></pre></td></tr></table></figure>
+
+<h2 id="5-启动服务"><a href="#5-启动服务" class="headerlink" title="5.启动服务"></a>5.启动服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl start atd.service</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Centos</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Centos</tag>
       </tags>
   </entry>
   <entry>
     <title>Error taking device screenshot: null</title>
-    <url>/chaoyangya/chaoyangya.github.io/2018/10/11/Error-taking-device-screenshot-null/</url>
+    <url>/2018/10/11/Error-taking-device-screenshot-null/</url>
     <content><![CDATA[<p>使用<code>uiautomatorviewer</code> 查看Android某些页面元素，出现如图错误：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Error obtaining UI hierarchy Reason: Error taking device screenshot: null</span><br></pre></td></tr></table></figure>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/fc8af8463b3e6822ccdd940774759365.png"></p>
@@ -226,64 +206,28 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>HTTP各个status code代表什么意思</title>
-    <url>/chaoyangya/chaoyangya.github.io/2019/03/07/HTTP%E5%90%84%E4%B8%AAstatus-code%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/</url>
-    <content><![CDATA[<p>在介绍状态码之前，要简单讲一下为什么要有状态码这个东西。计算机之间的通信以协议为共同基础，客户端和服务端都按照协议的约定进行通信。HTTP的状态码就在HTTP的协议内，规定了很多的状态。客户端请求服务端后，服务端就返回结果，同时返回状态码。告诉客户端，本次请求是成功了还是失败了，还是要客户端做什么操作。那为什么不使用文本状态码呢？不是更加清晰直观吗？这是因为这些状态协议里面已经规定了，提到状态码，就是表示本条状态。</p>
-<p>状态码分为1-5开头的CODE,以下依次说明,请仔细阅读噢</p>
-<p><code>1** </code>类状态码称之为Information 状态吗，表示信息正在处理。</p>
-<p><code>2** </code>类状态码称为为Success状态码，表示请求正常完成。</p>
-<p><code>3** </code>类状态码称之为Redirection 状态码，表示需要客户端进行附加操作（如跳转。重定向）</p>
-<p><code>4** </code>类状态码称之为Error状态码，通常是由于客户端的错误导致的。</p>
-<p><code>5** </code>类状态吗称为Server Error状态码，通常是服务端的错误导致的。</p>
-<p>小结下：状态码分为客户端错误状态码、服务端错误状态码、成功状态码，重定向状态码等。</p>
-<p>##1&amp;2</p>
-<p>   <code>1**</code> 不常见到哈,直接从2开始讲了</p>
-<p>   <code>200(ok)</code>示从客户端成功发出去请求到服务端了,服务端也接收到了这条请求并正确返回</p>
-<p>   <code>204 </code> No Content 请求已经成功了，但是却没有返回任何结果（实体）。通常使用php die() exit()函数会引发204状态码</p>
-<p>   <code>206 </code>Partial Content 范围请求状态码。</p>
-<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>   <code>301 </code> Moved Permanently 表示你请求的页面资源现在已经转移位置了，你需要到新的地方去需找该页面。这个即重定向，服务器的response首部里会有location字段值来提示。</p>
-<p>   <code>302(Found)</code>和<code>301</code>差不多。表示你请求的页面资源现在已经转移位置了，你要到新的地方去寻找。但是新的地方也不是固定的，说不定过几天还要换。不提示用户保存书签，提示用户跳转。</p>
-<p>   <code>303 </code>See other .表示你请求的页面中包含着你想要拿到资源的地址。比如你到门卫处去取快递，到了门卫处，大爷说快递已经交给前台了。这个过程会返回303状态码。</p>
-<p>   <code>304 </code> Not Modified 表示资源已经找到了，但是和上次相比没有更新。浏览器读取缓存。</p>
-<p>   <code>307 </code> Temporary Redirect 临时重定向。</p>
-<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p>   <code>400 </code> Bad Request 报文语法错误。</p>
-<p>   <code>401 </code> Unauthorized 需要通过HTTP认证（BASIC 或者DIGEST）.</p>
-<p>   <code>403 </code> Forbidden 目录、文件权限错误都会报此状态码。 </p>
-<p>   <code>404 </code> 服务器上无此资源，一般情况为路径错误。</p>
-<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p>   <code>500 </code> Internal Server Error 服务端错误，有可能是WEB应用存在错误。</p>
-<p>   <code>502 </code> Internal Server Error服务端错误,有可能是服务端服务以及停止运行。</p>
-<p>   <code>503 </code> Serveice Unavailable  服务器超负荷运行。</p>
-<p>这些东西，没必要死记硬背。使用的次数多了慢慢就记住了.一开始使用的时候去查下文档就好了。这也是我写此篇博客的原因：留此存证，以备不时之需。</p>
+    <title>DJango Uncaught ReferenceError: $ is not defined</title>
+    <url>/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/</url>
+    <content><![CDATA[<p>前提:<br><strong>用django和jquery写的web应用,html页面js报错,信息如下:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ DJango Uncaught ReferenceError: $ is not defined</span><br></pre></td></tr></table></figure>
+<img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img8.png" class title="This is an test image">
+
+<p>原因: js语法有问题,未识别为js语法</p>
+<p>解决:需要引入jquery</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ &lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;../static/main/js/jquery-2.1.1.min.js&quot;</span>&gt;&lt;/script&gt; <span class="comment">#src后面加js文件路径</span></span><br></pre></td></tr></table></figure>
+<img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img9.png" class title="This is an test image">
 ]]></content>
       <categories>
-        <category>Https</category>
+        <category>Jquery</category>
       </categories>
       <tags>
-        <tag>Https</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ImportError: No module named flask</title>
-    <url>/chaoyangya/chaoyangya.github.io/2020/03/06/ImportError-No-module-named-flask/</url>
-    <content><![CDATA[<p>1、删除原有的用大写开头的Flask插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip uninstall Flask</span><br></pre></td></tr></table></figure>
-
-<p>2、yum安装 flask</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install python-flask</span><br></pre></td></tr></table></figure>
-
-<p>3、等待安装完成就可以允许程序啦（100%有用）</p>
-]]></content>
-      <categories>
-        <category>Flask</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Flask</tag>
+        <tag>Django</tag>
+        <tag>Jquery</tag>
       </tags>
   </entry>
   <entry>
     <title>Git基础命令</title>
-    <url>/chaoyangya/chaoyangya.github.io/2019/10/23/Git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</url>
+    <url>/2019/10/23/Git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p>如果是开发人员，忽略此步骤，从下面大字的开始即可：</p>
 <p>项目开始阶段，初始化项目（init），提交本地的代码到仓库，将本地仓库的代码推送到远端库（push）；</p>
 <p>项目开发人员从远端库克隆代码到本机（clone），此时本地仅有一个master分支；新建dev分支并切换、在Dev分支中进行开发工作，其实就是修改并提交代码（add+commit）；当开发的dev分支的代码没问题时，将dev分支合并（merge）到master；将master推送到远端分支，至此，其他的项目开发人员就可以查看到你提交的代码了！</p>
@@ -385,29 +329,45 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>Java线上问题排查</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
-    <content><![CDATA[<h2 id="top-查看占用资源信息以及pid"><a href="#top-查看占用资源信息以及pid" class="headerlink" title="top 查看占用资源信息以及pid"></a>top 查看占用资源信息以及pid</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top </span><br></pre></td></tr></table></figure>
-
-<h2 id="查看pid下绑定线程"><a href="#查看pid下绑定线程" class="headerlink" title="查看pid下绑定线程"></a>查看pid下绑定线程</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top -Hp pid1(进程id)</span><br></pre></td></tr></table></figure>
-
-<h2 id="拿到需要查询的线程pid-转换成16进制"><a href="#拿到需要查询的线程pid-转换成16进制" class="headerlink" title="拿到需要查询的线程pid,转换成16进制"></a>拿到需要查询的线程pid,转换成16进制</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">printf</span> <span class="string">&#x27;%x&#x27;</span> pid2(线程id)  ==&gt; 6a4     <span class="comment">#6a4为输出结果</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="通过jstack讲java信息输出到文本"><a href="#通过jstack讲java信息输出到文本" class="headerlink" title="通过jstack讲java信息输出到文本"></a>通过jstack讲java信息输出到文本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jstack pid1(进程id) &gt; t.txt</span><br></pre></td></tr></table></figure>
-
-<p><strong>如果jstack报错,请查看 <a href="https://cywhat.cn/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/">jstack不存在</a></strong></p>
-<h2 id="在t-txt文件中查找6a4"><a href="#在t-txt文件中查找6a4" class="headerlink" title="在t.txt文件中查找6a4"></a>在t.txt文件中查找<code>6a4</code></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim t.txt</span><br><span class="line"></span><br><span class="line">$ /6a4</span><br></pre></td></tr></table></figure>
-<h2 id="然后找到自己的collectorl业务代码层具体行数去分析"><a href="#然后找到自己的collectorl业务代码层具体行数去分析" class="headerlink" title="然后找到自己的collectorl业务代码层具体行数去分析"></a>然后找到自己的collectorl业务代码层具体行数去分析</h2>]]></content>
+    <title>HTTP各个status code代表什么意思</title>
+    <url>/2019/03/07/HTTP%E5%90%84%E4%B8%AAstatus-code%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D/</url>
+    <content><![CDATA[<p>在介绍状态码之前，要简单讲一下为什么要有状态码这个东西。计算机之间的通信以协议为共同基础，客户端和服务端都按照协议的约定进行通信。HTTP的状态码就在HTTP的协议内，规定了很多的状态。客户端请求服务端后，服务端就返回结果，同时返回状态码。告诉客户端，本次请求是成功了还是失败了，还是要客户端做什么操作。那为什么不使用文本状态码呢？不是更加清晰直观吗？这是因为这些状态协议里面已经规定了，提到状态码，就是表示本条状态。</p>
+<p>状态码分为1-5开头的CODE,以下依次说明,请仔细阅读噢</p>
+<p><code>1** </code>类状态码称之为Information 状态吗，表示信息正在处理。</p>
+<p><code>2** </code>类状态码称为为Success状态码，表示请求正常完成。</p>
+<p><code>3** </code>类状态码称之为Redirection 状态码，表示需要客户端进行附加操作（如跳转。重定向）</p>
+<p><code>4** </code>类状态码称之为Error状态码，通常是由于客户端的错误导致的。</p>
+<p><code>5** </code>类状态吗称为Server Error状态码，通常是服务端的错误导致的。</p>
+<p>小结下：状态码分为客户端错误状态码、服务端错误状态码、成功状态码，重定向状态码等。</p>
+<p>##1&amp;2</p>
+<p>   <code>1**</code> 不常见到哈,直接从2开始讲了</p>
+<p>   <code>200(ok)</code>示从客户端成功发出去请求到服务端了,服务端也接收到了这条请求并正确返回</p>
+<p>   <code>204 </code> No Content 请求已经成功了，但是却没有返回任何结果（实体）。通常使用php die() exit()函数会引发204状态码</p>
+<p>   <code>206 </code>Partial Content 范围请求状态码。</p>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>   <code>301 </code> Moved Permanently 表示你请求的页面资源现在已经转移位置了，你需要到新的地方去需找该页面。这个即重定向，服务器的response首部里会有location字段值来提示。</p>
+<p>   <code>302(Found)</code>和<code>301</code>差不多。表示你请求的页面资源现在已经转移位置了，你要到新的地方去寻找。但是新的地方也不是固定的，说不定过几天还要换。不提示用户保存书签，提示用户跳转。</p>
+<p>   <code>303 </code>See other .表示你请求的页面中包含着你想要拿到资源的地址。比如你到门卫处去取快递，到了门卫处，大爷说快递已经交给前台了。这个过程会返回303状态码。</p>
+<p>   <code>304 </code> Not Modified 表示资源已经找到了，但是和上次相比没有更新。浏览器读取缓存。</p>
+<p>   <code>307 </code> Temporary Redirect 临时重定向。</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p>   <code>400 </code> Bad Request 报文语法错误。</p>
+<p>   <code>401 </code> Unauthorized 需要通过HTTP认证（BASIC 或者DIGEST）.</p>
+<p>   <code>403 </code> Forbidden 目录、文件权限错误都会报此状态码。 </p>
+<p>   <code>404 </code> 服务器上无此资源，一般情况为路径错误。</p>
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p>   <code>500 </code> Internal Server Error 服务端错误，有可能是WEB应用存在错误。</p>
+<p>   <code>502 </code> Internal Server Error服务端错误,有可能是服务端服务以及停止运行。</p>
+<p>   <code>503 </code> Serveice Unavailable  服务器超负荷运行。</p>
+<p>这些东西，没必要死记硬背。使用的次数多了慢慢就记住了.一开始使用的时候去查下文档就好了。这也是我写此篇博客的原因：留此存证，以备不时之需。</p>
+]]></content>
       <categories>
-        <category>Java</category>
+        <category>Https</category>
       </categories>
       <tags>
-        <tag>Java</tag>
+        <tag>Https</tag>
       </tags>
   </entry>
   <entry>
     <title>Iterm2/Mac自带终端工具快速ssh</title>
-    <url>/chaoyangya/chaoyangya.github.io/2019/01/26/Iterm2-Mac%E8%87%AA%E5%B8%A6%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9Fssh/</url>
+    <url>/2019/01/26/Iterm2-Mac%E8%87%AA%E5%B8%A6%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9Fssh/</url>
     <content><![CDATA[<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><p>首先我们在终端本地要写一个登录的脚本，eg：</p>
 <p>当然首先要<code>touch login.sh</code> 啦，下面就是脚本文件，比较low，大神勿喷，会更炫酷写法的小伙伴可以自己参考这个思路写，不会的直接复制就好啦</p>
 <p>　　</p>
@@ -437,8 +397,48 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Java线上问题排查</title>
+    <url>/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
+    <content><![CDATA[<h2 id="top-查看占用资源信息以及pid"><a href="#top-查看占用资源信息以及pid" class="headerlink" title="top 查看占用资源信息以及pid"></a>top 查看占用资源信息以及pid</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top </span><br></pre></td></tr></table></figure>
+
+<h2 id="查看pid下绑定线程"><a href="#查看pid下绑定线程" class="headerlink" title="查看pid下绑定线程"></a>查看pid下绑定线程</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top -Hp pid1(进程id)</span><br></pre></td></tr></table></figure>
+
+<h2 id="拿到需要查询的线程pid-转换成16进制"><a href="#拿到需要查询的线程pid-转换成16进制" class="headerlink" title="拿到需要查询的线程pid,转换成16进制"></a>拿到需要查询的线程pid,转换成16进制</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">printf</span> <span class="string">&#x27;%x&#x27;</span> pid2(线程id)  ==&gt; 6a4     <span class="comment">#6a4为输出结果</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="通过jstack讲java信息输出到文本"><a href="#通过jstack讲java信息输出到文本" class="headerlink" title="通过jstack讲java信息输出到文本"></a>通过jstack讲java信息输出到文本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jstack pid1(进程id) &gt; t.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果jstack报错,请查看 <a href="https://cywhat.cn/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/">jstack不存在</a></strong></p>
+<h2 id="在t-txt文件中查找6a4"><a href="#在t-txt文件中查找6a4" class="headerlink" title="在t.txt文件中查找6a4"></a>在t.txt文件中查找<code>6a4</code></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim t.txt</span><br><span class="line"></span><br><span class="line">$ /6a4</span><br></pre></td></tr></table></figure>
+<h2 id="然后找到自己的collectorl业务代码层具体行数去分析"><a href="#然后找到自己的collectorl业务代码层具体行数去分析" class="headerlink" title="然后找到自己的collectorl业务代码层具体行数去分析"></a>然后找到自己的collectorl业务代码层具体行数去分析</h2>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ImportError: No module named flask</title>
+    <url>/2020/03/06/ImportError-No-module-named-flask/</url>
+    <content><![CDATA[<p>1、删除原有的用大写开头的Flask插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip uninstall Flask</span><br></pre></td></tr></table></figure>
+
+<p>2、yum安装 flask</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install python-flask</span><br></pre></td></tr></table></figure>
+
+<p>3、等待安装完成就可以允许程序啦（100%有用）</p>
+]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux/macos安装newman</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/03/22/Linux-macos%E5%AE%89%E8%A3%85newman/</url>
+    <url>/2021/03/22/Linux-macos%E5%AE%89%E8%A3%85newman/</url>
     <content><![CDATA[<p>[已解决]Linux/macos安装newman</p>
 <p>一、安装Node环境（<strong>1/2选其一即可</strong>）</p>
 <ol>
@@ -506,7 +506,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Linux中常用来查看进程的命令</title>
-    <url>/chaoyangya/chaoyangya.github.io/2018/12/25/Linux%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <url>/2018/12/25/Linux%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p>查看所有运行中的进程:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps aux | less</span><br></pre></td></tr></table></figure>
 
@@ -529,7 +529,7 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
   </entry>
   <entry>
     <title>Linux关闭防火墙</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/09/01/Linux%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99/</url>
+    <url>/2021/09/01/Linux%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99/</url>
     <content><![CDATA[<p><strong>注意:ConterOS7.0以上使用的是firewall，ConterOS7.0以下使用的是iptables</strong></p>
 <h2 id="1-查看防火状态"><a href="#1-查看防火状态" class="headerlink" title="1.查看防火状态"></a>1.查看防火状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl status firewalld  <span class="comment">#7.0以上</span></span><br><span class="line"></span><br><span class="line">$ service  iptables status  <span class="comment">#7.0以下</span></span><br></pre></td></tr></table></figure>
 
@@ -556,8 +556,29 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Linux快捷进入长目录的方法</title>
+    <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>2、然后让配置生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ./bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、最后我们输入设置的<code>cywhat</code>（这个名字自己设置）就可以快速进入设置的长目录了</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux管理node版本</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/04/07/Linux%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC/</url>
+    <url>/2021/04/07/Linux%E7%AE%A1%E7%90%86node%E7%89%88%E6%9C%AC/</url>
     <content><![CDATA[<p>1、安装nvm</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br></pre></td></tr></table></figure>
 <p>或者</p>
@@ -589,8 +610,58 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Linux部署easy_mock</title>
+    <url>/2021/04/16/Linux%E9%83%A8%E7%BD%B2easy-mock/</url>
+    <content><![CDATA[<p>前期准备：<br>1、Linux：CentOS Linux release 7.8.2003 (Core)<br>2、mongodb：3.4.24<br>3、redis：4.0.14<br>4、node：8.9.0</p>
+<p><strong>PS：</strong></p>
+<blockquote>
+<p>node版本不要超过8.x.x<br>mongodb版本不要超过3.6.x</p>
+</blockquote>
+<h2 id="mongodb安装"><a href="#mongodb安装" class="headerlink" title="mongodb安装"></a>mongodb安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment">#下载mongodb包</span></span><br><span class="line">$ curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.24.tgz  </span><br><span class="line"></span><br><span class="line"><span class="comment">#解压  </span></span><br><span class="line">$ tar -zxvf mongodb-linux-x86_64-3.4.24.tgz</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名mongodb</span></span><br><span class="line">$ mv mongodb-linux-x86_64-3.4.24 mongodb</span><br><span class="line"> </span><br><span class="line"><span class="comment">#编辑环境变量</span></span><br><span class="line">$ vi ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#环境变量</span></span><br><span class="line">$ <span class="built_in">export</span> MONGO_HOME=/usr/<span class="built_in">local</span>/mongodb</span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$MONGO_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#让环境变量生效</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>安装好mongodb以后创建mongodb数据存放目录和日志存放目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##  创建数据目录</span></span><br><span class="line">$ <span class="built_in">cd</span> /root/</span><br><span class="line">$ mkdir -p /mongodb/data</span><br><span class="line">$ mkdir -p /mongodb/<span class="built_in">log</span>/</span><br></pre></td></tr></table></figure>
+
+<p>启动mongodb(并保持后台运行)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#后台启动mongodb</span></span><br><span class="line">$ mongod  --dbpath=/root/mongodb/data --logpath=/root/mongodb/<span class="built_in">log</span>/mongodb.log --logappend &amp;</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--fork    	 后台运行</span><br><span class="line">--dbpath  	 数据存放目录</span><br><span class="line">--logpath 	 日志存放目录</span><br><span class="line">--logappend  防止日志被删除</span><br></pre></td></tr></table></figure>
+<h2 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#下载redis包</span></span><br><span class="line">$ wget http://download.redis.io/releases/redis-4.0.14.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#解压</span></span><br><span class="line">$ tar -xvzf redis-4.0.14.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名</span></span><br><span class="line">$ mv redis-4.0.14 redis</span><br><span class="line">$ <span class="built_in">cd</span> redis-4.0.14/</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装gcc依赖</span></span><br><span class="line">$ yum -y install gcc          </span><br><span class="line"></span><br><span class="line"><span class="comment">#编译</span></span><br><span class="line">$ make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如报错可使用命令 </span></span><br><span class="line">$ make MALLOC=libc</span><br><span class="line"></span><br><span class="line"><span class="comment">#拷贝执行程序到bin</span></span><br><span class="line">$ cp src/redis-server /usr/<span class="built_in">local</span>/bin/</span><br><span class="line">$ cp src/redis-cli /usr/<span class="built_in">local</span>/bin/</span><br><span class="line"></span><br><span class="line"><span class="comment">#编辑redis配置文件</span></span><br><span class="line">$ vi redis.conf 修改daemonize=no为yes，保存</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动redis并保持后台运行</span></span><br><span class="line">$ redis-server redis.conf &amp;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span><br><span class="line"> </span><br><span class="line"><span class="comment">#安装wget               </span></span><br><span class="line">$ yum install -y wget</span><br><span class="line"></span><br><span class="line"><span class="comment">#wget下载node包</span></span><br><span class="line">$ wget https://npm.taobao.org/mirrors/node/v8.9.0/node-v8.9.0-linux-x64.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment">#解压安装</span></span><br><span class="line">$ tar -zxvf node-v8.9.0-linux-x64.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名node文件</span></span><br><span class="line">$ mv node-v8.9.0 node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改环境变量</span></span><br><span class="line">$ vi ~/.bashrc              </span><br><span class="line"></span><br><span class="line"><span class="comment">#环境变量</span></span><br><span class="line">$ <span class="built_in">export</span> NODE_HOME=/usr/<span class="built_in">local</span>/node</span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$NODE_HOME</span>/bin</span><br><span class="line"></span><br><span class="line"><span class="comment">#让环境变量生效</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看node版本</span></span><br><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="安装easy-mock"><a href="#安装easy-mock" class="headerlink" title="安装easy_mock"></a>安装easy_mock</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装git</span></span><br><span class="line">$ yum install -y git     </span><br><span class="line"></span><br><span class="line"><span class="comment">#下载easymock包                              </span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/easy-mock/easy-mock.git</span><br><span class="line"></span><br><span class="line"><span class="comment">#进入文件夹</span></span><br><span class="line">$ <span class="built_in">cd</span> easy-mock</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装</span></span><br><span class="line">$ npm install            </span><br><span class="line"></span><br><span class="line"><span class="comment">#安装较慢，可以多试几次。也可以使用cnpm安装，需要先执行命令</span></span><br><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line"><span class="comment">#然后在执行</span></span><br><span class="line">$ cnpm install</span><br><span class="line"></span><br><span class="line"><span class="comment">#关闭防火墙</span></span><br><span class="line">$ systemctl stop firewalld.service(这里如果是阿里云服务器需要安全组给7300端口放行)</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装pm2 守护进程</span></span><br><span class="line">$ npm install -g pm2</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译</span></span><br><span class="line">$ npm run build</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动</span></span><br><span class="line">$ NODE_ENV=production pm2 start app.js  注意这里如果是Windows系统前面需要加cross-env  反之mac或者linux不需要</span><br><span class="line"></span><br><span class="line"><span class="comment">#如启动报错File ecosystem config.js not found</span></span><br><span class="line">$ pm2 ecosystem 然后在重新运行即可</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#运行</span></span><br><span class="line">$ npm run start</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>疑难杂症</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#如遇无法登录注册，js报错net::ERR_CONNECTION_REFUSED</span></span><br><span class="line"></span><br><span class="line">说明你的mongodb有问题，可能是没有后台运行导致，查看mongodb状态即可</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#最后的最后，作为重度强迫症患者，必须要把下载到/usr/local/中的包删除掉</span></span><br><span class="line"></span><br><span class="line">$ rm -rf mongodb-linux-x86_64-3.4.24.tgz redis-4.0.14.tar.gz node-v8.9.0-linux-x64.tar</span><br></pre></td></tr></table></figure>
+
+<p>如报错如下图<br><img src="https://img-blog.csdnimg.cn/202106021623202.png" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#先修改easy_mock/config目录下的default.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;port&quot;</span>: 7300,</span><br><span class="line">  <span class="string">&quot;host&quot;</span>: <span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;pageSize&quot;</span>: 30,</span><br><span class="line">  <span class="string">&quot;proxy&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">&quot;db&quot;</span>: <span class="string">&quot;mongodb://127.0.0.1/easy-mock&quot;</span>,   这里要把mongodb更改为127.0.0.1</span><br><span class="line">  <span class="string">&quot;unsplashClientId&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/2021060216262774.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#然后重新build</span></span><br><span class="line">$ npm run build </span><br><span class="line"></span><br><span class="line"><span class="comment">#启动app</span></span><br><span class="line">$ NODE_ENV=production pm2 start app</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Easy_mock</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Easy_mock</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Postmant压力测试</title>
-    <url>/chaoyangya/chaoyangya.github.io/2019/03/28/Postmant%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</url>
+    <url>/2019/03/28/Postmant%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<p>Postman请自行下载</p>
 <p>下面是在网上随便抓了一个请求地址来做演示，把请求地址填入地址栏，此请求为GET请求。点击Send发送请求，请求结果将会在下方显示出来。每次的请求历史数据，会被记录下来，但是经常使用的请求，还是保存一下，这么每次用的时候，选择就行了，及其方便。</p>
 <p>另外，最好创建一个账号，这样数据将会永久保存下来，不至于重装了系统或者换了台电脑数据都没了的尴尬。<br><img src="https://img-blog.csdnimg.cn/img_convert/3fea11cd00cc15c65ffa0d8b20d86677.png"></p>
@@ -689,92 +760,8 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
-    <title>Linux部署easy_mock</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/04/16/Linux%E9%83%A8%E7%BD%B2easy-mock/</url>
-    <content><![CDATA[<p>前期准备：<br>1、Linux：CentOS Linux release 7.8.2003 (Core)<br>2、mongodb：3.4.24<br>3、redis：4.0.14<br>4、node：8.9.0</p>
-<p><strong>PS：</strong></p>
-<blockquote>
-<p>node版本不要超过8.x.x<br>mongodb版本不要超过3.6.x</p>
-</blockquote>
-<h2 id="mongodb安装"><a href="#mongodb安装" class="headerlink" title="mongodb安装"></a>mongodb安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment">#下载mongodb包</span></span><br><span class="line">$ curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.24.tgz  </span><br><span class="line"></span><br><span class="line"><span class="comment">#解压  </span></span><br><span class="line">$ tar -zxvf mongodb-linux-x86_64-3.4.24.tgz</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名mongodb</span></span><br><span class="line">$ mv mongodb-linux-x86_64-3.4.24 mongodb</span><br><span class="line"> </span><br><span class="line"><span class="comment">#编辑环境变量</span></span><br><span class="line">$ vi ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#环境变量</span></span><br><span class="line">$ <span class="built_in">export</span> MONGO_HOME=/usr/<span class="built_in">local</span>/mongodb</span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$MONGO_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#让环境变量生效</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>安装好mongodb以后创建mongodb数据存放目录和日志存放目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##  创建数据目录</span></span><br><span class="line">$ <span class="built_in">cd</span> /root/</span><br><span class="line">$ mkdir -p /mongodb/data</span><br><span class="line">$ mkdir -p /mongodb/<span class="built_in">log</span>/</span><br></pre></td></tr></table></figure>
-
-<p>启动mongodb(并保持后台运行)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#后台启动mongodb</span></span><br><span class="line">$ mongod  --dbpath=/root/mongodb/data --logpath=/root/mongodb/<span class="built_in">log</span>/mongodb.log --logappend &amp;</span><br></pre></td></tr></table></figure>
-
-<p>解释：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--fork    	 后台运行</span><br><span class="line">--dbpath  	 数据存放目录</span><br><span class="line">--logpath 	 日志存放目录</span><br><span class="line">--logappend  防止日志被删除</span><br></pre></td></tr></table></figure>
-<h2 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#下载redis包</span></span><br><span class="line">$ wget http://download.redis.io/releases/redis-4.0.14.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#解压</span></span><br><span class="line">$ tar -xvzf redis-4.0.14.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名</span></span><br><span class="line">$ mv redis-4.0.14 redis</span><br><span class="line">$ <span class="built_in">cd</span> redis-4.0.14/</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装gcc依赖</span></span><br><span class="line">$ yum -y install gcc          </span><br><span class="line"></span><br><span class="line"><span class="comment">#编译</span></span><br><span class="line">$ make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如报错可使用命令 </span></span><br><span class="line">$ make MALLOC=libc</span><br><span class="line"></span><br><span class="line"><span class="comment">#拷贝执行程序到bin</span></span><br><span class="line">$ cp src/redis-server /usr/<span class="built_in">local</span>/bin/</span><br><span class="line">$ cp src/redis-cli /usr/<span class="built_in">local</span>/bin/</span><br><span class="line"></span><br><span class="line"><span class="comment">#编辑redis配置文件</span></span><br><span class="line">$ vi redis.conf 修改daemonize=no为yes，保存</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动redis并保持后台运行</span></span><br><span class="line">$ redis-server redis.conf &amp;</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span><br><span class="line"> </span><br><span class="line"><span class="comment">#安装wget               </span></span><br><span class="line">$ yum install -y wget</span><br><span class="line"></span><br><span class="line"><span class="comment">#wget下载node包</span></span><br><span class="line">$ wget https://npm.taobao.org/mirrors/node/v8.9.0/node-v8.9.0-linux-x64.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment">#解压安装</span></span><br><span class="line">$ tar -zxvf node-v8.9.0-linux-x64.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">#重命名node文件</span></span><br><span class="line">$ mv node-v8.9.0 node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改环境变量</span></span><br><span class="line">$ vi ~/.bashrc              </span><br><span class="line"></span><br><span class="line"><span class="comment">#环境变量</span></span><br><span class="line">$ <span class="built_in">export</span> NODE_HOME=/usr/<span class="built_in">local</span>/node</span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$NODE_HOME</span>/bin</span><br><span class="line"></span><br><span class="line"><span class="comment">#让环境变量生效</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看node版本</span></span><br><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="安装easy-mock"><a href="#安装easy-mock" class="headerlink" title="安装easy_mock"></a>安装easy_mock</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装git</span></span><br><span class="line">$ yum install -y git     </span><br><span class="line"></span><br><span class="line"><span class="comment">#下载easymock包                              </span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/easy-mock/easy-mock.git</span><br><span class="line"></span><br><span class="line"><span class="comment">#进入文件夹</span></span><br><span class="line">$ <span class="built_in">cd</span> easy-mock</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装</span></span><br><span class="line">$ npm install            </span><br><span class="line"></span><br><span class="line"><span class="comment">#安装较慢，可以多试几次。也可以使用cnpm安装，需要先执行命令</span></span><br><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line"><span class="comment">#然后在执行</span></span><br><span class="line">$ cnpm install</span><br><span class="line"></span><br><span class="line"><span class="comment">#关闭防火墙</span></span><br><span class="line">$ systemctl stop firewalld.service(这里如果是阿里云服务器需要安全组给7300端口放行)</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装pm2 守护进程</span></span><br><span class="line">$ npm install -g pm2</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译</span></span><br><span class="line">$ npm run build</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动</span></span><br><span class="line">$ NODE_ENV=production pm2 start app.js  注意这里如果是Windows系统前面需要加cross-env  反之mac或者linux不需要</span><br><span class="line"></span><br><span class="line"><span class="comment">#如启动报错File ecosystem config.js not found</span></span><br><span class="line">$ pm2 ecosystem 然后在重新运行即可</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#运行</span></span><br><span class="line">$ npm run start</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p>疑难杂症</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#如遇无法登录注册，js报错net::ERR_CONNECTION_REFUSED</span></span><br><span class="line"></span><br><span class="line">说明你的mongodb有问题，可能是没有后台运行导致，查看mongodb状态即可</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#最后的最后，作为重度强迫症患者，必须要把下载到/usr/local/中的包删除掉</span></span><br><span class="line"></span><br><span class="line">$ rm -rf mongodb-linux-x86_64-3.4.24.tgz redis-4.0.14.tar.gz node-v8.9.0-linux-x64.tar</span><br></pre></td></tr></table></figure>
-
-<p>如报错如下图<br><img src="https://img-blog.csdnimg.cn/202106021623202.png" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#先修改easy_mock/config目录下的default.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;port&quot;</span>: 7300,</span><br><span class="line">  <span class="string">&quot;host&quot;</span>: <span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;pageSize&quot;</span>: 30,</span><br><span class="line">  <span class="string">&quot;proxy&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">&quot;db&quot;</span>: <span class="string">&quot;mongodb://127.0.0.1/easy-mock&quot;</span>,   这里要把mongodb更改为127.0.0.1</span><br><span class="line">  <span class="string">&quot;unsplashClientId&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2021060216262774.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#然后重新build</span></span><br><span class="line">$ npm run build </span><br><span class="line"></span><br><span class="line"><span class="comment">#启动app</span></span><br><span class="line">$ NODE_ENV=production pm2 start app</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Easy_mock</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Easy_mock</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux快捷进入长目录的方法</title>
-    <url>/chaoyangya/chaoyangya.github.io/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-<p>2、然后让配置生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ./bashrc</span><br></pre></td></tr></table></figure>
-
-
-
-<p>3、最后我们输入设置的<code>cywhat</code>（这个名字自己设置）就可以快速进入设置的长目录了</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shadowrocket小火箭配置规则文件</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Shadowrocket</category>
-      </categories>
-      <tags>
-        <tag>Shadowrocket</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python+virtualenv+Django+nginx+uwsgi+centos7部署web应用</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/03/11/Python-virtualenv-Django-nginx-uwsgi-centos7%E9%83%A8%E7%BD%B2web%E5%BA%94%E7%94%A8/</url>
+    <url>/2021/03/11/Python-virtualenv-Django-nginx-uwsgi-centos7%E9%83%A8%E7%BD%B2web%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p>给公司写的一个工具平台，先部署到自己的服务器上进行测试，真是困难重重，此文章仅记录自己踩坑过程和搭建教程，不保证你能按照教程成功搭建，但能把坑提前暴露出来，避免大家重复踩坑！</p>
 <h2 id="我的环境"><a href="#我的环境" class="headerlink" title="我的环境"></a>我的环境</h2><ol>
 <li><strong>部署服务器</strong> ：CentOS Linux release 7.8.2003 (Core)</li>
@@ -916,8 +903,8 @@ console.log(responseTime);
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>Python</tag>
+        <tag>Linux</tag>
         <tag>Django</tag>
         <tag>Nginx</tag>
         <tag>Uwsgi</tag>
@@ -925,10 +912,23 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
+    <title>Shadowrocket小火箭配置规则文件</title>
+    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Shadowrocket</category>
+      </categories>
+      <tags>
+        <tag>Shadowrocket</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>bash:jstack: 未找到命令</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/</url>
+    <url>/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="jstack报错如下"><a href="#jstack报错如下" class="headerlink" title="jstack报错如下"></a>jstack报错如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ -bash: jstack: 未找到命令</span><br></pre></td></tr></table></figure>
-<p><img src="../images/img3.png" alt="img.png"></p>
+<p><img src="/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/images/img3.png" alt="img.png"></p>
 <h2 id="安装以下依赖"><a href="#安装以下依赖" class="headerlink" title="安装以下依赖"></a>安装以下依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install java-1.7.0-openjdk-devel -y</span><br></pre></td></tr></table></figure>
 
 ]]></content>
@@ -941,28 +941,28 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>Tampermonkey+脚本+Aira2GUI直链下载百度网盘资源</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</url>
+    <url>/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<p>前景：<br><strong>各大LM运营限制带宽速度，导致必须要成为尊贵的VIP客户才能勉强享受到自己的带宽</strong></p>
 <p>PS：我这里屎以chrome浏览器举例，其他不保证成功，可借鉴</p>
 <h2 id="1-Chrome浏览器下载Tampermonkey"><a href="#1-Chrome浏览器下载Tampermonkey" class="headerlink" title="1.Chrome浏览器下载Tampermonkey"></a>1.Chrome浏览器下载Tampermonkey</h2><p><a href="https://www.tampermonkey.net/">Tampermonkey</a><br>点击安装</p>
-<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img10.png" class title="This is an test image">
+<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img10.png" class title="This is an test image">
 
 <h2 id="2-安装脚本"><a href="#2-安装脚本" class="headerlink" title="2.安装脚本"></a>2.安装脚本</h2><p><a href="https://greasyfork.org/zh-CN/scripts/418182-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%AE%80%E6%98%93%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B-%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E5%A4%8D%E6%B4%BB%E7%89%88">直链脚本</a></p>
-<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img11.png" class title="This is an test image">
+<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img11.png" class title="This is an test image">
 
 <h2 id="3-下载Aira2GUI"><a href="#3-下载Aira2GUI" class="headerlink" title="3.下载Aira2GUI"></a>3.下载Aira2GUI</h2><p><a href="https://pan.baidu.com/s/16Rdw8_dd2H8byEWQliR1Gg">Mac版</a><br>验证码：vb7r</p>
 <p><a href="https://pan.baidu.com/s/1XtpjUz-PoMHebg6IJugsCg">Win版</a><br>验证码：5s6i</p>
 <h2 id="4-安装Aira2GUI"><a href="#4-安装Aira2GUI" class="headerlink" title="4.安装Aira2GUI"></a>4.安装Aira2GUI</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#windows版本exe需要文件夹中允许，需要创建快捷方式请邮件，请勿直接拖拽</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#mac版本解压完成将app存储到应用程序中即可</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="5-打开百度网盘，刷新页面"><a href="#5-打开百度网盘，刷新页面" class="headerlink" title="5.打开百度网盘，刷新页面"></a>5.打开百度网盘，刷新页面</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刷新百度网盘页面，找到需要下载的文件勾选，选择页面上方出现的&quot;简易下载助手&quot;</span></span><br></pre></td></tr></table></figure>
-<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img12.png" class title="This is an test image">
+<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img12.png" class title="This is an test image">
 
-<h2 id="6-生成直链"><a href="#6-生成直链" class="headerlink" title="6.生成直链"></a>6.生成直链</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img13.png" class title="This is an test image">
+<h2 id="6-生成直链"><a href="#6-生成直链" class="headerlink" title="6.生成直链"></a>6.生成直链</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img13.png" class title="This is an test image">
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#首次生成需要关注公众号获取验证码</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="7-打开Aira2GUI，传递直链"><a href="#7-打开Aira2GUI，传递直链" class="headerlink" title="7.打开Aira2GUI，传递直链"></a>7.打开Aira2GUI，传递直链</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img14.png" class title="This is an test image">
+<h2 id="7-打开Aira2GUI，传递直链"><a href="#7-打开Aira2GUI，传递直链" class="headerlink" title="7.打开Aira2GUI，传递直链"></a>7.打开Aira2GUI，传递直链</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img14.png" class title="This is an test image">
 
-<h2 id="8-切换至Aira2GUI"><a href="#8-切换至Aira2GUI" class="headerlink" title="8.切换至Aira2GUI"></a>8.切换至Aira2GUI</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img15.png" class title="This is an test image">
+<h2 id="8-切换至Aira2GUI"><a href="#8-切换至Aira2GUI" class="headerlink" title="8.切换至Aira2GUI"></a>8.切换至Aira2GUI</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img15.png" class title="This is an test image">
 ]]></content>
       <categories>
         <category>Tampermonkey</category>
@@ -973,7 +973,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>Centos7安装mysql5.7亲测可用</title>
-    <url>/chaoyangya/chaoyangya.github.io/2020/03/30/centos7%E5%AE%89%E8%A3%85mysql5-7%E4%BA%B2%E6%B5%8B%E5%8F%AF%E7%94%A8/</url>
+    <url>/2020/03/30/centos7%E5%AE%89%E8%A3%85mysql5-7%E4%BA%B2%E6%B5%8B%E5%8F%AF%E7%94%A8/</url>
     <content><![CDATA[<p>一 安装前准备<br>1、检查是否已经安装过mysql，执行命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ rpm -qa | grep mysql</span><br></pre></td></tr></table></figure>
 <p><img src="https://img-blog.csdnimg.cn/2020033015134267.png" alt="在这里插入图片描述"><br>2、查询所有Mysql对应的文件夹</p>
@@ -1077,7 +1077,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>checkout无效</title>
-    <url>/chaoyangya/chaoyangya.github.io/2018/10/29/checkout%E6%97%A0%E6%95%88/</url>
+    <url>/2018/10/29/checkout%E6%97%A0%E6%95%88/</url>
     <content><![CDATA[<p>在日常工作中，我们经常会遇到要更新一个项目，但是由于更改了配置，需要将这些配置<code>commit</code>或者<code>checkout</code>，但是有的同学不想commit怎么办呢，只能通过checkout，那么问题又来了，改了很多配置，checkout之后又要重新修改配置，就很烦。</p>
 <p>哈哈哈，在偶然的机会，找前端大神学会了俩句命令，亲测在代码merge没冲突没问题的情况下都可以成功！</p>
 <p>那么我们开始吧</p>
@@ -1105,7 +1105,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>git branch出现end需要q才能退出</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
+    <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
     <content><![CDATA[<p>git 进入了编辑模式</p>
 <p>用以下命令即可解决：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.pager mor</span><br></pre></td></tr></table></figure>
@@ -1119,7 +1119,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>.gitignore不生效的解决方案</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <url>/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<p><strong>原因：git本地运行有缓存，需要清楚git缓存即可</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm -r --cached .</span><br></pre></td></tr></table></figure>
 
@@ -1135,12 +1135,12 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>hexo d -g 部署失败</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/08/17/hexo-d-g-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/</url>
+    <url>/2021/08/17/hexo-d-g-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/</url>
     <content><![CDATA[<p>hexo d -g 突然部署失败,报错如下:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ fatal: unable to access <span class="string">&#x27;https://github.com/xxxxx/xxxx.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">  err: Error: Spawn failed       </span><br><span class="line">  at ChildProcess.&lt;anonymous</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-更改hexo配置文件中的git镜像映射地址"><a href="#1-更改hexo配置文件中的git镜像映射地址" class="headerlink" title="1.更改hexo配置文件中的git镜像映射地址"></a>1.更改hexo配置文件中的git镜像映射地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml   <span class="comment">#将https的地址更改为git开头的地址,如图</span></span><br></pre></td></tr></table></figure>
-<img src="/2021/08/17/hexo-d-g-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/08/17/hexo-d-g-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/img4.png" class title="This is an test image">
+<img src="/2021/08/17/hexo-d-g-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/img4.png" class title="This is an test image">
 
 
 <h2 id="2-检查发布机器和github之间的公私钥是否配对"><a href="#2-检查发布机器和github之间的公私钥是否配对" class="headerlink" title="2.检查发布机器和github之间的公私钥是否配对"></a>2.检查发布机器和github之间的公私钥是否配对</h2><h2 id="3-hexo清楚缓存"><a href="#3-hexo清楚缓存" class="headerlink" title="3.hexo清楚缓存"></a>3.hexo清楚缓存</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
@@ -1157,7 +1157,7 @@ console.log(responseTime);
   </entry>
   <entry>
     <title>hexo+netlify+git+个人域名搭建博客</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <url>/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p><strong>部署过程需要用到一些<code>Linux</code>命令,且本文部署操作机为Mac,如是Windows不保证能100%成功噢</strong></p>
 <h2 id="部署准备"><a href="#部署准备" class="headerlink" title="部署准备"></a>部署准备</h2><pre><code>操作机: Mac(iterm)
 Git: 创建好个人项目(Public) #注意这里项目命名 XX.github.io.git
@@ -1185,11 +1185,11 @@ Node: 15.12.0(注意Node版本)
 
 <h2 id="将hexo内容部署到生产环境"><a href="#将hexo内容部署到生产环境" class="headerlink" title="将hexo内容部署到生产环境"></a>将hexo内容部署到生产环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g </span><br></pre></td></tr></table></figure>
 
-<h1 id="关联Netlify"><a href="#关联Netlify" class="headerlink" title="关联Netlify"></a>关联Netlify</h1><p>登录Netlify建议使用github账号登录,会方便很多<br><img src="../images/img.png" alt="img.png"></p>
+<h1 id="关联Netlify"><a href="#关联Netlify" class="headerlink" title="关联Netlify"></a>关联Netlify</h1><p>登录Netlify建议使用github账号登录,会方便很多<br><img src="/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/images/img.png" alt="img.png"></p>
 <h2 id="关联git仓库和分支"><a href="#关联git仓库和分支" class="headerlink" title="关联git仓库和分支"></a>关联git仓库和分支</h2><p>登录之后点击醒目的绿色的<code>New site fomr Git</code>按钮来新建站点并选取刚刚创建的仓库：</p>
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>点击完<code>Deploy site</code>之后，Netlify 会自动构建并发布你的网站内容，最重要的是Netlify支持分支部署和部署预览，这样可以提高开发效率，降低发布风险和成本。当我还没有打完这行字，Netlify已经完成网站的发布了，它会提供一个由随机字符串组成且以 .netlify.com 为后缀结尾的网站供你访问.</p>
-<h2 id="关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify"><a href="#关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify" class="headerlink" title="关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)"></a>关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)</h2><p>选择<code>Add domain alias</code>添加个人域名,这里Netlify会默认给你新添加的域名多加一个重定向的www网址<br><img src="../images/img1.png" alt="img1.png"></p>
-<h2 id="开启Https"><a href="#开启Https" class="headerlink" title="开启Https"></a>开启Https</h2><p>Netlify免费提供SSL证书,支持添加自己的SSL,需要新增三个证书.或者将自己域名的<code>CNAME</code>记录类型指向你的.com结尾的域名也可以<br><img src="../images/img2.png" alt="img2.png"></p>
+<h2 id="关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify"><a href="#关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify" class="headerlink" title="关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)"></a>关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)</h2><p>选择<code>Add domain alias</code>添加个人域名,这里Netlify会默认给你新添加的域名多加一个重定向的www网址<br><img src="/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/images/img1.png" alt="img1.png"></p>
+<h2 id="开启Https"><a href="#开启Https" class="headerlink" title="开启Https"></a>开启Https</h2><p>Netlify免费提供SSL证书,支持添加自己的SSL,需要新增三个证书.或者将自己域名的<code>CNAME</code>记录类型指向你的.com结尾的域名也可以<br><img src="/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/images/img2.png" alt="img2.png"></p>
 <p>添加好之后等一会就可以通过你的域名来访问了</p>
 <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>推荐使用各个代码编辑器(大多数支持Markdown),方便快捷</p>
 ]]></content>
@@ -1204,7 +1204,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>hexo优化加载速度</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/14/hexo%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/</url>
+    <url>/2021/07/14/hexo%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/</url>
     <content><![CDATA[<h1 id="注意该方法利用插件更改配置-如主题中有Google字体导致加载缓慢-请移步其他内容"><a href="#注意该方法利用插件更改配置-如主题中有Google字体导致加载缓慢-请移步其他内容" class="headerlink" title="注意该方法利用插件更改配置,如主题中有Google字体导致加载缓慢,请移步其他内容"></a>注意该方法利用插件更改配置,如主题中有Google字体导致加载缓慢,请移步其他内容</h1><p>利用插件 <code>hexo-all-minifier</code></p>
 <h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-all-minifier --save</span><br></pre></td></tr></table></figure>
 
@@ -1225,7 +1225,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>hexo修改新建文章的默认字段</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/09/hexo%E4%BF%AE%E6%94%B9%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%AD%97%E6%AE%B5/</url>
+    <url>/2021/07/09/hexo%E4%BF%AE%E6%94%B9%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%AD%97%E6%AE%B5/</url>
     <content><![CDATA[<p><strong>因为每次新建文章都需要自己新增字段,所以就找到了修改新建文章的默认字段所在地,果然社会的进步跟人的偷懒也不是毫无关系(啊哈哈哈)</strong></p>
 <p>默认使用命令新建只有</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title date tags</span><br></pre></td></tr></table></figure>
@@ -1245,7 +1245,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>hexo删除文章</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
+    <url>/2021/07/08/hexo%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<p><strong>hexo删除文章</strong></p>
 <p>直接删除 “_posts” 中的 .md 结尾的文件</p>
 <p>执行</p>
@@ -1259,7 +1259,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>hexo管理多个标签</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/08/hexo%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE/</url>
+    <url>/2021/07/08/hexo%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<h2 id="1-hexo多个标签应该遵循-list-格式-如下"><a href="#1-hexo多个标签应该遵循-list-格式-如下" class="headerlink" title="1 hexo多个标签应该遵循 list 格式,如下"></a>1 hexo多个标签应该遵循 <strong>list</strong> 格式,如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">date: 2021-04-07 17:39:32</span><br><span class="line">tags: [标签1,标签2]</span><br></pre></td></tr></table></figure>
 
 
@@ -1273,7 +1273,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>libvulkan.so.1()(64bit)缺少依赖</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/08/20/libvulkan-so-1-64bit-%E7%BC%BA%E5%B0%91%E4%BE%9D%E8%B5%96/</url>
+    <url>/2021/08/20/libvulkan-so-1-64bit-%E7%BC%BA%E5%B0%91%E4%BE%9D%E8%B5%96/</url>
     <content><![CDATA[<p>前提:在Linux安装chrome的时候,报错缺少<code>libvulkan.so.1()(64bit)</code> 这个依赖</p>
 <p>解决:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum -y install vulkan-1.1.97.0-1.el7.x86_64</span><br></pre></td></tr></table></figure>
@@ -1288,7 +1288,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>mac 安装brew</title>
-    <url>/chaoyangya/chaoyangya.github.io/2020/03/18/mac-%E5%AE%89%E8%A3%85brew/</url>
+    <url>/2020/03/18/mac-%E5%AE%89%E8%A3%85brew/</url>
     <content><![CDATA[<h2 id="【已解决】mac-安装brew"><a href="#【已解决】mac-安装brew" class="headerlink" title="【已解决】mac 安装brew"></a>【已解决】mac 安装brew</h2><p>mac是自带ruby的 打开命令行工具terminal</p>
 <p>1、查看ruby版本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ruby -version</span><br></pre></td></tr></table></figure>
@@ -1316,7 +1316,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>mysql连接以及增删改查语句</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/08/18/mysql%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E8%AF%AD%E5%8F%A5/</url>
+    <url>/2021/08/18/mysql%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E8%AF%AD%E5%8F%A5/</url>
     <content><![CDATA[<p>好久没操作数据库语句,都快忘光了,记录一下</p>
 <h2 id="1-连接数据库-mysql"><a href="#1-连接数据库-mysql" class="headerlink" title="1.连接数据库(mysql)"></a>1.连接数据库(mysql)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mysql  -h机器ip -u用户名 -p密码 </span><br></pre></td></tr></table></figure>
 
@@ -1346,7 +1346,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>newman生成好看的html报告</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/</url>
+    <url>/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/</url>
     <content><![CDATA[<p>PS:运行newman需要<code>node</code> 版本大于10</p>
 <h2 id="1-安装newman"><a href="#1-安装newman" class="headerlink" title="1.安装newman"></a>1.安装newman</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g newman</span><br></pre></td></tr></table></figure>
 
@@ -1356,7 +1356,7 @@ Node: 15.12.0(注意Node版本)
 
 <h2 id="4-newman命令详解"><a href="#4-newman命令详解" class="headerlink" title="4.newman命令详解"></a>4.newman命令详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ newman run  SX.postman_collection.json -e environment.json -r htmlextra,cli --reporter-htmlextra-title <span class="string">&quot;实训平台接口 测试报告&quot;</span> --reporter-htmlextra-browserTitle <span class="string">&quot;实训平台接口报告&quot;</span> --reporter-htmlextra-export Bapi.html</span><br><span class="line"><span class="comment">#参数解释:</span></span><br><span class="line">run 后面跟接口脚本json格式的文件</span><br><span class="line">-e 后面添加环境变量</span><br><span class="line">-r 指定生成的报告格式</span><br><span class="line">--reporter-htmlextra-title 指定生成的报告title</span><br><span class="line">--reporter-htmlextra-browserTitle 指定生成的浏览器title</span><br><span class="line">--reporter-htmlextra-export 指定生成的html文件名和路径</span><br></pre></td></tr></table></figure>
 
-<img src="/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/img6.png" class title="This is an test image">]]></content>
+<img src="/2021/08/18/newman%E7%94%9F%E6%88%90%E5%A5%BD%E7%9C%8B%E7%9A%84html%E6%8A%A5%E5%91%8A/img6.png" class title="This is an test image">]]></content>
       <categories>
         <category>Newman</category>
       </categories>
@@ -1368,7 +1368,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>nginx解决多个端口映射80的配置</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/04/16/nginx%E5%A4%9A%E4%B8%AA%E7%AB%AF%E5%8F%A3/</url>
+    <url>/2021/04/16/nginx%E5%A4%9A%E4%B8%AA%E7%AB%AF%E5%8F%A3/</url>
     <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  xx.cn;  <span class="comment">#域名1</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://x.x.x.x:9001;   <span class="comment">#域名1需要映射到80端口的服务端口</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">     listen       80;</span><br><span class="line">     server_name   xx.cn;   <span class="comment">#域名2</span></span><br><span class="line"></span><br><span class="line">     location / &#123;</span><br><span class="line">         proxy_pass http://xx.xx.xx.xx:7300;    <span class="comment">#域名2需要映射到80端口的服务端口</span></span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -1384,7 +1384,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>nginx配置实现ip访问指定URL</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/04/01/nginx%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0ip%E8%AE%BF%E9%97%AE%E6%8C%87%E5%AE%9AURL/</url>
+    <url>/2021/04/01/nginx%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0ip%E8%AE%BF%E9%97%AE%E6%8C%87%E5%AE%9AURL/</url>
     <content><![CDATA[<p><strong>我的需求是这样的，nginx+uwsgi启动的web服务，访问域名XX.CN之后，nginx报错404，我需要实现的是访问XX.CN，自动映射到XX.CN/login 因为我server是80端口，所以不需要加端口即可访问</strong></p>
 <p>nginx配置如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim nginx.conf</span><br></pre></td></tr></table></figure>
@@ -1406,7 +1406,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>no such table:django_session</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/04/01/no-such-table-django-session/</url>
+    <url>/2021/04/01/no-such-table-django-session/</url>
     <content><![CDATA[<p><strong>出现上述问题是django没有django_session表</strong></p>
 <p>错误跟Session的机制相关<br>既然要从Web服务器端来记录用户信息，<br>那么一定要有存放用户session id对应信息的地方才行</p>
 <p>django创建存放session表命令如下：</p>
@@ -1423,7 +1423,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>node切换版本</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/08/17/node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
+    <url>/2021/08/17/node%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
     <content><![CDATA[<h2 id="1-安装n"><a href="#1-安装n" class="headerlink" title="1.安装n"></a>1.安装n</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g n</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-使用-n-下载所需node"><a href="#2-使用-n-下载所需node" class="headerlink" title="2.使用 n 下载所需node"></a>2.使用 n 下载所需node</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ n 10.16.3  <span class="comment">#版本号 不需要加v</span></span><br></pre></td></tr></table></figure>
@@ -1448,7 +1448,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>npm切换版本</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/14/npm%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
+    <url>/2021/07/14/npm%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
     <content><![CDATA[<h1 id="Npm切换版本"><a href="#Npm切换版本" class="headerlink" title="Npm切换版本"></a>Npm切换版本</h1><p>npm需要切换版本如果没有安装nvm很头疼,会存在以下三种情况:</p>
 <pre><code>① Node环境还在,只是Npm被卸载
 ② Npm和Node版本不兼容
@@ -1470,7 +1470,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>npm缺少css-loader，/style-compiler，stylus-loader问题，npm没有权限无法全局更新问题</title>
-    <url>/chaoyangya/chaoyangya.github.io/2018/10/17/npm%E7%BC%BA%E5%B0%91css-loader%EF%BC%8C-style-compiler%EF%BC%8Cstylus-loader%E9%97%AE%E9%A2%98%EF%BC%8Cnpm%E6%B2%A1%E6%9C%89%E6%9D%83%E9%99%90%E6%97%A0%E6%B3%95%E5%85%A8%E5%B1%80%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
+    <url>/2018/10/17/npm%E7%BC%BA%E5%B0%91css-loader%EF%BC%8C-style-compiler%EF%BC%8Cstylus-loader%E9%97%AE%E9%A2%98%EF%BC%8Cnpm%E6%B2%A1%E6%9C%89%E6%9D%83%E9%99%90%E6%97%A0%E6%B3%95%E5%85%A8%E5%B1%80%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>​<br>ERROR in ./node_modules/css-loader!./node_modules/vue-loader/lib/style-compiler?{“vue”:true,”id”:”data-v-a5e4f82a”,”scoped”:false,”hasInlineConfig”:false}!./node_modules/stylus-loader?{“import”:[“<del>@didi/ada/style/mixins.styl”,”/home/xiaoju/manhattan-hera-webapp/client/style/base.styl”]}!./node_modules/vue-loader/lib/selector.js?type=styles&amp;index=0&amp;bustCache!./client/components/panel_links.vue<br>Cannot find module ‘postcss-import’<br>@ ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/style-compiler?{“vue”:true,”id”:”data-v-a5e4f82a”,”scoped”:false,”hasInlineConfig”:false}!./node_modules/stylus-loader?{“import”:[“</del>@didi/ada/style/mixins.styl”,”/home/xiaoju/manhattan-hera-webapp/client/style/base.styl”]}!./node_modules/vue-loader/lib/selector.js?type=styles&amp;index=0&amp;bustCache!./client/components/panel_links.vue 4:14-454<br>@ ./client/components/panel_links.vue<br>@ ./client/app.ts<br>@ multi ./client/app.ts</p>
 <p>如下图：</p>
 <p>在测试项目的时候，部署前端在启动前端环境的时候遇到缺少组件css-loader，/style-compiler，stylus-loader，尝试了开启外网，npm的全局安装，单独安装组件( npn install stylus-loader css-loader style-loader style-compiler  –save-dev)后无果，最后在前端大神的指导下，发现是npm的目录没有权限，然后找到了破解npm无法全局安装下载的最新办法！亲测有效！</p>
@@ -1516,7 +1516,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from x.x.x)</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/14/nvm-Cannot-uninstall-currently-active-node-version-vx-x-x-inferred-from-x-x-x/</url>
+    <url>/2021/07/14/nvm-Cannot-uninstall-currently-active-node-version-vx-x-x-inferred-from-x-x-x/</url>
     <content><![CDATA[<p>#使用nvm卸载node版本时报错如下:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from</span><br><span class="line">  x.x.x)</span><br></pre></td></tr></table></figure>
 
@@ -1535,7 +1535,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>pip安装插件失败，拒绝连接</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/03/30/pip%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%8B%92%E7%BB%9D%E8%BF%9E%E6%8E%A5/</url>
+    <url>/2021/03/30/pip%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%8B%92%E7%BB%9D%E8%BF%9E%E6%8E%A5/</url>
     <content><![CDATA[<p>WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by ‘ConnectTimeoutError(&lt;pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ff8fba5f080&gt;, ‘Connection to mirrors.aliyn.com timed out. (connect timeout=15)’)’: /pypi/simple/python-jenkins/</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip3 install python-jenkins</span><br></pre></td></tr></table></figure>
 <p>安装python-jenkins报错如下<br><img src="https://img-blog.csdnimg.cn/20210330114856815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW95YW5nX28=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -1553,13 +1553,13 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>sed: -e expression #1, char 24: unknown option to &#39;s&#39; </title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/08/17/sed-e-expression-1-char-24-unknown-option-to-s/</url>
+    <url>/2021/08/17/sed-e-expression-1-char-24-unknown-option-to-s/</url>
     <content><![CDATA[<p>在使用 <code>sed -e</code> 批量替换命令时候,报错如下:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="string">&quot;sed: -e expression #1, char 24: unknown option to `s` &quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>原因:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 需要替换的内容中有符号,且该符号和你用来分割的符号一样,所以该条命令无法使用,详情如下图:</span><br></pre></td></tr></table></figure>
-<img src="/2021/08/17/sed-e-expression-1-char-24-unknown-option-to-s/08/17/sed-e-expression-1-char-24-unknown-option-to-s/img5.png" class title="This is an test image">
+<img src="/2021/08/17/sed-e-expression-1-char-24-unknown-option-to-s/img5.png" class title="This is an test image">
 
 <p>也就是说如果你需要替换的内容中存在 <code>|</code>  那么你的命令中用来分割的符号就需要使用 <code>@</code> 或者 <code>\</code> 否则就会报错</p>
 ]]></content>
@@ -1573,7 +1573,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>selenium.common.exceptions.WebDriverException: Message: unknown error: cannot find Chrome binary</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/08/20/selenium-common-exceptions-WebDriverException-Message-unknown-error-cannot-find-Chrome-binary/</url>
+    <url>/2021/08/20/selenium-common-exceptions-WebDriverException-Message-unknown-error-cannot-find-Chrome-binary/</url>
     <content><![CDATA[<p>报错: selenium.common.exceptions.WebDriverException: Message: unknown error: cannot find Chrome binary</p>
 <p>原因是:<br>运行脚本的环境中没有找到chrome浏览器</p>
 <p>解决:<br>windows/mac: 指定浏览器位置</p>
@@ -1592,7 +1592,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>supervisord管理常驻进程uwsgi/nginx/redis/mongodb</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/05/24/supervisord%E7%AE%A1%E7%90%86%E5%B8%B8%E9%A9%BB%E8%BF%9B%E7%A8%8Buwsgi-nginx-redis-mongodb/</url>
+    <url>/2021/05/24/supervisord%E7%AE%A1%E7%90%86%E5%B8%B8%E9%A9%BB%E8%BF%9B%E7%A8%8Buwsgi-nginx-redis-mongodb/</url>
     <content><![CDATA[<p>解决部署的一些项目,因机器关机/重启导致项目需要手动重新启动的问题</p>
 <h2 id="1-安装supervisor"><a href="#1-安装supervisor" class="headerlink" title="1 `安装supervisor"></a>1 `安装supervisor</h2><p>yum安装</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install supervisor</span><br></pre></td></tr></table></figure>
@@ -1642,7 +1642,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>web服务 访问Linux中的静态文件</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/03/29/web%E6%9C%8D%E5%8A%A1-%E8%AE%BF%E9%97%AELinux%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/</url>
+    <url>/2021/03/29/web%E6%9C%8D%E5%8A%A1-%E8%AE%BF%E9%97%AELinux%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<p>报错404，NOT FOUND可能是因为nginx.conf配置文件的俩处地方配置有误，按照下面，检查你的配置之后99.9999%是可以在浏览器访问Linux的静态文件的</p>
 <p>1、检查nginx是否打开允许访问本地文件的配置</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim nginx.conf</span><br></pre></td></tr></table></figure>
@@ -1666,7 +1666,7 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>怎么让你的个人博客可以在百度谷歌搜索到</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/07/23/%E6%80%8E%E4%B9%88%E8%AE%A9%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%88%B0/</url>
+    <url>/2021/07/23/%E6%80%8E%E4%B9%88%E8%AE%A9%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%88%B0/</url>
     <content><![CDATA[<p>怎么让百度和谷歌收录你的博客(仅仅局限于拥有自己域名的个人博客使用)</p>
 <p>收录的好处:<br><strong>被搜索引擎收录后，别人就可以通过搜索引擎搜索到你的文章</strong></p>
 <h2 id="百度"><a href="#百度" class="headerlink" title="百度:"></a>百度:</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://ziyuan.baidu.com/linksubmit/url</span><br></pre></td></tr></table></figure>
@@ -1689,9 +1689,9 @@ Node: 15.12.0(注意Node版本)
   </entry>
   <entry>
     <title>解决hexo图片不展示问题</title>
-    <url>/chaoyangya/chaoyangya.github.io/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
+    <url>/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-更改hexo配置文件"><a href="#1-更改hexo配置文件" class="headerlink" title="1.更改hexo配置文件"></a>1.更改hexo配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml <span class="comment">#配置_config.yml里面的post_asset_folder:false 设置为 true 如图</span></span><br></pre></td></tr></table></figure>
-<img src="/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/img7.png" class title="This is an test image">
+<img src="/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/img7.png" class title="This is an test image">
 
 <h2 id="2-安装npm插件"><a href="#2-安装npm插件" class="headerlink" title="2.安装npm插件"></a>2.安装npm插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install https://github.com/CodeFalling/hexo-asset-image --save  </span><br></pre></td></tr></table></figure>
 
