@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>App跟web定位元素页面相互切换</title>
-    <url>/2018/10/11/App%E8%B7%9Fweb%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2/</url>
-    <content><![CDATA[<p>很多QA在做UI自动化或者App自动化的时候，会遇到在web页面要抓取App模式的元素，或者是在App要抓取H5页面的元素，从网上整理了一些方法，不一定能解决，但是试一下也未尝不可，如果解决了就记得关注一波咯！！！<code>python噢</code>~~~</p>
-<pre><code>self.driver.switch_to.context()
-self.driver.switch_to.context(&#39;WEBVIEW_1&#39;)app --&gt; web
-self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
-</code></pre>
-<p>如果是从App转到web 选择<code>WEBVIEW_1</code>，<br>如果web转到App 选择 <code>NATIVE_APP</code></p>
-]]></content>
-      <categories>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Appium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Centos7.7安装并配置jenkins+python+allure发送定制化报告</title>
     <url>/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
     <content><![CDATA[<h1 id="【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告"><a href="#【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告" class="headerlink" title="【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告"></a>【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告</h1><p>目前测试开发方向的接口自动化脚本很多，这里就不一一列举了，有兴趣的可以baidu/google 一大堆，本次主要根据自己公司/业务需要搭建了一套基于python3.7+pytest+allure的接口自动化脚本，由于工作原因，源码就不放了，最下面会放一个很简单的脚本，不想写的可以暂时先用下，调试通过以后，再进行业务代码的编写也是ok的，话不多说，开整。</p>
@@ -155,6 +137,24 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
         <tag>Jenkins</tag>
         <tag>Allure</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>App跟web定位元素页面相互切换</title>
+    <url>/2018/10/11/App%E8%B7%9Fweb%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2/</url>
+    <content><![CDATA[<p>很多QA在做UI自动化或者App自动化的时候，会遇到在web页面要抓取App模式的元素，或者是在App要抓取H5页面的元素，从网上整理了一些方法，不一定能解决，但是试一下也未尝不可，如果解决了就记得关注一波咯！！！<code>python噢</code>~~~</p>
+<pre><code>self.driver.switch_to.context()
+self.driver.switch_to.context(&#39;WEBVIEW_1&#39;)app --&gt; web
+self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
+</code></pre>
+<p>如果是从App转到web 选择<code>WEBVIEW_1</code>，<br>如果web转到App 选择 <code>NATIVE_APP</code></p>
+]]></content>
+      <categories>
+        <category>Appium</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -389,22 +389,22 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>ImportError: No module named flask</title>
-    <url>/2020/03/06/ImportError-No-module-named-flask/</url>
-    <content><![CDATA[<p>1、删除原有的用大写开头的Flask插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip uninstall Flask</span><br></pre></td></tr></table></figure>
+    <title>Django自定义404页面</title>
+    <url>/2021/09/17/Django%E8%87%AA%E5%AE%9A%E4%B9%89404%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<h3 id="前景："><a href="#前景：" class="headerlink" title="前景："></a>前景：</h3><p>使用django部署的web应用，在url错误的情况下，页面会报错简单的404页面，并不美观</p>
+<p>Django版本：1.11.7  <strong>高于2.0版本不可使用以下语法，切记</strong></p>
+<h2 id="1-settings设置"><a href="#1-settings设置" class="headerlink" title="1.settings设置"></a>1.settings设置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">修改 settings.py 的配置如下  <span class="comment">#自定义页面会在非调试模式下生效，所以debug=false</span></span><br><span class="line"></span><br><span class="line">DEBUG=False</span><br><span class="line"> </span><br><span class="line">ALLOWED_HOST=[<span class="string">&quot;*&quot;</span>]</span><br></pre></td></tr></table></figure>
 
-<p>2、yum安装 flask</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install python-flask</span><br></pre></td></tr></table></figure>
+<h2 id="2-项目根目录下的views-py配置"><a href="#2-项目根目录下的views-py配置" class="headerlink" title="2.项目根目录下的views.py配置"></a>2.项目根目录下的views.py配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">views.py</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">page_not_found</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">&#x27;404.html&#x27;</span>)  <span class="comment">#404的html要写你自定义的404html文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>3、等待安装完成就可以允许程序啦（100%有用）</p>
-]]></content>
+<h2 id="3-项目根目录的urls-py配置"><a href="#3-项目根目录的urls-py配置" class="headerlink" title="3.项目根目录的urls.py配置"></a>3.项目根目录的urls.py配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">urls.py   <span class="comment">#如果urls有别的路由位置，也必须在原urls.py文件下修改，否则不生效</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line">handler404 = views.page_not_found</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-重新发布即可生效"><a href="#4-重新发布即可生效" class="headerlink" title="4.重新发布即可生效"></a>4.重新发布即可生效</h2>]]></content>
       <categories>
-        <category>Flask</category>
+        <category>Django</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Flask</tag>
+        <tag>Django</tag>
       </tags>
   </entry>
   <entry>
@@ -436,6 +436,25 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       <tags>
         <tag>Iterm2</tag>
         <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ImportError: No module named flask</title>
+    <url>/2020/03/06/ImportError-No-module-named-flask/</url>
+    <content><![CDATA[<p>1、删除原有的用大写开头的Flask插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip uninstall Flask</span><br></pre></td></tr></table></figure>
+
+<p>2、yum安装 flask</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install python-flask</span><br></pre></td></tr></table></figure>
+
+<p>3、等待安装完成就可以允许程序啦（100%有用）</p>
+]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Flask</tag>
       </tags>
   </entry>
   <entry>
@@ -579,6 +598,23 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Jenkins启动报错原因分析</title>
+    <url>/2021/09/18/Jenkins%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="1-启动jenkins"><a href="#1-启动jenkins" class="headerlink" title="1.启动jenkins"></a>1.启动jenkins</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start jenkins   <span class="comment">#如果命令不可使用，首先要把jenkins放到系统启动配置中，详情请百度</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-查看jenkins启动状态"><a href="#2-查看jenkins启动状态" class="headerlink" title="2.查看jenkins启动状态"></a>2.查看jenkins启动状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status jenkins.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-分析报错原因"><a href="#3-分析报错原因" class="headerlink" title="3.分析报错原因"></a>3.分析报错原因</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看位置 /system.slice/jenkins.service 后面是原因</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux快捷进入长目录的方法</title>
     <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
@@ -597,6 +633,29 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux安装jdk11</title>
+    <url>/2021/09/18/Linux%E5%AE%89%E8%A3%85jdk11/</url>
+    <content><![CDATA[<h2 id="1-下载jdk"><a href="#1-下载jdk" class="headerlink" title="1.下载jdk"></a>1.下载jdk</h2><p><a href="https://pan.baidu.com/s/1DWgm0m_QlTq67QFq_BV_8g">下载安装</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">提取码: brq2</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-上传到服务器"><a href="#2-上传到服务器" class="headerlink" title="2.上传到服务器"></a>2.上传到服务器</h2><h2 id="3-解压"><a href="#3-解压" class="headerlink" title="3.解压"></a>3.解压</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zvxf openjdk-11+28_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-移动文件夹并重命名"><a href="#4-移动文件夹并重命名" class="headerlink" title="4.移动文件夹并重命名"></a>4.移动文件夹并重命名</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mv jdk-11/ /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-配置环境变量"><a href="#5-配置环境变量" class="headerlink" title="5.配置环境变量"></a>5.配置环境变量</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span>   <span class="comment">#一定要放在最后</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/profile     <span class="comment">#让配置生效</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-建立软链接"><a href="#6-建立软链接" class="headerlink" title="6.建立软链接"></a>6.建立软链接</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -n /usr/<span class="built_in">local</span>/java/bin/java /usr/bin/java</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-查看java版本"><a href="#7-查看java版本" class="headerlink" title="7.查看java版本"></a>7.查看java版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Jdk</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Jdk</tag>
       </tags>
   </entry>
   <entry>
@@ -955,16 +1014,15 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
-    <title>Shadowrocket小火箭配置规则文件</title>
-    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Mac必备软件推荐</title>
+    <url>/2021/09/10/Mac%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
+    <content><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p><strong>前景：</strong><br>前几天系统降级了，发现之前使用的一些得心应手的app忘记名字了，很难找，不过最后还是在时间机器里找到了，特意开帖记录分享一下，常见的就不分享了，都知道，主要分享一些难找的，但是特别好用的。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Screenium 3     <span class="string">&quot;屏幕录制(全屏/区域/自定义区域)，支持剪辑&quot;</span></span><br><span class="line"></span><br><span class="line">Permute 3       <span class="string">&quot;视频格式转换，直接拖拽文件即可&quot;</span></span><br><span class="line"></span><br><span class="line">App Cleaner &amp; Uninstaller  <span class="string">&quot;应用深度清理卸载，非常好用&quot;</span></span><br><span class="line"></span><br><span class="line">Air2a Gui       <span class="string">&quot;下载神器，配合油猴更方便&quot;</span></span><br><span class="line"></span><br><span class="line">Fork lift       <span class="string">&quot;finder增强工具，同时支持ftp&quot;</span></span><br><span class="line"></span><br><span class="line">pap.er          <span class="string">&quot;4K壁纸软件&quot;</span></span><br><span class="line"></span><br><span class="line">IINA            <span class="string">&quot;视频播放器&quot;</span></span><br><span class="line"></span><br><span class="line">Sublime Text    <span class="string">&quot;文本编辑器，支持各种代码格式&quot;</span></span><br><span class="line"></span><br><span class="line">MWeb Pro        <span class="string">&quot;markdown编辑器，写博客神器&quot;</span></span><br><span class="line"></span><br><span class="line">The Unarchiver  <span class="string">&quot;免费解压神器&quot;</span></span><br><span class="line"></span><br><span class="line">TinyCal         <span class="string">&quot;简洁小巧的日历，Appstore可下载(收费)&quot;</span></span><br><span class="line"></span><br><span class="line">Perculia        <span class="string">&quot;蓝牙快速连接，支持更改图标&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Shadowrocket</category>
+        <category>Mac</category>
       </categories>
       <tags>
-        <tag>Shadowrocket</tag>
+        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -997,6 +1055,19 @@ console.log(responseTime);
       </categories>
       <tags>
         <tag>Tampermonkey</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shadowrocket小火箭配置规则文件</title>
+    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Shadowrocket</category>
+      </categories>
+      <tags>
+        <tag>Shadowrocket</tag>
       </tags>
   </entry>
   <entry>
@@ -1119,6 +1190,20 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
+    <title>git branch出现end需要q才能退出</title>
+    <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
+    <content><![CDATA[<p>git 进入了编辑模式</p>
+<p>用以下命令即可解决：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.pager mor</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>checkout无效</title>
     <url>/2018/10/29/checkout%E6%97%A0%E6%95%88/</url>
     <content><![CDATA[<p>在日常工作中，我们经常会遇到要更新一个项目，但是由于更改了配置，需要将这些配置<code>commit</code>或者<code>checkout</code>，但是有的同学不想commit怎么办呢，只能通过checkout，那么问题又来了，改了很多配置，checkout之后又要重新修改配置，就很烦。</p>
@@ -1138,20 +1223,6 @@ console.log(responseTime);
 
 
 <p>5、最后你发现之前暂存的配置，以及取出来并且成功替换了update之后的配置</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git branch出现end需要q才能退出</title>
-    <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
-    <content><![CDATA[<p>git 进入了编辑模式</p>
-<p>用以下命令即可解决：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.pager mor</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Git</category>
@@ -1312,6 +1383,20 @@ Node: 15.12.0(注意Node版本)
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html简单实现button加载中且置灰不可点击</title>
+    <url>/2021/09/09/html%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0button%E5%8A%A0%E8%BD%BD%E4%B8%AD%E4%B8%94%E7%BD%AE%E7%81%B0%E4%B8%8D%E5%8F%AF%E7%82%B9%E5%87%BB/</url>
+    <content><![CDATA[<h2 id="简单js几行代码实现点击按钮-实现加载中，且置灰不可点击"><a href="#简单js几行代码实现点击按钮-实现加载中，且置灰不可点击" class="headerlink" title="简单js几行代码实现点击按钮,实现加载中，且置灰不可点击"></a>简单js几行代码实现点击按钮,实现加载中，且置灰不可点击</h2><h3 id="1-html部分"><a href="#1-html部分" class="headerlink" title="1.html部分"></a>1.html部分</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;Submit&quot;</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">&quot;btn btn-rounded btn-primary mb-6&quot;</span> <span class="attr">value</span>=<span class="string">&quot;获取验证码&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-JS部分"><a href="#2-JS部分" class="headerlink" title="2.JS部分"></a>2.JS部分</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClickBtnSms</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">&#x27;#Submit&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//按钮校验，disable = true不可点击 val里面的内容替换成你想实现的加载中/loading...等</span></span><br><span class="line">        $(<span class="string">&#x27;#Submit&#x27;</span>).val(<span class="string">&#x27;加载中...&#x27;</span>).prop(<span class="string">&#x27;disabled&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            <span class="attr">url</span>: <span class="string">&quot;url&quot;</span>, </span><br><span class="line">            <span class="attr">type</span>: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">            <span class="attr">data</span>: &#123;<span class="attr">data</span>: data&#125;,</span><br><span class="line">            <span class="attr">dataType</span>: <span class="string">&quot;JSON&quot;</span>, <span class="comment">// 将服务端返回的数据反序列化为字典</span></span><br><span class="line">            <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (res.status) &#123;</span><br><span class="line">                    <span class="comment">//这里放拿到res状态想要执行的函数</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//如果报错，需要恢复获取验证码的按钮</span></span><br><span class="line">                    $(<span class="string">&#x27;#Submit&#x27;</span>).val(<span class="string">&#x27;获取验证码&#x27;</span>).prop(<span class="string">&#x27;disabled&#x27;</span>, <span class="literal">false</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Html</category>
+      </categories>
+      <tags>
+        <tag>Html</tag>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -1708,29 +1793,6 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
-    <title>怎么让你的个人博客可以在百度谷歌搜索到</title>
-    <url>/2021/07/23/%E6%80%8E%E4%B9%88%E8%AE%A9%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%88%B0/</url>
-    <content><![CDATA[<p>怎么让百度和谷歌收录你的博客(仅仅局限于拥有自己域名的个人博客使用)</p>
-<p>收录的好处:<br><strong>被搜索引擎收录后，别人就可以通过搜索引擎搜索到你的文章</strong></p>
-<h2 id="百度"><a href="#百度" class="headerlink" title="百度:"></a>百度:</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://ziyuan.baidu.com/linksubmit/url</span><br></pre></td></tr></table></figure>
-
-<h2 id="谷歌"><a href="#谷歌" class="headerlink" title="谷歌"></a>谷歌</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://search.google.com/search-console/welcome  <span class="comment">#需要登录Google账号</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="360搜索"><a href="#360搜索" class="headerlink" title="360搜索"></a>360搜索</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://info.so.360.cn/site_submit.html    <span class="comment">#需要提交备案信息</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="必应"><a href="#必应" class="headerlink" title="必应"></a>必应</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://www.bing.com/webmasters/about      <span class="comment">#验证方式xml meta dns</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="搜狗"><a href="#搜狗" class="headerlink" title="搜狗"></a>搜狗</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://zhanzhang.sogou.com/?forceredirect=1<span class="comment">#   #需要登录验证</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决hexo图片不展示问题</title>
     <url>/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-更改hexo配置文件"><a href="#1-更改hexo配置文件" class="headerlink" title="1.更改hexo配置文件"></a>1.更改hexo配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml <span class="comment">#配置_config.yml里面的post_asset_folder:false 设置为 true 如图</span></span><br></pre></td></tr></table></figure>
@@ -1761,88 +1823,26 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
-    <title>html简单实现button加载中且置灰不可点击</title>
-    <url>/2021/09/09/html%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0button%E5%8A%A0%E8%BD%BD%E4%B8%AD%E4%B8%94%E7%BD%AE%E7%81%B0%E4%B8%8D%E5%8F%AF%E7%82%B9%E5%87%BB/</url>
-    <content><![CDATA[<h2 id="简单js几行代码实现点击按钮-实现加载中，且置灰不可点击"><a href="#简单js几行代码实现点击按钮-实现加载中，且置灰不可点击" class="headerlink" title="简单js几行代码实现点击按钮,实现加载中，且置灰不可点击"></a>简单js几行代码实现点击按钮,实现加载中，且置灰不可点击</h2><h3 id="1-html部分"><a href="#1-html部分" class="headerlink" title="1.html部分"></a>1.html部分</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;Submit&quot;</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">&quot;btn btn-rounded btn-primary mb-6&quot;</span> <span class="attr">value</span>=<span class="string">&quot;获取验证码&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <title>怎么让你的个人博客可以在百度谷歌搜索到</title>
+    <url>/2021/07/23/%E6%80%8E%E4%B9%88%E8%AE%A9%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%88%B0/</url>
+    <content><![CDATA[<p>怎么让百度和谷歌收录你的博客(仅仅局限于拥有自己域名的个人博客使用)</p>
+<p>收录的好处:<br><strong>被搜索引擎收录后，别人就可以通过搜索引擎搜索到你的文章</strong></p>
+<h2 id="百度"><a href="#百度" class="headerlink" title="百度:"></a>百度:</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://ziyuan.baidu.com/linksubmit/url</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-JS部分"><a href="#2-JS部分" class="headerlink" title="2.JS部分"></a>2.JS部分</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClickBtnSms</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">&#x27;#Submit&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//按钮校验，disable = true不可点击 val里面的内容替换成你想实现的加载中/loading...等</span></span><br><span class="line">        $(<span class="string">&#x27;#Submit&#x27;</span>).val(<span class="string">&#x27;加载中...&#x27;</span>).prop(<span class="string">&#x27;disabled&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            <span class="attr">url</span>: <span class="string">&quot;url&quot;</span>, </span><br><span class="line">            <span class="attr">type</span>: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">            <span class="attr">data</span>: &#123;<span class="attr">data</span>: data&#125;,</span><br><span class="line">            <span class="attr">dataType</span>: <span class="string">&quot;JSON&quot;</span>, <span class="comment">// 将服务端返回的数据反序列化为字典</span></span><br><span class="line">            <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (res.status) &#123;</span><br><span class="line">                    <span class="comment">//这里放拿到res状态想要执行的函数</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//如果报错，需要恢复获取验证码的按钮</span></span><br><span class="line">                    $(<span class="string">&#x27;#Submit&#x27;</span>).val(<span class="string">&#x27;获取验证码&#x27;</span>).prop(<span class="string">&#x27;disabled&#x27;</span>, <span class="literal">false</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Html</category>
-      </categories>
-      <tags>
-        <tag>Html</tag>
-        <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac必备软件推荐</title>
-    <url>/2021/09/10/Mac%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
-    <content><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p><strong>前景：</strong><br>前几天系统降级了，发现之前使用的一些得心应手的app忘记名字了，很难找，不过最后还是在时间机器里找到了，特意开帖记录分享一下，常见的就不分享了，都知道，主要分享一些难找的，但是特别好用的。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Screenium 3     <span class="string">&quot;屏幕录制(全屏/区域/自定义区域)，支持剪辑&quot;</span></span><br><span class="line"></span><br><span class="line">Permute 3       <span class="string">&quot;视频格式转换，直接拖拽文件即可&quot;</span></span><br><span class="line"></span><br><span class="line">App Cleaner &amp; Uninstaller  <span class="string">&quot;应用深度清理卸载，非常好用&quot;</span></span><br><span class="line"></span><br><span class="line">Air2a Gui       <span class="string">&quot;下载神器，配合油猴更方便&quot;</span></span><br><span class="line"></span><br><span class="line">Fork lift       <span class="string">&quot;finder增强工具，同时支持ftp&quot;</span></span><br><span class="line"></span><br><span class="line">pap.er          <span class="string">&quot;4K壁纸软件&quot;</span></span><br><span class="line"></span><br><span class="line">IINA            <span class="string">&quot;视频播放器&quot;</span></span><br><span class="line"></span><br><span class="line">Sublime Text    <span class="string">&quot;文本编辑器，支持各种代码格式&quot;</span></span><br><span class="line"></span><br><span class="line">MWeb Pro        <span class="string">&quot;markdown编辑器，写博客神器&quot;</span></span><br><span class="line"></span><br><span class="line">The Unarchiver  <span class="string">&quot;免费解压神器&quot;</span></span><br><span class="line"></span><br><span class="line">TinyCal         <span class="string">&quot;简洁小巧的日历，Appstore可下载(收费)&quot;</span></span><br><span class="line"></span><br><span class="line">Perculia        <span class="string">&quot;蓝牙快速连接，支持更改图标&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Mac</category>
-      </categories>
-      <tags>
-        <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django自定义404页面</title>
-    <url>/2021/09/17/Django%E8%87%AA%E5%AE%9A%E4%B9%89404%E9%A1%B5%E9%9D%A2/</url>
-    <content><![CDATA[<h3 id="前景："><a href="#前景：" class="headerlink" title="前景："></a>前景：</h3><p>使用django部署的web应用，在url错误的情况下，页面会报错简单的404页面，并不美观</p>
-<p>Django版本：1.11.7  <strong>高于2.0版本不可使用以下语法，切记</strong></p>
-<h2 id="1-settings设置"><a href="#1-settings设置" class="headerlink" title="1.settings设置"></a>1.settings设置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">修改 settings.py 的配置如下  <span class="comment">#自定义页面会在非调试模式下生效，所以debug=false</span></span><br><span class="line"></span><br><span class="line">DEBUG=False</span><br><span class="line"> </span><br><span class="line">ALLOWED_HOST=[<span class="string">&quot;*&quot;</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="谷歌"><a href="#谷歌" class="headerlink" title="谷歌"></a>谷歌</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://search.google.com/search-console/welcome  <span class="comment">#需要登录Google账号</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2-项目根目录下的views-py配置"><a href="#2-项目根目录下的views-py配置" class="headerlink" title="2.项目根目录下的views.py配置"></a>2.项目根目录下的views.py配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">views.py</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">page_not_found</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">&#x27;404.html&#x27;</span>)  <span class="comment">#404的html要写你自定义的404html文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="360搜索"><a href="#360搜索" class="headerlink" title="360搜索"></a>360搜索</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://info.so.360.cn/site_submit.html    <span class="comment">#需要提交备案信息</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="3-项目根目录的urls-py配置"><a href="#3-项目根目录的urls-py配置" class="headerlink" title="3.项目根目录的urls.py配置"></a>3.项目根目录的urls.py配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">urls.py   <span class="comment">#如果urls有别的路由位置，也必须在原urls.py文件下修改，否则不生效</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line">handler404 = views.page_not_found</span><br></pre></td></tr></table></figure>
+<h2 id="必应"><a href="#必应" class="headerlink" title="必应"></a>必应</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://www.bing.com/webmasters/about      <span class="comment">#验证方式xml meta dns</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="4-重新发布即可生效"><a href="#4-重新发布即可生效" class="headerlink" title="4.重新发布即可生效"></a>4.重新发布即可生效</h2>]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Django</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux安装jdk11</title>
-    <url>/2021/09/18/Linux%E5%AE%89%E8%A3%85jdk11/</url>
-    <content><![CDATA[<h2 id="1-下载jdk"><a href="#1-下载jdk" class="headerlink" title="1.下载jdk"></a>1.下载jdk</h2><p><a href="https://pan.baidu.com/s/1DWgm0m_QlTq67QFq_BV_8g">下载安装</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">提取码: brq2</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-上传到服务器"><a href="#2-上传到服务器" class="headerlink" title="2.上传到服务器"></a>2.上传到服务器</h2><h2 id="3-解压"><a href="#3-解压" class="headerlink" title="3.解压"></a>3.解压</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zvxf openjdk-11+28_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-移动文件夹并重命名"><a href="#4-移动文件夹并重命名" class="headerlink" title="4.移动文件夹并重命名"></a>4.移动文件夹并重命名</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mv jdk-11/ /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-配置环境变量"><a href="#5-配置环境变量" class="headerlink" title="5.配置环境变量"></a>5.配置环境变量</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span>   <span class="comment">#一定要放在最后</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/profile     <span class="comment">#让配置生效</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-建立软链接"><a href="#6-建立软链接" class="headerlink" title="6.建立软链接"></a>6.建立软链接</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -n /usr/<span class="built_in">local</span>/java/bin/java /usr/bin/java</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-查看java版本"><a href="#7-查看java版本" class="headerlink" title="7.查看java版本"></a>7.查看java版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Jdk</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Jdk</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jenkins启动报错原因分析</title>
-    <url>/2021/09/18/Jenkins%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="1-启动jenkins"><a href="#1-启动jenkins" class="headerlink" title="1.启动jenkins"></a>1.启动jenkins</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start jenkins   <span class="comment">#如果命令不可使用，首先要把jenkins放到系统启动配置中，详情请百度</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-查看jenkins启动状态"><a href="#2-查看jenkins启动状态" class="headerlink" title="2.查看jenkins启动状态"></a>2.查看jenkins启动状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status jenkins.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-分析报错原因"><a href="#3-分析报错原因" class="headerlink" title="3.分析报错原因"></a>3.分析报错原因</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看位置 /system.slice/jenkins.service 后面是原因</span><br></pre></td></tr></table></figure>
-
+<h2 id="搜狗"><a href="#搜狗" class="headerlink" title="搜狗"></a>搜狗</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://zhanzhang.sogou.com/?forceredirect=1<span class="comment">#   #需要登录验证</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Jenkins</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Jenkins</tag>
+        <tag>Hexo</tag>
+        <tag>Google</tag>
       </tags>
   </entry>
 </search>
