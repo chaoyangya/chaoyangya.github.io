@@ -1805,4 +1805,27 @@ Node: 15.12.0(注意Node版本)
         <tag>Django</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Linux安装jdk11</title>
+    <url>/2021/09/18/Linux%E5%AE%89%E8%A3%85jdk11/</url>
+    <content><![CDATA[<h2 id="1-下载jdk"><a href="#1-下载jdk" class="headerlink" title="1.下载jdk"></a>1.下载jdk</h2><p><a href="https://pan.baidu.com/s/1DWgm0m_QlTq67QFq_BV_8g">下载安装</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">提取码: brq2</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-上传到服务器"><a href="#2-上传到服务器" class="headerlink" title="2.上传到服务器"></a>2.上传到服务器</h2><h2 id="3-解压"><a href="#3-解压" class="headerlink" title="3.解压"></a>3.解压</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zvxf openjdk-11+28_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-移动文件夹并重命名"><a href="#4-移动文件夹并重命名" class="headerlink" title="4.移动文件夹并重命名"></a>4.移动文件夹并重命名</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mv jdk-11/ /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-配置环境变量"><a href="#5-配置环境变量" class="headerlink" title="5.配置环境变量"></a>5.配置环境变量</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span>   <span class="comment">#一定要放在最后</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/profile     <span class="comment">#让配置生效</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-建立软链接"><a href="#6-建立软链接" class="headerlink" title="6.建立软链接"></a>6.建立软链接</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -n /usr/<span class="built_in">local</span>/java/bin/java /usr/bin/java</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-查看java版本"><a href="#7-查看java版本" class="headerlink" title="7.查看java版本"></a>7.查看java版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Jdk</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Jdk</tag>
+      </tags>
+  </entry>
 </search>
