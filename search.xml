@@ -1786,4 +1786,23 @@ Node: 15.12.0(注意Node版本)
         <tag>Mac</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Django自定义404页面</title>
+    <url>/2021/09/17/Django%E8%87%AA%E5%AE%9A%E4%B9%89404%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<h3 id="前景："><a href="#前景：" class="headerlink" title="前景："></a>前景：</h3><p>使用django部署的web应用，在url错误的情况下，页面会报错简单的404页面，并不美观</p>
+<p>Django版本：1.11.7  <strong>高于2.0版本不可使用以下语法，切记</strong></p>
+<h2 id="1-settings设置"><a href="#1-settings设置" class="headerlink" title="1.settings设置"></a>1.settings设置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">修改 settings.py 的配置如下  <span class="comment">#自定义页面会在非调试模式下生效，所以debug=false</span></span><br><span class="line"></span><br><span class="line">DEBUG=False</span><br><span class="line"> </span><br><span class="line">ALLOWED_HOST=[<span class="string">&quot;*&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-项目根目录下的views-py配置"><a href="#2-项目根目录下的views-py配置" class="headerlink" title="2.项目根目录下的views.py配置"></a>2.项目根目录下的views.py配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">views.py</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">page_not_found</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">&#x27;404.html&#x27;</span>)  <span class="comment">#404的html要写你自定义的404html文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-项目根目录的urls-py配置"><a href="#3-项目根目录的urls-py配置" class="headerlink" title="3.项目根目录的urls.py配置"></a>3.项目根目录的urls.py配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">urls.py   <span class="comment">#如果urls有别的路由位置，也必须在原urls.py文件下修改，否则不生效</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line">handler404 = views.page_not_found</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-重新发布即可生效"><a href="#4-重新发布即可生效" class="headerlink" title="4.重新发布即可生效"></a>4.重新发布即可生效</h2>]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
 </search>
