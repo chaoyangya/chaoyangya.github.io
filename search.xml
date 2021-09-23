@@ -1883,6 +1883,9 @@ Node: 15.12.0(注意Node版本)
 
 <h2 id="7-启动sonarqube"><a href="#7-启动sonarqube" class="headerlink" title="7.启动sonarqube"></a>7.启动sonarqube</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su sonar    <span class="comment">#必须用非root启动</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/sonarqube/bin/linux-x86-64/</span><br><span class="line"></span><br><span class="line">sh  sonar.sh start</span><br></pre></td></tr></table></figure>
 
+<h2 id="8-安装sonar-scanner"><a href="#8-安装sonar-scanner" class="headerlink" title="8.安装sonar-scanner"></a>8.安装sonar-scanner</h2><p><a href="https://pan.baidu.com/s/1rIs2oMba5LTvpAcdz75lZg">下载sonar-scanner</a></p>
+<p><code>提取码: qtd4</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.上传到服务器</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">unzip sonar-scanner-cli-4.6.2.2472-linux.zip</span><br><span class="line"></span><br><span class="line">3.重命名</span><br><span class="line">mv sonar-scanner-cli-4.6.2.2472-linux /usr/<span class="built_in">local</span>/scanner</span><br><span class="line"></span><br><span class="line">4.建立软链接</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/scanner/bin/sonar-scanner /usr/<span class="built_in">local</span>/bin/scanner </span><br></pre></td></tr></table></figure>
 
 <p><strong>PS:常见报错汇总</strong></p>
 <p>报错：</p>
