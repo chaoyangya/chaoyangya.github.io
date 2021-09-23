@@ -1866,7 +1866,7 @@ Node: 15.12.0(注意Node版本)
   <entry>
     <title>Linux搭建sonarqube</title>
     <url>/2021/09/22/Linux%E6%90%AD%E5%BB%BAsonarqube/</url>
-    <content><![CDATA[<p><strong>前言</strong><br>Linux版本：centos7.6<br>Java：Jdk11<br>SonarQube：8.2.0.32929<br>PostgreSQL：12</p>
+    <content><![CDATA[<p><strong>前言</strong><br><code>Linux版本：centos7.6 Java：Jdk11 SonarQube：8.2.0.32929 PostgreSQL：12 sonar-scanner：4.6.2.2472</code></p>
 <h2 id="1-安装Jdk"><a href="#1-安装Jdk" class="headerlink" title="1.安装Jdk"></a>1.安装Jdk</h2><p><a href="https://cywhat.cn/2021/09/18/linux%E5%AE%89%E8%A3%85jdk11/">安装JDK</a></p>
 <h2 id="2-安装PostgreSQL"><a href="#2-安装PostgreSQL" class="headerlink" title="2.安装PostgreSQL"></a>2.安装PostgreSQL</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.安装镜像</span><br><span class="line">sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</span><br><span class="line"></span><br><span class="line">2.安装PostgreSQL</span><br><span class="line">sudo yum install -y postgresql12-server</span><br><span class="line"></span><br><span class="line">3.加到系统自启动</span><br><span class="line">sudo /usr/pgsql-12/bin/postgresql-12-setup initdb</span><br><span class="line"></span><br><span class="line">4.修改md5加密</span><br><span class="line">vim /var/lib/pgsql/12/data/pg_hba.conf </span><br><span class="line"></span><br><span class="line">5.启动</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postgresql-12</span><br><span class="line"></span><br><span class="line">sudo systemctl start postgresql-12</span><br></pre></td></tr></table></figure>
 <img src="/2021/09/22/Linux%E6%90%AD%E5%BB%BAsonarqube/img101.png" class title="修改md5加密">
