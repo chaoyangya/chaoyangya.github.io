@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>App跟web定位元素页面相互切换</title>
+    <url>/2018/10/11/App%E8%B7%9Fweb%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2/</url>
+    <content><![CDATA[<p>很多QA在做UI自动化或者App自动化的时候，会遇到在web页面要抓取App模式的元素，或者是在App要抓取H5页面的元素，从网上整理了一些方法，不一定能解决，但是试一下也未尝不可，如果解决了就记得关注一波咯！！！<code>python噢</code>~~~</p>
+<pre><code>self.driver.switch_to.context()
+self.driver.switch_to.context(&#39;WEBVIEW_1&#39;)app --&gt; web
+self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
+</code></pre>
+<p>如果是从App转到web 选择<code>WEBVIEW_1</code>，<br>如果web转到App 选择 <code>NATIVE_APP</code></p>
+]]></content>
+      <categories>
+        <category>Appium</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Appium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos7.7安装并配置jenkins+python+allure发送定制化报告</title>
     <url>/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
     <content><![CDATA[<h1 id="【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告"><a href="#【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告" class="headerlink" title="【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告"></a>【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告</h1><p>目前测试开发方向的接口自动化脚本很多，这里就不一一列举了，有兴趣的可以baidu/google 一大堆，本次主要根据自己公司/业务需要搭建了一套基于python3.7+pytest+allure的接口自动化脚本，由于工作原因，源码就不放了，最下面会放一个很简单的脚本，不想写的可以暂时先用下，调试通过以后，再进行业务代码的编写也是ok的，话不多说，开整。</p>
@@ -140,24 +158,6 @@
       </tags>
   </entry>
   <entry>
-    <title>App跟web定位元素页面相互切换</title>
-    <url>/2018/10/11/App%E8%B7%9Fweb%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E9%A1%B5%E9%9D%A2%E7%9B%B8%E4%BA%92%E5%88%87%E6%8D%A2/</url>
-    <content><![CDATA[<p>很多QA在做UI自动化或者App自动化的时候，会遇到在web页面要抓取App模式的元素，或者是在App要抓取H5页面的元素，从网上整理了一些方法，不一定能解决，但是试一下也未尝不可，如果解决了就记得关注一波咯！！！<code>python噢</code>~~~</p>
-<pre><code>self.driver.switch_to.context()
-self.driver.switch_to.context(&#39;WEBVIEW_1&#39;)app --&gt; web
-self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
-</code></pre>
-<p>如果是从App转到web 选择<code>WEBVIEW_1</code>，<br>如果web转到App 选择 <code>NATIVE_APP</code></p>
-]]></content>
-      <categories>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Appium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Centos7安装chrome浏览器</title>
     <url>/2021/08/20/Centos7%E5%AE%89%E8%A3%85chrome%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
     <content><![CDATA[<h2 id="1-下载chrome-for-linux压缩包"><a href="#1-下载chrome-for-linux压缩包" class="headerlink" title="1.下载chrome for linux压缩包"></a>1.下载chrome for linux压缩包</h2><p><a href="https://pan.baidu.com/s/1WwxOb1LiRSL2DnXvKlacZw">百度网盘</a></p>
@@ -222,6 +222,43 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       <tags>
         <tag>Django</tag>
         <tag>Html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django自定义404页面</title>
+    <url>/2021/09/17/Django%E8%87%AA%E5%AE%9A%E4%B9%89404%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<h3 id="前景："><a href="#前景：" class="headerlink" title="前景："></a>前景：</h3><p>使用django部署的web应用，在url错误的情况下，页面会报错简单的404页面，并不美观</p>
+<p>Django版本：1.11.7  <strong>高于2.0版本不可使用以下语法，切记</strong></p>
+<h2 id="1-settings设置"><a href="#1-settings设置" class="headerlink" title="1.settings设置"></a>1.settings设置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">修改 settings.py 的配置如下  <span class="comment">#自定义页面会在非调试模式下生效，所以debug=false</span></span><br><span class="line"></span><br><span class="line">DEBUG=False</span><br><span class="line"> </span><br><span class="line">ALLOWED_HOST=[<span class="string">&quot;*&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-项目根目录下的views-py配置"><a href="#2-项目根目录下的views-py配置" class="headerlink" title="2.项目根目录下的views.py配置"></a>2.项目根目录下的views.py配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">views.py</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">page_not_found</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">&#x27;404.html&#x27;</span>)  <span class="comment">#404的html要写你自定义的404html文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-项目根目录的urls-py配置"><a href="#3-项目根目录的urls-py配置" class="headerlink" title="3.项目根目录的urls.py配置"></a>3.项目根目录的urls.py配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">urls.py   <span class="comment">#如果urls有别的路由位置，也必须在原urls.py文件下修改，否则不生效</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line">handler404 = views.page_not_found</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-重新发布即可生效"><a href="#4-重新发布即可生效" class="headerlink" title="4.重新发布即可生效"></a>4.重新发布即可生效</h2>]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.</title>
+    <url>/2021/09/23/ERROR-Re-run-SonarScanner-using-the-X-switch-to-enable-full-debug-logging/</url>
+    <content><![CDATA[<p><strong>前景</strong></p>
+<p><code>jenkins构建sonarqube报错</code></p>
+<p>报错：</p>
+<p><code>&quot;ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.</code></p>
+<h2 id="1-打开sonarqube的SCM配置"><a href="#1-打开sonarqube的SCM配置" class="headerlink" title="1.打开sonarqube的SCM配置"></a>1.打开sonarqube的SCM配置</h2><img src="/2021/09/23/ERROR-Re-run-SonarScanner-using-the-X-switch-to-enable-full-debug-logging/img102.png" class title="This is an test image">
+
+<h2 id="2-重新构建"><a href="#2-重新构建" class="headerlink" title="2.重新构建"></a>2.重新构建</h2>]]></content>
+      <categories>
+        <category>Sonarqube</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+        <tag>Sonarqube</tag>
       </tags>
   </entry>
   <entry>
@@ -389,22 +426,22 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>Django自定义404页面</title>
-    <url>/2021/09/17/Django%E8%87%AA%E5%AE%9A%E4%B9%89404%E9%A1%B5%E9%9D%A2/</url>
-    <content><![CDATA[<h3 id="前景："><a href="#前景：" class="headerlink" title="前景："></a>前景：</h3><p>使用django部署的web应用，在url错误的情况下，页面会报错简单的404页面，并不美观</p>
-<p>Django版本：1.11.7  <strong>高于2.0版本不可使用以下语法，切记</strong></p>
-<h2 id="1-settings设置"><a href="#1-settings设置" class="headerlink" title="1.settings设置"></a>1.settings设置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">修改 settings.py 的配置如下  <span class="comment">#自定义页面会在非调试模式下生效，所以debug=false</span></span><br><span class="line"></span><br><span class="line">DEBUG=False</span><br><span class="line"> </span><br><span class="line">ALLOWED_HOST=[<span class="string">&quot;*&quot;</span>]</span><br></pre></td></tr></table></figure>
+    <title>ImportError: No module named flask</title>
+    <url>/2020/03/06/ImportError-No-module-named-flask/</url>
+    <content><![CDATA[<p>1、删除原有的用大写开头的Flask插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip uninstall Flask</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-项目根目录下的views-py配置"><a href="#2-项目根目录下的views-py配置" class="headerlink" title="2.项目根目录下的views.py配置"></a>2.项目根目录下的views.py配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">views.py</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">page_not_found</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">&#x27;404.html&#x27;</span>)  <span class="comment">#404的html要写你自定义的404html文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2、yum安装 flask</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install python-flask</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-项目根目录的urls-py配置"><a href="#3-项目根目录的urls-py配置" class="headerlink" title="3.项目根目录的urls.py配置"></a>3.项目根目录的urls.py配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">urls.py   <span class="comment">#如果urls有别的路由位置，也必须在原urls.py文件下修改，否则不生效</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line">handler404 = views.page_not_found</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-重新发布即可生效"><a href="#4-重新发布即可生效" class="headerlink" title="4.重新发布即可生效"></a>4.重新发布即可生效</h2>]]></content>
+<p>3、等待安装完成就可以允许程序啦（100%有用）</p>
+]]></content>
       <categories>
-        <category>Django</category>
+        <category>Flask</category>
       </categories>
       <tags>
-        <tag>Django</tag>
+        <tag>Linux</tag>
+        <tag>Flask</tag>
       </tags>
   </entry>
   <entry>
@@ -439,25 +476,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>ImportError: No module named flask</title>
-    <url>/2020/03/06/ImportError-No-module-named-flask/</url>
-    <content><![CDATA[<p>1、删除原有的用大写开头的Flask插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip uninstall Flask</span><br></pre></td></tr></table></figure>
-
-<p>2、yum安装 flask</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install python-flask</span><br></pre></td></tr></table></figure>
-
-<p>3、等待安装完成就可以允许程序啦（100%有用）</p>
-]]></content>
-      <categories>
-        <category>Flask</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Flask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java线上问题排查</title>
     <url>/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
     <content><![CDATA[<h2 id="top-查看占用资源信息以及pid"><a href="#top-查看占用资源信息以及pid" class="headerlink" title="top 查看占用资源信息以及pid"></a>top 查看占用资源信息以及pid</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top </span><br></pre></td></tr></table></figure>
@@ -476,6 +494,23 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jenkins启动报错原因分析</title>
+    <url>/2021/09/18/Jenkins%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="1-启动jenkins"><a href="#1-启动jenkins" class="headerlink" title="1.启动jenkins"></a>1.启动jenkins</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start jenkins   <span class="comment">#如果命令不可使用，首先要把jenkins放到系统启动配置中，详情请百度</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-查看jenkins启动状态"><a href="#2-查看jenkins启动状态" class="headerlink" title="2.查看jenkins启动状态"></a>2.查看jenkins启动状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status jenkins.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-分析报错原因"><a href="#3-分析报错原因" class="headerlink" title="3.分析报错原因"></a>3.分析报错原因</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看位置 /system.slice/jenkins.service 后面是原因</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
       </tags>
   </entry>
   <entry>
@@ -598,23 +633,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>Jenkins启动报错原因分析</title>
-    <url>/2021/09/18/Jenkins%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="1-启动jenkins"><a href="#1-启动jenkins" class="headerlink" title="1.启动jenkins"></a>1.启动jenkins</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start jenkins   <span class="comment">#如果命令不可使用，首先要把jenkins放到系统启动配置中，详情请百度</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-查看jenkins启动状态"><a href="#2-查看jenkins启动状态" class="headerlink" title="2.查看jenkins启动状态"></a>2.查看jenkins启动状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status jenkins.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-分析报错原因"><a href="#3-分析报错原因" class="headerlink" title="3.分析报错原因"></a>3.分析报错原因</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看位置 /system.slice/jenkins.service 后面是原因</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Jenkins</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux快捷进入长目录的方法</title>
     <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
@@ -656,6 +674,45 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       <tags>
         <tag>Linux</tag>
         <tag>Jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux搭建sonarqube</title>
+    <url>/2021/09/22/Linux%E6%90%AD%E5%BB%BAsonarqube/</url>
+    <content><![CDATA[<p><strong>前言</strong><br><code>Linux版本:centos7.6</code><br><code>Java:Jdk11</code><br><code>SonarQube:8.2.0.32929</code><br><code>PostgreSQL:12</code><br><code>sonar-scanner:4.6.2.2472</code></p>
+<h2 id="1-安装Jdk"><a href="#1-安装Jdk" class="headerlink" title="1.安装Jdk"></a>1.安装Jdk</h2><p><a href="https://cywhat.cn/2021/09/18/linux%E5%AE%89%E8%A3%85jdk11/">安装JDK</a></p>
+<h2 id="2-安装PostgreSQL"><a href="#2-安装PostgreSQL" class="headerlink" title="2.安装PostgreSQL"></a>2.安装PostgreSQL</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.安装镜像</span><br><span class="line">sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</span><br><span class="line"></span><br><span class="line">2.安装PostgreSQL</span><br><span class="line">sudo yum install -y postgresql12-server</span><br><span class="line"></span><br><span class="line">3.加到系统自启动</span><br><span class="line">sudo /usr/pgsql-12/bin/postgresql-12-setup initdb</span><br><span class="line"></span><br><span class="line">4.修改md5加密</span><br><span class="line">vim /var/lib/pgsql/12/data/pg_hba.conf </span><br><span class="line"></span><br><span class="line">5.启动</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postgresql-12</span><br><span class="line"></span><br><span class="line">sudo systemctl start postgresql-12</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/22/Linux%E6%90%AD%E5%BB%BAsonarqube/img101.png" class title="修改md5加密">
+
+
+<h2 id="3-安装SonarQube"><a href="#3-安装SonarQube" class="headerlink" title="3.安装SonarQube"></a>3.安装SonarQube</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.下载SonarQube</span><br><span class="line">wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.2.0.32929.zip</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">unzip sonarqube-8.2.0.32929.zip</span><br><span class="line"></span><br><span class="line">3.重命名</span><br><span class="line">mv sonarqube-8.2.0.32929 /usr/<span class="built_in">local</span>/sonarqube</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-添加用户"><a href="#4-添加用户" class="headerlink" title="4.添加用户"></a>4.添加用户</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.新增用户</span><br><span class="line">sudo adduser sonar</span><br><span class="line"></span><br><span class="line">2.设置密码</span><br><span class="line">sudo passwd sonar</span><br><span class="line"></span><br><span class="line">3.赋予权限</span><br><span class="line">chmod -R sonar:sonar /usr/<span class="built_in">local</span>/sonarqube</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="5-进入PostgreSQL配置数据库"><a href="#5-进入PostgreSQL配置数据库" class="headerlink" title="5.进入PostgreSQL配置数据库"></a>5.进入PostgreSQL配置数据库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.切换到postgre用户</span><br><span class="line">sudo su - postgre</span><br><span class="line"></span><br><span class="line">2.进入psql</span><br><span class="line">psql -U postgres</span><br><span class="line"></span><br><span class="line">3.创建库表结构等 <span class="comment">#依次执行</span></span><br><span class="line">CREATE DATABASE sonar;</span><br><span class="line"></span><br><span class="line">CREATE USER sonar WITH ENCRYPTED PASSWORD <span class="string">&#x27;&lt;sonar-password&gt;&#x27;</span>;   <span class="comment">#&lt;&gt; 里面是sonar用户的密码 可自定义</span></span><br><span class="line"></span><br><span class="line">GRANT ALL PRIVILEGES ON DATABASE sonar TO sonar;</span><br><span class="line"></span><br><span class="line">ALTER DATABASE sonar OWNER TO sonar;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-修改sonarqube配置"><a href="#6-修改sonarqube配置" class="headerlink" title="6.修改sonarqube配置"></a>6.修改sonarqube配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.vim /usr/<span class="built_in">local</span>/sonarqube/conf/sonar.properties   <span class="comment">#加入如下配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DATABASE</span></span><br><span class="line">sonar.jdbc.username=sonar</span><br><span class="line">sonar.jdbc.password=&lt;sonar-user-password&gt;</span><br><span class="line">sonar.jdbc.url=jdbc:postgresql://localhost/sonar</span><br><span class="line">sonar.jdbc.maxActive=60</span><br><span class="line">sonar.jdbc.maxIdle=5</span><br><span class="line">sonar.jdbc.minIdle=2</span><br><span class="line">sonar.jdbc.maxWait=5000</span><br><span class="line">sonar.jdbc.minEvictableIdleTimeMillis=600000</span><br><span class="line">sonar.jdbc.timeBetweenEvictionRunsMillis=30000</span><br><span class="line">sonar.jdbc.removeAbandoned=<span class="literal">true</span></span><br><span class="line">sonar.jdbc.removeAbandonedTimeout=60</span><br><span class="line"></span><br><span class="line">2.如需要自定义端口 需要更改端口 sonarqube默认为9000 search默认为9001 <span class="comment">#根据自己需求，可不修改</span></span><br><span class="line">sonar.web.port=9000    <span class="comment">#修改sonarqube端口</span></span><br><span class="line"></span><br><span class="line">sonar.search.port=9001  <span class="comment">#修改search端口,如果端口冲突必须要更改噢</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-启动sonarqube"><a href="#7-启动sonarqube" class="headerlink" title="7.启动sonarqube"></a>7.启动sonarqube</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su sonar    <span class="comment">#必须用非root启动</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/sonarqube/bin/linux-x86-64/</span><br><span class="line"></span><br><span class="line">sh  sonar.sh start</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-安装sonar-scanner"><a href="#8-安装sonar-scanner" class="headerlink" title="8.安装sonar-scanner"></a>8.安装sonar-scanner</h2><p><a href="https://pan.baidu.com/s/1rIs2oMba5LTvpAcdz75lZg">下载sonar-scanner</a></p>
+<p><code>提取码: qtd4</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.上传到服务器</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">unzip sonar-scanner-cli-4.6.2.2472-linux.zip</span><br><span class="line"></span><br><span class="line">3.重命名</span><br><span class="line">mv sonar-scanner-cli-4.6.2.2472-linux /usr/<span class="built_in">local</span>/scanner</span><br><span class="line"></span><br><span class="line">4.建立软链接</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/scanner/bin/sonar-scanner /usr/<span class="built_in">local</span>/bin/scanner </span><br></pre></td></tr></table></figure>
+
+<p><strong>PS:常见报错汇总</strong></p>
+<p>报错：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ERROR: [4] bootstrap checks failed</span><br><span class="line">[1]: max file descriptors [4096] <span class="keyword">for</span> elasticsearch process is too low, increase to at least [65536]</span><br><span class="line">[2]: max number of threads [1024] <span class="keyword">for</span> user [hadoop] is too low, increase to at least [2048]</span><br><span class="line">[3]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br><span class="line">[4]: system call filters failed to install; check the logs and fix your configuration or <span class="built_in">disable</span> system call filters at your own risk</span><br></pre></td></tr></table></figure>
+<pre><code>解决：
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.vim /etc/security/limits.conf    <span class="comment">#修改后需要将用户sonar重新登入才生效</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#内容末尾加入</span></span><br><span class="line">    sonar          soft    nofile  65536   <span class="comment">#sonar是你在linux中设置的启动sonarqube的用户</span></span><br><span class="line">    sonar          hard    nofile  100000</span><br><span class="line">    sonar          soft    nproc   4096</span><br><span class="line">    sonar          hard    nproc   4096</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">ulimit</span> -Hn    <span class="comment">#查看硬限制是否生效</span></span><br><span class="line"></span><br><span class="line">2.vim  /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line">  <span class="comment">#内容末尾加入</span></span><br><span class="line">  vm.max_map_count=655360 </span><br><span class="line">  </span><br><span class="line">  保存修改后  sysctl -p</span><br><span class="line"></span><br><span class="line">3.重启机器 **必须重启**</span><br></pre></td></tr></table></figure>
+</code></pre>
+]]></content>
+      <categories>
+        <category>Sonarqube</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Sonarqube</tag>
       </tags>
   </entry>
   <entry>
@@ -739,6 +796,18 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       <tags>
         <tag>Linux</tag>
         <tag>Easy_mock</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac必备软件推荐</title>
+    <url>/2021/09/10/Mac%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
+    <content><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p><strong>前景：</strong><br>前几天系统降级了，发现之前使用的一些得心应手的app忘记名字了，很难找，不过最后还是在时间机器里找到了，特意开帖记录分享一下，常见的就不分享了，都知道，主要分享一些难找的，但是特别好用的。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Screenium 3     <span class="string">&quot;屏幕录制(全屏/区域/自定义区域)，支持剪辑&quot;</span></span><br><span class="line"></span><br><span class="line">Permute 3       <span class="string">&quot;视频格式转换，直接拖拽文件即可&quot;</span></span><br><span class="line"></span><br><span class="line">App Cleaner &amp; Uninstaller  <span class="string">&quot;应用深度清理卸载，非常好用&quot;</span></span><br><span class="line"></span><br><span class="line">Air2a Gui       <span class="string">&quot;下载神器，配合油猴更方便&quot;</span></span><br><span class="line"></span><br><span class="line">Fork lift       <span class="string">&quot;finder增强工具，同时支持ftp&quot;</span></span><br><span class="line"></span><br><span class="line">pap.er          <span class="string">&quot;4K壁纸软件&quot;</span></span><br><span class="line"></span><br><span class="line">IINA            <span class="string">&quot;视频播放器&quot;</span></span><br><span class="line"></span><br><span class="line">Sublime Text    <span class="string">&quot;文本编辑器，支持各种代码格式&quot;</span></span><br><span class="line"></span><br><span class="line">MWeb Pro        <span class="string">&quot;markdown编辑器，写博客神器&quot;</span></span><br><span class="line"></span><br><span class="line">The Unarchiver  <span class="string">&quot;免费解压神器&quot;</span></span><br><span class="line"></span><br><span class="line">TinyCal         <span class="string">&quot;简洁小巧的日历，Appstore可下载(收费)&quot;</span></span><br><span class="line"></span><br><span class="line">Perculia        <span class="string">&quot;蓝牙快速连接，支持更改图标&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -859,6 +928,19 @@ console.log(responseTime);
       </categories>
       <tags>
         <tag>Postman</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shadowrocket小火箭配置规则文件</title>
+    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Shadowrocket</category>
+      </categories>
+      <tags>
+        <tag>Shadowrocket</tag>
       </tags>
   </entry>
   <entry>
@@ -1014,18 +1096,6 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
-    <title>Mac必备软件推荐</title>
-    <url>/2021/09/10/Mac%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
-    <content><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p><strong>前景：</strong><br>前几天系统降级了，发现之前使用的一些得心应手的app忘记名字了，很难找，不过最后还是在时间机器里找到了，特意开帖记录分享一下，常见的就不分享了，都知道，主要分享一些难找的，但是特别好用的。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Screenium 3     <span class="string">&quot;屏幕录制(全屏/区域/自定义区域)，支持剪辑&quot;</span></span><br><span class="line"></span><br><span class="line">Permute 3       <span class="string">&quot;视频格式转换，直接拖拽文件即可&quot;</span></span><br><span class="line"></span><br><span class="line">App Cleaner &amp; Uninstaller  <span class="string">&quot;应用深度清理卸载，非常好用&quot;</span></span><br><span class="line"></span><br><span class="line">Air2a Gui       <span class="string">&quot;下载神器，配合油猴更方便&quot;</span></span><br><span class="line"></span><br><span class="line">Fork lift       <span class="string">&quot;finder增强工具，同时支持ftp&quot;</span></span><br><span class="line"></span><br><span class="line">pap.er          <span class="string">&quot;4K壁纸软件&quot;</span></span><br><span class="line"></span><br><span class="line">IINA            <span class="string">&quot;视频播放器&quot;</span></span><br><span class="line"></span><br><span class="line">Sublime Text    <span class="string">&quot;文本编辑器，支持各种代码格式&quot;</span></span><br><span class="line"></span><br><span class="line">MWeb Pro        <span class="string">&quot;markdown编辑器，写博客神器&quot;</span></span><br><span class="line"></span><br><span class="line">The Unarchiver  <span class="string">&quot;免费解压神器&quot;</span></span><br><span class="line"></span><br><span class="line">TinyCal         <span class="string">&quot;简洁小巧的日历，Appstore可下载(收费)&quot;</span></span><br><span class="line"></span><br><span class="line">Perculia        <span class="string">&quot;蓝牙快速连接，支持更改图标&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Mac</category>
-      </categories>
-      <tags>
-        <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tampermonkey+脚本+Aira2GUI直链下载百度网盘资源</title>
     <url>/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<p>前景：<br><strong>各大LM运营限制带宽速度，导致必须要成为尊贵的VIP客户才能勉强享受到自己的带宽</strong></p>
@@ -1058,23 +1128,11 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
-    <title>Shadowrocket小火箭配置规则文件</title>
-    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Shadowrocket</category>
-      </categories>
-      <tags>
-        <tag>Shadowrocket</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>bash:jstack: 未找到命令</title>
     <url>/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="jstack报错如下"><a href="#jstack报错如下" class="headerlink" title="jstack报错如下"></a>jstack报错如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ -bash: jstack: 未找到命令</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/images/img3.png" alt="img.png"></p>
+<img src="/2021/07/20/bash-jstack-%E6%9C%AA%E6%89%BE%E5%88%B0%E5%91%BD%E4%BB%A4/img3.png" class title="报错详情">
+
 <h2 id="安装以下依赖"><a href="#安装以下依赖" class="headerlink" title="安装以下依赖"></a>安装以下依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install java-1.7.0-openjdk-devel -y</span><br></pre></td></tr></table></figure>
 
 ]]></content>
@@ -1190,20 +1248,6 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
-    <title>git branch出现end需要q才能退出</title>
-    <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
-    <content><![CDATA[<p>git 进入了编辑模式</p>
-<p>用以下命令即可解决：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.pager mor</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>checkout无效</title>
     <url>/2018/10/29/checkout%E6%97%A0%E6%95%88/</url>
     <content><![CDATA[<p>在日常工作中，我们经常会遇到要更新一个项目，但是由于更改了配置，需要将这些配置<code>commit</code>或者<code>checkout</code>，但是有的同学不想commit怎么办呢，只能通过checkout，那么问题又来了，改了很多配置，checkout之后又要重新修改配置，就很烦。</p>
@@ -1232,19 +1276,17 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
-    <title>.gitignore不生效的解决方案</title>
-    <url>/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p><strong>原因：git本地运行有缓存，需要清楚git缓存即可</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm -r --cached .</span><br></pre></td></tr></table></figure>
-
-<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>清完缓存需要把代码推到远程仓库</p>
+    <title>git branch出现end需要q才能退出</title>
+    <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
+    <content><![CDATA[<p>git 进入了编辑模式</p>
+<p>用以下命令即可解决：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.pager mor</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Git</category>
       </categories>
       <tags>
         <tag>Git</tag>
-        <tag>.gitignore</tag>
       </tags>
   </entry>
   <entry>
@@ -1270,6 +1312,22 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
+    <title>.gitignore不生效的解决方案</title>
+    <url>/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p><strong>原因：git本地运行有缓存，需要清楚git缓存即可</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm -r --cached .</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>清完缓存需要把代码推到远程仓库</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>.gitignore</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo+netlify+git+个人域名搭建博客</title>
     <url>/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p><strong>部署过程需要用到一些<code>Linux</code>命令,且本文部署操作机为Mac,如是Windows不保证能100%成功噢</strong></p>
@@ -1280,30 +1338,39 @@ Hexo: 5.4.0
 Node: 15.12.0(注意Node版本)
 </code></pre>
 <p><strong>PS:以上软件自行安装</strong></p>
-<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="1-安装Hexo"><a href="#1-安装Hexo" class="headerlink" title="1.安装Hexo"></a>1.安装Hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
-<h2 id="初始化博客文件夹"><a href="#初始化博客文件夹" class="headerlink" title="初始化博客文件夹"></a>初始化博客文件夹</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init blog(blog可根据自己情况更改)</span><br></pre></td></tr></table></figure>
+<h2 id="2-初始化博客文件夹"><a href="#2-初始化博客文件夹" class="headerlink" title="2.初始化博客文件夹"></a>2.初始化博客文件夹</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init blog   <span class="comment">#(blog可根据自己情况更改)</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="安装node-moudles"><a href="#安装node-moudles" class="headerlink" title="安装node_moudles"></a>安装node_moudles</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line"></span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<h2 id="3-安装node-moudles"><a href="#3-安装node-moudles" class="headerlink" title="3.安装node_moudles"></a>3.安装node_moudles</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line"></span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
 
-<h2 id="blog目录详解"><a href="#blog目录详解" class="headerlink" title="blog目录详解"></a>blog目录详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules: node依赖包</span><br><span class="line">public：存放生成的页面</span><br><span class="line">scaffolds：生成文章的一些模板</span><br><span class="line"><span class="built_in">source</span>：存放文章</span><br><span class="line">themes：主题</span><br><span class="line">_config.yml: 博客的配置文件</span><br></pre></td></tr></table></figure>
-<h2 id="本地启动Hexo"><a href="#本地启动Hexo" class="headerlink" title="本地启动Hexo"></a>本地启动Hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s(默认为4000端口)</span><br></pre></td></tr></table></figure>
+<h2 id="4-blog目录详解"><a href="#4-blog目录详解" class="headerlink" title="4.blog目录详解"></a>4.blog目录详解</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules: node依赖包</span><br><span class="line">public: 存放生成的页面</span><br><span class="line">scaffolds: 生成文章的一些模板</span><br><span class="line"><span class="built_in">source</span>: 存放文章</span><br><span class="line">themes: 主题</span><br><span class="line">_config.yml: 博客的配置文件</span><br></pre></td></tr></table></figure>
+<h2 id="5-本地启动Hexo"><a href="#5-本地启动Hexo" class="headerlink" title="5.本地启动Hexo"></a>5.本地启动Hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s    <span class="comment">#(默认为4000端口)</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="hexo新建文章发布步骤"><a href="#hexo新建文章发布步骤" class="headerlink" title="hexo新建文章发布步骤"></a>hexo新建文章发布步骤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean  <span class="comment">#清理静态文件和缓存数据</span></span><br><span class="line"></span><br><span class="line">hexo new <span class="string">&quot;新文章&quot;</span></span><br><span class="line"></span><br><span class="line">hexo g      <span class="comment">#生成静态数据(按日期归类的文件夹/html等)</span></span><br><span class="line"></span><br><span class="line">hexo s      <span class="comment">#本地启动hexo</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-hexo新建文章发布步骤"><a href="#6-hexo新建文章发布步骤" class="headerlink" title="6.hexo新建文章发布步骤"></a>6.hexo新建文章发布步骤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean  <span class="comment">#清理静态文件和缓存数据</span></span><br><span class="line"></span><br><span class="line">hexo new <span class="string">&quot;新文章&quot;</span></span><br><span class="line"></span><br><span class="line">hexo g      <span class="comment">#生成静态数据(按日期归类的文件夹/html等)</span></span><br><span class="line"></span><br><span class="line">hexo s      <span class="comment">#本地启动hexo</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="关联Git"><a href="#关联Git" class="headerlink" title="关联Git"></a>关联Git</h1><h2 id="安装git部署插件"><a href="#安装git部署插件" class="headerlink" title="安装git部署插件"></a>安装git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
-<h2 id="修改hexo配置文件-关联git地址"><a href="#修改hexo配置文件-关联git地址" class="headerlink" title="修改hexo配置文件,关联git地址"></a>修改hexo配置文件,关联git地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/chaoyangya/chaoyangya.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h2 id="7-安装git部署插件"><a href="#7-安装git部署插件" class="headerlink" title="7.安装git部署插件"></a>7.安装git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
-<h2 id="第一次提交代码"><a href="#第一次提交代码" class="headerlink" title="第一次提交代码"></a>第一次提交代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git init    <span class="comment">#初始化项目文件夹</span></span><br><span class="line"></span><br><span class="line">$ git add .  <span class="comment">#将所有文件添加到暂存区</span></span><br><span class="line"></span><br><span class="line">$ git commit -m <span class="string">&quot;first commit&quot;</span>   <span class="comment">#提交到本地仓库，双引号内是提交的备注信息</span></span><br><span class="line"></span><br><span class="line">$ git remote add origin https://github.com/chaoyangya/chaoyangya.github.io.git</span><br><span class="line"></span><br><span class="line">$ git pull    <span class="comment">#拉取远程主分支信息，首次拉取合并信息</span></span><br><span class="line"></span><br><span class="line">$ git push -u -f origin master  <span class="comment">#提交到远程仓库，这个命令中的 -f 是强制推送，因为远程仓库只有初始化的文件，所以强制推送上去就行了，不加-f 会报当前分支没有远程分支，强制推送可以覆盖master，这样就完成了第一次提交的步骤)</span></span><br></pre></td></tr></table></figure>
+<h2 id="8-修改hexo配置文件-关联git地址"><a href="#8-修改hexo配置文件-关联git地址" class="headerlink" title="8.修改hexo配置文件,关联git地址"></a>8.修改hexo配置文件,关联git地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/chaoyangya/chaoyangya.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
-<h2 id="将hexo内容部署到生产环境"><a href="#将hexo内容部署到生产环境" class="headerlink" title="将hexo内容部署到生产环境"></a>将hexo内容部署到生产环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g </span><br></pre></td></tr></table></figure>
+<h2 id="9-第一次提交代码"><a href="#9-第一次提交代码" class="headerlink" title="9.第一次提交代码"></a>9.第一次提交代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git init    <span class="comment">#初始化项目文件夹</span></span><br><span class="line"></span><br><span class="line">$ git add .  <span class="comment">#将所有文件添加到暂存区</span></span><br><span class="line"></span><br><span class="line">$ git commit -m <span class="string">&quot;first commit&quot;</span>   <span class="comment">#提交到本地仓库，双引号内是提交的备注信息</span></span><br><span class="line"></span><br><span class="line">$ git remote add origin https://github.com/chaoyangya/chaoyangya.github.io.git</span><br><span class="line"></span><br><span class="line">$ git pull    <span class="comment">#拉取远程主分支信息，首次拉取合并信息</span></span><br><span class="line"></span><br><span class="line">$ git push -u -f origin master  <span class="comment">#提交到远程仓库，这个命令中的 -f 是强制推送，因为远程仓库只有初始化的文件，所以强制推送上去就行了，不加-f 会报当前分支没有远程分支，强制推送可以覆盖master，这样就完成了第一次提交的步骤)</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="关联Netlify"><a href="#关联Netlify" class="headerlink" title="关联Netlify"></a>关联Netlify</h1><p>登录Netlify建议使用github账号登录,会方便很多<br><img src="/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/images/img.png" alt="img.png"></p>
-<h2 id="关联git仓库和分支"><a href="#关联git仓库和分支" class="headerlink" title="关联git仓库和分支"></a>关联git仓库和分支</h2><p>登录之后点击醒目的绿色的<code>New site fomr Git</code>按钮来新建站点并选取刚刚创建的仓库：</p>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>点击完<code>Deploy site</code>之后，Netlify 会自动构建并发布你的网站内容，最重要的是Netlify支持分支部署和部署预览，这样可以提高开发效率，降低发布风险和成本。当我还没有打完这行字，Netlify已经完成网站的发布了，它会提供一个由随机字符串组成且以 .netlify.com 为后缀结尾的网站供你访问.</p>
-<h2 id="关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify"><a href="#关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify" class="headerlink" title="关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)"></a>关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)</h2><p>选择<code>Add domain alias</code>添加个人域名,这里Netlify会默认给你新添加的域名多加一个重定向的www网址<br><img src="/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/images/img1.png" alt="img1.png"></p>
-<h2 id="开启Https"><a href="#开启Https" class="headerlink" title="开启Https"></a>开启Https</h2><p>Netlify免费提供SSL证书,支持添加自己的SSL,需要新增三个证书.或者将自己域名的<code>CNAME</code>记录类型指向你的.com结尾的域名也可以<br><img src="/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/images/img2.png" alt="img2.png"></p>
+<h1 id="10-将hexo内容部署到生产环境"><a href="#10-将hexo内容部署到生产环境" class="headerlink" title="10.将hexo内容部署到生产环境"></a>10.将hexo内容部署到生产环境</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d -g </span><br></pre></td></tr></table></figure>
+
+<h2 id="11-关联Netlify"><a href="#11-关联Netlify" class="headerlink" title="11.关联Netlify"></a>11.关联Netlify</h2><p>登录Netlify建议使用github账号登录,会方便很多</p>
+<img src="/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/img.png" class title="关联Netlify">
+
+<h2 id="12-关联git仓库和分支"><a href="#12-关联git仓库和分支" class="headerlink" title="12.关联git仓库和分支"></a>12.关联git仓库和分支</h2><p>登录之后点击醒目的绿色的<code>New site fomr Git</code>按钮来新建站点并选取刚刚创建的仓库：</p>
+<h2 id="13-部署"><a href="#13-部署" class="headerlink" title="13.部署"></a>13.部署</h2><p>点击完<code>Deploy site</code>之后，Netlify 会自动构建并发布你的网站内容，最重要的是Netlify支持分支部署和部署预览，这样可以提高开发效率，降低发布风险和成本。当我还没有打完这行字，Netlify已经完成网站的发布了，它会提供一个由随机字符串组成且以 .netlify.com 为后缀结尾的网站供你访问.</p>
+<h2 id="14-关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify"><a href="#14-关联个人域名-如果不是从Netlify购入域名-需要将域名DNS指向Netlify" class="headerlink" title="14.关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)"></a>14.关联个人域名(如果不是从Netlify购入域名,需要将域名DNS指向Netlify)</h2><p>选择<code>Add domain alias</code>添加个人域名,这里Netlify会默认给你新添加的域名多加一个重定向的www网址</p>
+<img src="/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/img1.png" class title="关联个人域名">
+
+
+<h2 id="15-开启Https"><a href="#15-开启Https" class="headerlink" title="15.开启Https"></a>15.开启Https</h2><p>Netlify免费提供SSL证书,支持添加自己的SSL,需要新增三个证书.或者将自己域名的<code>CNAME</code>记录类型指向你的.com结尾的域名也可以</p>
+<img src="/2021/07/12/hexo-netlify-git-%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/img2.png" class title="开启https">
+
+
 <p>添加好之后等一会就可以通过你的域名来访问了</p>
 <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>推荐使用各个代码编辑器(大多数支持Markdown),方便快捷</p>
 ]]></content>
@@ -1377,6 +1444,30 @@ Node: 15.12.0(注意Node版本)
     <content><![CDATA[<h2 id="1-hexo多个标签应该遵循-list-格式-如下"><a href="#1-hexo多个标签应该遵循-list-格式-如下" class="headerlink" title="1 hexo多个标签应该遵循 list 格式,如下"></a>1 hexo多个标签应该遵循 <strong>list</strong> 格式,如下</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">date: 2021-04-07 17:39:32</span><br><span class="line">tags: [标签1,标签2]</span><br></pre></td></tr></table></figure>
 
 
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo迁移需要进行安装的一些依赖</title>
+    <url>/2021/09/24/hexo%E8%BF%81%E7%A7%BB%E9%9C%80%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BE%9D%E8%B5%96/</url>
+    <content><![CDATA[<p>前景：</p>
+<p>更换新设备 <code>or</code> 更换新工作环境需要重新本地部署hexo环境,需要有整个工程的文件夹</p>
+<h2 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1.安装hexo"></a>1.安装hexo</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装node-moudles"><a href="#2-安装node-moudles" class="headerlink" title="2.安装node_moudles"></a>2.安装node_moudles</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog   <span class="comment">#blog是你的工程名</span></span><br><span class="line"></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装git部署插件"><a href="#3-安装git部署插件" class="headerlink" title="3.安装git部署插件"></a>3.安装git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装好需要去git地址配置ssh密钥，用来本地push和pull</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-安装优化图片加载速度插件"><a href="#4-安装优化图片加载速度插件" class="headerlink" title="4.安装优化图片加载速度插件"></a>4.安装优化图片加载速度插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-all-minifier --save &amp;&amp; cnpm install hexo-all-minifier --save</span><br></pre></td></tr></table></figure>
+<p><a href="https://cywhat.cn/2021/07/14/hexo%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">更改hexo配置</a></p>
+<h2 id="5-更改hexo添加图片方式"><a href="#5-更改hexo添加图片方式" class="headerlink" title="5.更改hexo添加图片方式"></a>5.更改hexo添加图片方式</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://cywhat.cn/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/">解决hexo图片不展示问题</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -1793,6 +1884,29 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
+    <title>怎么让你的个人博客可以在百度谷歌搜索到</title>
+    <url>/2021/07/23/%E6%80%8E%E4%B9%88%E8%AE%A9%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%88%B0/</url>
+    <content><![CDATA[<p>怎么让百度和谷歌收录你的博客(仅仅局限于拥有自己域名的个人博客使用)</p>
+<p>收录的好处:<br><strong>被搜索引擎收录后，别人就可以通过搜索引擎搜索到你的文章</strong></p>
+<h2 id="百度"><a href="#百度" class="headerlink" title="百度:"></a>百度:</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://ziyuan.baidu.com/linksubmit/url</span><br></pre></td></tr></table></figure>
+
+<h2 id="谷歌"><a href="#谷歌" class="headerlink" title="谷歌"></a>谷歌</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://search.google.com/search-console/welcome  <span class="comment">#需要登录Google账号</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="360搜索"><a href="#360搜索" class="headerlink" title="360搜索"></a>360搜索</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://info.so.360.cn/site_submit.html    <span class="comment">#需要提交备案信息</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="必应"><a href="#必应" class="headerlink" title="必应"></a>必应</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://www.bing.com/webmasters/about      <span class="comment">#验证方式xml meta dns</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="搜狗"><a href="#搜狗" class="headerlink" title="搜狗"></a>搜狗</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://zhanzhang.sogou.com/?forceredirect=1<span class="comment">#   #需要登录验证</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Google</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决hexo图片不展示问题</title>
     <url>/2021/08/18/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="1-更改hexo配置文件"><a href="#1-更改hexo配置文件" class="headerlink" title="1.更改hexo配置文件"></a>1.更改hexo配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim _config.yml <span class="comment">#配置_config.yml里面的post_asset_folder:false 设置为 true 如图</span></span><br></pre></td></tr></table></figure>
@@ -1820,86 +1934,6 @@ Node: 15.12.0(注意Node版本)
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>怎么让你的个人博客可以在百度谷歌搜索到</title>
-    <url>/2021/07/23/%E6%80%8E%E4%B9%88%E8%AE%A9%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%88%B0/</url>
-    <content><![CDATA[<p>怎么让百度和谷歌收录你的博客(仅仅局限于拥有自己域名的个人博客使用)</p>
-<p>收录的好处:<br><strong>被搜索引擎收录后，别人就可以通过搜索引擎搜索到你的文章</strong></p>
-<h2 id="百度"><a href="#百度" class="headerlink" title="百度:"></a>百度:</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://ziyuan.baidu.com/linksubmit/url</span><br></pre></td></tr></table></figure>
-
-<h2 id="谷歌"><a href="#谷歌" class="headerlink" title="谷歌"></a>谷歌</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://search.google.com/search-console/welcome  <span class="comment">#需要登录Google账号</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="360搜索"><a href="#360搜索" class="headerlink" title="360搜索"></a>360搜索</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://info.so.360.cn/site_submit.html    <span class="comment">#需要提交备案信息</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="必应"><a href="#必应" class="headerlink" title="必应"></a>必应</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://www.bing.com/webmasters/about      <span class="comment">#验证方式xml meta dns</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="搜狗"><a href="#搜狗" class="headerlink" title="搜狗"></a>搜狗</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://zhanzhang.sogou.com/?forceredirect=1<span class="comment">#   #需要登录验证</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.</title>
-    <url>/2021/09/23/ERROR-Re-run-SonarScanner-using-the-X-switch-to-enable-full-debug-logging/</url>
-    <content><![CDATA[<p><strong>前景</strong></p>
-<p><code>jenkins构建sonarqube报错</code></p>
-<p>报错：</p>
-<p><code>&quot;ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.</code></p>
-<h2 id="1-打开sonarqube的SCM配置"><a href="#1-打开sonarqube的SCM配置" class="headerlink" title="1.打开sonarqube的SCM配置"></a>1.打开sonarqube的SCM配置</h2><img src="/2021/09/23/ERROR-Re-run-SonarScanner-using-the-X-switch-to-enable-full-debug-logging/img102.png" class title="This is an test image">
-
-<h2 id="2-重新构建"><a href="#2-重新构建" class="headerlink" title="2.重新构建"></a>2.重新构建</h2>]]></content>
-      <categories>
-        <category>Sonarqube</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-        <tag>Sonarqube</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux搭建sonarqube</title>
-    <url>/2021/09/22/Linux%E6%90%AD%E5%BB%BAsonarqube/</url>
-    <content><![CDATA[<p><strong>前言</strong><br><code>Linux版本:centos7.6</code><br><code>Java:Jdk11</code><br><code>SonarQube:8.2.0.32929</code><br><code>PostgreSQL:12</code><br><code>sonar-scanner:4.6.2.2472</code></p>
-<h2 id="1-安装Jdk"><a href="#1-安装Jdk" class="headerlink" title="1.安装Jdk"></a>1.安装Jdk</h2><p><a href="https://cywhat.cn/2021/09/18/linux%E5%AE%89%E8%A3%85jdk11/">安装JDK</a></p>
-<h2 id="2-安装PostgreSQL"><a href="#2-安装PostgreSQL" class="headerlink" title="2.安装PostgreSQL"></a>2.安装PostgreSQL</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.安装镜像</span><br><span class="line">sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</span><br><span class="line"></span><br><span class="line">2.安装PostgreSQL</span><br><span class="line">sudo yum install -y postgresql12-server</span><br><span class="line"></span><br><span class="line">3.加到系统自启动</span><br><span class="line">sudo /usr/pgsql-12/bin/postgresql-12-setup initdb</span><br><span class="line"></span><br><span class="line">4.修改md5加密</span><br><span class="line">vim /var/lib/pgsql/12/data/pg_hba.conf </span><br><span class="line"></span><br><span class="line">5.启动</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postgresql-12</span><br><span class="line"></span><br><span class="line">sudo systemctl start postgresql-12</span><br></pre></td></tr></table></figure>
-<img src="/2021/09/22/Linux%E6%90%AD%E5%BB%BAsonarqube/img101.png" class title="修改md5加密">
-
-
-<h2 id="3-安装SonarQube"><a href="#3-安装SonarQube" class="headerlink" title="3.安装SonarQube"></a>3.安装SonarQube</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.下载SonarQube</span><br><span class="line">wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.2.0.32929.zip</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">unzip sonarqube-8.2.0.32929.zip</span><br><span class="line"></span><br><span class="line">3.重命名</span><br><span class="line">mv sonarqube-8.2.0.32929 /usr/<span class="built_in">local</span>/sonarqube</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-添加用户"><a href="#4-添加用户" class="headerlink" title="4.添加用户"></a>4.添加用户</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.新增用户</span><br><span class="line">sudo adduser sonar</span><br><span class="line"></span><br><span class="line">2.设置密码</span><br><span class="line">sudo passwd sonar</span><br><span class="line"></span><br><span class="line">3.赋予权限</span><br><span class="line">chmod -R sonar:sonar /usr/<span class="built_in">local</span>/sonarqube</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="5-进入PostgreSQL配置数据库"><a href="#5-进入PostgreSQL配置数据库" class="headerlink" title="5.进入PostgreSQL配置数据库"></a>5.进入PostgreSQL配置数据库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.切换到postgre用户</span><br><span class="line">sudo su - postgre</span><br><span class="line"></span><br><span class="line">2.进入psql</span><br><span class="line">psql -U postgres</span><br><span class="line"></span><br><span class="line">3.创建库表结构等 <span class="comment">#依次执行</span></span><br><span class="line">CREATE DATABASE sonar;</span><br><span class="line"></span><br><span class="line">CREATE USER sonar WITH ENCRYPTED PASSWORD <span class="string">&#x27;&lt;sonar-password&gt;&#x27;</span>;   <span class="comment">#&lt;&gt; 里面是sonar用户的密码 可自定义</span></span><br><span class="line"></span><br><span class="line">GRANT ALL PRIVILEGES ON DATABASE sonar TO sonar;</span><br><span class="line"></span><br><span class="line">ALTER DATABASE sonar OWNER TO sonar;</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-修改sonarqube配置"><a href="#6-修改sonarqube配置" class="headerlink" title="6.修改sonarqube配置"></a>6.修改sonarqube配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.vim /usr/<span class="built_in">local</span>/sonarqube/conf/sonar.properties   <span class="comment">#加入如下配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DATABASE</span></span><br><span class="line">sonar.jdbc.username=sonar</span><br><span class="line">sonar.jdbc.password=&lt;sonar-user-password&gt;</span><br><span class="line">sonar.jdbc.url=jdbc:postgresql://localhost/sonar</span><br><span class="line">sonar.jdbc.maxActive=60</span><br><span class="line">sonar.jdbc.maxIdle=5</span><br><span class="line">sonar.jdbc.minIdle=2</span><br><span class="line">sonar.jdbc.maxWait=5000</span><br><span class="line">sonar.jdbc.minEvictableIdleTimeMillis=600000</span><br><span class="line">sonar.jdbc.timeBetweenEvictionRunsMillis=30000</span><br><span class="line">sonar.jdbc.removeAbandoned=<span class="literal">true</span></span><br><span class="line">sonar.jdbc.removeAbandonedTimeout=60</span><br><span class="line"></span><br><span class="line">2.如需要自定义端口 需要更改端口 sonarqube默认为9000 search默认为9001 <span class="comment">#根据自己需求，可不修改</span></span><br><span class="line">sonar.web.port=9000    <span class="comment">#修改sonarqube端口</span></span><br><span class="line"></span><br><span class="line">sonar.search.port=9001  <span class="comment">#修改search端口,如果端口冲突必须要更改噢</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="7-启动sonarqube"><a href="#7-启动sonarqube" class="headerlink" title="7.启动sonarqube"></a>7.启动sonarqube</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su sonar    <span class="comment">#必须用非root启动</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/sonarqube/bin/linux-x86-64/</span><br><span class="line"></span><br><span class="line">sh  sonar.sh start</span><br></pre></td></tr></table></figure>
-
-<h2 id="8-安装sonar-scanner"><a href="#8-安装sonar-scanner" class="headerlink" title="8.安装sonar-scanner"></a>8.安装sonar-scanner</h2><p><a href="https://pan.baidu.com/s/1rIs2oMba5LTvpAcdz75lZg">下载sonar-scanner</a></p>
-<p><code>提取码: qtd4</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.上传到服务器</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">unzip sonar-scanner-cli-4.6.2.2472-linux.zip</span><br><span class="line"></span><br><span class="line">3.重命名</span><br><span class="line">mv sonar-scanner-cli-4.6.2.2472-linux /usr/<span class="built_in">local</span>/scanner</span><br><span class="line"></span><br><span class="line">4.建立软链接</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/scanner/bin/sonar-scanner /usr/<span class="built_in">local</span>/bin/scanner </span><br></pre></td></tr></table></figure>
-
-<p><strong>PS:常见报错汇总</strong></p>
-<p>报错：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ERROR: [4] bootstrap checks failed</span><br><span class="line">[1]: max file descriptors [4096] <span class="keyword">for</span> elasticsearch process is too low, increase to at least [65536]</span><br><span class="line">[2]: max number of threads [1024] <span class="keyword">for</span> user [hadoop] is too low, increase to at least [2048]</span><br><span class="line">[3]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br><span class="line">[4]: system call filters failed to install; check the logs and fix your configuration or <span class="built_in">disable</span> system call filters at your own risk</span><br></pre></td></tr></table></figure>
-<pre><code>解决：
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.vim /etc/security/limits.conf    <span class="comment">#修改后需要将用户sonar重新登入才生效</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#内容末尾加入</span></span><br><span class="line">    sonar          soft    nofile  65536   <span class="comment">#sonar是你在linux中设置的启动sonarqube的用户</span></span><br><span class="line">    sonar          hard    nofile  100000</span><br><span class="line">    sonar          soft    nproc   4096</span><br><span class="line">    sonar          hard    nproc   4096</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">ulimit</span> -Hn    <span class="comment">#查看硬限制是否生效</span></span><br><span class="line"></span><br><span class="line">2.vim  /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line">  <span class="comment">#内容末尾加入</span></span><br><span class="line">  vm.max_map_count=655360 </span><br><span class="line">  </span><br><span class="line">  保存修改后  sysctl -p</span><br><span class="line"></span><br><span class="line">3.重启机器 **必须重启**</span><br></pre></td></tr></table></figure>
-</code></pre>
-]]></content>
-      <categories>
-        <category>Sonarqube</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Sonarqube</tag>
       </tags>
   </entry>
 </search>
