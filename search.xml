@@ -1984,4 +1984,24 @@ Node: 15.12.0(注意Node版本)
         <tag>Avn</tag>
       </tags>
   </entry>
+  <entry>
+    <title>fonts.googleapis.com访问较慢[已解决]</title>
+    <url>/2021/10/12/fonts-googleapis-com%E8%AE%BF%E9%97%AE%E8%BE%83%E6%85%A2-%E5%B7%B2%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<p><strong>前景：</strong></p>
+<p><code>自己写的测试工具发现最近打开页面时快时慢，查了原因，发现是css引用的谷歌字体源：fonts.googleapis.com</code></p>
+<p>解决办法：</p>
+<h2 id="1-替换字体库源地址"><a href="#1-替换字体库源地址" class="headerlink" title="1.替换字体库源地址"></a>1.替换字体库源地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查找引用了谷歌源的css文件 更换源地址</span><br><span class="line"></span><br><span class="line">fonts.googleapis.com   更换为---&gt;   cdnjs.loli.net </span><br></pre></td></tr></table></figure>
+
+<h2 id="2-如果是html引用，更改link"><a href="#2-如果是html引用，更改link" class="headerlink" title="2.如果是html引用，更改link"></a>2.如果是html引用，更改link</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdnjs.loli.net/css?family=IBM+Plex+Sans:&quot;</span> &gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-字体下载到本地-推荐"><a href="#3-字体下载到本地-推荐" class="headerlink" title="3.字体下载到本地(推荐)"></a>3.字体下载到本地(推荐)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#1.下载google字体</span></span><br><span class="line">url访问 https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.保存css字体文件到本地，并重命名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.css/html引入字体文件</span></span><br><span class="line">  html</span><br><span class="line">    &lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;/fonts.css&quot;</span> &gt;</span><br><span class="line">    </span><br><span class="line">  css</span><br><span class="line">    import <span class="string">&quot;fonts.css&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-重新访问页面"><a href="#4-重新访问页面" class="headerlink" title="4.重新访问页面"></a>4.重新访问页面</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">访问时长打到了 ms 级别</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
 </search>
