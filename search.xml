@@ -202,6 +202,29 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Django中的form表单校验</title>
+    <url>/2021/09/24/Django%E4%B8%AD%E7%9A%84form%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/</url>
+    <content><![CDATA[<p><strong>前景：</strong></p>
+<p><code>我在使用django的form组件时，发现在view函数中的`form.is_valid()`在form表单校验未通过的情况下，返回的仍然是True，最后发现还是form表单的问题，异常函数并没有传递给view函数</code></p>
+<p>问题代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">form部分</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean_email</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    邮箱校验</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    email_title = <span class="string">&quot;验证码&quot;</span></span><br><span class="line">    code = random.randrange(<span class="number">1000</span>, <span class="number">9999</span>)</span><br><span class="line">    context = &#123;</span><br><span class="line">        <span class="string">&#x27;code&#x27;</span>: <span class="built_in">str</span>(code)</span><br><span class="line">    &#125;</span><br><span class="line">    email_template_name = <span class="string">&#x27;tools_email.html&#x27;</span></span><br><span class="line">    t = loader.get_template(email_template_name)</span><br><span class="line">    html_content = t.render(context)</span><br><span class="line">    email = self.cleaned_data[<span class="string">&#x27;email&#x27;</span>]</span><br><span class="line">    msg = EmailMessage(email_title,  </span><br><span class="line">                       html_content,  </span><br><span class="line">                       settings.EMAIL_FROM,  </span><br><span class="line">                       [email]</span><br><span class="line">                       )</span><br><span class="line">    msg.content_subtype = <span class="string">&#x27;html&#x27;</span></span><br><span class="line">    exists = models.UserInfo.objects.<span class="built_in">filter</span>(email=email).exists()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> exists:</span><br><span class="line">        <span class="keyword">return</span> ValidationError(<span class="string">&#x27;邮箱未注册&#x27;</span>)   <span class="comment">#注意就是这个异常函数ValidationError，没有将异常传给view</span></span><br><span class="line">    send_status = msg.send()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> send_status:</span><br><span class="line">        self.add_error(<span class="string">&quot;email&quot;</span>, <span class="string">&#x27;发送邮箱失败,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(send_status[<span class="string">&#x27;errmsg&#x27;</span>]))</span><br><span class="line">    conn = get_redis_connection()</span><br><span class="line">    conn.<span class="built_in">set</span>(email, code, ex=<span class="number">120</span>)</span><br><span class="line">    <span class="keyword">return</span> email</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">view部分</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_sms</span>(<span class="params">request</span>):</span></span><br><span class="line">    form = SendEmailSmsForm(request, data=request.POST)</span><br><span class="line">    <span class="keyword">if</span> form.is_valid():     <span class="comment">#这里接收form传过来的异常，如果有异常则返回false，反之true</span></span><br><span class="line">        <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;status&#x27;</span>: <span class="literal">True</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;status&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;error&#x27;</span>: form.errors&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<p>原因：</p>
+<p><code>我也不知道为什么 ValidationError 为什么没有把异常抛给view 更换另一个抛出异常的函数即可</code></p>
+<p>解决：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> ValidationError(<span class="string">&#x27;邮箱未注册&#x27;</span>)   <span class="comment">#改为</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">self.add_error(<span class="string">&quot;email&quot;</span>, <span class="string">&quot;邮箱未注册&quot;</span>)   <span class="comment"># email为异常参数的field &quot;邮箱未注册&quot; 为报错文案</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Django发送邮箱验证码实现以及邮箱html模板</title>
     <url>/2021/09/08/Django%E5%8F%91%E9%80%81%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8A%E9%82%AE%E7%AE%B1html%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h2 id="1-setting配置"><a href="#1-setting配置" class="headerlink" title="1.setting配置"></a>1.setting配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">EMAIL_BACKEND = <span class="string">&#x27;django.core.mail.backends.smtp.EmailBackend&#x27;</span></span><br><span class="line">EMAIL_HOST = <span class="string">&quot;smtp.163.com&quot;</span>  <span class="comment"># 服务器</span></span><br><span class="line">EMAIL_PORT = <span class="number">25</span>  <span class="comment"># 一般情况下都为25</span></span><br><span class="line">EMAIL_HOST_USER = <span class="string">&quot;xxxx@163.com&quot;</span>  <span class="comment"># 账号</span></span><br><span class="line">EMAIL_HOST_PASSWORD = <span class="string">&quot;XXXXXXXXXXXX&quot;</span>  <span class="comment"># 密码 (注意：这里的密码指的是授权码)</span></span><br><span class="line">EMAIL_USE_TLS = <span class="literal">False</span>  <span class="comment"># 一般都为False</span></span><br><span class="line">EMAIL_FROM = <span class="string">&quot;xxxx@163.com&quot;</span>  <span class="comment"># 邮箱来自 一般和邮箱账号保持一致</span></span><br></pre></td></tr></table></figure>
@@ -259,30 +282,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       <tags>
         <tag>Jenkins</tag>
         <tag>Sonarqube</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Error taking device screenshot: null</title>
-    <url>/2018/10/11/Error-taking-device-screenshot-null/</url>
-    <content><![CDATA[<p>使用<code>uiautomatorviewer</code> 查看Android某些页面元素，出现如图错误：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Error obtaining UI hierarchy Reason: Error taking device screenshot: null</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/fc8af8463b3e6822ccdd940774759365.png"></p>
-<p>再网上找了很多解决办法依然没解决</p>
-<p><strong>总结了一下原因：</strong></p>
-<p>1、该app不支持该页面的截屏功能所以uiautomatorviewer捕捉不到</p>
-<p>2、手机需要重启</p>
-<p>3、非原装数据线</p>
-<p>4、appium服务异常需要重新连接</p>
-<p>5、可以尝试切换USB接口</p>
-<p>6、最后可以把手机开发者选项的USB调试撤销权限，在重新获取</p>
-<p>　　以上为个人观点，不代表百分百解决，仅供参考！</p>
-]]></content>
-      <categories>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -386,6 +385,30 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Error taking device screenshot: null</title>
+    <url>/2018/10/11/Error-taking-device-screenshot-null/</url>
+    <content><![CDATA[<p>使用<code>uiautomatorviewer</code> 查看Android某些页面元素，出现如图错误：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ Error obtaining UI hierarchy Reason: Error taking device screenshot: null</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/fc8af8463b3e6822ccdd940774759365.png"></p>
+<p>再网上找了很多解决办法依然没解决</p>
+<p><strong>总结了一下原因：</strong></p>
+<p>1、该app不支持该页面的截屏功能所以uiautomatorviewer捕捉不到</p>
+<p>2、手机需要重启</p>
+<p>3、非原装数据线</p>
+<p>4、appium服务异常需要重新连接</p>
+<p>5、可以尝试切换USB接口</p>
+<p>6、最后可以把手机开发者选项的USB调试撤销权限，在重新获取</p>
+<p>　　以上为个人观点，不代表百分百解决，仅供参考！</p>
+]]></content>
+      <categories>
+        <category>Appium</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -633,27 +656,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>Linux快捷进入长目录的方法</title>
-    <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-<p>2、然后让配置生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ./bashrc</span><br></pre></td></tr></table></figure>
-
-
-
-<p>3、最后我们输入设置的<code>cywhat</code>（这个名字自己设置）就可以快速进入设置的长目录了</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux安装jdk11</title>
     <url>/2021/09/18/Linux%E5%AE%89%E8%A3%85jdk11/</url>
     <content><![CDATA[<h2 id="1-下载jdk"><a href="#1-下载jdk" class="headerlink" title="1.下载jdk"></a>1.下载jdk</h2><p><a href="https://pan.baidu.com/s/1DWgm0m_QlTq67QFq_BV_8g">下载安装</a></p>
@@ -674,6 +676,27 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       <tags>
         <tag>Linux</tag>
         <tag>Jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux快捷进入长目录的方法</title>
+    <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> cywhat =<span class="string">&#x27;cd /root/XX/XX/XX/XX&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>2、然后让配置生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ./bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、最后我们输入设置的<code>cywhat</code>（这个名字自己设置）就可以快速进入设置的长目录了</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -931,19 +954,6 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
-    <title>Shadowrocket小火箭配置规则文件</title>
-    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Shadowrocket</category>
-      </categories>
-      <tags>
-        <tag>Shadowrocket</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python+virtualenv+Django+nginx+uwsgi+centos7部署web应用</title>
     <url>/2021/03/11/Python-virtualenv-Django-nginx-uwsgi-centos7%E9%83%A8%E7%BD%B2web%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p>给公司写的一个工具平台，先部署到自己的服务器上进行测试，真是困难重重，此文章仅记录自己踩坑过程和搭建教程，不保证你能按照教程成功搭建，但能把坑提前暴露出来，避免大家重复踩坑！</p>
@@ -1096,6 +1106,19 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
+    <title>Shadowrocket小火箭配置规则文件</title>
+    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Shadowrocket</category>
+      </categories>
+      <tags>
+        <tag>Shadowrocket</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tampermonkey+脚本+Aira2GUI直链下载百度网盘资源</title>
     <url>/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<p>前景：<br><strong>各大LM运营限制带宽速度，导致必须要成为尊贵的VIP客户才能勉强享受到自己的带宽</strong></p>
@@ -1125,6 +1148,31 @@ console.log(responseTime);
       </categories>
       <tags>
         <tag>Tampermonkey</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>avn自动切换node版本</title>
+    <url>/2021/09/29/avn%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2node%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<p><strong>前景：</strong></p>
+<p><code>服务器中俩个服务需要用到node，但是其中一个服务需要使用低版本的node，另一个则需要高版本node</code></p>
+<h2 id="1-首先安装nvm"><a href="#1-首先安装nvm" class="headerlink" title="1.首先安装nvm"></a>1.首先安装nvm</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加环境变量</span></span><br><span class="line">vim ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#内容如下：</span></span><br><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="variable">$HOME</span>/.nvm&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span>  <span class="comment"># This loads nvm bash_completion</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#让配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装avn"><a href="#2-安装avn" class="headerlink" title="2.安装avn"></a>2.安装avn</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm i -g avn</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-设置avn"><a href="#3-设置avn" class="headerlink" title="3.设置avn"></a>3.设置avn</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">avn setup</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-进入想启动项目的根目录新建文件"><a href="#4-进入想启动项目的根目录新建文件" class="headerlink" title="4.进入想启动项目的根目录新建文件"></a>4.进入想启动项目的根目录新建文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> XX</span><br><span class="line"></span><br><span class="line"><span class="comment">#新建 .node-version文件</span></span><br><span class="line">touch .node-version</span><br><span class="line"></span><br><span class="line"><span class="comment">#配置需要使用的node版本</span></span><br><span class="line"><span class="built_in">echo</span> v8.9.0 &gt;&gt; .node-version   <span class="comment">#V后面跟版本号</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-把avn加入系统变量"><a href="#5-把avn加入系统变量" class="headerlink" title="5.把avn加入系统变量"></a>5.把avn加入系统变量</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> `<span class="built_in">source</span> <span class="string">&quot;<span class="variable">$HOME</span>/.avn/bin/avn.sh&quot;</span> <span class="comment"># load avn` &gt;&gt; ~/.bashrc    #这里如果是zshrc的话自行更改</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-然后在根目录查看node和npm版本"><a href="#6-然后在根目录查看node和npm版本" class="headerlink" title="6.然后在根目录查看node和npm版本"></a>6.然后在根目录查看node和npm版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line"></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Avn</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+        <tag>Avn</tag>
       </tags>
   </entry>
   <entry>
@@ -1276,6 +1324,25 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
+    <title>fonts.googleapis.com访问较慢[已解决]</title>
+    <url>/2021/10/12/fonts-googleapis-com%E8%AE%BF%E9%97%AE%E8%BE%83%E6%85%A2-%E5%B7%B2%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<p><strong>前景：</strong></p>
+<p><code>自己写的测试工具发现最近打开页面时快时慢，查了原因，发现是css引用的谷歌字体源：fonts.googleapis.com</code></p>
+<h1 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h1><h3 id="1-替换字体库源地址"><a href="#1-替换字体库源地址" class="headerlink" title="1.替换字体库源地址"></a>1.替换字体库源地址</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查找引用了谷歌源的css文件 更换源地址</span><br><span class="line"></span><br><span class="line">fonts.googleapis.com   更换为---&gt;   cdnjs.loli.net </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-如果是html引用，更改link"><a href="#2-如果是html引用，更改link" class="headerlink" title="2.如果是html引用，更改link"></a>2.如果是html引用，更改link</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdnjs.loli.net/css?family=IBM+Plex+Sans:&quot;</span> &gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-字体下载到本地-推荐"><a href="#3-字体下载到本地-推荐" class="headerlink" title="3.字体下载到本地(推荐)"></a>3.字体下载到本地(推荐)</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#1.下载google字体</span></span><br><span class="line">url访问 https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.保存css字体文件到本地，并重命名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.css/html引入字体文件</span></span><br><span class="line">  html</span><br><span class="line">    &lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;/fonts.css&quot;</span> &gt;</span><br><span class="line">    </span><br><span class="line">  css</span><br><span class="line">    import <span class="string">&quot;fonts.css&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-重新访问页面"><a href="#4-重新访问页面" class="headerlink" title="4.重新访问页面"></a>4.重新访问页面</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">访问时长达到了 ms 级别</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git branch出现end需要q才能退出</title>
     <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
     <content><![CDATA[<p>git 进入了编辑模式</p>
@@ -1287,6 +1354,22 @@ console.log(responseTime);
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>.gitignore不生效的解决方案</title>
+    <url>/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p><strong>原因：git本地运行有缓存，需要清楚git缓存即可</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm -r --cached .</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>清完缓存需要把代码推到远程仓库</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>.gitignore</tag>
       </tags>
   </entry>
   <entry>
@@ -1309,22 +1392,6 @@ console.log(responseTime);
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>.gitignore不生效的解决方案</title>
-    <url>/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p><strong>原因：git本地运行有缓存，需要清楚git缓存即可</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm -r --cached .</span><br></pre></td></tr></table></figure>
-
-<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>清完缓存需要把代码推到远程仓库</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>.gitignore</tag>
       </tags>
   </entry>
   <entry>
@@ -1934,73 +2001,6 @@ Node: 15.12.0(注意Node版本)
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django中的form表单校验</title>
-    <url>/2021/09/24/Django%E4%B8%AD%E7%9A%84form%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/</url>
-    <content><![CDATA[<p><strong>前景：</strong></p>
-<p><code>我在使用django的form组件时，发现在view函数中的`form.is_valid()`在form表单校验未通过的情况下，返回的仍然是True，最后发现还是form表单的问题，异常函数并没有传递给view函数</code></p>
-<p>问题代码：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">form部分</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean_email</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    邮箱校验</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    email_title = <span class="string">&quot;验证码&quot;</span></span><br><span class="line">    code = random.randrange(<span class="number">1000</span>, <span class="number">9999</span>)</span><br><span class="line">    context = &#123;</span><br><span class="line">        <span class="string">&#x27;code&#x27;</span>: <span class="built_in">str</span>(code)</span><br><span class="line">    &#125;</span><br><span class="line">    email_template_name = <span class="string">&#x27;tools_email.html&#x27;</span></span><br><span class="line">    t = loader.get_template(email_template_name)</span><br><span class="line">    html_content = t.render(context)</span><br><span class="line">    email = self.cleaned_data[<span class="string">&#x27;email&#x27;</span>]</span><br><span class="line">    msg = EmailMessage(email_title,  </span><br><span class="line">                       html_content,  </span><br><span class="line">                       settings.EMAIL_FROM,  </span><br><span class="line">                       [email]</span><br><span class="line">                       )</span><br><span class="line">    msg.content_subtype = <span class="string">&#x27;html&#x27;</span></span><br><span class="line">    exists = models.UserInfo.objects.<span class="built_in">filter</span>(email=email).exists()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> exists:</span><br><span class="line">        <span class="keyword">return</span> ValidationError(<span class="string">&#x27;邮箱未注册&#x27;</span>)   <span class="comment">#注意就是这个异常函数ValidationError，没有将异常传给view</span></span><br><span class="line">    send_status = msg.send()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> send_status:</span><br><span class="line">        self.add_error(<span class="string">&quot;email&quot;</span>, <span class="string">&#x27;发送邮箱失败,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(send_status[<span class="string">&#x27;errmsg&#x27;</span>]))</span><br><span class="line">    conn = get_redis_connection()</span><br><span class="line">    conn.<span class="built_in">set</span>(email, code, ex=<span class="number">120</span>)</span><br><span class="line">    <span class="keyword">return</span> email</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">view部分</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_sms</span>(<span class="params">request</span>):</span></span><br><span class="line">    form = SendEmailSmsForm(request, data=request.POST)</span><br><span class="line">    <span class="keyword">if</span> form.is_valid():     <span class="comment">#这里接收form传过来的异常，如果有异常则返回false，反之true</span></span><br><span class="line">        <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;status&#x27;</span>: <span class="literal">True</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;status&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;error&#x27;</span>: form.errors&#125;)</span><br></pre></td></tr></table></figure>
-
-
-<p>原因：</p>
-<p><code>我也不知道为什么 ValidationError 为什么没有把异常抛给view 更换另一个抛出异常的函数即可</code></p>
-<p>解决：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> ValidationError(<span class="string">&#x27;邮箱未注册&#x27;</span>)   <span class="comment">#改为</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">self.add_error(<span class="string">&quot;email&quot;</span>, <span class="string">&quot;邮箱未注册&quot;</span>)   <span class="comment"># email为异常参数的field &quot;邮箱未注册&quot; 为报错文案</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Django</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>avn自动切换node版本</title>
-    <url>/2021/09/29/avn%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2node%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<p><strong>前景：</strong></p>
-<p><code>服务器中俩个服务需要用到node，但是其中一个服务需要使用低版本的node，另一个则需要高版本node</code></p>
-<h2 id="1-首先安装nvm"><a href="#1-首先安装nvm" class="headerlink" title="1.首先安装nvm"></a>1.首先安装nvm</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加环境变量</span></span><br><span class="line">vim ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#内容如下：</span></span><br><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="variable">$HOME</span>/.nvm&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span>  <span class="comment"># This loads nvm bash_completion</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#让配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-安装avn"><a href="#2-安装avn" class="headerlink" title="2.安装avn"></a>2.安装avn</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm i -g avn</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-设置avn"><a href="#3-设置avn" class="headerlink" title="3.设置avn"></a>3.设置avn</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">avn setup</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-进入想启动项目的根目录新建文件"><a href="#4-进入想启动项目的根目录新建文件" class="headerlink" title="4.进入想启动项目的根目录新建文件"></a>4.进入想启动项目的根目录新建文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> XX</span><br><span class="line"></span><br><span class="line"><span class="comment">#新建 .node-version文件</span></span><br><span class="line">touch .node-version</span><br><span class="line"></span><br><span class="line"><span class="comment">#配置需要使用的node版本</span></span><br><span class="line"><span class="built_in">echo</span> v8.9.0 &gt;&gt; .node-version   <span class="comment">#V后面跟版本号</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="5-把avn加入系统变量"><a href="#5-把avn加入系统变量" class="headerlink" title="5.把avn加入系统变量"></a>5.把avn加入系统变量</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> `<span class="built_in">source</span> <span class="string">&quot;<span class="variable">$HOME</span>/.avn/bin/avn.sh&quot;</span> <span class="comment"># load avn` &gt;&gt; ~/.bashrc    #这里如果是zshrc的话自行更改</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-然后在根目录查看node和npm版本"><a href="#6-然后在根目录查看node和npm版本" class="headerlink" title="6.然后在根目录查看node和npm版本"></a>6.然后在根目录查看node和npm版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line"></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Avn</category>
-      </categories>
-      <tags>
-        <tag>Node</tag>
-        <tag>Avn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>fonts.googleapis.com访问较慢[已解决]</title>
-    <url>/2021/10/12/fonts-googleapis-com%E8%AE%BF%E9%97%AE%E8%BE%83%E6%85%A2-%E5%B7%B2%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<p><strong>前景：</strong></p>
-<p><code>自己写的测试工具发现最近打开页面时快时慢，查了原因，发现是css引用的谷歌字体源：fonts.googleapis.com</code></p>
-<h1 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h1><h3 id="1-替换字体库源地址"><a href="#1-替换字体库源地址" class="headerlink" title="1.替换字体库源地址"></a>1.替换字体库源地址</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查找引用了谷歌源的css文件 更换源地址</span><br><span class="line"></span><br><span class="line">fonts.googleapis.com   更换为---&gt;   cdnjs.loli.net </span><br></pre></td></tr></table></figure>
-
-<h3 id="2-如果是html引用，更改link"><a href="#2-如果是html引用，更改link" class="headerlink" title="2.如果是html引用，更改link"></a>2.如果是html引用，更改link</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdnjs.loli.net/css?family=IBM+Plex+Sans:&quot;</span> &gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-字体下载到本地-推荐"><a href="#3-字体下载到本地-推荐" class="headerlink" title="3.字体下载到本地(推荐)"></a>3.字体下载到本地(推荐)</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#1.下载google字体</span></span><br><span class="line">url访问 https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.保存css字体文件到本地，并重命名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.css/html引入字体文件</span></span><br><span class="line">  html</span><br><span class="line">    &lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;/fonts.css&quot;</span> &gt;</span><br><span class="line">    </span><br><span class="line">  css</span><br><span class="line">    import <span class="string">&quot;fonts.css&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-重新访问页面"><a href="#4-重新访问页面" class="headerlink" title="4.重新访问页面"></a>4.重新访问页面</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">访问时长达到了 ms 级别</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Django</tag>
       </tags>
   </entry>
 </search>
