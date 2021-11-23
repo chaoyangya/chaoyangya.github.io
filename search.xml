@@ -19,73 +19,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>Centos7安装chrome浏览器</title>
-    <url>/2021/08/20/Centos7%E5%AE%89%E8%A3%85chrome%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
-    <content><![CDATA[<h2 id="1-下载chrome-for-linux压缩包"><a href="#1-下载chrome-for-linux压缩包" class="headerlink" title="1.下载chrome for linux压缩包"></a>1.下载chrome for linux压缩包</h2><p><a href="https://pan.baidu.com/s/1WwxOb1LiRSL2DnXvKlacZw">百度网盘</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$  提取码: 1f4n    </span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.chromedownloads.net/chrome64linux/">更多版本</a></p>
-<h2 id="2-上传解压压缩包"><a href="#2-上传解压压缩包" class="headerlink" title="2.上传解压压缩包"></a>2.上传解压压缩包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ unzip google-chrome-stable_deb_rpm_91.0.4472.77.zip  <span class="comment">#解压完成会出现 .deb 和 .rpm 的俩个文件</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-安装解压chrome所需依赖包"><a href="#3-安装解压chrome所需依赖包" class="headerlink" title="3.安装解压chrome所需依赖包"></a>3.安装解压chrome所需依赖包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install -y lsb</span><br><span class="line">  yum install -y libXScrnSaver</span><br><span class="line">  yum install -y liberation-fonts</span><br><span class="line">  yum install -y libdbusmenu-gtk3</span><br><span class="line">  yum install epel-release</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-安装chrome"><a href="#4-安装chrome" class="headerlink" title="4.安装chrome"></a>4.安装chrome</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo rpm -ivh google-chrome-stable_current_x86_64.rpm </span><br></pre></td></tr></table></figure>
-
-<h2 id="5-启动服务"><a href="#5-启动服务" class="headerlink" title="5.启动服务"></a>5.启动服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl start atd.service</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Centos</category>
-      </categories>
-      <tags>
-        <tag>Centos</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DJango Uncaught ReferenceError: $ is not defined</title>
-    <url>/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/</url>
-    <content><![CDATA[<p>前提:<br><strong>用django和jquery写的web应用,html页面js报错,信息如下:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ DJango Uncaught ReferenceError: $ is not defined</span><br></pre></td></tr></table></figure>
-<img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img8.png" class title="This is an test image">
-
-<p>原因: js语法有问题,未识别为js语法</p>
-<p>解决:需要引入jquery</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ &lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;../static/main/js/jquery-2.1.1.min.js&quot;</span>&gt;&lt;/script&gt; <span class="comment">#src后面加js文件路径</span></span><br></pre></td></tr></table></figure>
-<img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img9.png" class title="This is an test image">
-]]></content>
-      <categories>
-        <category>Jquery</category>
-      </categories>
-      <tags>
-        <tag>Django</tag>
-        <tag>Jquery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django中的form表单校验</title>
-    <url>/2021/09/24/Django%E4%B8%AD%E7%9A%84form%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/</url>
-    <content><![CDATA[<p><strong>前景：</strong></p>
-<p><code>我在使用django的form组件时，发现在view函数中的`form.is_valid()`在form表单校验未通过的情况下，返回的仍然是True，最后发现还是form表单的问题，异常函数并没有传递给view函数</code></p>
-<p>问题代码：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">form部分</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean_email</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    邮箱校验</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    email_title = <span class="string">&quot;验证码&quot;</span></span><br><span class="line">    code = random.randrange(<span class="number">1000</span>, <span class="number">9999</span>)</span><br><span class="line">    context = &#123;</span><br><span class="line">        <span class="string">&#x27;code&#x27;</span>: <span class="built_in">str</span>(code)</span><br><span class="line">    &#125;</span><br><span class="line">    email_template_name = <span class="string">&#x27;tools_email.html&#x27;</span></span><br><span class="line">    t = loader.get_template(email_template_name)</span><br><span class="line">    html_content = t.render(context)</span><br><span class="line">    email = self.cleaned_data[<span class="string">&#x27;email&#x27;</span>]</span><br><span class="line">    msg = EmailMessage(email_title,  </span><br><span class="line">                       html_content,  </span><br><span class="line">                       settings.EMAIL_FROM,  </span><br><span class="line">                       [email]</span><br><span class="line">                       )</span><br><span class="line">    msg.content_subtype = <span class="string">&#x27;html&#x27;</span></span><br><span class="line">    exists = models.UserInfo.objects.<span class="built_in">filter</span>(email=email).exists()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> exists:</span><br><span class="line">        <span class="keyword">return</span> ValidationError(<span class="string">&#x27;邮箱未注册&#x27;</span>)   <span class="comment">#注意就是这个异常函数ValidationError，没有将异常传给view</span></span><br><span class="line">    send_status = msg.send()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> send_status:</span><br><span class="line">        self.add_error(<span class="string">&quot;email&quot;</span>, <span class="string">&#x27;发送邮箱失败,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(send_status[<span class="string">&#x27;errmsg&#x27;</span>]))</span><br><span class="line">    conn = get_redis_connection()</span><br><span class="line">    conn.<span class="built_in">set</span>(email, code, ex=<span class="number">120</span>)</span><br><span class="line">    <span class="keyword">return</span> email</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">view部分</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_sms</span>(<span class="params">request</span>):</span></span><br><span class="line">    form = SendEmailSmsForm(request, data=request.POST)</span><br><span class="line">    <span class="keyword">if</span> form.is_valid():     <span class="comment">#这里接收form传过来的异常，如果有异常则返回false，反之true</span></span><br><span class="line">        <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;status&#x27;</span>: <span class="literal">True</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;status&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;error&#x27;</span>: form.errors&#125;)</span><br></pre></td></tr></table></figure>
-
-
-<p>原因：</p>
-<p><code>我也不知道为什么 ValidationError 为什么没有把异常抛给view 更换另一个抛出异常的函数即可</code></p>
-<p>解决：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> ValidationError(<span class="string">&#x27;邮箱未注册&#x27;</span>)   <span class="comment">#改为</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">self.add_error(<span class="string">&quot;email&quot;</span>, <span class="string">&quot;邮箱未注册&quot;</span>)   <span class="comment"># email为异常参数的field &quot;邮箱未注册&quot; 为报错文案</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Django</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Centos7.7安装并配置jenkins+python+allure发送定制化报告</title>
     <url>/2020/09/03/Centos7-7%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEjenkins-python-allure%E5%8F%91%E9%80%81%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8A%A5%E5%91%8A/</url>
     <content><![CDATA[<h1 id="【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告"><a href="#【全网最全】Centos7-7安装并配置jenkins-python-allure发送定制化报告" class="headerlink" title="【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告"></a>【全网最全】Centos7.7安装并配置jenkins+python+allure发送定制化报告</h1><p>目前测试开发方向的接口自动化脚本很多，这里就不一一列举了，有兴趣的可以baidu/google 一大堆，本次主要根据自己公司/业务需要搭建了一套基于python3.7+pytest+allure的接口自动化脚本，由于工作原因，源码就不放了，最下面会放一个很简单的脚本，不想写的可以暂时先用下，调试通过以后，再进行业务代码的编写也是ok的，话不多说，开整。</p>
@@ -218,10 +151,100 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>Python</tag>
         <tag>Jenkins</tag>
         <tag>Allure</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos7安装chrome浏览器</title>
+    <url>/2021/08/20/Centos7%E5%AE%89%E8%A3%85chrome%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
+    <content><![CDATA[<h2 id="1-下载chrome-for-linux压缩包"><a href="#1-下载chrome-for-linux压缩包" class="headerlink" title="1.下载chrome for linux压缩包"></a>1.下载chrome for linux压缩包</h2><p><a href="https://pan.baidu.com/s/1WwxOb1LiRSL2DnXvKlacZw">百度网盘</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$  提取码: 1f4n    </span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.chromedownloads.net/chrome64linux/">更多版本</a></p>
+<h2 id="2-上传解压压缩包"><a href="#2-上传解压压缩包" class="headerlink" title="2.上传解压压缩包"></a>2.上传解压压缩包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ unzip google-chrome-stable_deb_rpm_91.0.4472.77.zip  <span class="comment">#解压完成会出现 .deb 和 .rpm 的俩个文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装解压chrome所需依赖包"><a href="#3-安装解压chrome所需依赖包" class="headerlink" title="3.安装解压chrome所需依赖包"></a>3.安装解压chrome所需依赖包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum install -y lsb</span><br><span class="line">  yum install -y libXScrnSaver</span><br><span class="line">  yum install -y liberation-fonts</span><br><span class="line">  yum install -y libdbusmenu-gtk3</span><br><span class="line">  yum install epel-release</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-安装chrome"><a href="#4-安装chrome" class="headerlink" title="4.安装chrome"></a>4.安装chrome</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo rpm -ivh google-chrome-stable_current_x86_64.rpm </span><br></pre></td></tr></table></figure>
+
+<h2 id="5-启动服务"><a href="#5-启动服务" class="headerlink" title="5.启动服务"></a>5.启动服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl start atd.service</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Centos</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Centos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DJango Uncaught ReferenceError: $ is not defined</title>
+    <url>/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/</url>
+    <content><![CDATA[<p>前提:<br><strong>用django和jquery写的web应用,html页面js报错,信息如下:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ DJango Uncaught ReferenceError: $ is not defined</span><br></pre></td></tr></table></figure>
+<img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img8.png" class title="This is an test image">
+
+<p>原因: js语法有问题,未识别为js语法</p>
+<p>解决:需要引入jquery</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ &lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;../static/main/js/jquery-2.1.1.min.js&quot;</span>&gt;&lt;/script&gt; <span class="comment">#src后面加js文件路径</span></span><br></pre></td></tr></table></figure>
+<img src="/2021/08/31/DJango-Uncaught-ReferenceError-is-not-defined/img9.png" class title="This is an test image">
+]]></content>
+      <categories>
+        <category>Jquery</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>Jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django中的form表单校验</title>
+    <url>/2021/09/24/Django%E4%B8%AD%E7%9A%84form%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/</url>
+    <content><![CDATA[<p><strong>前景：</strong></p>
+<p><code>我在使用django的form组件时，发现在view函数中的`form.is_valid()`在form表单校验未通过的情况下，返回的仍然是True，最后发现还是form表单的问题，异常函数并没有传递给view函数</code></p>
+<p>问题代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">form部分</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean_email</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    邮箱校验</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    email_title = <span class="string">&quot;验证码&quot;</span></span><br><span class="line">    code = random.randrange(<span class="number">1000</span>, <span class="number">9999</span>)</span><br><span class="line">    context = &#123;</span><br><span class="line">        <span class="string">&#x27;code&#x27;</span>: <span class="built_in">str</span>(code)</span><br><span class="line">    &#125;</span><br><span class="line">    email_template_name = <span class="string">&#x27;tools_email.html&#x27;</span></span><br><span class="line">    t = loader.get_template(email_template_name)</span><br><span class="line">    html_content = t.render(context)</span><br><span class="line">    email = self.cleaned_data[<span class="string">&#x27;email&#x27;</span>]</span><br><span class="line">    msg = EmailMessage(email_title,  </span><br><span class="line">                       html_content,  </span><br><span class="line">                       settings.EMAIL_FROM,  </span><br><span class="line">                       [email]</span><br><span class="line">                       )</span><br><span class="line">    msg.content_subtype = <span class="string">&#x27;html&#x27;</span></span><br><span class="line">    exists = models.UserInfo.objects.<span class="built_in">filter</span>(email=email).exists()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> exists:</span><br><span class="line">        <span class="keyword">return</span> ValidationError(<span class="string">&#x27;邮箱未注册&#x27;</span>)   <span class="comment">#注意就是这个异常函数ValidationError，没有将异常传给view</span></span><br><span class="line">    send_status = msg.send()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> send_status:</span><br><span class="line">        self.add_error(<span class="string">&quot;email&quot;</span>, <span class="string">&#x27;发送邮箱失败,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(send_status[<span class="string">&#x27;errmsg&#x27;</span>]))</span><br><span class="line">    conn = get_redis_connection()</span><br><span class="line">    conn.<span class="built_in">set</span>(email, code, ex=<span class="number">120</span>)</span><br><span class="line">    <span class="keyword">return</span> email</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">view部分</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_sms</span>(<span class="params">request</span>):</span></span><br><span class="line">    form = SendEmailSmsForm(request, data=request.POST)</span><br><span class="line">    <span class="keyword">if</span> form.is_valid():     <span class="comment">#这里接收form传过来的异常，如果有异常则返回false，反之true</span></span><br><span class="line">        <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;status&#x27;</span>: <span class="literal">True</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;status&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;error&#x27;</span>: form.errors&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<p>原因：</p>
+<p><code>我也不知道为什么 ValidationError 为什么没有把异常抛给view 更换另一个抛出异常的函数即可</code></p>
+<p>解决：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> ValidationError(<span class="string">&#x27;邮箱未注册&#x27;</span>)   <span class="comment">#改为</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">self.add_error(<span class="string">&quot;email&quot;</span>, <span class="string">&quot;邮箱未注册&quot;</span>)   <span class="comment"># email为异常参数的field &quot;邮箱未注册&quot; 为报错文案</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django发送邮箱验证码实现以及邮箱html模板</title>
+    <url>/2021/09/08/Django%E5%8F%91%E9%80%81%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8A%E9%82%AE%E7%AE%B1html%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h2 id="1-setting配置"><a href="#1-setting配置" class="headerlink" title="1.setting配置"></a>1.setting配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">EMAIL_BACKEND = <span class="string">&#x27;django.core.mail.backends.smtp.EmailBackend&#x27;</span></span><br><span class="line">EMAIL_HOST = <span class="string">&quot;smtp.163.com&quot;</span>  <span class="comment"># 服务器</span></span><br><span class="line">EMAIL_PORT = <span class="number">25</span>  <span class="comment"># 一般情况下都为25</span></span><br><span class="line">EMAIL_HOST_USER = <span class="string">&quot;xxxx@163.com&quot;</span>  <span class="comment"># 账号</span></span><br><span class="line">EMAIL_HOST_PASSWORD = <span class="string">&quot;XXXXXXXXXXXX&quot;</span>  <span class="comment"># 密码 (注意：这里的密码指的是授权码)</span></span><br><span class="line">EMAIL_USE_TLS = <span class="literal">False</span>  <span class="comment"># 一般都为False</span></span><br><span class="line">EMAIL_FROM = <span class="string">&quot;xxxx@163.com&quot;</span>  <span class="comment"># 邮箱来自 一般和邮箱账号保持一致</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-邮箱配置"><a href="#2-邮箱配置" class="headerlink" title="2.邮箱配置"></a>2.邮箱配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#登录邮箱-设置-POP3/SMTP/IMAP,开启服务，保存授权码，切记要保存，授权码就是密码</span></span><br><span class="line">如图：</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/08/Django%E5%8F%91%E9%80%81%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8A%E9%82%AE%E7%AE%B1html%E6%A8%A1%E6%9D%BF/img17.png" class title="邮箱配置">
+
+<h2 id="3-代码部分"><a href="#3-代码部分" class="headerlink" title="3.代码部分"></a>3.代码部分</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.core.mail <span class="keyword">import</span> EmailMessage</span><br><span class="line"><span class="keyword">from</span> django.template <span class="keyword">import</span> loader</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean_email</span>(<span class="params">self</span>):</span></span><br><span class="line">    email_title = <span class="string">&quot;验证码&quot;</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment">#这里是生成随机验证码 我是4位的，可以自定义</span></span><br><span class="line">    code = random.randrange(<span class="number">1000</span>, <span class="number">9999</span>)   </span><br><span class="line">    </span><br><span class="line">    <span class="comment">#这个context这里定义的字段，是要给html模板中的验证码使用的，HTML中&#123;% code %&#125;引用即可</span></span><br><span class="line">    context = &#123;</span><br><span class="line">        <span class="string">&#x27;code&#x27;</span>: <span class="built_in">str</span>(code)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#这里的html文件就是发送验证码部分的html模板我放在下面</span></span><br><span class="line">    email_template_name = <span class="string">&#x27;tools_email.html&#x27;</span>     </span><br><span class="line">    t = loader.get_template(email_template_name)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#发送html验证码到邮箱有三种方式，我觉得这种最方便，其他自行百度</span></span><br><span class="line">    html_content = t.render(context)</span><br><span class="line">    email = self.cleaned_data[<span class="string">&#x27;email&#x27;</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#判断邮箱是否存在</span></span><br><span class="line">    exists = models.UserInfo.objects.<span class="built_in">filter</span>(email=email).exists()</span><br><span class="line">    <span class="keyword">if</span> exists:</span><br><span class="line">        msg = EmailMessage(email_title,  <span class="comment"># 邮件主题</span></span><br><span class="line">                           html_content,  <span class="comment"># 邮件内容，使用html模板</span></span><br><span class="line">                           settings.EMAIL_FROM,  <span class="comment"># 用于发送邮件的用户</span></span><br><span class="line">                           [email]  <span class="comment"># 接收邮件的用户列表</span></span><br><span class="line">                           )</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#指定邮箱发送的类型</span></span><br><span class="line">        msg.content_subtype = <span class="string">&#x27;html&#x27;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">#发送邮箱</span></span><br><span class="line">        send_status = msg.send()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> send_status:</span><br><span class="line">            <span class="keyword">return</span> ValidationError(<span class="string">&#x27;发生邮箱失败,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(send_status[<span class="string">&#x27;errmsg&#x27;</span>]))</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#放到redis中，有效时长2min</span></span><br><span class="line">        conn = get_redis_connection()</span><br><span class="line">        conn.<span class="built_in">set</span>(email, code, ex=<span class="number">120</span>)</span><br><span class="line">        <span class="keyword">return</span> email</span><br><span class="line">    <span class="keyword">return</span> ValidationError(<span class="string">&#x27;邮箱未注册&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-html模板"><a href="#4-html模板" class="headerlink" title="4.html模板"></a>4.html模板</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% load static %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">base</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css">::-webkit-scrollbar &#123;</span></span><br><span class="line"><span class="css">        display: none;</span></span><br><span class="line"><span class="css">    &#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">id</span>=<span class="string">&quot;cloudAttachStyle&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"><span class="selector-id">#divNeteaseBigAttach</span>, <span class="selector-id">#divNeteaseBigAttach_bak</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">display</span>: none;</span></span><br><span class="line"><span class="css">    &#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">id</span>=<span class="string">&quot;blockquoteStyle&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"><span class="selector-tag">blockquote</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">display</span>: none;</span></span><br><span class="line"><span class="css">    &#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">14px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-family</span>: arial, verdana, sans-serif;</span></span><br><span class="line"><span class="css">            <span class="attribute">line-height</span>: <span class="number">1.666</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">overflow</span>: auto;</span></span><br><span class="line"><span class="css">            <span class="attribute">white-space</span>: normal;</span></span><br><span class="line"><span class="css">            <span class="attribute">word-wrap</span>: break-word;</span></span><br><span class="line"><span class="css">            <span class="attribute">min-height</span>: <span class="number">100px</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">td</span>, <span class="selector-tag">input</span>, <span class="selector-tag">button</span>, select, <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-family</span>: Helvetica, <span class="string">&#x27;Microsoft Yahei&#x27;</span>, verdana</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        pre &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">white-space</span>: pre-wrap;</span></span><br><span class="line"><span class="css">            <span class="attribute">white-space</span>: -moz-pre-wrap;</span></span><br><span class="line"><span class="css">            <span class="attribute">white-space</span>: -pre-wrap;</span></span><br><span class="line"><span class="css">            <span class="attribute">white-space</span>: -o-pre-wrap;</span></span><br><span class="line"><span class="css">            <span class="attribute">word-wrap</span>: break-word;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">95%</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">th</span>, <span class="selector-tag">td</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-family</span>: arial, verdana, sans-serif;</span></span><br><span class="line"><span class="css">            <span class="attribute">line-height</span>: <span class="number">1.666</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">border</span>: <span class="number">0</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">header</span>, <span class="selector-tag">footer</span>, <span class="selector-tag">section</span>, <span class="selector-tag">aside</span>, <span class="selector-tag">article</span>, <span class="selector-tag">nav</span>, <span class="selector-tag">hgroup</span>, <span class="selector-tag">figure</span>, <span class="selector-tag">figcaption</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">display</span>: block</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">blockquote</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">margin-right</span>: <span class="number">0px</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">tabindex</span>=<span class="string">&quot;0&quot;</span> <span class="attr">role</span>=<span class="string">&quot;listitem&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span>=<span class="string">&quot;700&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:700px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width:700px;margin:0 auto;border-bottom:1px solid #ccc;margin-bottom:30px;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">cellpadding</span>=<span class="string">&quot;0&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;700&quot;</span> <span class="attr">height</span>=<span class="string">&quot;39&quot;</span></span></span><br><span class="line"><span class="tag">                       <span class="attr">style</span>=<span class="string">&quot;font:12px Tahoma, Arial, 宋体;&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">&quot;210&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width:680px;padding:0 10px;margin:0 auto;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;line-height:1.5;font-size:14px;margin-bottom:25px;color:#4d4d4d;&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">strong</span> <span class="attr">style</span>=<span class="string">&quot;display:block;margin-bottom:15px;&quot;</span>&gt;</span>尊敬的用户，您好：<span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">                            <span class="attr">style</span>=<span class="string">&quot;color:#f60;font-size: 16px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">strong</span> <span class="attr">style</span>=<span class="string">&quot;display:block;margin-bottom:15px;&quot;</span>&gt;</span></span><br><span class="line">                        您正在进行<span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;color: red&quot;</span>&gt;</span>修改密码<span class="tag">&lt;/<span class="name">span</span>&gt;</span>操作，请在验证码输入框中输入：<span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">                            <span class="attr">style</span>=<span class="string">&quot;color:#f60;font-size: 24px&quot;</span>&gt;</span>&#123;&#123; code &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span>，以完成操作。</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;margin-bottom:30px;&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">small</span> <span class="attr">style</span>=<span class="string">&quot;display:block;margin-bottom:20px;font-size:12px;&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color:#747474;&quot;</span>&gt;</span></span><br><span class="line">                            注意：验证码2分钟有效，此操作可能会修改您的密码。如非本人操作，请及时登录并修改密码以保证帐户安全</span><br><span class="line">                            <span class="tag">&lt;<span class="name">br</span>&gt;</span>（工作人员不会向你索取此验证码，请勿泄漏！)</span><br><span class="line">                        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width:700px;margin:0 auto;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;padding:10px 10px 0;border-top:1px solid #ccc;color:#747474;margin-bottom:20px;line-height:1.3em;font-size:12px;&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>此为系统邮件，请勿回复<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">                        请保管好您的邮箱，避免账号被他人盗用</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>XXXXXXX QA团队<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% block js %&#125;&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-效果图如下："><a href="#5-效果图如下：" class="headerlink" title="5.效果图如下："></a>5.效果图如下：</h2><img src="/2021/09/08/Django%E5%8F%91%E9%80%81%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8A%E9%82%AE%E7%AE%B1html%E6%A8%A1%E6%9D%BF/img16.png" class title="验证码">
+]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>Html</tag>
       </tags>
   </entry>
   <entry>
@@ -241,24 +264,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </categories>
       <tags>
         <tag>Django</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.</title>
-    <url>/2021/09/23/ERROR-Re-run-SonarScanner-using-the-X-switch-to-enable-full-debug-logging/</url>
-    <content><![CDATA[<p><strong>前景</strong></p>
-<p><code>jenkins构建sonarqube报错</code></p>
-<p>报错：</p>
-<p><code>&quot;ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.</code></p>
-<h2 id="1-打开sonarqube的SCM配置"><a href="#1-打开sonarqube的SCM配置" class="headerlink" title="1.打开sonarqube的SCM配置"></a>1.打开sonarqube的SCM配置</h2><img src="/2021/09/23/ERROR-Re-run-SonarScanner-using-the-X-switch-to-enable-full-debug-logging/img102.png" class title="This is an test image">
-
-<h2 id="2-重新构建"><a href="#2-重新构建" class="headerlink" title="2.重新构建"></a>2.重新构建</h2>]]></content>
-      <categories>
-        <category>Sonarqube</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-        <tag>Sonarqube</tag>
       </tags>
   </entry>
   <entry>
@@ -283,29 +288,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       <tags>
         <tag>Android</tag>
         <tag>Appium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django发送邮箱验证码实现以及邮箱html模板</title>
-    <url>/2021/09/08/Django%E5%8F%91%E9%80%81%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8A%E9%82%AE%E7%AE%B1html%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h2 id="1-setting配置"><a href="#1-setting配置" class="headerlink" title="1.setting配置"></a>1.setting配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">EMAIL_BACKEND = <span class="string">&#x27;django.core.mail.backends.smtp.EmailBackend&#x27;</span></span><br><span class="line">EMAIL_HOST = <span class="string">&quot;smtp.163.com&quot;</span>  <span class="comment"># 服务器</span></span><br><span class="line">EMAIL_PORT = <span class="number">25</span>  <span class="comment"># 一般情况下都为25</span></span><br><span class="line">EMAIL_HOST_USER = <span class="string">&quot;xxxx@163.com&quot;</span>  <span class="comment"># 账号</span></span><br><span class="line">EMAIL_HOST_PASSWORD = <span class="string">&quot;XXXXXXXXXXXX&quot;</span>  <span class="comment"># 密码 (注意：这里的密码指的是授权码)</span></span><br><span class="line">EMAIL_USE_TLS = <span class="literal">False</span>  <span class="comment"># 一般都为False</span></span><br><span class="line">EMAIL_FROM = <span class="string">&quot;xxxx@163.com&quot;</span>  <span class="comment"># 邮箱来自 一般和邮箱账号保持一致</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-邮箱配置"><a href="#2-邮箱配置" class="headerlink" title="2.邮箱配置"></a>2.邮箱配置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#登录邮箱-设置-POP3/SMTP/IMAP,开启服务，保存授权码，切记要保存，授权码就是密码</span></span><br><span class="line">如图：</span><br></pre></td></tr></table></figure>
-<img src="/2021/09/08/Django%E5%8F%91%E9%80%81%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8A%E9%82%AE%E7%AE%B1html%E6%A8%A1%E6%9D%BF/img17.png" class title="邮箱配置">
-
-<h2 id="3-代码部分"><a href="#3-代码部分" class="headerlink" title="3.代码部分"></a>3.代码部分</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.core.mail <span class="keyword">import</span> EmailMessage</span><br><span class="line"><span class="keyword">from</span> django.template <span class="keyword">import</span> loader</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean_email</span>(<span class="params">self</span>):</span></span><br><span class="line">    email_title = <span class="string">&quot;验证码&quot;</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment">#这里是生成随机验证码 我是4位的，可以自定义</span></span><br><span class="line">    code = random.randrange(<span class="number">1000</span>, <span class="number">9999</span>)   </span><br><span class="line">    </span><br><span class="line">    <span class="comment">#这个context这里定义的字段，是要给html模板中的验证码使用的，HTML中&#123;% code %&#125;引用即可</span></span><br><span class="line">    context = &#123;</span><br><span class="line">        <span class="string">&#x27;code&#x27;</span>: <span class="built_in">str</span>(code)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#这里的html文件就是发送验证码部分的html模板我放在下面</span></span><br><span class="line">    email_template_name = <span class="string">&#x27;tools_email.html&#x27;</span>     </span><br><span class="line">    t = loader.get_template(email_template_name)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#发送html验证码到邮箱有三种方式，我觉得这种最方便，其他自行百度</span></span><br><span class="line">    html_content = t.render(context)</span><br><span class="line">    email = self.cleaned_data[<span class="string">&#x27;email&#x27;</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#判断邮箱是否存在</span></span><br><span class="line">    exists = models.UserInfo.objects.<span class="built_in">filter</span>(email=email).exists()</span><br><span class="line">    <span class="keyword">if</span> exists:</span><br><span class="line">        msg = EmailMessage(email_title,  <span class="comment"># 邮件主题</span></span><br><span class="line">                           html_content,  <span class="comment"># 邮件内容，使用html模板</span></span><br><span class="line">                           settings.EMAIL_FROM,  <span class="comment"># 用于发送邮件的用户</span></span><br><span class="line">                           [email]  <span class="comment"># 接收邮件的用户列表</span></span><br><span class="line">                           )</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#指定邮箱发送的类型</span></span><br><span class="line">        msg.content_subtype = <span class="string">&#x27;html&#x27;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">#发送邮箱</span></span><br><span class="line">        send_status = msg.send()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> send_status:</span><br><span class="line">            <span class="keyword">return</span> ValidationError(<span class="string">&#x27;发生邮箱失败,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(send_status[<span class="string">&#x27;errmsg&#x27;</span>]))</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#放到redis中，有效时长2min</span></span><br><span class="line">        conn = get_redis_connection()</span><br><span class="line">        conn.<span class="built_in">set</span>(email, code, ex=<span class="number">120</span>)</span><br><span class="line">        <span class="keyword">return</span> email</span><br><span class="line">    <span class="keyword">return</span> ValidationError(<span class="string">&#x27;邮箱未注册&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="4-html模板"><a href="#4-html模板" class="headerlink" title="4.html模板"></a>4.html模板</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% load static %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">base</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css">::-webkit-scrollbar &#123;</span></span><br><span class="line"><span class="css">        display: none;</span></span><br><span class="line"><span class="css">    &#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">id</span>=<span class="string">&quot;cloudAttachStyle&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"><span class="selector-id">#divNeteaseBigAttach</span>, <span class="selector-id">#divNeteaseBigAttach_bak</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">display</span>: none;</span></span><br><span class="line"><span class="css">    &#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">id</span>=<span class="string">&quot;blockquoteStyle&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"><span class="selector-tag">blockquote</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">display</span>: none;</span></span><br><span class="line"><span class="css">    &#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">14px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-family</span>: arial, verdana, sans-serif;</span></span><br><span class="line"><span class="css">            <span class="attribute">line-height</span>: <span class="number">1.666</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">overflow</span>: auto;</span></span><br><span class="line"><span class="css">            <span class="attribute">white-space</span>: normal;</span></span><br><span class="line"><span class="css">            <span class="attribute">word-wrap</span>: break-word;</span></span><br><span class="line"><span class="css">            <span class="attribute">min-height</span>: <span class="number">100px</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">td</span>, <span class="selector-tag">input</span>, <span class="selector-tag">button</span>, select, <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-family</span>: Helvetica, <span class="string">&#x27;Microsoft Yahei&#x27;</span>, verdana</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        pre &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">white-space</span>: pre-wrap;</span></span><br><span class="line"><span class="css">            <span class="attribute">white-space</span>: -moz-pre-wrap;</span></span><br><span class="line"><span class="css">            <span class="attribute">white-space</span>: -pre-wrap;</span></span><br><span class="line"><span class="css">            <span class="attribute">white-space</span>: -o-pre-wrap;</span></span><br><span class="line"><span class="css">            <span class="attribute">word-wrap</span>: break-word;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">95%</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">th</span>, <span class="selector-tag">td</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-family</span>: arial, verdana, sans-serif;</span></span><br><span class="line"><span class="css">            <span class="attribute">line-height</span>: <span class="number">1.666</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">border</span>: <span class="number">0</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">header</span>, <span class="selector-tag">footer</span>, <span class="selector-tag">section</span>, <span class="selector-tag">aside</span>, <span class="selector-tag">article</span>, <span class="selector-tag">nav</span>, <span class="selector-tag">hgroup</span>, <span class="selector-tag">figure</span>, <span class="selector-tag">figcaption</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">display</span>: block</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">blockquote</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">margin-right</span>: <span class="number">0px</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">tabindex</span>=<span class="string">&quot;0&quot;</span> <span class="attr">role</span>=<span class="string">&quot;listitem&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span>=<span class="string">&quot;700&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:700px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width:700px;margin:0 auto;border-bottom:1px solid #ccc;margin-bottom:30px;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">cellpadding</span>=<span class="string">&quot;0&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;700&quot;</span> <span class="attr">height</span>=<span class="string">&quot;39&quot;</span></span></span><br><span class="line"><span class="tag">                       <span class="attr">style</span>=<span class="string">&quot;font:12px Tahoma, Arial, 宋体;&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">&quot;210&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width:680px;padding:0 10px;margin:0 auto;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;line-height:1.5;font-size:14px;margin-bottom:25px;color:#4d4d4d;&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">strong</span> <span class="attr">style</span>=<span class="string">&quot;display:block;margin-bottom:15px;&quot;</span>&gt;</span>尊敬的用户，您好：<span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">                            <span class="attr">style</span>=<span class="string">&quot;color:#f60;font-size: 16px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">strong</span> <span class="attr">style</span>=<span class="string">&quot;display:block;margin-bottom:15px;&quot;</span>&gt;</span></span><br><span class="line">                        您正在进行<span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;color: red&quot;</span>&gt;</span>修改密码<span class="tag">&lt;/<span class="name">span</span>&gt;</span>操作，请在验证码输入框中输入：<span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">                            <span class="attr">style</span>=<span class="string">&quot;color:#f60;font-size: 24px&quot;</span>&gt;</span>&#123;&#123; code &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span>，以完成操作。</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;margin-bottom:30px;&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">small</span> <span class="attr">style</span>=<span class="string">&quot;display:block;margin-bottom:20px;font-size:12px;&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color:#747474;&quot;</span>&gt;</span></span><br><span class="line">                            注意：验证码2分钟有效，此操作可能会修改您的密码。如非本人操作，请及时登录并修改密码以保证帐户安全</span><br><span class="line">                            <span class="tag">&lt;<span class="name">br</span>&gt;</span>（工作人员不会向你索取此验证码，请勿泄漏！)</span><br><span class="line">                        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width:700px;margin:0 auto;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;padding:10px 10px 0;border-top:1px solid #ccc;color:#747474;margin-bottom:20px;line-height:1.3em;font-size:12px;&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>此为系统邮件，请勿回复<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">                        请保管好您的邮箱，避免账号被他人盗用</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>XXXXXXX QA团队<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% block js %&#125;&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-效果图如下："><a href="#5-效果图如下：" class="headerlink" title="5.效果图如下："></a>5.效果图如下：</h2><img src="/2021/09/08/Django%E5%8F%91%E9%80%81%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8A%E9%82%AE%E7%AE%B1html%E6%A8%A1%E6%9D%BF/img16.png" class title="验证码">
-]]></content>
-      <categories>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Django</tag>
-        <tag>Html</tag>
       </tags>
   </entry>
   <entry>
@@ -499,23 +481,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>Jenkins启动报错原因分析</title>
-    <url>/2021/09/18/Jenkins%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="1-启动jenkins"><a href="#1-启动jenkins" class="headerlink" title="1.启动jenkins"></a>1.启动jenkins</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start jenkins   <span class="comment">#如果命令不可使用，首先要把jenkins放到系统启动配置中，详情请百度</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-查看jenkins启动状态"><a href="#2-查看jenkins启动状态" class="headerlink" title="2.查看jenkins启动状态"></a>2.查看jenkins启动状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status jenkins.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-分析报错原因"><a href="#3-分析报错原因" class="headerlink" title="3.分析报错原因"></a>3.分析报错原因</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看位置 /system.slice/jenkins.service 后面是原因</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Jenkins</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java线上问题排查</title>
     <url>/2021/07/20/Java%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</url>
     <content><![CDATA[<h2 id="top-查看占用资源信息以及pid"><a href="#top-查看占用资源信息以及pid" class="headerlink" title="top 查看占用资源信息以及pid"></a>top 查看占用资源信息以及pid</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ top </span><br></pre></td></tr></table></figure>
@@ -605,6 +570,46 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Jenkins启动报错原因分析</title>
+    <url>/2021/09/18/Jenkins%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="1-启动jenkins"><a href="#1-启动jenkins" class="headerlink" title="1.启动jenkins"></a>1.启动jenkins</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start jenkins   <span class="comment">#如果命令不可使用，首先要把jenkins放到系统启动配置中，详情请百度</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-查看jenkins启动状态"><a href="#2-查看jenkins启动状态" class="headerlink" title="2.查看jenkins启动状态"></a>2.查看jenkins启动状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status jenkins.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-分析报错原因"><a href="#3-分析报错原因" class="headerlink" title="3.分析报错原因"></a>3.分析报错原因</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">查看位置 /system.slice/jenkins.service 后面是原因</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux中常用来查看进程的命令</title>
+    <url>/2018/12/25/Linux%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>查看所有运行中的进程:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps aux | less</span><br></pre></td></tr></table></figure>
+
+<p>显示所有进程: </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps -A  </span><br><span class="line">$ ps -e</span><br></pre></td></tr></table></figure>
+
+<p>显示进程的树状图:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pstree</span><br></pre></td></tr></table></figure>
+
+<p>查看进程:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ netstat -ntlp</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux关闭防火墙</title>
     <url>/2021/09/01/Linux%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99/</url>
     <content><![CDATA[<p><strong>注意:ConterOS7.0以上使用的是firewall，ConterOS7.0以下使用的是iptables</strong></p>
@@ -633,52 +638,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
-    <title>Linux安装jdk11</title>
-    <url>/2021/09/18/Linux%E5%AE%89%E8%A3%85jdk11/</url>
-    <content><![CDATA[<h2 id="1-下载jdk"><a href="#1-下载jdk" class="headerlink" title="1.下载jdk"></a>1.下载jdk</h2><p><a href="https://pan.baidu.com/s/1DWgm0m_QlTq67QFq_BV_8g">下载安装</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">提取码: brq2</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-上传到服务器"><a href="#2-上传到服务器" class="headerlink" title="2.上传到服务器"></a>2.上传到服务器</h2><h2 id="3-解压"><a href="#3-解压" class="headerlink" title="3.解压"></a>3.解压</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zvxf openjdk-11+28_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-移动文件夹并重命名"><a href="#4-移动文件夹并重命名" class="headerlink" title="4.移动文件夹并重命名"></a>4.移动文件夹并重命名</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mv jdk-11/ /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-配置环境变量"><a href="#5-配置环境变量" class="headerlink" title="5.配置环境变量"></a>5.配置环境变量</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span>   <span class="comment">#一定要放在最后</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/profile     <span class="comment">#让配置生效</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-建立软链接"><a href="#6-建立软链接" class="headerlink" title="6.建立软链接"></a>6.建立软链接</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -n /usr/<span class="built_in">local</span>/java/bin/java /usr/bin/java</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-查看java版本"><a href="#7-查看java版本" class="headerlink" title="7.查看java版本"></a>7.查看java版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Jdk</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Jdk</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux中常用来查看进程的命令</title>
-    <url>/2018/12/25/Linux%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p>查看所有运行中的进程:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps aux | less</span><br></pre></td></tr></table></figure>
-
-<p>显示所有进程: </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps -A  </span><br><span class="line">$ ps -e</span><br></pre></td></tr></table></figure>
-
-<p>显示进程的树状图:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pstree</span><br></pre></td></tr></table></figure>
-
-<p>查看进程:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ netstat -ntlp</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux快捷进入长目录的方法</title>
     <url>/2018/11/02/Linux%E5%BF%AB%E6%8D%B7%E8%BF%9B%E5%85%A5%E9%95%BF%E7%9B%AE%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>1、将上述设置写到家目录的<code>.bashrc</code>文件中（~/.bashrc）</p>
@@ -697,45 +656,6 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux搭建sonarqube</title>
-    <url>/2021/09/22/Linux%E6%90%AD%E5%BB%BAsonarqube/</url>
-    <content><![CDATA[<p><strong>前言</strong><br><code>Linux版本:centos7.6</code><br><code>Java:Jdk11</code><br><code>SonarQube:8.2.0.32929</code><br><code>PostgreSQL:12</code><br><code>sonar-scanner:4.6.2.2472</code></p>
-<h2 id="1-安装Jdk"><a href="#1-安装Jdk" class="headerlink" title="1.安装Jdk"></a>1.安装Jdk</h2><p><a href="https://cywhat.cn/2021/09/18/linux%E5%AE%89%E8%A3%85jdk11/">安装JDK</a></p>
-<h2 id="2-安装PostgreSQL"><a href="#2-安装PostgreSQL" class="headerlink" title="2.安装PostgreSQL"></a>2.安装PostgreSQL</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.安装镜像</span><br><span class="line">sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</span><br><span class="line"></span><br><span class="line">2.安装PostgreSQL</span><br><span class="line">sudo yum install -y postgresql12-server</span><br><span class="line"></span><br><span class="line">3.加到系统自启动</span><br><span class="line">sudo /usr/pgsql-12/bin/postgresql-12-setup initdb</span><br><span class="line"></span><br><span class="line">4.修改md5加密</span><br><span class="line">vim /var/lib/pgsql/12/data/pg_hba.conf </span><br><span class="line"></span><br><span class="line">5.启动</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postgresql-12</span><br><span class="line"></span><br><span class="line">sudo systemctl start postgresql-12</span><br></pre></td></tr></table></figure>
-<img src="/2021/09/22/Linux%E6%90%AD%E5%BB%BAsonarqube/img101.png" class title="修改md5加密">
-
-
-<h2 id="3-安装SonarQube"><a href="#3-安装SonarQube" class="headerlink" title="3.安装SonarQube"></a>3.安装SonarQube</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.下载SonarQube</span><br><span class="line">wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.2.0.32929.zip</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">unzip sonarqube-8.2.0.32929.zip</span><br><span class="line"></span><br><span class="line">3.重命名</span><br><span class="line">mv sonarqube-8.2.0.32929 /usr/<span class="built_in">local</span>/sonarqube</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-添加用户"><a href="#4-添加用户" class="headerlink" title="4.添加用户"></a>4.添加用户</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.新增用户</span><br><span class="line">sudo adduser sonar</span><br><span class="line"></span><br><span class="line">2.设置密码</span><br><span class="line">sudo passwd sonar</span><br><span class="line"></span><br><span class="line">3.赋予权限</span><br><span class="line">chmod -R sonar:sonar /usr/<span class="built_in">local</span>/sonarqube</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="5-进入PostgreSQL配置数据库"><a href="#5-进入PostgreSQL配置数据库" class="headerlink" title="5.进入PostgreSQL配置数据库"></a>5.进入PostgreSQL配置数据库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.切换到postgre用户</span><br><span class="line">sudo su - postgre</span><br><span class="line"></span><br><span class="line">2.进入psql</span><br><span class="line">psql -U postgres</span><br><span class="line"></span><br><span class="line">3.创建库表结构等 <span class="comment">#依次执行</span></span><br><span class="line">CREATE DATABASE sonar;</span><br><span class="line"></span><br><span class="line">CREATE USER sonar WITH ENCRYPTED PASSWORD <span class="string">&#x27;&lt;sonar-password&gt;&#x27;</span>;   <span class="comment">#&lt;&gt; 里面是sonar用户的密码 可自定义</span></span><br><span class="line"></span><br><span class="line">GRANT ALL PRIVILEGES ON DATABASE sonar TO sonar;</span><br><span class="line"></span><br><span class="line">ALTER DATABASE sonar OWNER TO sonar;</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-修改sonarqube配置"><a href="#6-修改sonarqube配置" class="headerlink" title="6.修改sonarqube配置"></a>6.修改sonarqube配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.vim /usr/<span class="built_in">local</span>/sonarqube/conf/sonar.properties   <span class="comment">#加入如下配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DATABASE</span></span><br><span class="line">sonar.jdbc.username=sonar</span><br><span class="line">sonar.jdbc.password=&lt;sonar-user-password&gt;</span><br><span class="line">sonar.jdbc.url=jdbc:postgresql://localhost/sonar</span><br><span class="line">sonar.jdbc.maxActive=60</span><br><span class="line">sonar.jdbc.maxIdle=5</span><br><span class="line">sonar.jdbc.minIdle=2</span><br><span class="line">sonar.jdbc.maxWait=5000</span><br><span class="line">sonar.jdbc.minEvictableIdleTimeMillis=600000</span><br><span class="line">sonar.jdbc.timeBetweenEvictionRunsMillis=30000</span><br><span class="line">sonar.jdbc.removeAbandoned=<span class="literal">true</span></span><br><span class="line">sonar.jdbc.removeAbandonedTimeout=60</span><br><span class="line"></span><br><span class="line">2.如需要自定义端口 需要更改端口 sonarqube默认为9000 search默认为9001 <span class="comment">#根据自己需求，可不修改</span></span><br><span class="line">sonar.web.port=9000    <span class="comment">#修改sonarqube端口</span></span><br><span class="line"></span><br><span class="line">sonar.search.port=9001  <span class="comment">#修改search端口,如果端口冲突必须要更改噢</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="7-启动sonarqube"><a href="#7-启动sonarqube" class="headerlink" title="7.启动sonarqube"></a>7.启动sonarqube</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su sonar    <span class="comment">#必须用非root启动</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/sonarqube/bin/linux-x86-64/</span><br><span class="line"></span><br><span class="line">sh  sonar.sh start</span><br></pre></td></tr></table></figure>
-
-<h2 id="8-安装sonar-scanner"><a href="#8-安装sonar-scanner" class="headerlink" title="8.安装sonar-scanner"></a>8.安装sonar-scanner</h2><p><a href="https://pan.baidu.com/s/1rIs2oMba5LTvpAcdz75lZg">下载sonar-scanner</a></p>
-<p><code>提取码: qtd4</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.上传到服务器</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">unzip sonar-scanner-cli-4.6.2.2472-linux.zip</span><br><span class="line"></span><br><span class="line">3.重命名</span><br><span class="line">mv sonar-scanner-cli-4.6.2.2472-linux /usr/<span class="built_in">local</span>/scanner</span><br><span class="line"></span><br><span class="line">4.建立软链接</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/scanner/bin/sonar-scanner /usr/<span class="built_in">local</span>/bin/scanner </span><br></pre></td></tr></table></figure>
-
-<p><strong>PS:常见报错汇总</strong></p>
-<p>报错：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ERROR: [4] bootstrap checks failed</span><br><span class="line">[1]: max file descriptors [4096] <span class="keyword">for</span> elasticsearch process is too low, increase to at least [65536]</span><br><span class="line">[2]: max number of threads [1024] <span class="keyword">for</span> user [hadoop] is too low, increase to at least [2048]</span><br><span class="line">[3]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br><span class="line">[4]: system call filters failed to install; check the logs and fix your configuration or <span class="built_in">disable</span> system call filters at your own risk</span><br></pre></td></tr></table></figure>
-<pre><code>解决：
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.vim /etc/security/limits.conf    <span class="comment">#修改后需要将用户sonar重新登入才生效</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#内容末尾加入</span></span><br><span class="line">    sonar          soft    nofile  65536   <span class="comment">#sonar是你在linux中设置的启动sonarqube的用户</span></span><br><span class="line">    sonar          hard    nofile  100000</span><br><span class="line">    sonar          soft    nproc   4096</span><br><span class="line">    sonar          hard    nproc   4096</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">ulimit</span> -Hn    <span class="comment">#查看硬限制是否生效</span></span><br><span class="line"></span><br><span class="line">2.vim  /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line">  <span class="comment">#内容末尾加入</span></span><br><span class="line">  vm.max_map_count=655360 </span><br><span class="line">  </span><br><span class="line">  保存修改后  sysctl -p</span><br><span class="line"></span><br><span class="line">3.重启机器 **必须重启**</span><br></pre></td></tr></table></figure>
-</code></pre>
-]]></content>
-      <categories>
-        <category>Sonarqube</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Sonarqube</tag>
       </tags>
   </entry>
   <entry>
@@ -769,6 +689,29 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       <tags>
         <tag>Linux</tag>
         <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux安装jdk11</title>
+    <url>/2021/09/18/Linux%E5%AE%89%E8%A3%85jdk11/</url>
+    <content><![CDATA[<h2 id="1-下载jdk"><a href="#1-下载jdk" class="headerlink" title="1.下载jdk"></a>1.下载jdk</h2><p><a href="https://pan.baidu.com/s/1DWgm0m_QlTq67QFq_BV_8g">下载安装</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">提取码: brq2</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-上传到服务器"><a href="#2-上传到服务器" class="headerlink" title="2.上传到服务器"></a>2.上传到服务器</h2><h2 id="3-解压"><a href="#3-解压" class="headerlink" title="3.解压"></a>3.解压</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zvxf openjdk-11+28_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-移动文件夹并重命名"><a href="#4-移动文件夹并重命名" class="headerlink" title="4.移动文件夹并重命名"></a>4.移动文件夹并重命名</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mv jdk-11/ /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-配置环境变量"><a href="#5-配置环境变量" class="headerlink" title="5.配置环境变量"></a>5.配置环境变量</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span>   <span class="comment">#一定要放在最后</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/profile     <span class="comment">#让配置生效</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-建立软链接"><a href="#6-建立软链接" class="headerlink" title="6.建立软链接"></a>6.建立软链接</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -n /usr/<span class="built_in">local</span>/java/bin/java /usr/bin/java</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-查看java版本"><a href="#7-查看java版本" class="headerlink" title="7.查看java版本"></a>7.查看java版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Jdk</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Jdk</tag>
       </tags>
   </entry>
   <entry>
@@ -822,30 +765,49 @@ self.driver.switch_to.context(&#39;NATIVE_APP&#39;)web --&gt; app
       </tags>
   </entry>
   <entry>
+    <title>Linux搭建sonarqube</title>
+    <url>/2021/09/22/Linux%E6%90%AD%E5%BB%BAsonarqube/</url>
+    <content><![CDATA[<p><strong>前言</strong><br><code>Linux版本:centos7.6</code><br><code>Java:Jdk11</code><br><code>SonarQube:8.2.0.32929</code><br><code>PostgreSQL:12</code><br><code>sonar-scanner:4.6.2.2472</code></p>
+<h2 id="1-安装Jdk"><a href="#1-安装Jdk" class="headerlink" title="1.安装Jdk"></a>1.安装Jdk</h2><p><a href="https://cywhat.cn/2021/09/18/linux%E5%AE%89%E8%A3%85jdk11/">安装JDK</a></p>
+<h2 id="2-安装PostgreSQL"><a href="#2-安装PostgreSQL" class="headerlink" title="2.安装PostgreSQL"></a>2.安装PostgreSQL</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.安装镜像</span><br><span class="line">sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</span><br><span class="line"></span><br><span class="line">2.安装PostgreSQL</span><br><span class="line">sudo yum install -y postgresql12-server</span><br><span class="line"></span><br><span class="line">3.加到系统自启动</span><br><span class="line">sudo /usr/pgsql-12/bin/postgresql-12-setup initdb</span><br><span class="line"></span><br><span class="line">4.修改md5加密</span><br><span class="line">vim /var/lib/pgsql/12/data/pg_hba.conf </span><br><span class="line"></span><br><span class="line">5.启动</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postgresql-12</span><br><span class="line"></span><br><span class="line">sudo systemctl start postgresql-12</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/22/Linux%E6%90%AD%E5%BB%BAsonarqube/img101.png" class title="修改md5加密">
+
+
+<h2 id="3-安装SonarQube"><a href="#3-安装SonarQube" class="headerlink" title="3.安装SonarQube"></a>3.安装SonarQube</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.下载SonarQube</span><br><span class="line">wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.2.0.32929.zip</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">unzip sonarqube-8.2.0.32929.zip</span><br><span class="line"></span><br><span class="line">3.重命名</span><br><span class="line">mv sonarqube-8.2.0.32929 /usr/<span class="built_in">local</span>/sonarqube</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-添加用户"><a href="#4-添加用户" class="headerlink" title="4.添加用户"></a>4.添加用户</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.新增用户</span><br><span class="line">sudo adduser sonar</span><br><span class="line"></span><br><span class="line">2.设置密码</span><br><span class="line">sudo passwd sonar</span><br><span class="line"></span><br><span class="line">3.赋予权限</span><br><span class="line">chmod -R sonar:sonar /usr/<span class="built_in">local</span>/sonarqube</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="5-进入PostgreSQL配置数据库"><a href="#5-进入PostgreSQL配置数据库" class="headerlink" title="5.进入PostgreSQL配置数据库"></a>5.进入PostgreSQL配置数据库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.切换到postgre用户</span><br><span class="line">sudo su - postgre</span><br><span class="line"></span><br><span class="line">2.进入psql</span><br><span class="line">psql -U postgres</span><br><span class="line"></span><br><span class="line">3.创建库表结构等 <span class="comment">#依次执行</span></span><br><span class="line">CREATE DATABASE sonar;</span><br><span class="line"></span><br><span class="line">CREATE USER sonar WITH ENCRYPTED PASSWORD <span class="string">&#x27;&lt;sonar-password&gt;&#x27;</span>;   <span class="comment">#&lt;&gt; 里面是sonar用户的密码 可自定义</span></span><br><span class="line"></span><br><span class="line">GRANT ALL PRIVILEGES ON DATABASE sonar TO sonar;</span><br><span class="line"></span><br><span class="line">ALTER DATABASE sonar OWNER TO sonar;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-修改sonarqube配置"><a href="#6-修改sonarqube配置" class="headerlink" title="6.修改sonarqube配置"></a>6.修改sonarqube配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.vim /usr/<span class="built_in">local</span>/sonarqube/conf/sonar.properties   <span class="comment">#加入如下配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DATABASE</span></span><br><span class="line">sonar.jdbc.username=sonar</span><br><span class="line">sonar.jdbc.password=&lt;sonar-user-password&gt;</span><br><span class="line">sonar.jdbc.url=jdbc:postgresql://localhost/sonar</span><br><span class="line">sonar.jdbc.maxActive=60</span><br><span class="line">sonar.jdbc.maxIdle=5</span><br><span class="line">sonar.jdbc.minIdle=2</span><br><span class="line">sonar.jdbc.maxWait=5000</span><br><span class="line">sonar.jdbc.minEvictableIdleTimeMillis=600000</span><br><span class="line">sonar.jdbc.timeBetweenEvictionRunsMillis=30000</span><br><span class="line">sonar.jdbc.removeAbandoned=<span class="literal">true</span></span><br><span class="line">sonar.jdbc.removeAbandonedTimeout=60</span><br><span class="line"></span><br><span class="line">2.如需要自定义端口 需要更改端口 sonarqube默认为9000 search默认为9001 <span class="comment">#根据自己需求，可不修改</span></span><br><span class="line">sonar.web.port=9000    <span class="comment">#修改sonarqube端口</span></span><br><span class="line"></span><br><span class="line">sonar.search.port=9001  <span class="comment">#修改search端口,如果端口冲突必须要更改噢</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-启动sonarqube"><a href="#7-启动sonarqube" class="headerlink" title="7.启动sonarqube"></a>7.启动sonarqube</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su sonar    <span class="comment">#必须用非root启动</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/sonarqube/bin/linux-x86-64/</span><br><span class="line"></span><br><span class="line">sh  sonar.sh start</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-安装sonar-scanner"><a href="#8-安装sonar-scanner" class="headerlink" title="8.安装sonar-scanner"></a>8.安装sonar-scanner</h2><p><a href="https://pan.baidu.com/s/1rIs2oMba5LTvpAcdz75lZg">下载sonar-scanner</a></p>
+<p><code>提取码: qtd4</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.上传到服务器</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">unzip sonar-scanner-cli-4.6.2.2472-linux.zip</span><br><span class="line"></span><br><span class="line">3.重命名</span><br><span class="line">mv sonar-scanner-cli-4.6.2.2472-linux /usr/<span class="built_in">local</span>/scanner</span><br><span class="line"></span><br><span class="line">4.建立软链接</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/scanner/bin/sonar-scanner /usr/<span class="built_in">local</span>/bin/scanner </span><br></pre></td></tr></table></figure>
+
+<p><strong>PS:常见报错汇总</strong></p>
+<p>报错：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ERROR: [4] bootstrap checks failed</span><br><span class="line">[1]: max file descriptors [4096] <span class="keyword">for</span> elasticsearch process is too low, increase to at least [65536]</span><br><span class="line">[2]: max number of threads [1024] <span class="keyword">for</span> user [hadoop] is too low, increase to at least [2048]</span><br><span class="line">[3]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br><span class="line">[4]: system call filters failed to install; check the logs and fix your configuration or <span class="built_in">disable</span> system call filters at your own risk</span><br></pre></td></tr></table></figure>
+<pre><code>解决：
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.vim /etc/security/limits.conf    <span class="comment">#修改后需要将用户sonar重新登入才生效</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#内容末尾加入</span></span><br><span class="line">    sonar          soft    nofile  65536   <span class="comment">#sonar是你在linux中设置的启动sonarqube的用户</span></span><br><span class="line">    sonar          hard    nofile  100000</span><br><span class="line">    sonar          soft    nproc   4096</span><br><span class="line">    sonar          hard    nproc   4096</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">ulimit</span> -Hn    <span class="comment">#查看硬限制是否生效</span></span><br><span class="line"></span><br><span class="line">2.vim  /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line">  <span class="comment">#内容末尾加入</span></span><br><span class="line">  vm.max_map_count=655360 </span><br><span class="line">  </span><br><span class="line">  保存修改后  sysctl -p</span><br><span class="line"></span><br><span class="line">3.重启机器 **必须重启**</span><br></pre></td></tr></table></figure>
+</code></pre>
+]]></content>
+      <categories>
+        <category>Sonarqube</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Sonarqube</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mac必备软件推荐</title>
     <url>/2021/09/10/Mac%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
     <content><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p><strong>前景：</strong><br>前几天系统降级了，发现之前使用的一些得心应手的app忘记名字了，很难找，不过最后还是在时间机器里找到了，特意开帖记录分享一下，常见的就不分享了，都知道，主要分享一些难找的，但是特别好用的。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Screenium 3     <span class="string">&quot;屏幕录制(全屏/区域/自定义区域)，支持剪辑&quot;</span></span><br><span class="line"></span><br><span class="line">Permute 3       <span class="string">&quot;视频格式转换，直接拖拽文件即可&quot;</span></span><br><span class="line"></span><br><span class="line">App Cleaner &amp; Uninstaller  <span class="string">&quot;应用深度清理卸载，非常好用&quot;</span></span><br><span class="line"></span><br><span class="line">Air2a Gui       <span class="string">&quot;下载神器，配合油猴更方便&quot;</span></span><br><span class="line"></span><br><span class="line">Fork lift       <span class="string">&quot;finder增强工具，同时支持ftp&quot;</span></span><br><span class="line"></span><br><span class="line">pap.er          <span class="string">&quot;4K壁纸软件&quot;</span></span><br><span class="line"></span><br><span class="line">IINA            <span class="string">&quot;视频播放器&quot;</span></span><br><span class="line"></span><br><span class="line">Sublime Text    <span class="string">&quot;文本编辑器，支持各种代码格式&quot;</span></span><br><span class="line"></span><br><span class="line">MWeb Pro        <span class="string">&quot;markdown编辑器，写博客神器&quot;</span></span><br><span class="line"></span><br><span class="line">The Unarchiver  <span class="string">&quot;免费解压神器&quot;</span></span><br><span class="line"></span><br><span class="line">TinyCal         <span class="string">&quot;简洁小巧的日历，Appstore可下载(收费)&quot;</span></span><br><span class="line"></span><br><span class="line">Perculia        <span class="string">&quot;蓝牙快速连接，支持更改图标&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Mac</category>
-      </categories>
-      <tags>
-        <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac忽略系统更新提醒，并取消小红点</title>
-    <url>/2021/09/07/Mac%E5%BF%BD%E7%95%A5%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%8F%90%E9%86%92%EF%BC%8C%E5%B9%B6%E5%8F%96%E6%B6%88%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="1-首先关掉系统的自动更新设置"><a href="#1-首先关掉系统的自动更新设置" class="headerlink" title="1.首先关掉系统的自动更新设置**"></a>1.首先关掉系统的自动更新设置**</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 1.系统偏好设置--软件更新</span><br><span class="line"></span><br><span class="line">$ 2.取消选择<span class="string">&quot;自动保持我的Mac最新&quot;</span></span><br><span class="line"></span><br><span class="line">$ 3.高级--取消所有按钮勾选</span><br></pre></td></tr></table></figure>
-<img src="/2021/09/07/Mac%E5%BF%BD%E7%95%A5%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%8F%90%E9%86%92%EF%BC%8C%E5%B9%B6%E5%8F%96%E6%B6%88%E5%B0%8F%E7%BA%A2%E7%82%B9/img15.png" class title="This is an image">
-
-
-<h2 id="2-执行代码"><a href="#2-执行代码" class="headerlink" title="2.执行代码"></a>2.执行代码</h2><p><strong>以下操作需要在终端中进行</strong></p>
-<h3 id="1-忽略大版本更新"><a href="#1-忽略大版本更新" class="headerlink" title="1.忽略大版本更新"></a>1.忽略大版本更新</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo softwareupdate --ignore <span class="string">&quot;macOS Catalina&quot;</span></span><br><span class="line"></span><br><span class="line">$ sudo softwareupdate --ignore <span class="string">&quot;macOS Mojave&quot;</span></span><br><span class="line"></span><br><span class="line">$ sudo softwareupdate --ignore <span class="string">&quot;macOS Big Sur&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-取消小红点"><a href="#2-取消小红点" class="headerlink" title="2.取消小红点"></a>2.取消小红点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line"></span><br><span class="line">$ killall Dock  </span><br></pre></td></tr></table></figure>
-
-<h3 id="3-恢复更新提示"><a href="#3-恢复更新提示" class="headerlink" title="3.恢复更新提示"></a>3.恢复更新提示</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo softwareupdate --reset-ignored</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Mac</category>
       </categories>
@@ -951,51 +913,6 @@ console.log(responseTime);
       </categories>
       <tags>
         <tag>Postman</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shadowrocket小火箭配置规则文件</title>
-    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Shadowrocket</category>
-      </categories>
-      <tags>
-        <tag>Shadowrocket</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tampermonkey+脚本+Aira2GUI直链下载百度网盘资源</title>
-    <url>/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</url>
-    <content><![CDATA[<p>前景：<br><strong>各大LM运营限制带宽速度，导致必须要成为尊贵的VIP客户才能勉强享受到自己的带宽</strong></p>
-<p>PS：我这里屎以chrome浏览器举例，其他不保证成功，可借鉴</p>
-<h2 id="1-Chrome浏览器下载Tampermonkey"><a href="#1-Chrome浏览器下载Tampermonkey" class="headerlink" title="1.Chrome浏览器下载Tampermonkey"></a>1.Chrome浏览器下载Tampermonkey</h2><p><a href="https://www.tampermonkey.net/">Tampermonkey</a><br>点击安装</p>
-<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img10.png" class title="This is an test image">
-
-<h2 id="2-安装脚本"><a href="#2-安装脚本" class="headerlink" title="2.安装脚本"></a>2.安装脚本</h2><p><a href="https://greasyfork.org/zh-CN/scripts/418182-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%AE%80%E6%98%93%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B-%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E5%A4%8D%E6%B4%BB%E7%89%88">直链脚本</a></p>
-<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img11.png" class title="This is an test image">
-
-<h2 id="3-下载Aira2GUI"><a href="#3-下载Aira2GUI" class="headerlink" title="3.下载Aira2GUI"></a>3.下载Aira2GUI</h2><p><a href="https://pan.baidu.com/s/1XEoNbbpRTPXGqaOP4issQA">Mac版</a><br>验证码：qx7e</p>
-<p><a href="https://pan.baidu.com/s/1XtpjUz-PoMHebg6IJugsCg">Win版</a><br>验证码：5s6i</p>
-<h2 id="4-安装Aira2GUI"><a href="#4-安装Aira2GUI" class="headerlink" title="4.安装Aira2GUI"></a>4.安装Aira2GUI</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#windows版本exe需要文件夹中允许，需要创建快捷方式请邮件，请勿直接拖拽</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#mac版本解压完成将app存储到应用程序中即可</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="5-打开百度网盘，刷新页面"><a href="#5-打开百度网盘，刷新页面" class="headerlink" title="5.打开百度网盘，刷新页面"></a>5.打开百度网盘，刷新页面</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刷新百度网盘页面，找到需要下载的文件勾选，选择页面上方出现的&quot;简易下载助手&quot;</span></span><br></pre></td></tr></table></figure>
-<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img12.png" class title="This is an test image">
-
-<h2 id="6-生成直链"><a href="#6-生成直链" class="headerlink" title="6.生成直链"></a>6.生成直链</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img13.png" class title="This is an test image">
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#首次生成需要关注公众号获取验证码</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="7-打开Aira2GUI，传递直链"><a href="#7-打开Aira2GUI，传递直链" class="headerlink" title="7.打开Aira2GUI，传递直链"></a>7.打开Aira2GUI，传递直链</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img14.png" class title="This is an test image">
-
-<h2 id="8-切换至Aira2GUI"><a href="#8-切换至Aira2GUI" class="headerlink" title="8.切换至Aira2GUI"></a>8.切换至Aira2GUI</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img15.png" class title="This is an test image">
-]]></content>
-      <categories>
-        <category>Tampermonkey</category>
-      </categories>
-      <tags>
-        <tag>Tampermonkey</tag>
       </tags>
   </entry>
   <entry>
@@ -1142,12 +1059,77 @@ console.log(responseTime);
         <category>Python</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>Linux</tag>
         <tag>Django</tag>
-        <tag>Python</tag>
         <tag>Nginx</tag>
         <tag>Uwsgi</tag>
         <tag>Virtualenv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac忽略系统更新提醒，并取消小红点</title>
+    <url>/2021/09/07/Mac%E5%BF%BD%E7%95%A5%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%8F%90%E9%86%92%EF%BC%8C%E5%B9%B6%E5%8F%96%E6%B6%88%E5%B0%8F%E7%BA%A2%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="1-首先关掉系统的自动更新设置"><a href="#1-首先关掉系统的自动更新设置" class="headerlink" title="1.首先关掉系统的自动更新设置**"></a>1.首先关掉系统的自动更新设置**</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 1.系统偏好设置--软件更新</span><br><span class="line"></span><br><span class="line">$ 2.取消选择<span class="string">&quot;自动保持我的Mac最新&quot;</span></span><br><span class="line"></span><br><span class="line">$ 3.高级--取消所有按钮勾选</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/07/Mac%E5%BF%BD%E7%95%A5%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%8F%90%E9%86%92%EF%BC%8C%E5%B9%B6%E5%8F%96%E6%B6%88%E5%B0%8F%E7%BA%A2%E7%82%B9/img15.png" class title="This is an image">
+
+
+<h2 id="2-执行代码"><a href="#2-执行代码" class="headerlink" title="2.执行代码"></a>2.执行代码</h2><p><strong>以下操作需要在终端中进行</strong></p>
+<h3 id="1-忽略大版本更新"><a href="#1-忽略大版本更新" class="headerlink" title="1.忽略大版本更新"></a>1.忽略大版本更新</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo softwareupdate --ignore <span class="string">&quot;macOS Catalina&quot;</span></span><br><span class="line"></span><br><span class="line">$ sudo softwareupdate --ignore <span class="string">&quot;macOS Mojave&quot;</span></span><br><span class="line"></span><br><span class="line">$ sudo softwareupdate --ignore <span class="string">&quot;macOS Big Sur&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-取消小红点"><a href="#2-取消小红点" class="headerlink" title="2.取消小红点"></a>2.取消小红点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line"></span><br><span class="line">$ killall Dock  </span><br></pre></td></tr></table></figure>
+
+<h3 id="3-恢复更新提示"><a href="#3-恢复更新提示" class="headerlink" title="3.恢复更新提示"></a>3.恢复更新提示</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo softwareupdate --reset-ignored</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shadowrocket小火箭配置规则文件</title>
+    <url>/2021/07/20/Shadowrocket%E5%B0%8F%E7%81%AB%E7%AE%AD%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="国内外划分-广告过滤"><a href="#国内外划分-广告过滤" class="headerlink" title="国内外划分+广告过滤"></a>国内外划分+广告过滤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-block-ad.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="黑名单-国内外划分无广告过滤"><a href="#黑名单-国内外划分无广告过滤" class="headerlink" title="黑名单(国内外划分无广告过滤)"></a>黑名单(国内外划分无广告过滤)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ https://raw.githubusercontent.com/chaoyangya/cywhat-block-ad/master/cywhat-no-block-ad.conf</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Shadowrocket</category>
+      </categories>
+      <tags>
+        <tag>Shadowrocket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tampermonkey+脚本+Aira2GUI直链下载百度网盘资源</title>
+    <url>/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</url>
+    <content><![CDATA[<p>前景：<br><strong>各大LM运营限制带宽速度，导致必须要成为尊贵的VIP客户才能勉强享受到自己的带宽</strong></p>
+<p>PS：我这里屎以chrome浏览器举例，其他不保证成功，可借鉴</p>
+<h2 id="1-Chrome浏览器下载Tampermonkey"><a href="#1-Chrome浏览器下载Tampermonkey" class="headerlink" title="1.Chrome浏览器下载Tampermonkey"></a>1.Chrome浏览器下载Tampermonkey</h2><p><a href="https://www.tampermonkey.net/">Tampermonkey</a><br>点击安装</p>
+<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img10.png" class title="This is an test image">
+
+<h2 id="2-安装脚本"><a href="#2-安装脚本" class="headerlink" title="2.安装脚本"></a>2.安装脚本</h2><p><a href="https://greasyfork.org/zh-CN/scripts/418182-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%AE%80%E6%98%93%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B-%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E5%A4%8D%E6%B4%BB%E7%89%88">直链脚本</a></p>
+<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img11.png" class title="This is an test image">
+
+<h2 id="3-下载Aira2GUI"><a href="#3-下载Aira2GUI" class="headerlink" title="3.下载Aira2GUI"></a>3.下载Aira2GUI</h2><p><a href="https://pan.baidu.com/s/1XEoNbbpRTPXGqaOP4issQA">Mac版</a><br>验证码：qx7e</p>
+<p><a href="https://pan.baidu.com/s/1XtpjUz-PoMHebg6IJugsCg">Win版</a><br>验证码：5s6i</p>
+<h2 id="4-安装Aira2GUI"><a href="#4-安装Aira2GUI" class="headerlink" title="4.安装Aira2GUI"></a>4.安装Aira2GUI</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#windows版本exe需要文件夹中允许，需要创建快捷方式请邮件，请勿直接拖拽</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#mac版本解压完成将app存储到应用程序中即可</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-打开百度网盘，刷新页面"><a href="#5-打开百度网盘，刷新页面" class="headerlink" title="5.打开百度网盘，刷新页面"></a>5.打开百度网盘，刷新页面</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刷新百度网盘页面，找到需要下载的文件勾选，选择页面上方出现的&quot;简易下载助手&quot;</span></span><br></pre></td></tr></table></figure>
+<img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img12.png" class title="This is an test image">
+
+<h2 id="6-生成直链"><a href="#6-生成直链" class="headerlink" title="6.生成直链"></a>6.生成直链</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img13.png" class title="This is an test image">
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#首次生成需要关注公众号获取验证码</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-打开Aira2GUI，传递直链"><a href="#7-打开Aira2GUI，传递直链" class="headerlink" title="7.打开Aira2GUI，传递直链"></a>7.打开Aira2GUI，传递直链</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img14.png" class title="This is an test image">
+
+<h2 id="8-切换至Aira2GUI"><a href="#8-切换至Aira2GUI" class="headerlink" title="8.切换至Aira2GUI"></a>8.切换至Aira2GUI</h2><img src="/2021/09/03/Tampermonkey-%E8%84%9A%E6%9C%AC-Aira2GUI%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/img15.png" class title="This is an test image">
+]]></content>
+      <categories>
+        <category>Tampermonkey</category>
+      </categories>
+      <tags>
+        <tag>Tampermonkey</tag>
       </tags>
   </entry>
   <entry>
@@ -1324,20 +1306,6 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
-    <title>git branch出现end需要q才能退出</title>
-    <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
-    <content><![CDATA[<p>git 进入了编辑模式</p>
-<p>用以下命令即可解决：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.pager mor</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>fonts.googleapis.com访问较慢[已解决]</title>
     <url>/2021/10/12/fonts-googleapis-com%E8%AE%BF%E9%97%AE%E8%BE%83%E6%85%A2-%E5%B7%B2%E8%A7%A3%E5%86%B3/</url>
     <content><![CDATA[<p><strong>前景：</strong></p>
@@ -1357,6 +1325,20 @@ console.log(responseTime);
       </tags>
   </entry>
   <entry>
+    <title>git branch出现end需要q才能退出</title>
+    <url>/2021/04/01/git-branch%E5%87%BA%E7%8E%B0end%E9%9C%80%E8%A6%81q%E6%89%8D%E8%83%BD%E9%80%80%E5%87%BA/</url>
+    <content><![CDATA[<p>git 进入了编辑模式</p>
+<p>用以下命令即可解决：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.pager mor</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>.gitignore不生效的解决方案</title>
     <url>/2021/04/01/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<p><strong>原因：git本地运行有缓存，需要清楚git缓存即可</strong></p>
@@ -1370,6 +1352,24 @@ console.log(responseTime);
       <tags>
         <tag>Git</tag>
         <tag>.gitignore</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.</title>
+    <url>/2021/09/23/ERROR-Re-run-SonarScanner-using-the-X-switch-to-enable-full-debug-logging/</url>
+    <content><![CDATA[<p><strong>前景</strong></p>
+<p><code>jenkins构建sonarqube报错</code></p>
+<p>报错：</p>
+<p><code>&quot;ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.</code></p>
+<h2 id="1-打开sonarqube的SCM配置"><a href="#1-打开sonarqube的SCM配置" class="headerlink" title="1.打开sonarqube的SCM配置"></a>1.打开sonarqube的SCM配置</h2><img src="/2021/09/23/ERROR-Re-run-SonarScanner-using-the-X-switch-to-enable-full-debug-logging/img102.png" class title="This is an test image">
+
+<h2 id="2-重新构建"><a href="#2-重新构建" class="headerlink" title="2.重新构建"></a>2.重新构建</h2>]]></content>
+      <categories>
+        <category>Sonarqube</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+        <tag>Sonarqube</tag>
       </tags>
   </entry>
   <entry>
@@ -1733,25 +1733,6 @@ Node: 15.12.0(注意Node版本)
       </tags>
   </entry>
   <entry>
-    <title>nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from x.x.x)</title>
-    <url>/2021/07/14/nvm-Cannot-uninstall-currently-active-node-version-vx-x-x-inferred-from-x-x-x/</url>
-    <content><![CDATA[<p>#使用nvm卸载node版本时报错如下:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from</span><br><span class="line">  x.x.x)</span><br></pre></td></tr></table></figure>
-
-<h2 id="需要先退出已经使用的node环境"><a href="#需要先退出已经使用的node环境" class="headerlink" title="需要先退出已经使用的node环境"></a>需要先退出已经使用的node环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm deactivate</span><br></pre></td></tr></table></figure>
-
-<h2 id="然后再执行卸载命令"><a href="#然后再执行卸载命令" class="headerlink" title="然后再执行卸载命令"></a>然后再执行卸载命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm uninstall vx.x.x</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Npm</category>
-      </categories>
-      <tags>
-        <tag>Node</tag>
-        <tag>Nvm</tag>
-        <tag>Npm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>npm切换版本</title>
     <url>/2021/07/14/npm%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC/</url>
     <content><![CDATA[<h1 id="Npm切换版本"><a href="#Npm切换版本" class="headerlink" title="Npm切换版本"></a>Npm切换版本</h1><p>npm需要切换版本如果没有安装nvm很头疼,会存在以下三种情况:</p>
@@ -1771,6 +1752,25 @@ Node: 15.12.0(注意Node版本)
       <tags>
         <tag>Node</tag>
         <tag>Npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from x.x.x)</title>
+    <url>/2021/07/14/nvm-Cannot-uninstall-currently-active-node-version-vx-x-x-inferred-from-x-x-x/</url>
+    <content><![CDATA[<p>#使用nvm卸载node版本时报错如下:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm: Cannot uninstall currently-active node version, vx.x.x (inferred from</span><br><span class="line">  x.x.x)</span><br></pre></td></tr></table></figure>
+
+<h2 id="需要先退出已经使用的node环境"><a href="#需要先退出已经使用的node环境" class="headerlink" title="需要先退出已经使用的node环境"></a>需要先退出已经使用的node环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm deactivate</span><br></pre></td></tr></table></figure>
+
+<h2 id="然后再执行卸载命令"><a href="#然后再执行卸载命令" class="headerlink" title="然后再执行卸载命令"></a>然后再执行卸载命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm uninstall vx.x.x</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Npm</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+        <tag>Npm</tag>
+        <tag>Nvm</tag>
       </tags>
   </entry>
   <entry>
